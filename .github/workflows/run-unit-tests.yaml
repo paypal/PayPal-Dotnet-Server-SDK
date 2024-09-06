@@ -1,0 +1,41 @@
+name: Unit Tests
+env:
+  PAY_PAL_RESTAP_IS_STANDARD_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+  PAY_PAL_RESTAP_IS_STANDARD_O_AUTH_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  PAY_PAL_RESTAP_IS_STANDARD_O_AUTH_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  EMAIL: ${{ secrets.EMAIL }}
+  PASSWORD: ${{ secrets.PASSWORD }}
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+jobs:
+  unit-tests:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 7.0.x
+    - name: Add testing projects to solution
+      run: |
+        dotnet sln PayPalRESTAPIs.sln add e2eTests/e2eTests.csproj
+        dotnet sln PayPalRESTAPIs.sln add unitTests/unitTests.csproj
+    - name: Make internals visible to tests
+      run: |
+        sed -i '/<\/Project>/i \
+        <ItemGroup>\n\
+          <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">\n\
+            <_Parameter1>unitTests</_Parameter1>\n\
+          </AssemblyAttribute>\n\
+          <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">\n\
+            <_Parameter1>e2eTests</_Parameter1>\n\
+          </AssemblyAttribute>\n\
+        </ItemGroup>' PayPalRESTAPIs.Standard/PayPalRESTAPIs.Standard.csproj
+    - run: dotnet build
+    - name: Run your tests
+      run: dotnet test unitTests
