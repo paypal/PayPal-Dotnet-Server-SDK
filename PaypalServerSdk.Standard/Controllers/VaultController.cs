@@ -15,14 +15,14 @@ using APIMatic.Core.Types;
 using APIMatic.Core.Utilities;
 using APIMatic.Core.Utilities.Date.Xml;
 using Newtonsoft.Json.Converters;
-using PaypalServerSdk.Standard;
-using PaypalServerSdk.Standard.Exceptions;
-using PaypalServerSdk.Standard.Http.Client;
-using PaypalServerSdk.Standard.Http.Response;
-using PaypalServerSdk.Standard.Utilities;
+using PaypalServerSDK.Standard;
+using PaypalServerSDK.Standard.Exceptions;
+using PaypalServerSDK.Standard.Http.Client;
+using PaypalServerSDK.Standard.Http.Response;
+using PaypalServerSDK.Standard.Utilities;
 using System.Net.Http;
 
-namespace PaypalServerSdk.Standard.Controllers
+namespace PaypalServerSDK.Standard.Controllers
 {
     /// <summary>
     /// VaultController.

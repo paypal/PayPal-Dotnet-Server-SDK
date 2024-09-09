@@ -5,7 +5,7 @@ using System.IO;
 using System.Collections.Generic;
 using APIMatic.Core.Types.Sdk;
 
-namespace PaypalServerSdk.Standard.Http.Response
+namespace PaypalServerSDK.Standard.Http.Response
 {
     /// <summary>
     /// HttpResponse stores necessary information about the http response.

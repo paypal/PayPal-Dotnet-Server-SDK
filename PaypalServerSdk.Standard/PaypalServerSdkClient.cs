@@ -1,4 +1,4 @@
-// <copyright file="PaypalServerSdkClient.cs" company="APIMatic">
+// <copyright file="PaypalServerSDKClient.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -7,19 +7,19 @@ using System.Linq;
 using APIMatic.Core;
 using APIMatic.Core.Authentication;
 using APIMatic.Core.Utilities.Logger.Configuration;
-using PaypalServerSdk.Standard.Authentication;
-using PaypalServerSdk.Standard.Controllers;
-using PaypalServerSdk.Standard.Http.Client;
-using PaypalServerSdk.Standard.Logging;
-using PaypalServerSdk.Standard.Utilities;
+using PaypalServerSDK.Standard.Authentication;
+using PaypalServerSDK.Standard.Controllers;
+using PaypalServerSDK.Standard.Http.Client;
+using PaypalServerSDK.Standard.Logging;
+using PaypalServerSDK.Standard.Utilities;
 
-namespace PaypalServerSdk.Standard
+namespace PaypalServerSDK.Standard
 {
     /// <summary>
     /// The gateway for the SDK. This class acts as a factory for Controller and
     /// holds the configuration of the SDK.
     /// </summary>
-    public sealed class PaypalServerSdkClient : IConfiguration
+    public sealed class PaypalServerSDKClient : IConfiguration
     {
         // A map of environments and their corresponding servers/baseurls
         private static readonly Dictionary<Environment, Dictionary<Enum, string>> EnvironmentsMap =
@@ -48,7 +48,7 @@ namespace PaypalServerSdk.Standard
         private readonly Lazy<VaultController> vault;
         private readonly Lazy<OAuthAuthorizationController> oAuthAuthorization;
 
-        private PaypalServerSdkClient(
+        private PaypalServerSDKClient(
             Environment environment,
             ClientCredentialsAuthModel clientCredentialsAuthModel,
             HttpCallback httpCallback,
@@ -143,7 +143,7 @@ namespace PaypalServerSdk.Standard
         }
 
         /// <summary>
-        /// Creates an object of the PaypalServerSdkClient using the values provided for the builder.
+        /// Creates an object of the PaypalServerSDKClient using the values provided for the builder.
         /// </summary>
         /// <returns>Builder.</returns>
         public Builder ToBuilder()
@@ -173,8 +173,8 @@ namespace PaypalServerSdk.Standard
         /// <summary>
         /// Creates the client using builder.
         /// </summary>
-        /// <returns> PaypalServerSdkClient.</returns>
-        internal static PaypalServerSdkClient CreateFromEnvironment()
+        /// <returns> PaypalServerSDKClient.</returns>
+        internal static PaypalServerSDKClient CreateFromEnvironment()
         {
             var builder = new Builder();
 
@@ -202,7 +202,7 @@ namespace PaypalServerSdk.Standard
         /// </summary>
         public class Builder
         {
-            private Environment environment = PaypalServerSdk.Standard.Environment.Sandbox;
+            private Environment environment = PaypalServerSDK.Standard.Environment.Sandbox;
             private ClientCredentialsAuthModel clientCredentialsAuthModel = new ClientCredentialsAuthModel();
             private HttpClientConfiguration.Builder httpClientConfig = new HttpClientConfiguration.Builder();
             private HttpCallback httpCallback;
@@ -297,16 +297,16 @@ namespace PaypalServerSdk.Standard
             }
 
             /// <summary>
-            /// Creates an object of the PaypalServerSdkClient using the values provided for the builder.
+            /// Creates an object of the PaypalServerSDKClient using the values provided for the builder.
             /// </summary>
-            /// <returns>PaypalServerSdkClient.</returns>
-            public PaypalServerSdkClient Build()
+            /// <returns>PaypalServerSDKClient.</returns>
+            public PaypalServerSDKClient Build()
             {
                 if (clientCredentialsAuthModel.OAuthClientId == null || clientCredentialsAuthModel.OAuthClientSecret == null)
                 {
                     clientCredentialsAuthModel = null;
                 }
-                return new PaypalServerSdkClient(
+                return new PaypalServerSDKClient(
                     environment,
                     clientCredentialsAuthModel,
                     httpCallback,

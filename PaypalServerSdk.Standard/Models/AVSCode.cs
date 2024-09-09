@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSdk.Standard;
-using PaypalServerSdk.Standard.Utilities;
+using PaypalServerSDK.Standard;
+using PaypalServerSDK.Standard.Utilities;
 
-namespace PaypalServerSdk.Standard.Models
+namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
     /// AVSCode.

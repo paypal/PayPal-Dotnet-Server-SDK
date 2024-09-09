@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net.Http;
 using APIMatic.Core.Http.Configuration;
 
-namespace PaypalServerSdk.Standard.Http.Client
+namespace PaypalServerSDK.Standard.Http.Client
 {
     /// <summary>
     /// HttpClientConfiguration represents the current state of the Http Client.

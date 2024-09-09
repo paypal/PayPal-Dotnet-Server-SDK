@@ -8,7 +8,7 @@ using APIMatic.Core.Utilities.Logger.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace PaypalServerSdk.Standard.Logging
+namespace PaypalServerSDK.Standard.Logging
 {
     /// <summary>
     /// Builder class for logging configuration"/>.

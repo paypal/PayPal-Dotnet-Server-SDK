@@ -3,7 +3,7 @@
 // </copyright>
 using APIMatic.Core.Utilities;
 
-namespace PaypalServerSdk.Standard.Utilities
+namespace PaypalServerSDK.Standard.Utilities
 {
     /// <summary>
     /// ApiHelper class contains a bunch of helper methods.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSdk.Standard;
-using PaypalServerSdk.Standard.Utilities;
+using PaypalServerSDK.Standard;
+using PaypalServerSDK.Standard.Utilities;
 
-namespace PaypalServerSdk.Standard.Models
+namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
     /// RelatedIdentifiers.

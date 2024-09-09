@@ -13,14 +13,14 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```csharp
-PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
+PaypalServerSDKClient client = new PaypalServerSDKClient.Builder()
     .ClientCredentialsAuth(
         new ClientCredentialsAuthModel.Builder(
             "OAuthClientId",
             "OAuthClientSecret"
         )
         .Build())
-    .Environment(PaypalServerSdk.Standard.Environment.Sandbox)
+    .Environment(PaypalServerSDK.Standard.Environment.Sandbox)
     .LoggingConfig(config => config
         .LogLevel(LogLevel.Information)
         .RequestConfig(reqConfig => reqConfig.Body(true))
@@ -37,7 +37,7 @@ API calls return an `ApiResponse` object that includes the following fields:
 | `Headers` | Headers of the HTTP response as a Hash |
 | `Data` | The deserialized body of the HTTP response as a String |
 
-## paypal server sdkClient Class
+## Paypal Server SDKClient Class
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
 
@@ -64,11 +64,11 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | Name | Description | Return Type |
 |  --- | --- | --- |
 | `GetBaseUri(Server alias = Server.Default)` | Gets the URL for a particular alias in the current environment and appends it with template parameters. | `string` |
-| `ToBuilder()` | Creates an object of the paypal server sdkClient using the values provided for the builder. | `Builder` |
+| `ToBuilder()` | Creates an object of the Paypal Server SDKClient using the values provided for the builder. | `Builder` |
 
-## paypal server sdkClient Builder Class
+## Paypal Server SDKClient Builder Class
 
-Class to build instances of paypal server sdkClient.
+Class to build instances of Paypal Server SDKClient.
 
 ### Methods
 

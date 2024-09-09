@@ -3,10 +3,10 @@
 // </copyright>
 using System;
 using System.Net;
-using PaypalServerSdk.Standard.Authentication;
-using PaypalServerSdk.Standard.Models;
+using PaypalServerSDK.Standard.Authentication;
+using PaypalServerSDK.Standard.Models;
 
-namespace PaypalServerSdk.Standard
+namespace PaypalServerSDK.Standard
 {
     /// <summary>
     /// IConfiguration.

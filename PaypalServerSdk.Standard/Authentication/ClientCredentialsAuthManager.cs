@@ -6,15 +6,15 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using PaypalServerSdk.Standard.Controllers;
-using PaypalServerSdk.Standard.Http.Response;using PaypalServerSdk.Standard.Models;
-using PaypalServerSdk.Standard.Utilities;
-using PaypalServerSdk.Standard.Exceptions;
+using PaypalServerSDK.Standard.Controllers;
+using PaypalServerSDK.Standard.Http.Response;using PaypalServerSDK.Standard.Models;
+using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSDK.Standard.Exceptions;
 using APIMatic.Core.Authentication;
 using APIMatic.Core.Request;
 using APIMatic.Core;
 
-namespace PaypalServerSdk.Standard.Authentication
+namespace PaypalServerSDK.Standard.Authentication
 {
     /// <summary>
     /// ClientCredentialsAuthManager Class.

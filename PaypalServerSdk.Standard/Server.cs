@@ -2,7 +2,7 @@
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 
-namespace PaypalServerSdk.Standard
+namespace PaypalServerSDK.Standard
 {
     /// <summary>
     /// Available servers.

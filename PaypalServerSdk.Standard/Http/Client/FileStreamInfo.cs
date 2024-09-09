@@ -5,7 +5,7 @@ using APIMatic.Core.Types.Sdk;
 using System;
 using System.IO;
 
-namespace PaypalServerSdk.Standard.Http.Client
+namespace PaypalServerSDK.Standard.Http.Client
 {
     /// <summary>
     /// An DTO class to capture information for file uploads.

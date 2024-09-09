@@ -4,14 +4,14 @@
 using APIMatic.Core;
 using APIMatic.Core.Http.Configuration;
 using APIMatic.Core.Response;
-using PaypalServerSdk.Standard.Exceptions;
-using PaypalServerSdk.Standard.Http.Client;
-using PaypalServerSdk.Standard.Http.Request;
-using PaypalServerSdk.Standard.Http.Response;
-using PaypalServerSdk.Standard.Utilities;
+using PaypalServerSDK.Standard.Exceptions;
+using PaypalServerSDK.Standard.Http.Client;
+using PaypalServerSDK.Standard.Http.Request;
+using PaypalServerSDK.Standard.Http.Response;
+using PaypalServerSDK.Standard.Utilities;
 using System;
 
-namespace PaypalServerSdk.Standard.Controllers
+namespace PaypalServerSDK.Standard.Controllers
 {
     /// <summary>
     /// The base class for all controller classes.
