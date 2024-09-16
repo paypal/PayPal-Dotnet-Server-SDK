@@ -5,9 +5,9 @@
 namespace unitTests
 {
     using NUnit.Framework;
-    using PayPalRESTAPIs.Standard.Controllers;
-    using PayPalRESTAPIs.Standard.Exceptions;
-    using PayPalRESTAPIs.Standard.Models;
+    using PaypalServerSDK.Standard.Controllers;
+    using PaypalServerSDK.Standard.Exceptions;
+    using PaypalServerSDK.Standard.Models;
     using System.Threading.Tasks;
 
     /// <summary>
@@ -83,7 +83,7 @@ namespace unitTests
                         Token = new VaultTokenRequest
                         {
                             Id = "1234",
-                            Type = TokenType.BILLINGAGREEMENT,
+                            Type = TokenRequestType.BILLINGAGREEMENT,
                         },
                     },
                 },

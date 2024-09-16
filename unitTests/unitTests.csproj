@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PayPalRESTAPIs.Standard\PayPalRESTAPIs.Standard.csproj" />
+    <ProjectReference Include="..\PaypalServerSdk.Standard\PaypalServerSDK.Standard.csproj" />
   </ItemGroup>
 
   <ItemGroup>

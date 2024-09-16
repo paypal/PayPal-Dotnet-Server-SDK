@@ -1,8 +1,8 @@
 name: End to End Tests
 env:
-  PAY_PAL_RESTAP_IS_STANDARD_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
-  PAY_PAL_RESTAP_IS_STANDARD_O_AUTH_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-  PAY_PAL_RESTAP_IS_STANDARD_O_AUTH_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+  PAYPAL_SERVER_SDK_STANDARD_ENVIRONMENT: ${{ secrets.ENVIRONMENT }}
+  PAYPAL_SERVER_SDK_STANDARD_O_AUTH_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+  PAYPAL_SERVER_SDK_STANDARD_O_AUTH_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
   EMAIL: ${{ secrets.EMAIL }}
   PASSWORD: ${{ secrets.PASSWORD }}
 on:
@@ -21,8 +21,8 @@ jobs:
         dotnet-version: 7.0.x
     - name: Add testing projects to solution
       run: |
-        dotnet sln PayPalRESTAPIs.sln add e2eTests/e2eTests.csproj
-        dotnet sln PayPalRESTAPIs.sln add unitTests/unitTests.csproj
+        dotnet sln PaypalServerSDK.sln add e2eTests/e2eTests.csproj
+        dotnet sln PaypalServerSDK.sln add unitTests/unitTests.csproj
     - name: Make internals visible to tests
       run: |
         sed -i '/<\/Project>/i \
@@ -33,7 +33,7 @@ jobs:
           <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">\n\
             <_Parameter1>e2eTests</_Parameter1>\n\
           </AssemblyAttribute>\n\
-        </ItemGroup>' PayPalRESTAPIs.Standard/PayPalRESTAPIs.Standard.csproj
+        </ItemGroup>' PaypalServerSdk.Standard/PaypalServerSDK.Standard.csproj
     - run: dotnet build
     - name: Run your tests
       run: dotnet test e2eTests

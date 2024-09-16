@@ -3,15 +3,15 @@
 // </copyright>
 
 using APIMatic.Core.Types;
-using PayPalRESTAPIs.Standard.Exceptions;
-using PayPalRESTAPIs.Standard.Models;
-using PayPalRESTAPIs.Standard.Utilities;
+using PaypalServerSDK.Standard.Exceptions;
+using PaypalServerSDK.Standard.Models;
+using PaypalServerSDK.Standard.Utilities;
 
 namespace e2eTests
 {
     using NUnit.Framework;
-    using PayPalRESTAPIs.Standard.Controllers;
-    using PayPalRESTAPIs.Standard.Http.Response;
+    using PaypalServerSDK.Standard.Controllers;
+    using PaypalServerSDK.Standard.Http.Response;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -49,7 +49,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -117,7 +117,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.AUTHORIZE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -145,7 +145,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Clothing Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -233,7 +233,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.AUTHORIZE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -261,7 +261,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Clothing Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -339,7 +339,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -412,7 +412,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -440,7 +440,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Camera Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -512,7 +512,7 @@ namespace e2eTests
             OrdersPatchInput ordersPatchInput = new OrdersPatchInput
             {
                 Id = orderDetails.Data.Id,
-                Body = new List<PayPalRESTAPIs.Standard.Models.Patch>
+                Body = new List<PaypalServerSDK.Standard.Models.Patch>
                 {
                     new Patch
                     {
@@ -554,7 +554,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -649,7 +649,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -677,7 +677,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Camera Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -770,7 +770,7 @@ namespace e2eTests
                     TrackingNumber = "443844607820",
                     Carrier = ShipmentCarrier.FEDEX,
                     NotifyPayer = false,
-                    Items = new List<PayPalRESTAPIs.Standard.Models.OrderTrackerItem>
+                    Items = new List<PaypalServerSDK.Standard.Models.OrderTrackerItem>
                     {
                         new OrderTrackerItem
                         {
@@ -797,7 +797,7 @@ namespace e2eTests
             {
                 Id = orderDetails.Data.Id,
                 TrackerId = orderTrackResponse.Data.PurchaseUnits[0].Shipping.Trackers[0].Id,
-                Body = new List<PayPalRESTAPIs.Standard.Models.Patch>
+                Body = new List<PaypalServerSDK.Standard.Models.Patch>
                 {
                     new Patch
                     {
@@ -823,7 +823,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -841,7 +841,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Camera Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -960,7 +960,7 @@ namespace e2eTests
                         Token = new VaultTokenRequest
                         {
                             Id = setupTokenResponse.Data.Id,
-                            Type = TokenType.SETUPTOKEN,
+                            Type = TokenRequestType.SETUPTOKEN,
                         },
                     },
                 },
@@ -975,7 +975,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -993,7 +993,7 @@ namespace e2eTests
                                 },
                             },
                             Description = "Camera Shop",
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -1057,7 +1057,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -1077,7 +1077,7 @@ namespace e2eTests
                             Description = "Camera Shop",
                             CustomId = "testcustom_id",
                             InvoiceId = Guid.NewGuid().ToString(),
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {
@@ -1187,7 +1187,7 @@ namespace e2eTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
                         new PurchaseUnitRequest
                         {
@@ -1207,7 +1207,7 @@ namespace e2eTests
                             Description = "Camera Shop",
                             CustomId = "testcustom_id",
                             InvoiceId = Guid.NewGuid().ToString(),
-                            Items = new List<PayPalRESTAPIs.Standard.Models.Item>
+                            Items = new List<PaypalServerSDK.Standard.Models.Item>
                             {
                                 new Item
                                 {

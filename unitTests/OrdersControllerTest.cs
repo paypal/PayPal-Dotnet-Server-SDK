@@ -5,9 +5,9 @@
 namespace unitTests
 {
     using NUnit.Framework;
-    using PayPalRESTAPIs.Standard.Controllers;
-    using PayPalRESTAPIs.Standard.Exceptions;
-    using PayPalRESTAPIs.Standard.Models;
+    using PaypalServerSDK.Standard.Controllers;
+    using PaypalServerSDK.Standard.Exceptions;
+    using PaypalServerSDK.Standard.Models;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -40,7 +40,7 @@ namespace unitTests
                 Body = new OrderRequest
                 {
                     Intent = CheckoutPaymentIntent.CAPTURE,
-                    PurchaseUnits = new List<PayPalRESTAPIs.Standard.Models.PurchaseUnitRequest>
+                    PurchaseUnits = new List<PaypalServerSDK.Standard.Models.PurchaseUnitRequest>
                     {
 
                     },
@@ -61,7 +61,7 @@ namespace unitTests
             OrdersPatchInput ordersPatchInput = new OrdersPatchInput
             {
                 Id = "id0",
-                Body = new List<PayPalRESTAPIs.Standard.Models.Patch>
+                Body = new List<PaypalServerSDK.Standard.Models.Patch>
                 {
                     new Patch
                     {

@@ -6,8 +6,8 @@
 namespace unitTests
 {
     using NUnit.Framework;
-    using PayPalRESTAPIs.Standard;
-    using PayPalRESTAPIs.Standard.Http.Client;
+    using PaypalServerSDK.Standard;
+    using PaypalServerSDK.Standard.Http.Client;
 
     /// <summary>
     /// ControllerTestBase Class.
@@ -26,9 +26,9 @@ namespace unitTests
         internal HttpCallback HttpCallBack { get; private set; } = new HttpCallback();
 
         /// <summary>
-        /// Gets PayPalRESTAPIsClient Client.
+        /// Gets PaypalServerSDKClient Client.
         /// </summary>
-        protected PayPalRESTAPIsClient Client { get; private set; }
+        protected PaypalServerSDKClient Client { get; private set; }
 
         /// <summary>
         /// Set up the client.
@@ -36,7 +36,7 @@ namespace unitTests
         [OneTimeSetUp]
         public void SetUp()
         {
-            PayPalRESTAPIsClient config = PayPalRESTAPIsClient.CreateFromEnvironment();
+            PaypalServerSDKClient config = PaypalServerSDKClient.CreateFromEnvironment();
             this.Client = config.ToBuilder()
                 .HttpCallback(HttpCallBack)
                 .Build();
