@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletAccountVerificationStatus.cs" company="APIMatic">
+// <copyright file="PaypalWalletAccountVerificationStatus.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletAccountVerificationStatus.
+    /// PaypalWalletAccountVerificationStatus.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum PayPalWalletAccountVerificationStatus
+    public enum PaypalWalletAccountVerificationStatus
     {
         /// <summary>
         /// VERIFIED.

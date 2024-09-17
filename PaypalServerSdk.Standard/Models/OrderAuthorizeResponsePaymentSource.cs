@@ -38,7 +38,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="venmo">venmo.</param>
         public OrderAuthorizeResponsePaymentSource(
             Models.CardResponse card = null,
-            Models.PayPalWalletResponse paypal = null,
+            Models.PaypalWalletResponse paypal = null,
             Models.ApplePayPaymentObject applePay = null,
             Models.GooglePayWalletResponse googlePay = null,
             Models.VenmoWalletResponse venmo = null)
@@ -60,7 +60,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The PayPal Wallet response.
         /// </summary>
         [JsonProperty("paypal", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletResponse Paypal { get; set; }
+        public Models.PaypalWalletResponse Paypal { get; set; }
 
         /// <summary>
         /// Information needed to pay using ApplePay.

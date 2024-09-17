@@ -1,4 +1,4 @@
-// <copyright file="IDEALPaymentObject.cs" company="APIMatic">
+// <copyright file="IdealPaymentObject.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,25 +17,25 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// IDEALPaymentObject.
+    /// IdealPaymentObject.
     /// </summary>
-    public class IDEALPaymentObject
+    public class IdealPaymentObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IDEALPaymentObject"/> class.
+        /// Initializes a new instance of the <see cref="IdealPaymentObject"/> class.
         /// </summary>
-        public IDEALPaymentObject()
+        public IdealPaymentObject()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IDEALPaymentObject"/> class.
+        /// Initializes a new instance of the <see cref="IdealPaymentObject"/> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="countryCode">country_code.</param>
         /// <param name="bic">bic.</param>
         /// <param name="ibanLastChars">iban_last_chars.</param>
-        public IDEALPaymentObject(
+        public IdealPaymentObject(
             string name = null,
             string countryCode = null,
             string bic = null,
@@ -78,7 +78,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"IDEALPaymentObject : ({string.Join(", ", toStringOutput)})";
+            return $"IdealPaymentObject : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is IDEALPaymentObject other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
+            return obj is IdealPaymentObject other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
                 ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true)) &&
                 ((this.Bic == null && other.Bic == null) || (this.Bic?.Equals(other.Bic) == true)) &&
                 ((this.IbanLastChars == null && other.IbanLastChars == null) || (this.IbanLastChars?.Equals(other.IbanLastChars) == true));

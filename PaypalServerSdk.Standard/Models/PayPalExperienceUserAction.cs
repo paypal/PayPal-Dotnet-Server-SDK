@@ -1,4 +1,4 @@
-// <copyright file="PayPalExperienceUserAction.cs" company="APIMatic">
+// <copyright file="PaypalExperienceUserAction.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalExperienceUserAction.
+    /// PaypalExperienceUserAction.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum PayPalExperienceUserAction
+    public enum PaypalExperienceUserAction
     {
         /// <summary>
         /// CONTINUE.

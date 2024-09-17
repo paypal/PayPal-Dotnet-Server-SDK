@@ -33,19 +33,19 @@ namespace PaypalServerSDK.Standard.Models
         /// </summary>
         /// <param name="authorizationId">authorization_id.</param>
         /// <param name="contentType">Content-Type.</param>
-        /// <param name="payPalRequestId">PayPal-Request-Id.</param>
+        /// <param name="paypalRequestId">PayPal-Request-Id.</param>
         /// <param name="prefer">Prefer.</param>
         /// <param name="body">body.</param>
         public AuthorizationsReauthorizeInput(
             string authorizationId,
             string contentType,
-            string payPalRequestId = null,
+            string paypalRequestId = null,
             string prefer = "return=minimal",
             Models.ReauthorizeRequest body = null)
         {
             this.AuthorizationId = authorizationId;
             this.ContentType = contentType;
-            this.PayPalRequestId = payPalRequestId;
+            this.PaypalRequestId = paypalRequestId;
             this.Prefer = prefer;
             this.Body = body;
         }
@@ -66,7 +66,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The server stores keys for 45 days.
         /// </summary>
         [JsonProperty("PayPal-Request-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalRequestId { get; set; }
+        public string PaypalRequestId { get; set; }
 
         /// <summary>
         /// The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>
@@ -104,7 +104,7 @@ namespace PaypalServerSDK.Standard.Models
             }
             return obj is AuthorizationsReauthorizeInput other &&                ((this.AuthorizationId == null && other.AuthorizationId == null) || (this.AuthorizationId?.Equals(other.AuthorizationId) == true)) &&
                 ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
-                ((this.PayPalRequestId == null && other.PayPalRequestId == null) || (this.PayPalRequestId?.Equals(other.PayPalRequestId) == true)) &&
+                ((this.PaypalRequestId == null && other.PaypalRequestId == null) || (this.PaypalRequestId?.Equals(other.PaypalRequestId) == true)) &&
                 ((this.Prefer == null && other.Prefer == null) || (this.Prefer?.Equals(other.Prefer) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true));
         }
@@ -117,7 +117,7 @@ namespace PaypalServerSDK.Standard.Models
         {
             toStringOutput.Add($"this.AuthorizationId = {(this.AuthorizationId == null ? "null" : this.AuthorizationId)}");
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
-            toStringOutput.Add($"this.PayPalRequestId = {(this.PayPalRequestId == null ? "null" : this.PayPalRequestId)}");
+            toStringOutput.Add($"this.PaypalRequestId = {(this.PaypalRequestId == null ? "null" : this.PaypalRequestId)}");
             toStringOutput.Add($"this.Prefer = {(this.Prefer == null ? "null" : this.Prefer)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : this.Body.ToString())}");
         }

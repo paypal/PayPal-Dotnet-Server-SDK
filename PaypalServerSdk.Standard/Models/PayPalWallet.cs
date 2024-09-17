@@ -1,4 +1,4 @@
-// <copyright file="PayPalWallet.cs" company="APIMatic">
+// <copyright file="PaypalWallet.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWallet.
+    /// PaypalWallet.
     /// </summary>
-    public class PayPalWallet
+    public class PaypalWallet
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWallet"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWallet"/> class.
         /// </summary>
-        public PayPalWallet()
+        public PaypalWallet()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWallet"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWallet"/> class.
         /// </summary>
         /// <param name="vaultId">vault_id.</param>
         /// <param name="emailAddress">email_address.</param>
@@ -41,7 +41,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="attributes">attributes.</param>
         /// <param name="experienceContext">experience_context.</param>
         /// <param name="billingAgreementId">billing_agreement_id.</param>
-        public PayPalWallet(
+        public PaypalWallet(
             string vaultId = null,
             string emailAddress = null,
             Models.Name name = null,
@@ -49,8 +49,8 @@ namespace PaypalServerSDK.Standard.Models
             string birthDate = null,
             Models.TaxInfo taxInfo = null,
             Models.Address address = null,
-            Models.PayPalWalletAttributes attributes = null,
-            Models.PayPalWalletExperienceContext experienceContext = null,
+            Models.PaypalWalletAttributes attributes = null,
+            Models.PaypalWalletExperienceContext experienceContext = null,
             string billingAgreementId = null)
         {
             this.VaultId = vaultId;
@@ -111,13 +111,13 @@ namespace PaypalServerSDK.Standard.Models
         /// Additional attributes associated with the use of this PayPal Wallet.
         /// </summary>
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletAttributes Attributes { get; set; }
+        public Models.PaypalWalletAttributes Attributes { get; set; }
 
         /// <summary>
         /// Customizes the payer experience during the approval process for payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>brand_name</code> and <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
         /// </summary>
         [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletExperienceContext ExperienceContext { get; set; }
+        public Models.PaypalWalletExperienceContext ExperienceContext { get; set; }
 
         /// <summary>
         /// The PayPal billing agreement ID. References an approved recurring payment for goods or services.
@@ -132,7 +132,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWallet : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWallet : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -147,7 +147,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWallet other &&                ((this.VaultId == null && other.VaultId == null) || (this.VaultId?.Equals(other.VaultId) == true)) &&
+            return obj is PaypalWallet other &&                ((this.VaultId == null && other.VaultId == null) || (this.VaultId?.Equals(other.VaultId) == true)) &&
                 ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
                 ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
                 ((this.Phone == null && other.Phone == null) || (this.Phone?.Equals(other.Phone) == true)) &&

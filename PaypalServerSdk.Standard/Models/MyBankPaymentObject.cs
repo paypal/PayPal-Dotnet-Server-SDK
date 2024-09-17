@@ -1,4 +1,4 @@
-// <copyright file="MyBankPaymentObject.cs" company="APIMatic">
+// <copyright file="MybankPaymentObject.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,25 +17,25 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// MyBankPaymentObject.
+    /// MybankPaymentObject.
     /// </summary>
-    public class MyBankPaymentObject
+    public class MybankPaymentObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyBankPaymentObject"/> class.
+        /// Initializes a new instance of the <see cref="MybankPaymentObject"/> class.
         /// </summary>
-        public MyBankPaymentObject()
+        public MybankPaymentObject()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyBankPaymentObject"/> class.
+        /// Initializes a new instance of the <see cref="MybankPaymentObject"/> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="countryCode">country_code.</param>
         /// <param name="bic">bic.</param>
         /// <param name="ibanLastChars">iban_last_chars.</param>
-        public MyBankPaymentObject(
+        public MybankPaymentObject(
             string name = null,
             string countryCode = null,
             string bic = null,
@@ -78,7 +78,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"MyBankPaymentObject : ({string.Join(", ", toStringOutput)})";
+            return $"MybankPaymentObject : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is MyBankPaymentObject other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
+            return obj is MybankPaymentObject other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
                 ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true)) &&
                 ((this.Bic == null && other.Bic == null) || (this.Bic?.Equals(other.Bic) == true)) &&
                 ((this.IbanLastChars == null && other.IbanLastChars == null) || (this.IbanLastChars?.Equals(other.IbanLastChars) == true));

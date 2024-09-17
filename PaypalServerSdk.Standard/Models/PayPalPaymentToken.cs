@@ -1,4 +1,4 @@
-// <copyright file="PayPalPaymentToken.cs" company="APIMatic">
+// <copyright file="PaypalPaymentToken.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalPaymentToken.
+    /// PaypalPaymentToken.
     /// </summary>
-    public class PayPalPaymentToken
+    public class PaypalPaymentToken
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalPaymentToken"/> class.
+        /// Initializes a new instance of the <see cref="PaypalPaymentToken"/> class.
         /// </summary>
-        public PayPalPaymentToken()
+        public PaypalPaymentToken()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalPaymentToken"/> class.
+        /// Initializes a new instance of the <see cref="PaypalPaymentToken"/> class.
         /// </summary>
         /// <param name="description">description.</param>
         /// <param name="shipping">shipping.</param>
@@ -43,7 +43,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="address">address.</param>
         /// <param name="accountId">account_id.</param>
         /// <param name="phoneNumber">phone_number.</param>
-        public PayPalPaymentToken(
+        public PaypalPaymentToken(
             string description = null,
             Models.VaultedDigitalWalletShippingDetails shipping = null,
             bool? permitMultiplePaymentTokens = false,
@@ -150,7 +150,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalPaymentToken : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalPaymentToken : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -165,7 +165,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalPaymentToken other &&                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
+            return obj is PaypalPaymentToken other &&                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
                 ((this.Shipping == null && other.Shipping == null) || (this.Shipping?.Equals(other.Shipping) == true)) &&
                 ((this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null) || (this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true)) &&
                 ((this.UsageType == null && other.UsageType == null) || (this.UsageType?.Equals(other.UsageType) == true)) &&

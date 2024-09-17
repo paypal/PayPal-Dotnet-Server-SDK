@@ -1,4 +1,4 @@
-// <copyright file="PayPalExperienceLandingPage.cs" company="APIMatic">
+// <copyright file="PaypalExperienceLandingPage.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalExperienceLandingPage.
+    /// PaypalExperienceLandingPage.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum PayPalExperienceLandingPage
+    public enum PaypalExperienceLandingPage
     {
         /// <summary>
         /// LOGIN.

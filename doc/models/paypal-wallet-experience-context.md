@@ -1,11 +1,11 @@
 
-# Pay Pal Wallet Experience Context
+# Paypal Wallet Experience Context
 
 Customizes the payer experience during the approval process for payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>brand_name</code> and <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
 
 ## Structure
 
-`PayPalWalletExperienceContext`
+`PaypalWalletExperienceContext`
 
 ## Fields
 
@@ -16,8 +16,8 @@ Customizes the payer experience during the approval process for payment with Pay
 | `ShippingPreference` | [`ShippingPreference?`](../../doc/models/shipping-preference.md) | Optional | The location from which the shipping address is derived.<br>**Default**: `ShippingPreference.GET_FROM_FILE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[A-Z_]+$` |
 | `ReturnUrl` | `string` | Optional | Describes the URL. |
 | `CancelUrl` | `string` | Optional | Describes the URL. |
-| `LandingPage` | [`PayPalExperienceLandingPage?`](../../doc/models/pay-pal-experience-landing-page.md) | Optional | The type of landing page to show on the PayPal site for customer checkout.<br>**Default**: `PayPalExperienceLandingPage.NO_PREFERENCE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `13`, *Pattern*: `^[0-9A-Z_]+$` |
-| `UserAction` | [`PayPalExperienceUserAction?`](../../doc/models/pay-pal-experience-user-action.md) | Optional | Configures a <strong>Continue</strong> or <strong>Pay Now</strong> checkout flow.<br>**Default**: `PayPalExperienceUserAction.CONTINUE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `8`, *Pattern*: `^[0-9A-Z_]+$` |
+| `LandingPage` | [`PaypalExperienceLandingPage?`](../../doc/models/paypal-experience-landing-page.md) | Optional | The type of landing page to show on the PayPal site for customer checkout.<br>**Default**: `PaypalExperienceLandingPage.NO_PREFERENCE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `13`, *Pattern*: `^[0-9A-Z_]+$` |
+| `UserAction` | [`PaypalExperienceUserAction?`](../../doc/models/paypal-experience-user-action.md) | Optional | Configures a <strong>Continue</strong> or <strong>Pay Now</strong> checkout flow.<br>**Default**: `PaypalExperienceUserAction.CONTINUE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `8`, *Pattern*: `^[0-9A-Z_]+$` |
 | `PaymentMethodPreference` | [`PayeePaymentMethodPreference?`](../../doc/models/payee-payment-method-preference.md) | Optional | The merchant-preferred payment methods.<br>**Default**: `PayeePaymentMethodPreference.UNRESTRICTED`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 
 ## Example (as JSON)

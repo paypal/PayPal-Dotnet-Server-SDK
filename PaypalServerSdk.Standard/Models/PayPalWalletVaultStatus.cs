@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletVaultStatus.cs" company="APIMatic">
+// <copyright file="PaypalWalletVaultStatus.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletVaultStatus.
+    /// PaypalWalletVaultStatus.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum PayPalWalletVaultStatus
+    public enum PaypalWalletVaultStatus
     {
         /// <summary>
         /// VAULTED.

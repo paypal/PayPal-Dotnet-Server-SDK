@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletResponse.cs" company="APIMatic">
+// <copyright file="PaypalWalletResponse.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletResponse.
+    /// PaypalWalletResponse.
     /// </summary>
-    public class PayPalWalletResponse
+    public class PaypalWalletResponse
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletResponse"/> class.
         /// </summary>
-        public PayPalWalletResponse()
+        public PaypalWalletResponse()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletResponse"/> class.
         /// </summary>
         /// <param name="emailAddress">email_address.</param>
         /// <param name="accountId">account_id.</param>
@@ -42,10 +42,10 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="taxInfo">tax_info.</param>
         /// <param name="address">address.</param>
         /// <param name="attributes">attributes.</param>
-        public PayPalWalletResponse(
+        public PaypalWalletResponse(
             string emailAddress = null,
             string accountId = null,
-            Models.PayPalWalletAccountVerificationStatus? accountStatus = null,
+            Models.PaypalWalletAccountVerificationStatus? accountStatus = null,
             Models.Name name = null,
             Models.PhoneType? phoneType = null,
             Models.PhoneNumber phoneNumber = null,
@@ -53,7 +53,7 @@ namespace PaypalServerSDK.Standard.Models
             string businessName = null,
             Models.TaxInfo taxInfo = null,
             Models.Address address = null,
-            Models.PayPalWalletAttributesResponse attributes = null)
+            Models.PaypalWalletAttributesResponse attributes = null)
         {
             this.EmailAddress = emailAddress;
             this.AccountId = accountId;
@@ -84,7 +84,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The account status indicates whether the buyer has verified the financial details associated with their PayPal account.
         /// </summary>
         [JsonProperty("account_status", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletAccountVerificationStatus? AccountStatus { get; set; }
+        public Models.PaypalWalletAccountVerificationStatus? AccountStatus { get; set; }
 
         /// <summary>
         /// The name of the party.
@@ -132,7 +132,7 @@ namespace PaypalServerSDK.Standard.Models
         /// Additional attributes associated with the use of a PayPal Wallet.
         /// </summary>
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletAttributesResponse Attributes { get; set; }
+        public Models.PaypalWalletAttributesResponse Attributes { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -141,7 +141,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletResponse : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -156,7 +156,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletResponse other &&                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
+            return obj is PaypalWalletResponse other &&                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
                 ((this.AccountId == null && other.AccountId == null) || (this.AccountId?.Equals(other.AccountId) == true)) &&
                 ((this.AccountStatus == null && other.AccountStatus == null) || (this.AccountStatus?.Equals(other.AccountStatus) == true)) &&
                 ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&

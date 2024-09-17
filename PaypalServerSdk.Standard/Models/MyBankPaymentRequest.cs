@@ -1,4 +1,4 @@
-// <copyright file="MyBankPaymentRequest.cs" company="APIMatic">
+// <copyright file="MybankPaymentRequest.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,24 +17,24 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// MyBankPaymentRequest.
+    /// MybankPaymentRequest.
     /// </summary>
-    public class MyBankPaymentRequest
+    public class MybankPaymentRequest
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyBankPaymentRequest"/> class.
+        /// Initializes a new instance of the <see cref="MybankPaymentRequest"/> class.
         /// </summary>
-        public MyBankPaymentRequest()
+        public MybankPaymentRequest()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="MyBankPaymentRequest"/> class.
+        /// Initializes a new instance of the <see cref="MybankPaymentRequest"/> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="countryCode">country_code.</param>
         /// <param name="experienceContext">experience_context.</param>
-        public MyBankPaymentRequest(
+        public MybankPaymentRequest(
             string name,
             string countryCode,
             Models.ExperienceContext experienceContext = null)
@@ -69,7 +69,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"MyBankPaymentRequest : ({string.Join(", ", toStringOutput)})";
+            return $"MybankPaymentRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -84,7 +84,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is MyBankPaymentRequest other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
+            return obj is MybankPaymentRequest other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
                 ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true)) &&
                 ((this.ExperienceContext == null && other.ExperienceContext == null) || (this.ExperienceContext?.Equals(other.ExperienceContext) == true));
         }

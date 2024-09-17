@@ -1,4 +1,4 @@
-// <copyright file="VaultPayPalWalletRequest.cs" company="APIMatic">
+// <copyright file="VaultPaypalWalletRequest.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// VaultPayPalWalletRequest.
+    /// VaultPaypalWalletRequest.
     /// </summary>
-    public class VaultPayPalWalletRequest
+    public class VaultPaypalWalletRequest
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultPayPalWalletRequest"/> class.
+        /// Initializes a new instance of the <see cref="VaultPaypalWalletRequest"/> class.
         /// </summary>
-        public VaultPayPalWalletRequest()
+        public VaultPaypalWalletRequest()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="VaultPayPalWalletRequest"/> class.
+        /// Initializes a new instance of the <see cref="VaultPaypalWalletRequest"/> class.
         /// </summary>
         /// <param name="description">description.</param>
         /// <param name="shipping">shipping.</param>
@@ -37,7 +37,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="usageType">usage_type.</param>
         /// <param name="customerType">customer_type.</param>
         /// <param name="experienceContext">experience_context.</param>
-        public VaultPayPalWalletRequest(
+        public VaultPaypalWalletRequest(
             string description = null,
             Models.VaultedDigitalWalletShippingDetails shipping = null,
             bool? permitMultiplePaymentTokens = false,
@@ -96,7 +96,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"VaultPayPalWalletRequest : ({string.Join(", ", toStringOutput)})";
+            return $"VaultPaypalWalletRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -111,7 +111,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is VaultPayPalWalletRequest other &&                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
+            return obj is VaultPaypalWalletRequest other &&                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
                 ((this.Shipping == null && other.Shipping == null) || (this.Shipping?.Equals(other.Shipping) == true)) &&
                 ((this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null) || (this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true)) &&
                 ((this.UsageType == null && other.UsageType == null) || (this.UsageType?.Equals(other.UsageType) == true)) &&

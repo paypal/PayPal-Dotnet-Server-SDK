@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletCustomer.cs" company="APIMatic">
+// <copyright file="PaypalWalletCustomer.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,25 +17,25 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletCustomer.
+    /// PaypalWalletCustomer.
     /// </summary>
-    public class PayPalWalletCustomer
+    public class PaypalWalletCustomer
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletCustomer"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletCustomer"/> class.
         /// </summary>
-        public PayPalWalletCustomer()
+        public PaypalWalletCustomer()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletCustomer"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletCustomer"/> class.
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="emailAddress">email_address.</param>
         /// <param name="phone">phone.</param>
         /// <param name="merchantCustomerId">merchant_customer_id.</param>
-        public PayPalWalletCustomer(
+        public PaypalWalletCustomer(
             string id = null,
             string emailAddress = null,
             Models.PhoneWithType phone = null,
@@ -78,7 +78,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletCustomer : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletCustomer : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletCustomer other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
+            return obj is PaypalWalletCustomer other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
                 ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
                 ((this.Phone == null && other.Phone == null) || (this.Phone?.Equals(other.Phone) == true)) &&
                 ((this.MerchantCustomerId == null && other.MerchantCustomerId == null) || (this.MerchantCustomerId?.Equals(other.MerchantCustomerId) == true));

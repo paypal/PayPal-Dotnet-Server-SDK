@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletVaultInstruction.cs" company="APIMatic">
+// <copyright file="PaypalWalletVaultInstruction.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletVaultInstruction.
+    /// PaypalWalletVaultInstruction.
     /// </summary>
-    public class PayPalWalletVaultInstruction
+    public class PaypalWalletVaultInstruction
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletVaultInstruction"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletVaultInstruction"/> class.
         /// </summary>
-        public PayPalWalletVaultInstruction()
+        public PaypalWalletVaultInstruction()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletVaultInstruction"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletVaultInstruction"/> class.
         /// </summary>
         /// <param name="usageType">usage_type.</param>
         /// <param name="storeInVault">store_in_vault.</param>
@@ -37,12 +37,12 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="usagePattern">usage_pattern.</param>
         /// <param name="customerType">customer_type.</param>
         /// <param name="permitMultiplePaymentTokens">permit_multiple_payment_tokens.</param>
-        public PayPalWalletVaultInstruction(
-            Models.PayPalPaymentTokenUsageType usageType,
+        public PaypalWalletVaultInstruction(
+            Models.PaypalPaymentTokenUsageType usageType,
             Models.StoreInVaultInstruction? storeInVault = null,
             string description = null,
-            Models.PayPalPaymentTokenUsagePattern? usagePattern = null,
-            Models.PayPalPaymentTokenCustomerType? customerType = Models.PayPalPaymentTokenCustomerType.CONSUMER,
+            Models.PaypalPaymentTokenUsagePattern? usagePattern = null,
+            Models.PaypalPaymentTokenCustomerType? customerType = Models.PaypalPaymentTokenCustomerType.CONSUMER,
             bool? permitMultiplePaymentTokens = false)
         {
             this.StoreInVault = storeInVault;
@@ -69,19 +69,19 @@ namespace PaypalServerSDK.Standard.Models
         /// Expected business/pricing model for the billing agreement.
         /// </summary>
         [JsonProperty("usage_pattern", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalPaymentTokenUsagePattern? UsagePattern { get; set; }
+        public Models.PaypalPaymentTokenUsagePattern? UsagePattern { get; set; }
 
         /// <summary>
         /// The usage type associated with the PayPal payment token.
         /// </summary>
         [JsonProperty("usage_type")]
-        public Models.PayPalPaymentTokenUsageType UsageType { get; set; }
+        public Models.PaypalPaymentTokenUsageType UsageType { get; set; }
 
         /// <summary>
         /// The customer type associated with the PayPal payment token. This is to indicate whether the customer acting on the merchant / platform is either a business or a consumer.
         /// </summary>
         [JsonProperty("customer_type", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalPaymentTokenCustomerType? CustomerType { get; set; }
+        public Models.PaypalPaymentTokenCustomerType? CustomerType { get; set; }
 
         /// <summary>
         /// Create multiple payment tokens for the same payer, merchant/platform combination. Use this when the customer has not logged in at merchant/platform. The payment token thus generated, can then also be used to create the customer account at merchant/platform. Use this also when multiple payment tokens are required for the same payer, different customer at merchant/platform. This helps to identify customers distinctly even though they may share the same PayPal account. This only applies to PayPal payment source.
@@ -96,7 +96,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletVaultInstruction : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletVaultInstruction : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -111,7 +111,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletVaultInstruction other &&                ((this.StoreInVault == null && other.StoreInVault == null) || (this.StoreInVault?.Equals(other.StoreInVault) == true)) &&
+            return obj is PaypalWalletVaultInstruction other &&                ((this.StoreInVault == null && other.StoreInVault == null) || (this.StoreInVault?.Equals(other.StoreInVault) == true)) &&
                 ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
                 ((this.UsagePattern == null && other.UsagePattern == null) || (this.UsagePattern?.Equals(other.UsagePattern) == true)) &&
                 this.UsageType.Equals(other.UsageType) &&

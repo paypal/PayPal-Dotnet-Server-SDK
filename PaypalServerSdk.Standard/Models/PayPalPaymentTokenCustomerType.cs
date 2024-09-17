@@ -1,4 +1,4 @@
-// <copyright file="PayPalPaymentTokenCustomerType.cs" company="APIMatic">
+// <copyright file="PaypalPaymentTokenCustomerType.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalPaymentTokenCustomerType.
+    /// PaypalPaymentTokenCustomerType.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum PayPalPaymentTokenCustomerType
+    public enum PaypalPaymentTokenCustomerType
     {
         /// <summary>
         /// CONSUMER.

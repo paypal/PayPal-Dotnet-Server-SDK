@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletExperienceContext.cs" company="APIMatic">
+// <copyright file="PaypalWalletExperienceContext.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,19 +17,19 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletExperienceContext.
+    /// PaypalWalletExperienceContext.
     /// </summary>
-    public class PayPalWalletExperienceContext
+    public class PaypalWalletExperienceContext
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletExperienceContext"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletExperienceContext"/> class.
         /// </summary>
-        public PayPalWalletExperienceContext()
+        public PaypalWalletExperienceContext()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletExperienceContext"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletExperienceContext"/> class.
         /// </summary>
         /// <param name="brandName">brand_name.</param>
         /// <param name="locale">locale.</param>
@@ -39,14 +39,14 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="landingPage">landing_page.</param>
         /// <param name="userAction">user_action.</param>
         /// <param name="paymentMethodPreference">payment_method_preference.</param>
-        public PayPalWalletExperienceContext(
+        public PaypalWalletExperienceContext(
             string brandName = null,
             string locale = null,
             Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GETFROMFILE,
             string returnUrl = null,
             string cancelUrl = null,
-            Models.PayPalExperienceLandingPage? landingPage = Models.PayPalExperienceLandingPage.NOPREFERENCE,
-            Models.PayPalExperienceUserAction? userAction = Models.PayPalExperienceUserAction.CONTINUE,
+            Models.PaypalExperienceLandingPage? landingPage = Models.PaypalExperienceLandingPage.NOPREFERENCE,
+            Models.PaypalExperienceUserAction? userAction = Models.PaypalExperienceUserAction.CONTINUE,
             Models.PayeePaymentMethodPreference? paymentMethodPreference = Models.PayeePaymentMethodPreference.UNRESTRICTED)
         {
             this.BrandName = brandName;
@@ -93,13 +93,13 @@ namespace PaypalServerSDK.Standard.Models
         /// The type of landing page to show on the PayPal site for customer checkout.
         /// </summary>
         [JsonProperty("landing_page", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalExperienceLandingPage? LandingPage { get; set; }
+        public Models.PaypalExperienceLandingPage? LandingPage { get; set; }
 
         /// <summary>
         /// Configures a <strong>Continue</strong> or <strong>Pay Now</strong> checkout flow.
         /// </summary>
         [JsonProperty("user_action", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalExperienceUserAction? UserAction { get; set; }
+        public Models.PaypalExperienceUserAction? UserAction { get; set; }
 
         /// <summary>
         /// The merchant-preferred payment methods.
@@ -114,7 +114,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletExperienceContext : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -129,7 +129,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
+            return obj is PaypalWalletExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
                 ((this.Locale == null && other.Locale == null) || (this.Locale?.Equals(other.Locale) == true)) &&
                 ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true)) &&
                 ((this.ReturnUrl == null && other.ReturnUrl == null) || (this.ReturnUrl?.Equals(other.ReturnUrl) == true)) &&

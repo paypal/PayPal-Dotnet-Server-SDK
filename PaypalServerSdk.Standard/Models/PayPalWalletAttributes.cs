@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletAttributes.cs" company="APIMatic">
+// <copyright file="PaypalWalletAttributes.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,25 +17,25 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletAttributes.
+    /// PaypalWalletAttributes.
     /// </summary>
-    public class PayPalWalletAttributes
+    public class PaypalWalletAttributes
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletAttributes"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletAttributes"/> class.
         /// </summary>
-        public PayPalWalletAttributes()
+        public PaypalWalletAttributes()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletAttributes"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletAttributes"/> class.
         /// </summary>
         /// <param name="customer">customer.</param>
         /// <param name="vault">vault.</param>
-        public PayPalWalletAttributes(
-            Models.PayPalWalletCustomerRequest customer = null,
-            Models.PayPalWalletVaultInstruction vault = null)
+        public PaypalWalletAttributes(
+            Models.PaypalWalletCustomerRequest customer = null,
+            Models.PaypalWalletVaultInstruction vault = null)
         {
             this.Customer = customer;
             this.Vault = vault;
@@ -45,13 +45,13 @@ namespace PaypalServerSDK.Standard.Models
         /// Gets or sets Customer.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletCustomerRequest Customer { get; set; }
+        public Models.PaypalWalletCustomerRequest Customer { get; set; }
 
         /// <summary>
         /// Gets or sets Vault.
         /// </summary>
         [JsonProperty("vault", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletVaultInstruction Vault { get; set; }
+        public Models.PaypalWalletVaultInstruction Vault { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -60,7 +60,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletAttributes : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletAttributes : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -75,7 +75,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletAttributes other &&                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
+            return obj is PaypalWalletAttributes other &&                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
                 ((this.Vault == null && other.Vault == null) || (this.Vault?.Equals(other.Vault) == true));
         }
         

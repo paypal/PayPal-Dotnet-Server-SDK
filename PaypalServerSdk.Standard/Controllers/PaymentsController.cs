@@ -92,7 +92,7 @@ namespace PaypalServerSDK.Standard.Controllers
                       .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
                       .Template(_template => _template.Setup("authorization_id", input.AuthorizationId))
                       .Header(_header => _header.Setup("Content-Type", "application/json"))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PayPalRequestId))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
                       .Header(_header => _header.Setup("Prefer", input.Prefer))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("The request failed because it is not well-formed or is syntactically incorrect or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
@@ -131,7 +131,7 @@ namespace PaypalServerSDK.Standard.Controllers
                       .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
                       .Template(_template => _template.Setup("authorization_id", input.AuthorizationId))
                       .Header(_header => _header.Setup("Content-Type", "application/json"))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PayPalRequestId))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
                       .Header(_header => _header.Setup("Prefer", input.Prefer))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("The request failed because it is not well-formed or is syntactically incorrect or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
@@ -167,7 +167,7 @@ namespace PaypalServerSDK.Standard.Controllers
                   .WithAuth("Oauth2")
                   .Parameters(_parameters => _parameters
                       .Template(_template => _template.Setup("authorization_id", input.AuthorizationId))
-                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PayPalAuthAssertion))
+                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PaypalAuthAssertion))
                       .Header(_header => _header.Setup("Prefer", input.Prefer))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("The request failed because it is not well-formed or is syntactically incorrect or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
@@ -238,9 +238,9 @@ namespace PaypalServerSDK.Standard.Controllers
                       .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
                       .Template(_template => _template.Setup("capture_id", input.CaptureId))
                       .Header(_header => _header.Setup("Content-Type", "application/json"))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PayPalRequestId))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
                       .Header(_header => _header.Setup("Prefer", input.Prefer))
-                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PayPalAuthAssertion))))
+                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PaypalAuthAssertion))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("The request failed because it is not well-formed or is syntactically incorrect or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("401", CreateErrorCase("Authentication failed due to missing authorization header, or invalid authentication credentials.", (_reason, _context) => new ErrorException(_reason, _context)))

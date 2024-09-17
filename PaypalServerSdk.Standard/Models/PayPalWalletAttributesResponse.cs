@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletAttributesResponse.cs" company="APIMatic">
+// <copyright file="PaypalWalletAttributesResponse.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,24 +17,24 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletAttributesResponse.
+    /// PaypalWalletAttributesResponse.
     /// </summary>
-    public class PayPalWalletAttributesResponse
+    public class PaypalWalletAttributesResponse
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletAttributesResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletAttributesResponse"/> class.
         /// </summary>
-        public PayPalWalletAttributesResponse()
+        public PaypalWalletAttributesResponse()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletAttributesResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletAttributesResponse"/> class.
         /// </summary>
         /// <param name="vault">vault.</param>
         /// <param name="cobrandedCards">cobranded_cards.</param>
-        public PayPalWalletAttributesResponse(
-            Models.PayPalWalletVaultResponse vault = null,
+        public PaypalWalletAttributesResponse(
+            Models.PaypalWalletVaultResponse vault = null,
             List<Models.CobrandedCard> cobrandedCards = null)
         {
             this.Vault = vault;
@@ -45,7 +45,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The details about a saved PayPal Wallet payment source.
         /// </summary>
         [JsonProperty("vault", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletVaultResponse Vault { get; set; }
+        public Models.PaypalWalletVaultResponse Vault { get; set; }
 
         /// <summary>
         /// An array of merchant cobranded cards used by buyer to complete an order. This array will be present if a merchant has onboarded their cobranded card with PayPal and provided corresponding label(s).
@@ -60,7 +60,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletAttributesResponse : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletAttributesResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -75,7 +75,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletAttributesResponse other &&                ((this.Vault == null && other.Vault == null) || (this.Vault?.Equals(other.Vault) == true)) &&
+            return obj is PaypalWalletAttributesResponse other &&                ((this.Vault == null && other.Vault == null) || (this.Vault?.Equals(other.Vault) == true)) &&
                 ((this.CobrandedCards == null && other.CobrandedCards == null) || (this.CobrandedCards?.Equals(other.CobrandedCards) == true));
         }
         

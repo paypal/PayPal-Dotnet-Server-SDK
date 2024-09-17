@@ -1,4 +1,4 @@
-// <copyright file="PayPalWalletVaultResponse.cs" company="APIMatic">
+// <copyright file="PaypalWalletVaultResponse.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,29 +17,29 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// PayPalWalletVaultResponse.
+    /// PaypalWalletVaultResponse.
     /// </summary>
-    public class PayPalWalletVaultResponse
+    public class PaypalWalletVaultResponse
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletVaultResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletVaultResponse"/> class.
         /// </summary>
-        public PayPalWalletVaultResponse()
+        public PaypalWalletVaultResponse()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PayPalWalletVaultResponse"/> class.
+        /// Initializes a new instance of the <see cref="PaypalWalletVaultResponse"/> class.
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="status">status.</param>
         /// <param name="links">links.</param>
         /// <param name="customer">customer.</param>
-        public PayPalWalletVaultResponse(
+        public PaypalWalletVaultResponse(
             string id = null,
-            Models.PayPalWalletVaultStatus? status = null,
+            Models.PaypalWalletVaultStatus? status = null,
             List<Models.LinkDescription> links = null,
-            Models.PayPalWalletCustomer customer = null)
+            Models.PaypalWalletCustomer customer = null)
         {
             this.Id = id;
             this.Status = status;
@@ -57,7 +57,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The vault status.
         /// </summary>
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletVaultStatus? Status { get; set; }
+        public Models.PaypalWalletVaultStatus? Status { get; set; }
 
         /// <summary>
         /// An array of request-related HATEOAS links.
@@ -69,7 +69,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The details about a customer in PayPal's system of record.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWalletCustomer Customer { get; set; }
+        public Models.PaypalWalletCustomer Customer { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -78,7 +78,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"PayPalWalletVaultResponse : ({string.Join(", ", toStringOutput)})";
+            return $"PaypalWalletVaultResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is PayPalWalletVaultResponse other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
+            return obj is PaypalWalletVaultResponse other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
                 ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
                 ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true)) &&
                 ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true));

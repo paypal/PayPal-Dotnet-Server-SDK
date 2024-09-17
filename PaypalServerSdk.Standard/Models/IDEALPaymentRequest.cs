@@ -1,4 +1,4 @@
-// <copyright file="IDEALPaymentRequest.cs" company="APIMatic">
+// <copyright file="IdealPaymentRequest.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,25 +17,25 @@ using PaypalServerSDK.Standard.Utilities;
 namespace PaypalServerSDK.Standard.Models
 {
     /// <summary>
-    /// IDEALPaymentRequest.
+    /// IdealPaymentRequest.
     /// </summary>
-    public class IDEALPaymentRequest
+    public class IdealPaymentRequest
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="IDEALPaymentRequest"/> class.
+        /// Initializes a new instance of the <see cref="IdealPaymentRequest"/> class.
         /// </summary>
-        public IDEALPaymentRequest()
+        public IdealPaymentRequest()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IDEALPaymentRequest"/> class.
+        /// Initializes a new instance of the <see cref="IdealPaymentRequest"/> class.
         /// </summary>
         /// <param name="name">name.</param>
         /// <param name="countryCode">country_code.</param>
         /// <param name="bic">bic.</param>
         /// <param name="experienceContext">experience_context.</param>
-        public IDEALPaymentRequest(
+        public IdealPaymentRequest(
             string name,
             string countryCode,
             string bic = null,
@@ -78,7 +78,7 @@ namespace PaypalServerSDK.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"IDEALPaymentRequest : ({string.Join(", ", toStringOutput)})";
+            return $"IdealPaymentRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,7 +93,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is IDEALPaymentRequest other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
+            return obj is IdealPaymentRequest other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
                 ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true)) &&
                 ((this.Bic == null && other.Bic == null) || (this.Bic?.Equals(other.Bic) == true)) &&
                 ((this.ExperienceContext == null && other.ExperienceContext == null) || (this.ExperienceContext?.Equals(other.ExperienceContext) == true));
