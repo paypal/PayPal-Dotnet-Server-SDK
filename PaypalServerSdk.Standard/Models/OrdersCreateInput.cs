@@ -33,23 +33,23 @@ namespace PaypalServerSDK.Standard.Models
         /// </summary>
         /// <param name="contentType">Content-Type.</param>
         /// <param name="body">body.</param>
-        /// <param name="payPalRequestId">PayPal-Request-Id.</param>
-        /// <param name="payPalPartnerAttributionId">PayPal-Partner-Attribution-Id.</param>
-        /// <param name="payPalClientMetadataId">PayPal-Client-Metadata-Id.</param>
+        /// <param name="paypalRequestId">PayPal-Request-Id.</param>
+        /// <param name="paypalPartnerAttributionId">PayPal-Partner-Attribution-Id.</param>
+        /// <param name="paypalClientMetadataId">PayPal-Client-Metadata-Id.</param>
         /// <param name="prefer">Prefer.</param>
         public OrdersCreateInput(
             string contentType,
             Models.OrderRequest body,
-            string payPalRequestId = null,
-            string payPalPartnerAttributionId = null,
-            string payPalClientMetadataId = null,
+            string paypalRequestId = null,
+            string paypalPartnerAttributionId = null,
+            string paypalClientMetadataId = null,
             string prefer = "return=minimal")
         {
             this.ContentType = contentType;
             this.Body = body;
-            this.PayPalRequestId = payPalRequestId;
-            this.PayPalPartnerAttributionId = payPalPartnerAttributionId;
-            this.PayPalClientMetadataId = payPalClientMetadataId;
+            this.PaypalRequestId = paypalRequestId;
+            this.PaypalPartnerAttributionId = paypalPartnerAttributionId;
+            this.PaypalClientMetadataId = paypalClientMetadataId;
             this.Prefer = prefer;
         }
 
@@ -69,19 +69,19 @@ namespace PaypalServerSDK.Standard.Models
         /// The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.
         /// </summary>
         [JsonProperty("PayPal-Request-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalRequestId { get; set; }
+        public string PaypalRequestId { get; set; }
 
         /// <summary>
-        /// Gets or sets PayPalPartnerAttributionId.
+        /// Gets or sets PaypalPartnerAttributionId.
         /// </summary>
         [JsonProperty("PayPal-Partner-Attribution-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalPartnerAttributionId { get; set; }
+        public string PaypalPartnerAttributionId { get; set; }
 
         /// <summary>
-        /// Gets or sets PayPalClientMetadataId.
+        /// Gets or sets PaypalClientMetadataId.
         /// </summary>
         [JsonProperty("PayPal-Client-Metadata-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalClientMetadataId { get; set; }
+        public string PaypalClientMetadataId { get; set; }
 
         /// <summary>
         /// The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>
@@ -113,9 +113,9 @@ namespace PaypalServerSDK.Standard.Models
             }
             return obj is OrdersCreateInput other &&                ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true)) &&
-                ((this.PayPalRequestId == null && other.PayPalRequestId == null) || (this.PayPalRequestId?.Equals(other.PayPalRequestId) == true)) &&
-                ((this.PayPalPartnerAttributionId == null && other.PayPalPartnerAttributionId == null) || (this.PayPalPartnerAttributionId?.Equals(other.PayPalPartnerAttributionId) == true)) &&
-                ((this.PayPalClientMetadataId == null && other.PayPalClientMetadataId == null) || (this.PayPalClientMetadataId?.Equals(other.PayPalClientMetadataId) == true)) &&
+                ((this.PaypalRequestId == null && other.PaypalRequestId == null) || (this.PaypalRequestId?.Equals(other.PaypalRequestId) == true)) &&
+                ((this.PaypalPartnerAttributionId == null && other.PaypalPartnerAttributionId == null) || (this.PaypalPartnerAttributionId?.Equals(other.PaypalPartnerAttributionId) == true)) &&
+                ((this.PaypalClientMetadataId == null && other.PaypalClientMetadataId == null) || (this.PaypalClientMetadataId?.Equals(other.PaypalClientMetadataId) == true)) &&
                 ((this.Prefer == null && other.Prefer == null) || (this.Prefer?.Equals(other.Prefer) == true));
         }
         
@@ -127,9 +127,9 @@ namespace PaypalServerSDK.Standard.Models
         {
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : this.Body.ToString())}");
-            toStringOutput.Add($"this.PayPalRequestId = {(this.PayPalRequestId == null ? "null" : this.PayPalRequestId)}");
-            toStringOutput.Add($"this.PayPalPartnerAttributionId = {(this.PayPalPartnerAttributionId == null ? "null" : this.PayPalPartnerAttributionId)}");
-            toStringOutput.Add($"this.PayPalClientMetadataId = {(this.PayPalClientMetadataId == null ? "null" : this.PayPalClientMetadataId)}");
+            toStringOutput.Add($"this.PaypalRequestId = {(this.PaypalRequestId == null ? "null" : this.PaypalRequestId)}");
+            toStringOutput.Add($"this.PaypalPartnerAttributionId = {(this.PaypalPartnerAttributionId == null ? "null" : this.PaypalPartnerAttributionId)}");
+            toStringOutput.Add($"this.PaypalClientMetadataId = {(this.PaypalClientMetadataId == null ? "null" : this.PaypalClientMetadataId)}");
             toStringOutput.Add($"this.Prefer = {(this.Prefer == null ? "null" : this.Prefer)}");
         }
     }

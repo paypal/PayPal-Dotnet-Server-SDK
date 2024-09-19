@@ -33,7 +33,7 @@ PaymentTokensCreateAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payPalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
+| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
 
 ## Response Type
@@ -45,7 +45,7 @@ PaymentTokensCreateAsync(
 ```csharp
 PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
 {
-    PayPalRequestId = "PayPal-Request-Id6",
+    PaypalRequestId = "PayPal-Request-Id6",
     Body = new PaymentTokenRequest
     {
         PaymentSource = new PaymentTokenRequestPaymentSource
@@ -229,7 +229,7 @@ SetupTokensCreateAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payPalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
+| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`SetupTokenRequest`](../../doc/models/setup-token-request.md) | Body, Required | Setup Token creation with a instrument type optional financial instrument details and customer_id. |
 
 ## Response Type
@@ -241,7 +241,7 @@ SetupTokensCreateAsync(
 ```csharp
 SetupTokensCreateInput setupTokensCreateInput = new SetupTokensCreateInput
 {
-    PayPalRequestId = "PayPal-Request-Id6",
+    PaypalRequestId = "PayPal-Request-Id6",
     Body = new SetupTokenRequest
     {
         PaymentSource = new SetupTokenRequestPaymentSource

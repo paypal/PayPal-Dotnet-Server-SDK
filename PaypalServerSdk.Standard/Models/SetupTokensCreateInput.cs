@@ -31,15 +31,15 @@ namespace PaypalServerSDK.Standard.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="SetupTokensCreateInput"/> class.
         /// </summary>
-        /// <param name="payPalRequestId">PayPal-Request-Id.</param>
+        /// <param name="paypalRequestId">PayPal-Request-Id.</param>
         /// <param name="contentType">Content-Type.</param>
         /// <param name="body">body.</param>
         public SetupTokensCreateInput(
-            string payPalRequestId,
+            string paypalRequestId,
             string contentType,
             Models.SetupTokenRequest body)
         {
-            this.PayPalRequestId = payPalRequestId;
+            this.PaypalRequestId = paypalRequestId;
             this.ContentType = contentType;
             this.Body = body;
         }
@@ -48,7 +48,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The server stores keys for 3 hours.
         /// </summary>
         [JsonProperty("PayPal-Request-Id")]
-        public string PayPalRequestId { get; set; }
+        public string PaypalRequestId { get; set; }
 
         /// <summary>
         /// Gets or sets ContentType.
@@ -84,7 +84,7 @@ namespace PaypalServerSDK.Standard.Models
             {
                 return true;
             }
-            return obj is SetupTokensCreateInput other &&                ((this.PayPalRequestId == null && other.PayPalRequestId == null) || (this.PayPalRequestId?.Equals(other.PayPalRequestId) == true)) &&
+            return obj is SetupTokensCreateInput other &&                ((this.PaypalRequestId == null && other.PaypalRequestId == null) || (this.PaypalRequestId?.Equals(other.PaypalRequestId) == true)) &&
                 ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true));
         }
@@ -95,7 +95,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PayPalRequestId = {(this.PayPalRequestId == null ? "null" : this.PayPalRequestId)}");
+            toStringOutput.Add($"this.PaypalRequestId = {(this.PaypalRequestId == null ? "null" : this.PaypalRequestId)}");
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : this.Body.ToString())}");
         }

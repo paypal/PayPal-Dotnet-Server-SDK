@@ -34,17 +34,17 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="id">id.</param>
         /// <param name="contentType">Content-Type.</param>
         /// <param name="body">body.</param>
-        /// <param name="payPalAuthAssertion">PayPal-Auth-Assertion.</param>
+        /// <param name="paypalAuthAssertion">PayPal-Auth-Assertion.</param>
         public OrdersTrackCreateInput(
             string id,
             string contentType,
             Models.OrderTrackerRequest body,
-            string payPalAuthAssertion = null)
+            string paypalAuthAssertion = null)
         {
             this.Id = id;
             this.ContentType = contentType;
             this.Body = body;
-            this.PayPalAuthAssertion = payPalAuthAssertion;
+            this.PaypalAuthAssertion = paypalAuthAssertion;
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace PaypalServerSDK.Standard.Models
         /// An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see <a href="https://developer.paypal.com/api/rest/requests/#paypal-auth-assertion">PayPal-Auth-Assertion</a>.
         /// </summary>
         [JsonProperty("PayPal-Auth-Assertion", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalAuthAssertion { get; set; }
+        public string PaypalAuthAssertion { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -96,7 +96,7 @@ namespace PaypalServerSDK.Standard.Models
             return obj is OrdersTrackCreateInput other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
                 ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true)) &&
-                ((this.PayPalAuthAssertion == null && other.PayPalAuthAssertion == null) || (this.PayPalAuthAssertion?.Equals(other.PayPalAuthAssertion) == true));
+                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true));
         }
         
         /// <summary>
@@ -108,7 +108,7 @@ namespace PaypalServerSDK.Standard.Models
             toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : this.Body.ToString())}");
-            toStringOutput.Add($"this.PayPalAuthAssertion = {(this.PayPalAuthAssertion == null ? "null" : this.PayPalAuthAssertion)}");
+            toStringOutput.Add($"this.PaypalAuthAssertion = {(this.PaypalAuthAssertion == null ? "null" : this.PaypalAuthAssertion)}");
         }
     }
 }

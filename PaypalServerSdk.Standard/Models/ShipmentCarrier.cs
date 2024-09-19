@@ -1592,10 +1592,10 @@ namespace PaypalServerSDK.Standard.Models
         YURTICIKARGO,
 
         /// <summary>
-        /// CNPAYPALPACKAGE.
+        /// CNPaypalPACKAGE.
         /// </summary>
         [EnumMember(Value = "CN_PAYPAL_PACKAGE")]
-        CNPAYPALPACKAGE,
+        CNPaypalPACKAGE,
 
         /// <summary>
         /// PARCEL2POST.

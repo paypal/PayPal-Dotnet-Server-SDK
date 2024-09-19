@@ -33,26 +33,26 @@ namespace PaypalServerSDK.Standard.Models
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="contentType">Content-Type.</param>
-        /// <param name="payPalRequestId">PayPal-Request-Id.</param>
+        /// <param name="paypalRequestId">PayPal-Request-Id.</param>
         /// <param name="prefer">Prefer.</param>
-        /// <param name="payPalClientMetadataId">PayPal-Client-Metadata-Id.</param>
-        /// <param name="payPalAuthAssertion">PayPal-Auth-Assertion.</param>
+        /// <param name="paypalClientMetadataId">PayPal-Client-Metadata-Id.</param>
+        /// <param name="paypalAuthAssertion">PayPal-Auth-Assertion.</param>
         /// <param name="body">body.</param>
         public OrdersAuthorizeInput(
             string id,
             string contentType,
-            string payPalRequestId = null,
+            string paypalRequestId = null,
             string prefer = "return=minimal",
-            string payPalClientMetadataId = null,
-            string payPalAuthAssertion = null,
+            string paypalClientMetadataId = null,
+            string paypalAuthAssertion = null,
             Models.OrderAuthorizeRequest body = null)
         {
             this.Id = id;
             this.ContentType = contentType;
-            this.PayPalRequestId = payPalRequestId;
+            this.PaypalRequestId = paypalRequestId;
             this.Prefer = prefer;
-            this.PayPalClientMetadataId = payPalClientMetadataId;
-            this.PayPalAuthAssertion = payPalAuthAssertion;
+            this.PaypalClientMetadataId = paypalClientMetadataId;
+            this.PaypalAuthAssertion = paypalAuthAssertion;
             this.Body = body;
         }
 
@@ -72,7 +72,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.
         /// </summary>
         [JsonProperty("PayPal-Request-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalRequestId { get; set; }
+        public string PaypalRequestId { get; set; }
 
         /// <summary>
         /// The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>
@@ -81,16 +81,16 @@ namespace PaypalServerSDK.Standard.Models
         public string Prefer { get; set; }
 
         /// <summary>
-        /// Gets or sets PayPalClientMetadataId.
+        /// Gets or sets PaypalClientMetadataId.
         /// </summary>
         [JsonProperty("PayPal-Client-Metadata-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalClientMetadataId { get; set; }
+        public string PaypalClientMetadataId { get; set; }
 
         /// <summary>
         /// An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see <a href="https://developer.paypal.com/api/rest/requests/#paypal-auth-assertion">PayPal-Auth-Assertion</a>.
         /// </summary>
         [JsonProperty("PayPal-Auth-Assertion", NullValueHandling = NullValueHandling.Ignore)]
-        public string PayPalAuthAssertion { get; set; }
+        public string PaypalAuthAssertion { get; set; }
 
         /// <summary>
         /// Gets or sets Body.
@@ -122,10 +122,10 @@ namespace PaypalServerSDK.Standard.Models
             }
             return obj is OrdersAuthorizeInput other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
                 ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
-                ((this.PayPalRequestId == null && other.PayPalRequestId == null) || (this.PayPalRequestId?.Equals(other.PayPalRequestId) == true)) &&
+                ((this.PaypalRequestId == null && other.PaypalRequestId == null) || (this.PaypalRequestId?.Equals(other.PaypalRequestId) == true)) &&
                 ((this.Prefer == null && other.Prefer == null) || (this.Prefer?.Equals(other.Prefer) == true)) &&
-                ((this.PayPalClientMetadataId == null && other.PayPalClientMetadataId == null) || (this.PayPalClientMetadataId?.Equals(other.PayPalClientMetadataId) == true)) &&
-                ((this.PayPalAuthAssertion == null && other.PayPalAuthAssertion == null) || (this.PayPalAuthAssertion?.Equals(other.PayPalAuthAssertion) == true)) &&
+                ((this.PaypalClientMetadataId == null && other.PaypalClientMetadataId == null) || (this.PaypalClientMetadataId?.Equals(other.PaypalClientMetadataId) == true)) &&
+                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true));
         }
         
@@ -137,10 +137,10 @@ namespace PaypalServerSDK.Standard.Models
         {
             toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
-            toStringOutput.Add($"this.PayPalRequestId = {(this.PayPalRequestId == null ? "null" : this.PayPalRequestId)}");
+            toStringOutput.Add($"this.PaypalRequestId = {(this.PaypalRequestId == null ? "null" : this.PaypalRequestId)}");
             toStringOutput.Add($"this.Prefer = {(this.Prefer == null ? "null" : this.Prefer)}");
-            toStringOutput.Add($"this.PayPalClientMetadataId = {(this.PayPalClientMetadataId == null ? "null" : this.PayPalClientMetadataId)}");
-            toStringOutput.Add($"this.PayPalAuthAssertion = {(this.PayPalAuthAssertion == null ? "null" : this.PayPalAuthAssertion)}");
+            toStringOutput.Add($"this.PaypalClientMetadataId = {(this.PaypalClientMetadataId == null ? "null" : this.PaypalClientMetadataId)}");
+            toStringOutput.Add($"this.PaypalAuthAssertion = {(this.PaypalAuthAssertion == null ? "null" : this.PaypalAuthAssertion)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : this.Body.ToString())}");
         }
     }
