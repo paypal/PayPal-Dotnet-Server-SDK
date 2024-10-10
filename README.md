@@ -22,17 +22,6 @@ The PayPal Server SDK provides integration access to the PayPal REST APIs. The A
 
 Find out more here: [https://developer.paypal.com/docs/api/orders/v2/](https://developer.paypal.com/docs/api/orders/v2/)
 
-## Install the Package
-
-If you are building with .NET CLI tools then you can also use the following command:
-
-```bash
-dotnet add package PayPalServerSDK --version 0.5.2
-```
-
-You can also view the package at:
-https://www.nuget.org/packages/PayPalServerSDK/0.5.2
-
 ## Initialize the API Client
 
 **_Note:_** Documentation for the client can be found [here.](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/0.5.2/doc/client.md)
