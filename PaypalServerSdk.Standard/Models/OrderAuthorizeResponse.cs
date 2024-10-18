@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderAuthorizeResponse.
@@ -47,7 +47,7 @@ namespace PaypalServerSDK.Standard.Models
             string id = null,
             Models.OrderAuthorizeResponsePaymentSource paymentSource = null,
             Models.CheckoutPaymentIntent? intent = null,
-            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NOINSTRUCTION,
+            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NoInstruction,
             Models.Payer payer = null,
             List<Models.PurchaseUnit> purchaseUnits = null,
             Models.OrderStatus? status = null,

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// LinkDescription.
@@ -37,7 +37,7 @@ namespace PaypalServerSDK.Standard.Models
         public LinkDescription(
             string href,
             string rel,
-            Models.LinkHTTPMethod? method = null)
+            Models.LinkHttpMethod? method = null)
         {
             this.Href = href;
             this.Rel = rel;
@@ -60,7 +60,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The HTTP method required to make the related call.
         /// </summary>
         [JsonProperty("method", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.LinkHTTPMethod? Method { get; set; }
+        public Models.LinkHttpMethod? Method { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Collections.Generic;
 using APIMatic.Core.Types.Sdk;
 
-namespace PaypalServerSDK.Standard.Http.Request
+namespace PaypalServerSdk.Standard.Http.Request
 {
     /// <summary>
     /// HttpRequest stores necessary information about the http request.

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// VenmoPaymentTokenUsageType.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum VenmoPaymentTokenUsageType
     {
         /// <summary>
-        /// MERCHANT.
+        /// Merchant.
         /// </summary>
         [EnumMember(Value = "MERCHANT")]
-        MERCHANT,
+        Merchant,
 
         /// <summary>
-        /// PLATFORM.
+        /// Platform.
         /// </summary>
         [EnumMember(Value = "PLATFORM")]
-        PLATFORM,
+        Platform,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

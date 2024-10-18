@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// GooglePayAuthenticationMethod.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum GooglePayAuthenticationMethod
     {
         /// <summary>
-        /// PANONLY.
+        /// PanOnly.
         /// </summary>
         [EnumMember(Value = "PAN_ONLY")]
-        PANONLY,
+        PanOnly,
 
         /// <summary>
-        /// CRYPTOGRAM3DS.
+        /// Cryptogram3Ds.
         /// </summary>
         [EnumMember(Value = "CRYPTOGRAM_3DS")]
-        CRYPTOGRAM3DS,
+        Cryptogram3Ds,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// VaultStatus.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum VaultStatus
     {
         /// <summary>
-        /// VAULTED.
+        /// Vaulted.
         /// </summary>
         [EnumMember(Value = "VAULTED")]
-        VAULTED,
+        Vaulted,
 
         /// <summary>
-        /// CREATED.
+        /// Created.
         /// </summary>
         [EnumMember(Value = "CREATED")]
-        CREATED,
+        Created,
 
         /// <summary>
-        /// APPROVED.
+        /// Approved.
         /// </summary>
         [EnumMember(Value = "APPROVED")]
-        APPROVED,
+        Approved,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

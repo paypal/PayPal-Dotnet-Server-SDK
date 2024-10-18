@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// AuthorizationIncompleteReason.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum AuthorizationIncompleteReason
     {
         /// <summary>
-        /// PENDINGREVIEW.
+        /// PendingReview.
         /// </summary>
         [EnumMember(Value = "PENDING_REVIEW")]
-        PENDINGREVIEW,
+        PendingReview,
 
         /// <summary>
-        /// DECLINEDBYRISKFRAUDFILTERS.
+        /// DeclinedByRiskFraudFilters.
         /// </summary>
         [EnumMember(Value = "DECLINED_BY_RISK_FRAUD_FILTERS")]
-        DECLINEDBYRISKFRAUDFILTERS,
+        DeclinedByRiskFraudFilters,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

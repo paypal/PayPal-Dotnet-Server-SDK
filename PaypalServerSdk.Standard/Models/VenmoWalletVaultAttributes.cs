@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// VenmoWalletVaultAttributes.
@@ -42,7 +42,7 @@ namespace PaypalServerSDK.Standard.Models
             Models.VenmoPaymentTokenUsageType usageType,
             string description = null,
             Models.VenmoPaymentTokenUsagePattern? usagePattern = null,
-            Models.VenmoPaymentTokenCustomerType? customerType = Models.VenmoPaymentTokenCustomerType.CONSUMER,
+            Models.VenmoPaymentTokenCustomerType? customerType = Models.VenmoPaymentTokenCustomerType.Consumer,
             bool? permitMultiplePaymentTokens = false)
         {
             this.StoreInVault = storeInVault;

@@ -4,7 +4,7 @@
 using System.IO;
 using System.Collections.Generic;
 
-namespace PaypalServerSDK.Standard.Http.Response
+namespace PaypalServerSdk.Standard.Http.Response
 {
     /// <summary>
     /// HttpStringResponse inherits from HttpResponse and has additional property

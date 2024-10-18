@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderTrackerStatus.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum OrderTrackerStatus
     {
         /// <summary>
-        /// CANCELLED.
+        /// Cancelled.
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
-        CANCELLED,
+        Cancelled,
 
         /// <summary>
-        /// SHIPPED.
+        /// Shipped.
         /// </summary>
         [EnumMember(Value = "SHIPPED")]
-        SHIPPED,
+        Shipped,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

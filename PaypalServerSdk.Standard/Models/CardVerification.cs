@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CardVerification.
@@ -33,7 +33,7 @@ namespace PaypalServerSDK.Standard.Models
         /// </summary>
         /// <param name="method">method.</param>
         public CardVerification(
-            Models.CardVerificationMethod? method = Models.CardVerificationMethod.SCAWHENREQUIRED)
+            Models.CardVerificationMethod? method = Models.CardVerificationMethod.ScaWhenRequired)
         {
             this.Method = method;
         }

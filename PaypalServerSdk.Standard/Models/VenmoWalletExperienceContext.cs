@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// VenmoWalletExperienceContext.
@@ -35,7 +35,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="shippingPreference">shipping_preference.</param>
         public VenmoWalletExperienceContext(
             string brandName = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GETFROMFILE)
+            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile)
         {
             this.BrandName = brandName;
             this.ShippingPreference = shippingPreference;

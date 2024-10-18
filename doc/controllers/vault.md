@@ -12,56 +12,12 @@ VaultController vaultController = client.VaultController;
 
 ## Methods
 
-* [Setup-Tokens Get](../../doc/controllers/vault.md#setup-tokens-get)
 * [Customer Payment-Tokens Get](../../doc/controllers/vault.md#customer-payment-tokens-get)
 * [Payment-Tokens Get](../../doc/controllers/vault.md#payment-tokens-get)
-* [Payment-Tokens Delete](../../doc/controllers/vault.md#payment-tokens-delete)
 * [Payment-Tokens Create](../../doc/controllers/vault.md#payment-tokens-create)
 * [Setup-Tokens Create](../../doc/controllers/vault.md#setup-tokens-create)
-
-
-# Setup-Tokens Get
-
-Returns a readable representation of temporarily vaulted payment source associated with the setup token id.
-
-```csharp
-SetupTokensGetAsync(
-    string id)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | ID of the setup token.<br>**Constraints**: *Minimum Length*: `7`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
-
-## Response Type
-
-[`Task<ApiResponse<Models.SetupTokenResponse>>`](../../doc/models/setup-token-response.md)
-
-## Example Usage
-
-```csharp
-string id = "id0";
-try
-{
-    ApiResponse<SetupTokenResponse> result = await vaultController.SetupTokensGetAsync(id);
-}
-catch (ApiException e)
-{
-    // TODO: Handle exception here
-    Console.WriteLine(e.Message);
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 404 | The specified resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
+* [Payment-Tokens Delete](../../doc/controllers/vault.md#payment-tokens-delete)
+* [Setup-Tokens Get](../../doc/controllers/vault.md#setup-tokens-get)
 
 
 # Customer Payment-Tokens Get
@@ -161,49 +117,6 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Payment-Tokens Delete
-
-Delete the payment token associated with the payment token id.
-
-```csharp
-PaymentTokensDeleteAsync(
-    string id)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
-
-## Response Type
-
-`Task`
-
-## Example Usage
-
-```csharp
-string id = "id0";
-try
-{
-    await vaultController.PaymentTokensDeleteAsync(id);
-}
-catch (ApiException e)
-{
-    // TODO: Handle exception here
-    Console.WriteLine(e.Message);
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
-
-
 # Payment-Tokens Create
 
 Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
@@ -217,7 +130,7 @@ PaymentTokensCreateAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payPalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
+| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
 
 ## Response Type
@@ -229,7 +142,7 @@ PaymentTokensCreateAsync(
 ```csharp
 PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
 {
-    PayPalRequestId = "PayPal-Request-Id6",
+    PaypalRequestId = "PayPal-Request-Id6",
     Body = new PaymentTokenRequest
     {
         PaymentSource = new PaymentTokenRequestPaymentSource
@@ -273,7 +186,7 @@ SetupTokensCreateAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `payPalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
+| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`SetupTokenRequest`](../../doc/models/setup-token-request.md) | Body, Required | Setup Token creation with a instrument type optional financial instrument details and customer_id. |
 
 ## Response Type
@@ -285,7 +198,7 @@ SetupTokensCreateAsync(
 ```csharp
 SetupTokensCreateInput setupTokensCreateInput = new SetupTokensCreateInput
 {
-    PayPalRequestId = "PayPal-Request-Id6",
+    PaypalRequestId = "PayPal-Request-Id6",
     Body = new SetupTokenRequest
     {
         PaymentSource = new SetupTokenRequestPaymentSource
@@ -311,6 +224,93 @@ catch (ApiException e)
 |  --- | --- | --- |
 | 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
+
+
+# Payment-Tokens Delete
+
+Delete the payment token associated with the payment token id.
+
+```csharp
+PaymentTokensDeleteAsync(
+    string id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
+
+## Response Type
+
+`Task`
+
+## Example Usage
+
+```csharp
+string id = "id0";
+try
+{
+    await vaultController.PaymentTokensDeleteAsync(id);
+}
+catch (ApiException e)
+{
+    // TODO: Handle exception here
+    Console.WriteLine(e.Message);
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
+
+
+# Setup-Tokens Get
+
+Returns a readable representation of temporarily vaulted payment source associated with the setup token id.
+
+```csharp
+SetupTokensGetAsync(
+    string id)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `id` | `string` | Template, Required | ID of the setup token.<br>**Constraints**: *Minimum Length*: `7`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
+
+## Response Type
+
+[`Task<ApiResponse<Models.SetupTokenResponse>>`](../../doc/models/setup-token-response.md)
+
+## Example Usage
+
+```csharp
+string id = "id0";
+try
+{
+    ApiResponse<SetupTokenResponse> result = await vaultController.SetupTokensGetAsync(id);
+}
+catch (ApiException e)
+{
+    // TODO: Handle exception here
+    Console.WriteLine(e.Message);
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 404 | The specified resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 

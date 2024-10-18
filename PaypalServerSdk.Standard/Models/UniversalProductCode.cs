@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// UniversalProductCode.
@@ -34,7 +34,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="type">type.</param>
         /// <param name="code">code.</param>
         public UniversalProductCode(
-            Models.UPCType type,
+            Models.UpcType type,
             string code)
         {
             this.Type = type;
@@ -45,7 +45,7 @@ namespace PaypalServerSDK.Standard.Models
         /// The Universal Product Code type.
         /// </summary>
         [JsonProperty("type")]
-        public Models.UPCType Type { get; set; }
+        public Models.UpcType Type { get; set; }
 
         /// <summary>
         /// The UPC product code of the item.

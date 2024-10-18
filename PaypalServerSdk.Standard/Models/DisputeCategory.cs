@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// DisputeCategory.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum DisputeCategory
     {
         /// <summary>
-        /// ITEMNOTRECEIVED.
+        /// ItemNotReceived.
         /// </summary>
         [EnumMember(Value = "ITEM_NOT_RECEIVED")]
-        ITEMNOTRECEIVED,
+        ItemNotReceived,
 
         /// <summary>
-        /// UNAUTHORIZEDTRANSACTION.
+        /// UnauthorizedTransaction.
         /// </summary>
         [EnumMember(Value = "UNAUTHORIZED_TRANSACTION")]
-        UNAUTHORIZEDTRANSACTION,
+        UnauthorizedTransaction,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// StoredPaymentSource.
@@ -38,7 +38,7 @@ namespace PaypalServerSDK.Standard.Models
         public StoredPaymentSource(
             Models.PaymentInitiator paymentInitiator,
             Models.StoredPaymentSourcePaymentType paymentType,
-            Models.StoredPaymentSourceUsageType? usage = Models.StoredPaymentSourceUsageType.DERIVED,
+            Models.StoredPaymentSourceUsageType? usage = Models.StoredPaymentSourceUsageType.Derived,
             Models.NetworkTransactionReference previousNetworkTransactionReference = null)
         {
             this.PaymentInitiator = paymentInitiator;
