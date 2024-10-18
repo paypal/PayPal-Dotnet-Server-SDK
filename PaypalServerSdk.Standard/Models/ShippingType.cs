@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ShippingType.
@@ -20,28 +20,28 @@ namespace PaypalServerSDK.Standard.Models
     public enum ShippingType
     {
         /// <summary>
-        /// SHIPPING.
+        /// Shipping.
         /// </summary>
         [EnumMember(Value = "SHIPPING")]
-        SHIPPING,
+        Shipping,
 
         /// <summary>
-        /// PICKUP.
+        /// Pickup.
         /// </summary>
         [EnumMember(Value = "PICKUP")]
-        PICKUP,
+        Pickup,
 
         /// <summary>
-        /// PICKUPINSTORE.
+        /// PickupInStore.
         /// </summary>
         [EnumMember(Value = "PICKUP_IN_STORE")]
-        PICKUPINSTORE,
+        PickupInStore,
 
         /// <summary>
-        /// PICKUPFROMPERSON.
+        /// PickupFromPerson.
         /// </summary>
         [EnumMember(Value = "PICKUP_FROM_PERSON")]
-        PICKUPFROMPERSON,
+        PickupFromPerson,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

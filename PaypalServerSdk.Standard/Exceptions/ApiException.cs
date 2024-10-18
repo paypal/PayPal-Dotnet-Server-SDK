@@ -2,11 +2,11 @@
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using APIMatic.Core.Types.Sdk;
-using PaypalServerSDK.Standard.Http.Client;
-using PaypalServerSDK.Standard.Http.Request;
-using PaypalServerSDK.Standard.Http.Response;
+using PaypalServerSdk.Standard.Http.Client;
+using PaypalServerSdk.Standard.Http.Request;
+using PaypalServerSdk.Standard.Http.Response;
 
-namespace PaypalServerSDK.Standard.Exceptions
+namespace PaypalServerSdk.Standard.Exceptions
 {
     /// <summary>
     /// This is the base class for all exceptions that represent an error response

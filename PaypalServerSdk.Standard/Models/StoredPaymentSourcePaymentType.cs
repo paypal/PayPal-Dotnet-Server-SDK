@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// StoredPaymentSourcePaymentType.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum StoredPaymentSourcePaymentType
     {
         /// <summary>
-        /// ONETIME.
+        /// OneTime.
         /// </summary>
         [EnumMember(Value = "ONE_TIME")]
-        ONETIME,
+        OneTime,
 
         /// <summary>
-        /// RECURRING.
+        /// Recurring.
         /// </summary>
         [EnumMember(Value = "RECURRING")]
-        RECURRING,
+        Recurring,
 
         /// <summary>
-        /// UNSCHEDULED.
+        /// Unscheduled.
         /// </summary>
         [EnumMember(Value = "UNSCHEDULED")]
-        UNSCHEDULED,
+        Unscheduled,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

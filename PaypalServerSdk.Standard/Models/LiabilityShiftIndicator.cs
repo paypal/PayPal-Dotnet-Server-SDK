@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// LiabilityShiftIndicator.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum LiabilityShiftIndicator
     {
         /// <summary>
-        /// NO.
+        /// No.
         /// </summary>
         [EnumMember(Value = "NO")]
-        NO,
+        No,
 
         /// <summary>
-        /// POSSIBLE.
+        /// Possible.
         /// </summary>
         [EnumMember(Value = "POSSIBLE")]
-        POSSIBLE,
+        Possible,
 
         /// <summary>
-        /// UNKNOWN.
+        /// Unknown.
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN,
+        Unknown,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

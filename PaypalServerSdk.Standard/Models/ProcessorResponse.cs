@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ProcessorResponse.
@@ -36,8 +36,8 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="responseCode">response_code.</param>
         /// <param name="paymentAdviceCode">payment_advice_code.</param>
         public ProcessorResponse(
-            Models.AVSCode? avsCode = null,
-            Models.CVVCode? cvvCode = null,
+            Models.AvsCode? avsCode = null,
+            Models.CvvCode? cvvCode = null,
             Models.ProcessorResponseCode? responseCode = null,
             Models.PaymentAdviceCode? paymentAdviceCode = null)
         {
@@ -51,13 +51,13 @@ namespace PaypalServerSDK.Standard.Models
         /// The address verification code for Visa, Discover, Mastercard, or American Express transactions.
         /// </summary>
         [JsonProperty("avs_code", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.AVSCode? AvsCode { get; set; }
+        public Models.AvsCode? AvsCode { get; set; }
 
         /// <summary>
         /// The card verification value code for for Visa, Discover, Mastercard, or American Express.
         /// </summary>
         [JsonProperty("cvv_code", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CVVCode? CvvCode { get; set; }
+        public Models.CvvCode? CvvCode { get; set; }
 
         /// <summary>
         /// Processor response code for the non-PayPal payment processor errors.

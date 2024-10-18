@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CardVerificationMethod.
@@ -20,28 +20,28 @@ namespace PaypalServerSDK.Standard.Models
     public enum CardVerificationMethod
     {
         /// <summary>
-        /// SCAALWAYS.
+        /// ScaAlways.
         /// </summary>
         [EnumMember(Value = "SCA_ALWAYS")]
-        SCAALWAYS,
+        ScaAlways,
 
         /// <summary>
-        /// SCAWHENREQUIRED.
+        /// ScaWhenRequired.
         /// </summary>
         [EnumMember(Value = "SCA_WHEN_REQUIRED")]
-        SCAWHENREQUIRED,
+        ScaWhenRequired,
 
         /// <summary>
-        /// Enum3DSECURE.
+        /// Enum3DSecure.
         /// </summary>
         [EnumMember(Value = "3D_SECURE")]
-        Enum3DSECURE,
+        Enum3DSecure,
 
         /// <summary>
-        /// AVSCVV.
+        /// AvsCvv.
         /// </summary>
         [EnumMember(Value = "AVS_CVV")]
-        AVSCVV,
+        AvsCvv,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using APIMatic.Core.Types.Sdk;
 
-namespace PaypalServerSDK.Standard.Http.Response
+namespace PaypalServerSdk.Standard.Http.Response
 {
     /// <summary>
     /// ApiResponse Class.

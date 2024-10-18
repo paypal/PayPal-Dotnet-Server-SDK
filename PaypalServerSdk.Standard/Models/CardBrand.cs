@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CardBrand.
@@ -20,154 +20,154 @@ namespace PaypalServerSDK.Standard.Models
     public enum CardBrand
     {
         /// <summary>
-        /// VISA.
+        /// Visa.
         /// </summary>
         [EnumMember(Value = "VISA")]
-        VISA,
+        Visa,
 
         /// <summary>
-        /// MASTERCARD.
+        /// Mastercard.
         /// </summary>
         [EnumMember(Value = "MASTERCARD")]
-        MASTERCARD,
+        Mastercard,
 
         /// <summary>
-        /// DISCOVER.
+        /// Discover.
         /// </summary>
         [EnumMember(Value = "DISCOVER")]
-        DISCOVER,
+        Discover,
 
         /// <summary>
-        /// AMEX.
+        /// Amex.
         /// </summary>
         [EnumMember(Value = "AMEX")]
-        AMEX,
+        Amex,
 
         /// <summary>
-        /// SOLO.
+        /// Solo.
         /// </summary>
         [EnumMember(Value = "SOLO")]
-        SOLO,
+        Solo,
 
         /// <summary>
-        /// JCB.
+        /// Jcb.
         /// </summary>
         [EnumMember(Value = "JCB")]
-        JCB,
+        Jcb,
 
         /// <summary>
-        /// STAR.
+        /// Star.
         /// </summary>
         [EnumMember(Value = "STAR")]
-        STAR,
+        Star,
 
         /// <summary>
-        /// DELTA.
+        /// Delta.
         /// </summary>
         [EnumMember(Value = "DELTA")]
-        DELTA,
+        Delta,
 
         /// <summary>
-        /// SWITCH.
+        /// Switch.
         /// </summary>
         [EnumMember(Value = "SWITCH")]
-        SWITCH,
+        Switch,
 
         /// <summary>
-        /// MAESTRO.
+        /// Maestro.
         /// </summary>
         [EnumMember(Value = "MAESTRO")]
-        MAESTRO,
+        Maestro,
 
         /// <summary>
-        /// CBNATIONALE.
+        /// CbNationale.
         /// </summary>
         [EnumMember(Value = "CB_NATIONALE")]
-        CBNATIONALE,
+        CbNationale,
 
         /// <summary>
-        /// CONFIGOGA.
+        /// Configoga.
         /// </summary>
         [EnumMember(Value = "CONFIGOGA")]
-        CONFIGOGA,
+        Configoga,
 
         /// <summary>
-        /// CONFIDIS.
+        /// Confidis.
         /// </summary>
         [EnumMember(Value = "CONFIDIS")]
-        CONFIDIS,
+        Confidis,
 
         /// <summary>
-        /// ELECTRON.
+        /// Electron.
         /// </summary>
         [EnumMember(Value = "ELECTRON")]
-        ELECTRON,
+        Electron,
 
         /// <summary>
-        /// CETELEM.
+        /// Cetelem.
         /// </summary>
         [EnumMember(Value = "CETELEM")]
-        CETELEM,
+        Cetelem,
 
         /// <summary>
-        /// CHINAUNIONPAY.
+        /// ChinaUnionPay.
         /// </summary>
         [EnumMember(Value = "CHINA_UNION_PAY")]
-        CHINAUNIONPAY,
+        ChinaUnionPay,
 
         /// <summary>
-        /// DINERS.
+        /// Diners.
         /// </summary>
         [EnumMember(Value = "DINERS")]
-        DINERS,
+        Diners,
 
         /// <summary>
-        /// ELO.
+        /// Elo.
         /// </summary>
         [EnumMember(Value = "ELO")]
-        ELO,
+        Elo,
 
         /// <summary>
-        /// HIPER.
+        /// Hiper.
         /// </summary>
         [EnumMember(Value = "HIPER")]
-        HIPER,
+        Hiper,
 
         /// <summary>
-        /// HIPERCARD.
+        /// Hipercard.
         /// </summary>
         [EnumMember(Value = "HIPERCARD")]
-        HIPERCARD,
+        Hipercard,
 
         /// <summary>
-        /// RUPAY.
+        /// Rupay.
         /// </summary>
         [EnumMember(Value = "RUPAY")]
-        RUPAY,
+        Rupay,
 
         /// <summary>
-        /// GE.
+        /// Ge.
         /// </summary>
         [EnumMember(Value = "GE")]
-        GE,
+        Ge,
 
         /// <summary>
-        /// SYNCHRONY.
+        /// Synchrony.
         /// </summary>
         [EnumMember(Value = "SYNCHRONY")]
-        SYNCHRONY,
+        Synchrony,
 
         /// <summary>
-        /// EFTPOS.
+        /// Eftpos.
         /// </summary>
         [EnumMember(Value = "EFTPOS")]
-        EFTPOS,
+        Eftpos,
 
         /// <summary>
-        /// UNKNOWN.
+        /// Unknown.
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN,
+        Unknown,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// TokenRequestType.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum TokenRequestType
     {
         /// <summary>
-        /// SETUPTOKEN.
+        /// SetupToken.
         /// </summary>
         [EnumMember(Value = "SETUP_TOKEN")]
-        SETUPTOKEN,
+        SetupToken,
 
         /// <summary>
-        /// BILLINGAGREEMENT.
+        /// BillingAgreement.
         /// </summary>
         [EnumMember(Value = "BILLING_AGREEMENT")]
-        BILLINGAGREEMENT,
+        BillingAgreement,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderApplicationContext.
@@ -43,9 +43,9 @@ namespace PaypalServerSDK.Standard.Models
         public OrderApplicationContext(
             string brandName = null,
             string locale = null,
-            Models.OrderApplicationContextLandingPage? landingPage = Models.OrderApplicationContextLandingPage.NOPREFERENCE,
-            Models.OrderApplicationContextShippingPreference? shippingPreference = Models.OrderApplicationContextShippingPreference.GETFROMFILE,
-            Models.OrderApplicationContextUserAction? userAction = Models.OrderApplicationContextUserAction.CONTINUE,
+            Models.OrderApplicationContextLandingPage? landingPage = Models.OrderApplicationContextLandingPage.NoPreference,
+            Models.OrderApplicationContextShippingPreference? shippingPreference = Models.OrderApplicationContextShippingPreference.GetFromFile,
+            Models.OrderApplicationContextUserAction? userAction = Models.OrderApplicationContextUserAction.Continue,
             Models.PaymentMethodPreference paymentMethod = null,
             string returnUrl = null,
             string cancelUrl = null,

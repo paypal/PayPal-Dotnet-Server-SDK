@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderAuthorizeRequestPaymentSource.
@@ -40,7 +40,7 @@ namespace PaypalServerSDK.Standard.Models
         public OrderAuthorizeRequestPaymentSource(
             Models.CardRequest card = null,
             Models.Token token = null,
-            Models.PayPalWallet paypal = null,
+            Models.PaypalWallet paypal = null,
             Models.ApplePayRequest applePay = null,
             Models.GooglePayRequest googlePay = null,
             Models.VenmoWalletRequest venmo = null)
@@ -71,7 +71,7 @@ namespace PaypalServerSDK.Standard.Models
         /// A resource that identifies a PayPal Wallet is used for payment.
         /// </summary>
         [JsonProperty("paypal", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWallet Paypal { get; set; }
+        public Models.PaypalWallet Paypal { get; set; }
 
         /// <summary>
         /// Information needed to pay using ApplePay.

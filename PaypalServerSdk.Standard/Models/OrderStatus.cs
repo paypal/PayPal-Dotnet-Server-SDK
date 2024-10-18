@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderStatus.
@@ -20,40 +20,40 @@ namespace PaypalServerSDK.Standard.Models
     public enum OrderStatus
     {
         /// <summary>
-        /// CREATED.
+        /// Created.
         /// </summary>
         [EnumMember(Value = "CREATED")]
-        CREATED,
+        Created,
 
         /// <summary>
-        /// SAVED.
+        /// Saved.
         /// </summary>
         [EnumMember(Value = "SAVED")]
-        SAVED,
+        Saved,
 
         /// <summary>
-        /// APPROVED.
+        /// Approved.
         /// </summary>
         [EnumMember(Value = "APPROVED")]
-        APPROVED,
+        Approved,
 
         /// <summary>
-        /// VOIDED.
+        /// Voided.
         /// </summary>
         [EnumMember(Value = "VOIDED")]
-        VOIDED,
+        Voided,
 
         /// <summary>
-        /// COMPLETED.
+        /// Completed.
         /// </summary>
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED,
+        Completed,
 
         /// <summary>
-        /// PAYERACTIONREQUIRED.
+        /// PayerActionRequired.
         /// </summary>
         [EnumMember(Value = "PAYER_ACTION_REQUIRED")]
-        PAYERACTIONREQUIRED,
+        PayerActionRequired,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

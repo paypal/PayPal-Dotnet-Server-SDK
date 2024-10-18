@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using APIMatic.Core.Types.Sdk;
 
-namespace PaypalServerSDK.Standard.Utilities
+namespace PaypalServerSdk.Standard.Utilities
 {
     [JsonConverter(typeof(JsonObjectSerializer))]
     public class JsonObject : CoreJsonObject

@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderApplicationContextShippingPreference.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum OrderApplicationContextShippingPreference
     {
         /// <summary>
-        /// GETFROMFILE.
+        /// GetFromFile.
         /// </summary>
         [EnumMember(Value = "GET_FROM_FILE")]
-        GETFROMFILE,
+        GetFromFile,
 
         /// <summary>
-        /// NOSHIPPING.
+        /// NoShipping.
         /// </summary>
         [EnumMember(Value = "NO_SHIPPING")]
-        NOSHIPPING,
+        NoShipping,
 
         /// <summary>
-        /// SETPROVIDEDADDRESS.
+        /// SetProvidedAddress.
         /// </summary>
         [EnumMember(Value = "SET_PROVIDED_ADDRESS")]
-        SETPROVIDEDADDRESS,
+        SetProvidedAddress,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

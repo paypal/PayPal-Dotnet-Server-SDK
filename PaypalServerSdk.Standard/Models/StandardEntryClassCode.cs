@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// StandardEntryClassCode.
@@ -20,28 +20,28 @@ namespace PaypalServerSDK.Standard.Models
     public enum StandardEntryClassCode
     {
         /// <summary>
-        /// TEL.
+        /// Tel.
         /// </summary>
         [EnumMember(Value = "TEL")]
-        TEL,
+        Tel,
 
         /// <summary>
-        /// WEB.
+        /// Web.
         /// </summary>
         [EnumMember(Value = "WEB")]
-        WEB,
+        Web,
 
         /// <summary>
-        /// CCD.
+        /// Ccd.
         /// </summary>
         [EnumMember(Value = "CCD")]
-        CCD,
+        Ccd,
 
         /// <summary>
-        /// PPD.
+        /// Ppd.
         /// </summary>
         [EnumMember(Value = "PPD")]
-        PPD,
+        Ppd,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// SetupTokenResponsePaymentSource.
@@ -36,7 +36,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="venmo">venmo.</param>
         public SetupTokenResponsePaymentSource(
             Models.SetupTokenResponseCard card = null,
-            Models.PayPalPaymentToken paypal = null,
+            Models.PaypalPaymentToken paypal = null,
             Models.VenmoPaymentToken venmo = null)
         {
             this.Card = card;
@@ -54,7 +54,7 @@ namespace PaypalServerSDK.Standard.Models
         /// Gets or sets Paypal.
         /// </summary>
         [JsonProperty("paypal", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalPaymentToken Paypal { get; set; }
+        public Models.PaypalPaymentToken Paypal { get; set; }
 
         /// <summary>
         /// Gets or sets Venmo.

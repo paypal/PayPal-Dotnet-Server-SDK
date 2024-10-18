@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ShipmentCarrier.
@@ -20,2998 +20,2998 @@ namespace PaypalServerSDK.Standard.Models
     public enum ShipmentCarrier
     {
         /// <summary>
-        /// DPDRU.
+        /// DpdRu.
         /// </summary>
         [EnumMember(Value = "DPD_RU")]
-        DPDRU,
+        DpdRu,
 
         /// <summary>
-        /// BGBULGARIANPOST.
+        /// BgBulgarianPost.
         /// </summary>
         [EnumMember(Value = "BG_BULGARIAN_POST")]
-        BGBULGARIANPOST,
+        BgBulgarianPost,
 
         /// <summary>
-        /// KRKOREAPOST.
+        /// KrKoreaPost.
         /// </summary>
         [EnumMember(Value = "KR_KOREA_POST")]
-        KRKOREAPOST,
+        KrKoreaPost,
 
         /// <summary>
-        /// ZACOURIERIT.
+        /// ZaCourierit.
         /// </summary>
         [EnumMember(Value = "ZA_COURIERIT")]
-        ZACOURIERIT,
+        ZaCourierit,
 
         /// <summary>
-        /// FREXAPAQ.
+        /// FrExapaq.
         /// </summary>
         [EnumMember(Value = "FR_EXAPAQ")]
-        FREXAPAQ,
+        FrExapaq,
 
         /// <summary>
-        /// AREEMIRATESPOST.
+        /// AreEmiratesPost.
         /// </summary>
         [EnumMember(Value = "ARE_EMIRATES_POST")]
-        AREEMIRATESPOST,
+        AreEmiratesPost,
 
         /// <summary>
-        /// GAC.
+        /// Gac.
         /// </summary>
         [EnumMember(Value = "GAC")]
-        GAC,
+        Gac,
 
         /// <summary>
-        /// GEIS.
+        /// Geis.
         /// </summary>
         [EnumMember(Value = "GEIS")]
-        GEIS,
+        Geis,
 
         /// <summary>
-        /// SFEX.
+        /// SfEx.
         /// </summary>
         [EnumMember(Value = "SF_EX")]
-        SFEX,
+        SfEx,
 
         /// <summary>
-        /// PAGO.
+        /// Pago.
         /// </summary>
         [EnumMember(Value = "PAGO")]
-        PAGO,
+        Pago,
 
         /// <summary>
-        /// MYHERMES.
+        /// Myhermes.
         /// </summary>
         [EnumMember(Value = "MYHERMES")]
-        MYHERMES,
+        Myhermes,
 
         /// <summary>
-        /// DIAMONDEUROGISTICS.
+        /// DiamondEurogistics.
         /// </summary>
         [EnumMember(Value = "DIAMOND_EUROGISTICS")]
-        DIAMONDEUROGISTICS,
+        DiamondEurogistics,
 
         /// <summary>
-        /// CORPORATECOURIERSWEBHOOK.
+        /// CorporatecouriersWebhook.
         /// </summary>
         [EnumMember(Value = "CORPORATECOURIERS_WEBHOOK")]
-        CORPORATECOURIERSWEBHOOK,
+        CorporatecouriersWebhook,
 
         /// <summary>
-        /// BOND.
+        /// Bond.
         /// </summary>
         [EnumMember(Value = "BOND")]
-        BOND,
+        Bond,
 
         /// <summary>
-        /// OMNIPARCEL.
+        /// Omniparcel.
         /// </summary>
         [EnumMember(Value = "OMNIPARCEL")]
-        OMNIPARCEL,
+        Omniparcel,
 
         /// <summary>
-        /// SKPOSTA.
+        /// SkPosta.
         /// </summary>
         [EnumMember(Value = "SK_POSTA")]
-        SKPOSTA,
+        SkPosta,
 
         /// <summary>
-        /// PUROLATOR.
+        /// Purolator.
         /// </summary>
         [EnumMember(Value = "PUROLATOR")]
-        PUROLATOR,
+        Purolator,
 
         /// <summary>
-        /// FETCHRWEBHOOK.
+        /// FetchrWebhook.
         /// </summary>
         [EnumMember(Value = "FETCHR_WEBHOOK")]
-        FETCHRWEBHOOK,
+        FetchrWebhook,
 
         /// <summary>
-        /// THEDELIVERYGROUP.
+        /// Thedeliverygroup.
         /// </summary>
         [EnumMember(Value = "THEDELIVERYGROUP")]
-        THEDELIVERYGROUP,
+        Thedeliverygroup,
 
         /// <summary>
-        /// CELLOSQUARE.
+        /// CelloSquare.
         /// </summary>
         [EnumMember(Value = "CELLO_SQUARE")]
-        CELLOSQUARE,
+        CelloSquare,
 
         /// <summary>
-        /// TARRIVE.
+        /// Tarrive.
         /// </summary>
         [EnumMember(Value = "TARRIVE")]
-        TARRIVE,
+        Tarrive,
 
         /// <summary>
-        /// COLLIVERY.
+        /// Collivery.
         /// </summary>
         [EnumMember(Value = "COLLIVERY")]
-        COLLIVERY,
+        Collivery,
 
         /// <summary>
-        /// MAINFREIGHT.
+        /// Mainfreight.
         /// </summary>
         [EnumMember(Value = "MAINFREIGHT")]
-        MAINFREIGHT,
+        Mainfreight,
 
         /// <summary>
-        /// INDFIRSTFLIGHT.
+        /// IndFirstflight.
         /// </summary>
         [EnumMember(Value = "IND_FIRSTFLIGHT")]
-        INDFIRSTFLIGHT,
+        IndFirstflight,
 
         /// <summary>
-        /// ACSWORLDWIDE.
+        /// Acsworldwide.
         /// </summary>
         [EnumMember(Value = "ACSWORLDWIDE")]
-        ACSWORLDWIDE,
+        Acsworldwide,
 
         /// <summary>
-        /// AMSTAN.
+        /// Amstan.
         /// </summary>
         [EnumMember(Value = "AMSTAN")]
-        AMSTAN,
+        Amstan,
 
         /// <summary>
-        /// OKAYPARCEL.
+        /// Okayparcel.
         /// </summary>
         [EnumMember(Value = "OKAYPARCEL")]
-        OKAYPARCEL,
+        Okayparcel,
 
         /// <summary>
-        /// ENVIALIAREFERENCE.
+        /// EnvialiaReference.
         /// </summary>
         [EnumMember(Value = "ENVIALIA_REFERENCE")]
-        ENVIALIAREFERENCE,
+        EnvialiaReference,
 
         /// <summary>
-        /// SEURES.
+        /// SeurEs.
         /// </summary>
         [EnumMember(Value = "SEUR_ES")]
-        SEURES,
+        SeurEs,
 
         /// <summary>
-        /// CONTINENTAL.
+        /// Continental.
         /// </summary>
         [EnumMember(Value = "CONTINENTAL")]
-        CONTINENTAL,
+        Continental,
 
         /// <summary>
-        /// FDSEXPRESS.
+        /// Fdsexpress.
         /// </summary>
         [EnumMember(Value = "FDSEXPRESS")]
-        FDSEXPRESS,
+        Fdsexpress,
 
         /// <summary>
-        /// AMAZONFBASWISHIP.
+        /// AmazonFbaSwiship.
         /// </summary>
         [EnumMember(Value = "AMAZON_FBA_SWISHIP")]
-        AMAZONFBASWISHIP,
+        AmazonFbaSwiship,
 
         /// <summary>
-        /// WYNGS.
+        /// Wyngs.
         /// </summary>
         [EnumMember(Value = "WYNGS")]
-        WYNGS,
+        Wyngs,
 
         /// <summary>
-        /// DHLACTIVETRACING.
+        /// DhlActiveTracing.
         /// </summary>
         [EnumMember(Value = "DHL_ACTIVE_TRACING")]
-        DHLACTIVETRACING,
+        DhlActiveTracing,
 
         /// <summary>
-        /// ZYLLEM.
+        /// Zyllem.
         /// </summary>
         [EnumMember(Value = "ZYLLEM")]
-        ZYLLEM,
+        Zyllem,
 
         /// <summary>
-        /// RUSTON.
+        /// Ruston.
         /// </summary>
         [EnumMember(Value = "RUSTON")]
-        RUSTON,
+        Ruston,
 
         /// <summary>
-        /// XPOST.
+        /// Xpost.
         /// </summary>
         [EnumMember(Value = "XPOST")]
-        XPOST,
+        Xpost,
 
         /// <summary>
-        /// CORREOSES.
+        /// CorreosEs.
         /// </summary>
         [EnumMember(Value = "CORREOS_ES")]
-        CORREOSES,
+        CorreosEs,
 
         /// <summary>
-        /// DHLFR.
+        /// DhlFr.
         /// </summary>
         [EnumMember(Value = "DHL_FR")]
-        DHLFR,
+        DhlFr,
 
         /// <summary>
-        /// PANASIA.
+        /// PanAsia.
         /// </summary>
         [EnumMember(Value = "PAN_ASIA")]
-        PANASIA,
+        PanAsia,
 
         /// <summary>
-        /// BRTIT.
+        /// BrtIt.
         /// </summary>
         [EnumMember(Value = "BRT_IT")]
-        BRTIT,
+        BrtIt,
 
         /// <summary>
-        /// SREKOREA.
+        /// SreKorea.
         /// </summary>
         [EnumMember(Value = "SRE_KOREA")]
-        SREKOREA,
+        SreKorea,
 
         /// <summary>
-        /// SPEEDEE.
+        /// Speedee.
         /// </summary>
         [EnumMember(Value = "SPEEDEE")]
-        SPEEDEE,
+        Speedee,
 
         /// <summary>
-        /// TNTUK.
+        /// TntUk.
         /// </summary>
         [EnumMember(Value = "TNT_UK")]
-        TNTUK,
+        TntUk,
 
         /// <summary>
-        /// VENIPAK.
+        /// Venipak.
         /// </summary>
         [EnumMember(Value = "VENIPAK")]
-        VENIPAK,
+        Venipak,
 
         /// <summary>
-        /// SHREENANDANCOURIER.
+        /// Shreenandancourier.
         /// </summary>
         [EnumMember(Value = "SHREENANDANCOURIER")]
-        SHREENANDANCOURIER,
+        Shreenandancourier,
 
         /// <summary>
-        /// CROSHOT.
+        /// Croshot.
         /// </summary>
         [EnumMember(Value = "CROSHOT")]
-        CROSHOT,
+        Croshot,
 
         /// <summary>
-        /// NIPOSTNG.
+        /// NipostNg.
         /// </summary>
         [EnumMember(Value = "NIPOST_NG")]
-        NIPOSTNG,
+        NipostNg,
 
         /// <summary>
-        /// EPSTGLBL.
+        /// EpstGlbl.
         /// </summary>
         [EnumMember(Value = "EPST_GLBL")]
-        EPSTGLBL,
+        EpstGlbl,
 
         /// <summary>
-        /// NEWGISTICS.
+        /// Newgistics.
         /// </summary>
         [EnumMember(Value = "NEWGISTICS")]
-        NEWGISTICS,
+        Newgistics,
 
         /// <summary>
-        /// POSTSLOVENIA.
+        /// PostSlovenia.
         /// </summary>
         [EnumMember(Value = "POST_SLOVENIA")]
-        POSTSLOVENIA,
+        PostSlovenia,
 
         /// <summary>
-        /// JERSEYPOST.
+        /// JerseyPost.
         /// </summary>
         [EnumMember(Value = "JERSEY_POST")]
-        JERSEYPOST,
+        JerseyPost,
 
         /// <summary>
-        /// BOMBINOEXP.
+        /// Bombinoexp.
         /// </summary>
         [EnumMember(Value = "BOMBINOEXP")]
-        BOMBINOEXP,
+        Bombinoexp,
 
         /// <summary>
-        /// WMG.
+        /// Wmg.
         /// </summary>
         [EnumMember(Value = "WMG")]
-        WMG,
+        Wmg,
 
         /// <summary>
-        /// XQEXPRESS.
+        /// XqExpress.
         /// </summary>
         [EnumMember(Value = "XQ_EXPRESS")]
-        XQEXPRESS,
+        XqExpress,
 
         /// <summary>
-        /// FURDECO.
+        /// Furdeco.
         /// </summary>
         [EnumMember(Value = "FURDECO")]
-        FURDECO,
+        Furdeco,
 
         /// <summary>
-        /// LHTEXPRESS.
+        /// LhtExpress.
         /// </summary>
         [EnumMember(Value = "LHT_EXPRESS")]
-        LHTEXPRESS,
+        LhtExpress,
 
         /// <summary>
-        /// SOUTHAFRICANPOSTOFFICE.
+        /// SouthAfricanPostOffice.
         /// </summary>
         [EnumMember(Value = "SOUTH_AFRICAN_POST_OFFICE")]
-        SOUTHAFRICANPOSTOFFICE,
+        SouthAfricanPostOffice,
 
         /// <summary>
-        /// SPOTON.
+        /// Spoton.
         /// </summary>
         [EnumMember(Value = "SPOTON")]
-        SPOTON,
+        Spoton,
 
         /// <summary>
-        /// DIMERCO.
+        /// Dimerco.
         /// </summary>
         [EnumMember(Value = "DIMERCO")]
-        DIMERCO,
+        Dimerco,
 
         /// <summary>
-        /// CYPRUSPOSTCYP.
+        /// CyprusPostCyp.
         /// </summary>
         [EnumMember(Value = "CYPRUS_POST_CYP")]
-        CYPRUSPOSTCYP,
+        CyprusPostCyp,
 
         /// <summary>
-        /// ABCUSTOM.
+        /// Abcustom.
         /// </summary>
         [EnumMember(Value = "ABCUSTOM")]
-        ABCUSTOM,
+        Abcustom,
 
         /// <summary>
-        /// INDDELIVREE.
+        /// IndDelivree.
         /// </summary>
         [EnumMember(Value = "IND_DELIVREE")]
-        INDDELIVREE,
+        IndDelivree,
 
         /// <summary>
-        /// CNBESTEXPRESS.
+        /// CnBestexpress.
         /// </summary>
         [EnumMember(Value = "CN_BESTEXPRESS")]
-        CNBESTEXPRESS,
+        CnBestexpress,
 
         /// <summary>
-        /// DXSFTP.
+        /// DxSftp.
         /// </summary>
         [EnumMember(Value = "DX_SFTP")]
-        DXSFTP,
+        DxSftp,
 
         /// <summary>
-        /// PICKUPPMYS.
+        /// PickuppMys.
         /// </summary>
         [EnumMember(Value = "PICKUPP_MYS")]
-        PICKUPPMYS,
+        PickuppMys,
 
         /// <summary>
-        /// FMX.
+        /// Fmx.
         /// </summary>
         [EnumMember(Value = "FMX")]
-        FMX,
+        Fmx,
 
         /// <summary>
-        /// HELLMANN.
+        /// Hellmann.
         /// </summary>
         [EnumMember(Value = "HELLMANN")]
-        HELLMANN,
+        Hellmann,
 
         /// <summary>
-        /// SHIPITASIA.
+        /// ShipItAsia.
         /// </summary>
         [EnumMember(Value = "SHIP_IT_ASIA")]
-        SHIPITASIA,
+        ShipItAsia,
 
         /// <summary>
-        /// KERRYECOMMERCE.
+        /// KerryEcommerce.
         /// </summary>
         [EnumMember(Value = "KERRY_ECOMMERCE")]
-        KERRYECOMMERCE,
+        KerryEcommerce,
 
         /// <summary>
-        /// FRETERAPIDO.
+        /// Freterapido.
         /// </summary>
         [EnumMember(Value = "FRETERAPIDO")]
-        FRETERAPIDO,
+        Freterapido,
 
         /// <summary>
-        /// PITNEYBOWES.
+        /// PitneyBowes.
         /// </summary>
         [EnumMember(Value = "PITNEY_BOWES")]
-        PITNEYBOWES,
+        PitneyBowes,
 
         /// <summary>
-        /// XPRESSENDK.
+        /// XpressenDk.
         /// </summary>
         [EnumMember(Value = "XPRESSEN_DK")]
-        XPRESSENDK,
+        XpressenDk,
 
         /// <summary>
-        /// SEURSPAPI.
+        /// SeurSpApi.
         /// </summary>
         [EnumMember(Value = "SEUR_SP_API")]
-        SEURSPAPI,
+        SeurSpApi,
 
         /// <summary>
-        /// DELIVERYONTIME.
+        /// Deliveryontime.
         /// </summary>
         [EnumMember(Value = "DELIVERYONTIME")]
-        DELIVERYONTIME,
+        Deliveryontime,
 
         /// <summary>
-        /// JINSUNG.
+        /// Jinsung.
         /// </summary>
         [EnumMember(Value = "JINSUNG")]
-        JINSUNG,
+        Jinsung,
 
         /// <summary>
-        /// TRANSKARGO.
+        /// TransKargo.
         /// </summary>
         [EnumMember(Value = "TRANS_KARGO")]
-        TRANSKARGO,
+        TransKargo,
 
         /// <summary>
-        /// SWISHIPDE.
+        /// SwishipDe.
         /// </summary>
         [EnumMember(Value = "SWISHIP_DE")]
-        SWISHIPDE,
+        SwishipDe,
 
         /// <summary>
-        /// IVOYWEBHOOK.
+        /// IvoyWebhook.
         /// </summary>
         [EnumMember(Value = "IVOY_WEBHOOK")]
-        IVOYWEBHOOK,
+        IvoyWebhook,
 
         /// <summary>
-        /// AIRMEEWEBHOOK.
+        /// AirmeeWebhook.
         /// </summary>
         [EnumMember(Value = "AIRMEE_WEBHOOK")]
-        AIRMEEWEBHOOK,
+        AirmeeWebhook,
 
         /// <summary>
-        /// DHLBENELUX.
+        /// DhlBenelux.
         /// </summary>
         [EnumMember(Value = "DHL_BENELUX")]
-        DHLBENELUX,
+        DhlBenelux,
 
         /// <summary>
-        /// FIRSTMILE.
+        /// Firstmile.
         /// </summary>
         [EnumMember(Value = "FIRSTMILE")]
-        FIRSTMILE,
+        Firstmile,
 
         /// <summary>
-        /// FASTWAYIR.
+        /// FastwayIr.
         /// </summary>
         [EnumMember(Value = "FASTWAY_IR")]
-        FASTWAYIR,
+        FastwayIr,
 
         /// <summary>
-        /// HHEXP.
+        /// HhExp.
         /// </summary>
         [EnumMember(Value = "HH_EXP")]
-        HHEXP,
+        HhExp,
 
         /// <summary>
-        /// MYSMYPOSTONLINE.
+        /// MysMypostOnline.
         /// </summary>
         [EnumMember(Value = "MYS_MYPOST_ONLINE")]
-        MYSMYPOSTONLINE,
+        MysMypostOnline,
 
         /// <summary>
-        /// TNTNL.
+        /// TntNl.
         /// </summary>
         [EnumMember(Value = "TNT_NL")]
-        TNTNL,
+        TntNl,
 
         /// <summary>
-        /// TIPSA.
+        /// Tipsa.
         /// </summary>
         [EnumMember(Value = "TIPSA")]
-        TIPSA,
+        Tipsa,
 
         /// <summary>
-        /// TAQBINMY.
+        /// TaqbinMy.
         /// </summary>
         [EnumMember(Value = "TAQBIN_MY")]
-        TAQBINMY,
+        TaqbinMy,
 
         /// <summary>
-        /// KGMHUB.
+        /// Kgmhub.
         /// </summary>
         [EnumMember(Value = "KGMHUB")]
-        KGMHUB,
+        Kgmhub,
 
         /// <summary>
-        /// INTEXPRESS.
+        /// Intexpress.
         /// </summary>
         [EnumMember(Value = "INTEXPRESS")]
-        INTEXPRESS,
+        Intexpress,
 
         /// <summary>
-        /// OVERSEEXP.
+        /// OverseExp.
         /// </summary>
         [EnumMember(Value = "OVERSE_EXP")]
-        OVERSEEXP,
+        OverseExp,
 
         /// <summary>
-        /// ONECLICK.
+        /// Oneclick.
         /// </summary>
         [EnumMember(Value = "ONECLICK")]
-        ONECLICK,
+        Oneclick,
 
         /// <summary>
-        /// ROADRUNNERFREIGHT.
+        /// RoadrunnerFreight.
         /// </summary>
         [EnumMember(Value = "ROADRUNNER_FREIGHT")]
-        ROADRUNNERFREIGHT,
+        RoadrunnerFreight,
 
         /// <summary>
-        /// GLSCROTIA.
+        /// GlsCrotia.
         /// </summary>
         [EnumMember(Value = "GLS_CROTIA")]
-        GLSCROTIA,
+        GlsCrotia,
 
         /// <summary>
-        /// MRWFTP.
+        /// MrwFtp.
         /// </summary>
         [EnumMember(Value = "MRW_FTP")]
-        MRWFTP,
+        MrwFtp,
 
         /// <summary>
-        /// BLUEX.
+        /// Bluex.
         /// </summary>
         [EnumMember(Value = "BLUEX")]
-        BLUEX,
+        Bluex,
 
         /// <summary>
-        /// DYLT.
+        /// Dylt.
         /// </summary>
         [EnumMember(Value = "DYLT")]
-        DYLT,
+        Dylt,
 
         /// <summary>
-        /// DPDIR.
+        /// DpdIr.
         /// </summary>
         [EnumMember(Value = "DPD_IR")]
-        DPDIR,
+        DpdIr,
 
         /// <summary>
-        /// SINGLBL.
+        /// SinGlbl.
         /// </summary>
         [EnumMember(Value = "SIN_GLBL")]
-        SINGLBL,
+        SinGlbl,
 
         /// <summary>
-        /// TUFFNELLSREFERENCE.
+        /// TuffnellsReference.
         /// </summary>
         [EnumMember(Value = "TUFFNELLS_REFERENCE")]
-        TUFFNELLSREFERENCE,
+        TuffnellsReference,
 
         /// <summary>
-        /// CJPACKET.
+        /// Cjpacket.
         /// </summary>
         [EnumMember(Value = "CJPACKET")]
-        CJPACKET,
+        Cjpacket,
 
         /// <summary>
-        /// MILKMAN.
+        /// Milkman.
         /// </summary>
         [EnumMember(Value = "MILKMAN")]
-        MILKMAN,
+        Milkman,
 
         /// <summary>
-        /// ASIGNA.
+        /// Asigna.
         /// </summary>
         [EnumMember(Value = "ASIGNA")]
-        ASIGNA,
+        Asigna,
 
         /// <summary>
-        /// ONEWORLDEXPRESS.
+        /// Oneworldexpress.
         /// </summary>
         [EnumMember(Value = "ONEWORLDEXPRESS")]
-        ONEWORLDEXPRESS,
+        Oneworldexpress,
 
         /// <summary>
-        /// ROYALMAIL.
+        /// RoyalMail.
         /// </summary>
         [EnumMember(Value = "ROYAL_MAIL")]
-        ROYALMAIL,
+        RoyalMail,
 
         /// <summary>
-        /// VIAEXPRESS.
+        /// ViaExpress.
         /// </summary>
         [EnumMember(Value = "VIA_EXPRESS")]
-        VIAEXPRESS,
+        ViaExpress,
 
         /// <summary>
-        /// TIGFREIGHT.
+        /// Tigfreight.
         /// </summary>
         [EnumMember(Value = "TIGFREIGHT")]
-        TIGFREIGHT,
+        Tigfreight,
 
         /// <summary>
-        /// ZTOEXPRESS.
+        /// ZtoExpress.
         /// </summary>
         [EnumMember(Value = "ZTO_EXPRESS")]
-        ZTOEXPRESS,
+        ZtoExpress,
 
         /// <summary>
-        /// TWOGO.
+        /// TwoGo.
         /// </summary>
         [EnumMember(Value = "TWO_GO")]
-        TWOGO,
+        TwoGo,
 
         /// <summary>
-        /// IML.
+        /// Iml.
         /// </summary>
         [EnumMember(Value = "IML")]
-        IML,
+        Iml,
 
         /// <summary>
-        /// INTELVALLEY.
+        /// IntelValley.
         /// </summary>
         [EnumMember(Value = "INTEL_VALLEY")]
-        INTELVALLEY,
+        IntelValley,
 
         /// <summary>
-        /// EFS.
+        /// Efs.
         /// </summary>
         [EnumMember(Value = "EFS")]
-        EFS,
+        Efs,
 
         /// <summary>
-        /// UKUKMAIL.
+        /// UkUkMail.
         /// </summary>
         [EnumMember(Value = "UK_UK_MAIL")]
-        UKUKMAIL,
+        UkUkMail,
 
         /// <summary>
-        /// RAM.
+        /// Ram.
         /// </summary>
         [EnumMember(Value = "RAM")]
-        RAM,
+        Ram,
 
         /// <summary>
-        /// ALLIEDEXPRESS.
+        /// Alliedexpress.
         /// </summary>
         [EnumMember(Value = "ALLIEDEXPRESS")]
-        ALLIEDEXPRESS,
+        Alliedexpress,
 
         /// <summary>
-        /// APCOVERNIGHT.
+        /// ApcOvernight.
         /// </summary>
         [EnumMember(Value = "APC_OVERNIGHT")]
-        APCOVERNIGHT,
+        ApcOvernight,
 
         /// <summary>
-        /// SHIPPIT.
+        /// Shippit.
         /// </summary>
         [EnumMember(Value = "SHIPPIT")]
-        SHIPPIT,
+        Shippit,
 
         /// <summary>
-        /// TFM.
+        /// Tfm.
         /// </summary>
         [EnumMember(Value = "TFM")]
-        TFM,
+        Tfm,
 
         /// <summary>
-        /// MXPRESS.
+        /// MXpress.
         /// </summary>
         [EnumMember(Value = "M_XPRESS")]
-        MXPRESS,
+        MXpress,
 
         /// <summary>
-        /// HDBBOX.
+        /// HdbBox.
         /// </summary>
         [EnumMember(Value = "HDB_BOX")]
-        HDBBOX,
+        HdbBox,
 
         /// <summary>
-        /// CLEVYLINKS.
+        /// ClevyLinks.
         /// </summary>
         [EnumMember(Value = "CLEVY_LINKS")]
-        CLEVYLINKS,
+        ClevyLinks,
 
         /// <summary>
-        /// IBEONE.
+        /// Ibeone.
         /// </summary>
         [EnumMember(Value = "IBEONE")]
-        IBEONE,
+        Ibeone,
 
         /// <summary>
-        /// FIEGENL.
+        /// FiegeNl.
         /// </summary>
         [EnumMember(Value = "FIEGE_NL")]
-        FIEGENL,
+        FiegeNl,
 
         /// <summary>
-        /// KWEGLOBAL.
+        /// KweGlobal.
         /// </summary>
         [EnumMember(Value = "KWE_GLOBAL")]
-        KWEGLOBAL,
+        KweGlobal,
 
         /// <summary>
-        /// CTCEXPRESS.
+        /// CtcExpress.
         /// </summary>
         [EnumMember(Value = "CTC_EXPRESS")]
-        CTCEXPRESS,
+        CtcExpress,
 
         /// <summary>
-        /// LAOPOST.
+        /// LaoPost.
         /// </summary>
         [EnumMember(Value = "LAO_POST")]
-        LAOPOST,
+        LaoPost,
 
         /// <summary>
-        /// AMAZON.
+        /// Amazon.
         /// </summary>
         [EnumMember(Value = "AMAZON")]
-        AMAZON,
+        Amazon,
 
         /// <summary>
-        /// MORELINK.
+        /// MoreLink.
         /// </summary>
         [EnumMember(Value = "MORE_LINK")]
-        MORELINK,
+        MoreLink,
 
         /// <summary>
-        /// JX.
+        /// Jx.
         /// </summary>
         [EnumMember(Value = "JX")]
-        JX,
+        Jx,
 
         /// <summary>
-        /// EASYMAIL.
+        /// EasyMail.
         /// </summary>
         [EnumMember(Value = "EASY_MAIL")]
-        EASYMAIL,
+        EasyMail,
 
         /// <summary>
-        /// ADUIEPYLE.
+        /// Aduiepyle.
         /// </summary>
         [EnumMember(Value = "ADUIEPYLE")]
-        ADUIEPYLE,
+        Aduiepyle,
 
         /// <summary>
-        /// GBPANTHER.
+        /// GbPanther.
         /// </summary>
         [EnumMember(Value = "GB_PANTHER")]
-        GBPANTHER,
+        GbPanther,
 
         /// <summary>
-        /// EXPRESSSALE.
+        /// Expresssale.
         /// </summary>
         [EnumMember(Value = "EXPRESSSALE")]
-        EXPRESSSALE,
+        Expresssale,
 
         /// <summary>
-        /// SGDETRACK.
+        /// SgDetrack.
         /// </summary>
         [EnumMember(Value = "SG_DETRACK")]
-        SGDETRACK,
+        SgDetrack,
 
         /// <summary>
-        /// TRUNKRSWEBHOOK.
+        /// TrunkrsWebhook.
         /// </summary>
         [EnumMember(Value = "TRUNKRS_WEBHOOK")]
-        TRUNKRSWEBHOOK,
+        TrunkrsWebhook,
 
         /// <summary>
-        /// MATDESPATCH.
+        /// Matdespatch.
         /// </summary>
         [EnumMember(Value = "MATDESPATCH")]
-        MATDESPATCH,
+        Matdespatch,
 
         /// <summary>
-        /// DICOM.
+        /// Dicom.
         /// </summary>
         [EnumMember(Value = "DICOM")]
-        DICOM,
+        Dicom,
 
         /// <summary>
-        /// MBW.
+        /// Mbw.
         /// </summary>
         [EnumMember(Value = "MBW")]
-        MBW,
+        Mbw,
 
         /// <summary>
-        /// KHMCAMBODIAPOST.
+        /// KhmCambodiaPost.
         /// </summary>
         [EnumMember(Value = "KHM_CAMBODIA_POST")]
-        KHMCAMBODIAPOST,
+        KhmCambodiaPost,
 
         /// <summary>
-        /// SINOTRANS.
+        /// Sinotrans.
         /// </summary>
         [EnumMember(Value = "SINOTRANS")]
-        SINOTRANS,
+        Sinotrans,
 
         /// <summary>
-        /// BRTITPARCELID.
+        /// BrtItParcelid.
         /// </summary>
         [EnumMember(Value = "BRT_IT_PARCELID")]
-        BRTITPARCELID,
+        BrtItParcelid,
 
         /// <summary>
-        /// DHLSUPPLYCHAIN.
+        /// DhlSupplyChain.
         /// </summary>
         [EnumMember(Value = "DHL_SUPPLY_CHAIN")]
-        DHLSUPPLYCHAIN,
+        DhlSupplyChain,
 
         /// <summary>
-        /// DHLPL.
+        /// DhlPl.
         /// </summary>
         [EnumMember(Value = "DHL_PL")]
-        DHLPL,
+        DhlPl,
 
         /// <summary>
-        /// TOPYOU.
+        /// Topyou.
         /// </summary>
         [EnumMember(Value = "TOPYOU")]
-        TOPYOU,
+        Topyou,
 
         /// <summary>
-        /// PALEXPRESS.
+        /// Palexpress.
         /// </summary>
         [EnumMember(Value = "PALEXPRESS")]
-        PALEXPRESS,
+        Palexpress,
 
         /// <summary>
-        /// DHLSG.
+        /// DhlSg.
         /// </summary>
         [EnumMember(Value = "DHL_SG")]
-        DHLSG,
+        DhlSg,
 
         /// <summary>
-        /// CNWEDO.
+        /// CnWedo.
         /// </summary>
         [EnumMember(Value = "CN_WEDO")]
-        CNWEDO,
+        CnWedo,
 
         /// <summary>
-        /// FULFILLME.
+        /// Fulfillme.
         /// </summary>
         [EnumMember(Value = "FULFILLME")]
-        FULFILLME,
+        Fulfillme,
 
         /// <summary>
-        /// DPDDELISTRACK.
+        /// DpdDelistrack.
         /// </summary>
         [EnumMember(Value = "DPD_DELISTRACK")]
-        DPDDELISTRACK,
+        DpdDelistrack,
 
         /// <summary>
-        /// UPSREFERENCE.
+        /// UpsReference.
         /// </summary>
         [EnumMember(Value = "UPS_REFERENCE")]
-        UPSREFERENCE,
+        UpsReference,
 
         /// <summary>
-        /// CARIBOU.
+        /// Caribou.
         /// </summary>
         [EnumMember(Value = "CARIBOU")]
-        CARIBOU,
+        Caribou,
 
         /// <summary>
-        /// LOCUSWEBHOOK.
+        /// LocusWebhook.
         /// </summary>
         [EnumMember(Value = "LOCUS_WEBHOOK")]
-        LOCUSWEBHOOK,
+        LocusWebhook,
 
         /// <summary>
-        /// DSV.
+        /// Dsv.
         /// </summary>
         [EnumMember(Value = "DSV")]
-        DSV,
+        Dsv,
 
         /// <summary>
-        /// CNGOFLY.
+        /// CnGofly.
         /// </summary>
         [EnumMember(Value = "CN_GOFLY")]
-        CNGOFLY,
+        CnGofly,
 
         /// <summary>
-        /// P2PTRC.
+        /// P2PTrc.
         /// </summary>
         [EnumMember(Value = "P2P_TRC")]
-        P2PTRC,
+        P2PTrc,
 
         /// <summary>
-        /// DIRECTPARCELS.
+        /// Directparcels.
         /// </summary>
         [EnumMember(Value = "DIRECTPARCELS")]
-        DIRECTPARCELS,
+        Directparcels,
 
         /// <summary>
-        /// NOVAPOSHTAINT.
+        /// NovaPoshtaInt.
         /// </summary>
         [EnumMember(Value = "NOVA_POSHTA_INT")]
-        NOVAPOSHTAINT,
+        NovaPoshtaInt,
 
         /// <summary>
-        /// FEDEXPOLAND.
+        /// FedexPoland.
         /// </summary>
         [EnumMember(Value = "FEDEX_POLAND")]
-        FEDEXPOLAND,
+        FedexPoland,
 
         /// <summary>
-        /// CNJCEX.
+        /// CnJcex.
         /// </summary>
         [EnumMember(Value = "CN_JCEX")]
-        CNJCEX,
+        CnJcex,
 
         /// <summary>
-        /// FARINTERNATIONAL.
+        /// FarInternational.
         /// </summary>
         [EnumMember(Value = "FAR_INTERNATIONAL")]
-        FARINTERNATIONAL,
+        FarInternational,
 
         /// <summary>
-        /// IDEXPRESS.
+        /// Idexpress.
         /// </summary>
         [EnumMember(Value = "IDEXPRESS")]
-        IDEXPRESS,
+        Idexpress,
 
         /// <summary>
-        /// GANGBAO.
+        /// Gangbao.
         /// </summary>
         [EnumMember(Value = "GANGBAO")]
-        GANGBAO,
+        Gangbao,
 
         /// <summary>
-        /// NEWAY.
+        /// Neway.
         /// </summary>
         [EnumMember(Value = "NEWAY")]
-        NEWAY,
+        Neway,
 
         /// <summary>
-        /// POSTNLINT3S.
+        /// PostnlInt3S.
         /// </summary>
         [EnumMember(Value = "POSTNL_INT_3_S")]
-        POSTNLINT3S,
+        PostnlInt3S,
 
         /// <summary>
-        /// RPXID.
+        /// RpxId.
         /// </summary>
         [EnumMember(Value = "RPX_ID")]
-        RPXID,
+        RpxId,
 
         /// <summary>
-        /// DESIGNERTRANSPORTWEBHOOK.
+        /// DesignertransportWebhook.
         /// </summary>
         [EnumMember(Value = "DESIGNERTRANSPORT_WEBHOOK")]
-        DESIGNERTRANSPORTWEBHOOK,
+        DesignertransportWebhook,
 
         /// <summary>
-        /// GLSSLOVEN.
+        /// GlsSloven.
         /// </summary>
         [EnumMember(Value = "GLS_SLOVEN")]
-        GLSSLOVEN,
+        GlsSloven,
 
         /// <summary>
-        /// PARCELLEDIN.
+        /// ParcelledIn.
         /// </summary>
         [EnumMember(Value = "PARCELLED_IN")]
-        PARCELLEDIN,
+        ParcelledIn,
 
         /// <summary>
-        /// GSIEXPRESS.
+        /// GsiExpress.
         /// </summary>
         [EnumMember(Value = "GSI_EXPRESS")]
-        GSIEXPRESS,
+        GsiExpress,
 
         /// <summary>
-        /// CONWAY.
+        /// ConWay.
         /// </summary>
         [EnumMember(Value = "CON_WAY")]
-        CONWAY,
+        ConWay,
 
         /// <summary>
-        /// BROUWERTRANSPORT.
+        /// BrouwerTransport.
         /// </summary>
         [EnumMember(Value = "BROUWER_TRANSPORT")]
-        BROUWERTRANSPORT,
+        BrouwerTransport,
 
         /// <summary>
-        /// CPEX.
+        /// Cpex.
         /// </summary>
         [EnumMember(Value = "CPEX")]
-        CPEX,
+        Cpex,
 
         /// <summary>
-        /// ISRAELPOST.
+        /// IsraelPost.
         /// </summary>
         [EnumMember(Value = "ISRAEL_POST")]
-        ISRAELPOST,
+        IsraelPost,
 
         /// <summary>
-        /// DTDCIN.
+        /// DtdcIn.
         /// </summary>
         [EnumMember(Value = "DTDC_IN")]
-        DTDCIN,
+        DtdcIn,
 
         /// <summary>
-        /// PTTPOST.
+        /// PttPost.
         /// </summary>
         [EnumMember(Value = "PTT_POST")]
-        PTTPOST,
+        PttPost,
 
         /// <summary>
-        /// XDEWEBHOOK.
+        /// XdeWebhook.
         /// </summary>
         [EnumMember(Value = "XDE_WEBHOOK")]
-        XDEWEBHOOK,
+        XdeWebhook,
 
         /// <summary>
-        /// TOLOS.
+        /// Tolos.
         /// </summary>
         [EnumMember(Value = "TOLOS")]
-        TOLOS,
+        Tolos,
 
         /// <summary>
-        /// GIAOHANG.
+        /// GiaoHang.
         /// </summary>
         [EnumMember(Value = "GIAO_HANG")]
-        GIAOHANG,
+        GiaoHang,
 
         /// <summary>
-        /// GEODISESPACE.
+        /// GeodisEspace.
         /// </summary>
         [EnumMember(Value = "GEODIS_ESPACE")]
-        GEODISESPACE,
+        GeodisEspace,
 
         /// <summary>
-        /// MAGYARHU.
+        /// MagyarHu.
         /// </summary>
         [EnumMember(Value = "MAGYAR_HU")]
-        MAGYARHU,
+        MagyarHu,
 
         /// <summary>
-        /// DOORDASHWEBHOOK.
+        /// DoordashWebhook.
         /// </summary>
         [EnumMember(Value = "DOORDASH_WEBHOOK")]
-        DOORDASHWEBHOOK,
+        DoordashWebhook,
 
         /// <summary>
-        /// TIKIID.
+        /// TikiId.
         /// </summary>
         [EnumMember(Value = "TIKI_ID")]
-        TIKIID,
+        TikiId,
 
         /// <summary>
-        /// CJHKINTERNATIONAL.
+        /// CjHkInternational.
         /// </summary>
         [EnumMember(Value = "CJ_HK_INTERNATIONAL")]
-        CJHKINTERNATIONAL,
+        CjHkInternational,
 
         /// <summary>
-        /// STARTRACKEXPRESS.
+        /// StarTrackExpress.
         /// </summary>
         [EnumMember(Value = "STAR_TRACK_EXPRESS")]
-        STARTRACKEXPRESS,
+        StarTrackExpress,
 
         /// <summary>
-        /// HELTHJEM.
+        /// Helthjem.
         /// </summary>
         [EnumMember(Value = "HELTHJEM")]
-        HELTHJEM,
+        Helthjem,
 
         /// <summary>
-        /// SFB2C.
+        /// Sfb2C.
         /// </summary>
         [EnumMember(Value = "SFB2C")]
-        SFB2C,
+        Sfb2C,
 
         /// <summary>
-        /// FREIGHTQUOTE.
+        /// Freightquote.
         /// </summary>
         [EnumMember(Value = "FREIGHTQUOTE")]
-        FREIGHTQUOTE,
+        Freightquote,
 
         /// <summary>
-        /// LANDMARKGLOBALREFERENCE.
+        /// LandmarkGlobalReference.
         /// </summary>
         [EnumMember(Value = "LANDMARK_GLOBAL_REFERENCE")]
-        LANDMARKGLOBALREFERENCE,
+        LandmarkGlobalReference,
 
         /// <summary>
-        /// PARCEL2GO.
+        /// Parcel2Go.
         /// </summary>
         [EnumMember(Value = "PARCEL2GO")]
-        PARCEL2GO,
+        Parcel2Go,
 
         /// <summary>
-        /// DELNEXT.
+        /// Delnext.
         /// </summary>
         [EnumMember(Value = "DELNEXT")]
-        DELNEXT,
+        Delnext,
 
         /// <summary>
-        /// RCL.
+        /// Rcl.
         /// </summary>
         [EnumMember(Value = "RCL")]
-        RCL,
+        Rcl,
 
         /// <summary>
-        /// CGSEXPRESS.
+        /// CgsExpress.
         /// </summary>
         [EnumMember(Value = "CGS_EXPRESS")]
-        CGSEXPRESS,
+        CgsExpress,
 
         /// <summary>
-        /// HKPOST.
+        /// HkPost.
         /// </summary>
         [EnumMember(Value = "HK_POST")]
-        HKPOST,
+        HkPost,
 
         /// <summary>
-        /// SAPEXPRESS.
+        /// SapExpress.
         /// </summary>
         [EnumMember(Value = "SAP_EXPRESS")]
-        SAPEXPRESS,
+        SapExpress,
 
         /// <summary>
-        /// PARCELPOSTSG.
+        /// ParcelpostSg.
         /// </summary>
         [EnumMember(Value = "PARCELPOST_SG")]
-        PARCELPOSTSG,
+        ParcelpostSg,
 
         /// <summary>
-        /// HERMES.
+        /// Hermes.
         /// </summary>
         [EnumMember(Value = "HERMES")]
-        HERMES,
+        Hermes,
 
         /// <summary>
-        /// INDSAFEEXPRESS.
+        /// IndSafeexpress.
         /// </summary>
         [EnumMember(Value = "IND_SAFEEXPRESS")]
-        INDSAFEEXPRESS,
+        IndSafeexpress,
 
         /// <summary>
-        /// TOPHATTEREXPRESS.
+        /// Tophatterexpress.
         /// </summary>
         [EnumMember(Value = "TOPHATTEREXPRESS")]
-        TOPHATTEREXPRESS,
+        Tophatterexpress,
 
         /// <summary>
-        /// MGLOBAL.
+        /// Mglobal.
         /// </summary>
         [EnumMember(Value = "MGLOBAL")]
-        MGLOBAL,
+        Mglobal,
 
         /// <summary>
-        /// AVERITT.
+        /// Averitt.
         /// </summary>
         [EnumMember(Value = "AVERITT")]
-        AVERITT,
+        Averitt,
 
         /// <summary>
-        /// LEADER.
+        /// Leader.
         /// </summary>
         [EnumMember(Value = "LEADER")]
-        LEADER,
+        Leader,
 
         /// <summary>
-        /// _2EBOX.
+        /// _2Ebox.
         /// </summary>
         [EnumMember(Value = "_2EBOX")]
-        _2EBOX,
+        _2Ebox,
 
         /// <summary>
-        /// SGSPEEDPOST.
+        /// SgSpeedpost.
         /// </summary>
         [EnumMember(Value = "SG_SPEEDPOST")]
-        SGSPEEDPOST,
+        SgSpeedpost,
 
         /// <summary>
-        /// DBSCHENKERSE.
+        /// DbschenkerSe.
         /// </summary>
         [EnumMember(Value = "DBSCHENKER_SE")]
-        DBSCHENKERSE,
+        DbschenkerSe,
 
         /// <summary>
-        /// ISRPOSTDOMESTIC.
+        /// IsrPostDomestic.
         /// </summary>
         [EnumMember(Value = "ISR_POST_DOMESTIC")]
-        ISRPOSTDOMESTIC,
+        IsrPostDomestic,
 
         /// <summary>
-        /// BESTWAYPARCEL.
+        /// Bestwayparcel.
         /// </summary>
         [EnumMember(Value = "BESTWAYPARCEL")]
-        BESTWAYPARCEL,
+        Bestwayparcel,
 
         /// <summary>
-        /// ASENDIADE.
+        /// AsendiaDe.
         /// </summary>
         [EnumMember(Value = "ASENDIA_DE")]
-        ASENDIADE,
+        AsendiaDe,
 
         /// <summary>
-        /// NIGHTLINEUK.
+        /// NightlineUk.
         /// </summary>
         [EnumMember(Value = "NIGHTLINE_UK")]
-        NIGHTLINEUK,
+        NightlineUk,
 
         /// <summary>
-        /// TAQBINSG.
+        /// TaqbinSg.
         /// </summary>
         [EnumMember(Value = "TAQBIN_SG")]
-        TAQBINSG,
+        TaqbinSg,
 
         /// <summary>
-        /// TCKEXPRESS.
+        /// TckExpress.
         /// </summary>
         [EnumMember(Value = "TCK_EXPRESS")]
-        TCKEXPRESS,
+        TckExpress,
 
         /// <summary>
-        /// ENDEAVOURDELIVERY.
+        /// EndeavourDelivery.
         /// </summary>
         [EnumMember(Value = "ENDEAVOUR_DELIVERY")]
-        ENDEAVOURDELIVERY,
+        EndeavourDelivery,
 
         /// <summary>
-        /// NANJINGWOYUAN.
+        /// Nanjingwoyuan.
         /// </summary>
         [EnumMember(Value = "NANJINGWOYUAN")]
-        NANJINGWOYUAN,
+        Nanjingwoyuan,
 
         /// <summary>
-        /// HEPPNERFR.
+        /// HeppnerFr.
         /// </summary>
         [EnumMember(Value = "HEPPNER_FR")]
-        HEPPNERFR,
+        HeppnerFr,
 
         /// <summary>
-        /// EMPSCN.
+        /// EmpsCn.
         /// </summary>
         [EnumMember(Value = "EMPS_CN")]
-        EMPSCN,
+        EmpsCn,
 
         /// <summary>
-        /// FONSEN.
+        /// Fonsen.
         /// </summary>
         [EnumMember(Value = "FONSEN")]
-        FONSEN,
+        Fonsen,
 
         /// <summary>
-        /// PICKRR.
+        /// Pickrr.
         /// </summary>
         [EnumMember(Value = "PICKRR")]
-        PICKRR,
+        Pickrr,
 
         /// <summary>
-        /// APCOVERNIGHTCONNUM.
+        /// ApcOvernightConnum.
         /// </summary>
         [EnumMember(Value = "APC_OVERNIGHT_CONNUM")]
-        APCOVERNIGHTCONNUM,
+        ApcOvernightConnum,
 
         /// <summary>
-        /// STARTRACKNEXTFLIGHT.
+        /// StarTrackNextFlight.
         /// </summary>
         [EnumMember(Value = "STAR_TRACK_NEXT_FLIGHT")]
-        STARTRACKNEXTFLIGHT,
+        StarTrackNextFlight,
 
         /// <summary>
-        /// DAJIN.
+        /// Dajin.
         /// </summary>
         [EnumMember(Value = "DAJIN")]
-        DAJIN,
+        Dajin,
 
         /// <summary>
-        /// UPSFREIGHT.
+        /// UpsFreight.
         /// </summary>
         [EnumMember(Value = "UPS_FREIGHT")]
-        UPSFREIGHT,
+        UpsFreight,
 
         /// <summary>
-        /// POSTAPLUS.
+        /// PostaPlus.
         /// </summary>
         [EnumMember(Value = "POSTA_PLUS")]
-        POSTAPLUS,
+        PostaPlus,
 
         /// <summary>
-        /// CEVA.
+        /// Ceva.
         /// </summary>
         [EnumMember(Value = "CEVA")]
-        CEVA,
+        Ceva,
 
         /// <summary>
-        /// ANSERX.
+        /// Anserx.
         /// </summary>
         [EnumMember(Value = "ANSERX")]
-        ANSERX,
+        Anserx,
 
         /// <summary>
-        /// JSEXPRESS.
+        /// JsExpress.
         /// </summary>
         [EnumMember(Value = "JS_EXPRESS")]
-        JSEXPRESS,
+        JsExpress,
 
         /// <summary>
-        /// PADTF.
+        /// Padtf.
         /// </summary>
         [EnumMember(Value = "PADTF")]
-        PADTF,
+        Padtf,
 
         /// <summary>
-        /// UPSMAILINNOVATIONS.
+        /// UpsMailInnovations.
         /// </summary>
         [EnumMember(Value = "UPS_MAIL_INNOVATIONS")]
-        UPSMAILINNOVATIONS,
+        UpsMailInnovations,
 
         /// <summary>
-        /// EZSHIP.
+        /// Ezship.
         /// </summary>
         [EnumMember(Value = "EZSHIP")]
-        EZSHIP,
+        Ezship,
 
         /// <summary>
-        /// SYPOST.
+        /// Sypost.
         /// </summary>
         [EnumMember(Value = "SYPOST")]
-        SYPOST,
+        Sypost,
 
         /// <summary>
-        /// AMAZONSHIPMCF.
+        /// AmazonShipMcf.
         /// </summary>
         [EnumMember(Value = "AMAZON_SHIP_MCF")]
-        AMAZONSHIPMCF,
+        AmazonShipMcf,
 
         /// <summary>
-        /// YUSEN.
+        /// Yusen.
         /// </summary>
         [EnumMember(Value = "YUSEN")]
-        YUSEN,
+        Yusen,
 
         /// <summary>
-        /// BRING.
+        /// Bring.
         /// </summary>
         [EnumMember(Value = "BRING")]
-        BRING,
+        Bring,
 
         /// <summary>
-        /// SDAIT.
+        /// SdaIt.
         /// </summary>
         [EnumMember(Value = "SDA_IT")]
-        SDAIT,
+        SdaIt,
 
         /// <summary>
-        /// GBA.
+        /// Gba.
         /// </summary>
         [EnumMember(Value = "GBA")]
-        GBA,
+        Gba,
 
         /// <summary>
-        /// NEWEGGEXPRESS.
+        /// Neweggexpress.
         /// </summary>
         [EnumMember(Value = "NEWEGGEXPRESS")]
-        NEWEGGEXPRESS,
+        Neweggexpress,
 
         /// <summary>
-        /// SPEEDCOURIERSGR.
+        /// SpeedcouriersGr.
         /// </summary>
         [EnumMember(Value = "SPEEDCOURIERS_GR")]
-        SPEEDCOURIERSGR,
+        SpeedcouriersGr,
 
         /// <summary>
-        /// FORRUN.
+        /// Forrun.
         /// </summary>
         [EnumMember(Value = "FORRUN")]
-        FORRUN,
+        Forrun,
 
         /// <summary>
-        /// PICKUP.
+        /// Pickup.
         /// </summary>
         [EnumMember(Value = "PICKUP")]
-        PICKUP,
+        Pickup,
 
         /// <summary>
-        /// ECMS.
+        /// Ecms.
         /// </summary>
         [EnumMember(Value = "ECMS")]
-        ECMS,
+        Ecms,
 
         /// <summary>
-        /// INTELIPOST.
+        /// Intelipost.
         /// </summary>
         [EnumMember(Value = "INTELIPOST")]
-        INTELIPOST,
+        Intelipost,
 
         /// <summary>
-        /// FLASHEXPRESS.
+        /// Flashexpress.
         /// </summary>
         [EnumMember(Value = "FLASHEXPRESS")]
-        FLASHEXPRESS,
+        Flashexpress,
 
         /// <summary>
-        /// CNSTO.
+        /// CnSto.
         /// </summary>
         [EnumMember(Value = "CN_STO")]
-        CNSTO,
+        CnSto,
 
         /// <summary>
-        /// SEKOSFTP.
+        /// SekoSftp.
         /// </summary>
         [EnumMember(Value = "SEKO_SFTP")]
-        SEKOSFTP,
+        SekoSftp,
 
         /// <summary>
-        /// HOMEDELIVERYSOLUTIONS.
+        /// HomeDeliverySolutions.
         /// </summary>
         [EnumMember(Value = "HOME_DELIVERY_SOLUTIONS")]
-        HOMEDELIVERYSOLUTIONS,
+        HomeDeliverySolutions,
 
         /// <summary>
-        /// DPDHGRY.
+        /// DpdHgry.
         /// </summary>
         [EnumMember(Value = "DPD_HGRY")]
-        DPDHGRY,
+        DpdHgry,
 
         /// <summary>
-        /// KERRYTTCVN.
+        /// KerryttcVn.
         /// </summary>
         [EnumMember(Value = "KERRYTTC_VN")]
-        KERRYTTCVN,
+        KerryttcVn,
 
         /// <summary>
-        /// JOYINGBOX.
+        /// JoyingBox.
         /// </summary>
         [EnumMember(Value = "JOYING_BOX")]
-        JOYINGBOX,
+        JoyingBox,
 
         /// <summary>
-        /// TOTALEXPRESS.
+        /// TotalExpress.
         /// </summary>
         [EnumMember(Value = "TOTAL_EXPRESS")]
-        TOTALEXPRESS,
+        TotalExpress,
 
         /// <summary>
-        /// ZJSEXPRESS.
+        /// ZjsExpress.
         /// </summary>
         [EnumMember(Value = "ZJS_EXPRESS")]
-        ZJSEXPRESS,
+        ZjsExpress,
 
         /// <summary>
-        /// STARKEN.
+        /// Starken.
         /// </summary>
         [EnumMember(Value = "STARKEN")]
-        STARKEN,
+        Starken,
 
         /// <summary>
-        /// DEMANDSHIP.
+        /// Demandship.
         /// </summary>
         [EnumMember(Value = "DEMANDSHIP")]
-        DEMANDSHIP,
+        Demandship,
 
         /// <summary>
-        /// CNDPEX.
+        /// CnDpex.
         /// </summary>
         [EnumMember(Value = "CN_DPEX")]
-        CNDPEX,
+        CnDpex,
 
         /// <summary>
-        /// AUPOSTCN.
+        /// AupostCn.
         /// </summary>
         [EnumMember(Value = "AUPOST_CN")]
-        AUPOSTCN,
+        AupostCn,
 
         /// <summary>
-        /// LOGISTERS.
+        /// Logisters.
         /// </summary>
         [EnumMember(Value = "LOGISTERS")]
-        LOGISTERS,
+        Logisters,
 
         /// <summary>
-        /// GOGLOBALPOST.
+        /// Goglobalpost.
         /// </summary>
         [EnumMember(Value = "GOGLOBALPOST")]
-        GOGLOBALPOST,
+        Goglobalpost,
 
         /// <summary>
-        /// GLSCZ.
+        /// GlsCz.
         /// </summary>
         [EnumMember(Value = "GLS_CZ")]
-        GLSCZ,
+        GlsCz,
 
         /// <summary>
-        /// PAACKWEBHOOK.
+        /// PaackWebhook.
         /// </summary>
         [EnumMember(Value = "PAACK_WEBHOOK")]
-        PAACKWEBHOOK,
+        PaackWebhook,
 
         /// <summary>
-        /// GRABWEBHOOK.
+        /// GrabWebhook.
         /// </summary>
         [EnumMember(Value = "GRAB_WEBHOOK")]
-        GRABWEBHOOK,
+        GrabWebhook,
 
         /// <summary>
-        /// PARCELPOINT.
+        /// Parcelpoint.
         /// </summary>
         [EnumMember(Value = "PARCELPOINT")]
-        PARCELPOINT,
+        Parcelpoint,
 
         /// <summary>
-        /// ICUMULUS.
+        /// Icumulus.
         /// </summary>
         [EnumMember(Value = "ICUMULUS")]
-        ICUMULUS,
+        Icumulus,
 
         /// <summary>
-        /// DAIGLOBALTRACK.
+        /// Daiglobaltrack.
         /// </summary>
         [EnumMember(Value = "DAIGLOBALTRACK")]
-        DAIGLOBALTRACK,
+        Daiglobaltrack,
 
         /// <summary>
-        /// GLOBALIPARCEL.
+        /// GlobalIparcel.
         /// </summary>
         [EnumMember(Value = "GLOBAL_IPARCEL")]
-        GLOBALIPARCEL,
+        GlobalIparcel,
 
         /// <summary>
-        /// YURTICIKARGO.
+        /// YurticiKargo.
         /// </summary>
         [EnumMember(Value = "YURTICI_KARGO")]
-        YURTICIKARGO,
+        YurticiKargo,
 
         /// <summary>
-        /// CNPAYPALPACKAGE.
+        /// CnPaypalPackage.
         /// </summary>
         [EnumMember(Value = "CN_PAYPAL_PACKAGE")]
-        CNPAYPALPACKAGE,
+        CnPaypalPackage,
 
         /// <summary>
-        /// PARCEL2POST.
+        /// Parcel2Post.
         /// </summary>
         [EnumMember(Value = "PARCEL_2_POST")]
-        PARCEL2POST,
+        Parcel2Post,
 
         /// <summary>
-        /// GLSIT.
+        /// GlsIt.
         /// </summary>
         [EnumMember(Value = "GLS_IT")]
-        GLSIT,
+        GlsIt,
 
         /// <summary>
-        /// PILLOGISTICS.
+        /// PilLogistics.
         /// </summary>
         [EnumMember(Value = "PIL_LOGISTICS")]
-        PILLOGISTICS,
+        PilLogistics,
 
         /// <summary>
-        /// HEPPNER.
+        /// Heppner.
         /// </summary>
         [EnumMember(Value = "HEPPNER")]
-        HEPPNER,
+        Heppner,
 
         /// <summary>
-        /// GENERALOVERNIGHT.
+        /// GeneralOvernight.
         /// </summary>
         [EnumMember(Value = "GENERAL_OVERNIGHT")]
-        GENERALOVERNIGHT,
+        GeneralOvernight,
 
         /// <summary>
-        /// HAPPY2POINT.
+        /// Happy2Point.
         /// </summary>
         [EnumMember(Value = "HAPPY2POINT")]
-        HAPPY2POINT,
+        Happy2Point,
 
         /// <summary>
-        /// CHITCHATS.
+        /// Chitchats.
         /// </summary>
         [EnumMember(Value = "CHITCHATS")]
-        CHITCHATS,
+        Chitchats,
 
         /// <summary>
-        /// SMOOTH.
+        /// Smooth.
         /// </summary>
         [EnumMember(Value = "SMOOTH")]
-        SMOOTH,
+        Smooth,
 
         /// <summary>
-        /// CLELOGISTICS.
+        /// CleLogistics.
         /// </summary>
         [EnumMember(Value = "CLE_LOGISTICS")]
-        CLELOGISTICS,
+        CleLogistics,
 
         /// <summary>
-        /// FIEGE.
+        /// Fiege.
         /// </summary>
         [EnumMember(Value = "FIEGE")]
-        FIEGE,
+        Fiege,
 
         /// <summary>
-        /// MXCARGO.
+        /// MxCargo.
         /// </summary>
         [EnumMember(Value = "MX_CARGO")]
-        MXCARGO,
+        MxCargo,
 
         /// <summary>
-        /// ZIINGFINALMILE.
+        /// Ziingfinalmile.
         /// </summary>
         [EnumMember(Value = "ZIINGFINALMILE")]
-        ZIINGFINALMILE,
+        Ziingfinalmile,
 
         /// <summary>
-        /// DAYTONFREIGHT.
+        /// DaytonFreight.
         /// </summary>
         [EnumMember(Value = "DAYTON_FREIGHT")]
-        DAYTONFREIGHT,
+        DaytonFreight,
 
         /// <summary>
-        /// TCS.
+        /// Tcs.
         /// </summary>
         [EnumMember(Value = "TCS")]
-        TCS,
+        Tcs,
 
         /// <summary>
-        /// AEX.
+        /// Aex.
         /// </summary>
         [EnumMember(Value = "AEX")]
-        AEX,
+        Aex,
 
         /// <summary>
-        /// HERMESDE.
+        /// HermesDe.
         /// </summary>
         [EnumMember(Value = "HERMES_DE")]
-        HERMESDE,
+        HermesDe,
 
         /// <summary>
-        /// ROUTIFICWEBHOOK.
+        /// RoutificWebhook.
         /// </summary>
         [EnumMember(Value = "ROUTIFIC_WEBHOOK")]
-        ROUTIFICWEBHOOK,
+        RoutificWebhook,
 
         /// <summary>
-        /// GLOBAVEND.
+        /// Globavend.
         /// </summary>
         [EnumMember(Value = "GLOBAVEND")]
-        GLOBAVEND,
+        Globavend,
 
         /// <summary>
-        /// CJLOGISTICS.
+        /// CjLogistics.
         /// </summary>
         [EnumMember(Value = "CJ_LOGISTICS")]
-        CJLOGISTICS,
+        CjLogistics,
 
         /// <summary>
-        /// PALLETNETWORK.
+        /// PalletNetwork.
         /// </summary>
         [EnumMember(Value = "PALLET_NETWORK")]
-        PALLETNETWORK,
+        PalletNetwork,
 
         /// <summary>
-        /// RAFPH.
+        /// RafPh.
         /// </summary>
         [EnumMember(Value = "RAF_PH")]
-        RAFPH,
+        RafPh,
 
         /// <summary>
-        /// UKXDP.
+        /// UkXdp.
         /// </summary>
         [EnumMember(Value = "UK_XDP")]
-        UKXDP,
+        UkXdp,
 
         /// <summary>
-        /// PAPEREXPRESS.
+        /// PaperExpress.
         /// </summary>
         [EnumMember(Value = "PAPER_EXPRESS")]
-        PAPEREXPRESS,
+        PaperExpress,
 
         /// <summary>
-        /// LAPOSTESUIVI.
+        /// LaPosteSuivi.
         /// </summary>
         [EnumMember(Value = "LA_POSTE_SUIVI")]
-        LAPOSTESUIVI,
+        LaPosteSuivi,
 
         /// <summary>
-        /// PAQUETEXPRESS.
+        /// Paquetexpress.
         /// </summary>
         [EnumMember(Value = "PAQUETEXPRESS")]
-        PAQUETEXPRESS,
+        Paquetexpress,
 
         /// <summary>
-        /// LIEFERY.
+        /// Liefery.
         /// </summary>
         [EnumMember(Value = "LIEFERY")]
-        LIEFERY,
+        Liefery,
 
         /// <summary>
-        /// STRECKTRANSPORT.
+        /// StreckTransport.
         /// </summary>
         [EnumMember(Value = "STRECK_TRANSPORT")]
-        STRECKTRANSPORT,
+        StreckTransport,
 
         /// <summary>
-        /// PONYEXPRESS.
+        /// PonyExpress.
         /// </summary>
         [EnumMember(Value = "PONY_EXPRESS")]
-        PONYEXPRESS,
+        PonyExpress,
 
         /// <summary>
-        /// ALWAYSEXPRESS.
+        /// AlwaysExpress.
         /// </summary>
         [EnumMember(Value = "ALWAYS_EXPRESS")]
-        ALWAYSEXPRESS,
+        AlwaysExpress,
 
         /// <summary>
-        /// GBSBROKER.
+        /// GbsBroker.
         /// </summary>
         [EnumMember(Value = "GBS_BROKER")]
-        GBSBROKER,
+        GbsBroker,
 
         /// <summary>
-        /// CITYLINKMY.
+        /// CitylinkMy.
         /// </summary>
         [EnumMember(Value = "CITYLINK_MY")]
-        CITYLINKMY,
+        CitylinkMy,
 
         /// <summary>
-        /// ALLJOY.
+        /// Alljoy.
         /// </summary>
         [EnumMember(Value = "ALLJOY")]
-        ALLJOY,
+        Alljoy,
 
         /// <summary>
-        /// YODEL.
+        /// Yodel.
         /// </summary>
         [EnumMember(Value = "YODEL")]
-        YODEL,
+        Yodel,
 
         /// <summary>
-        /// YODELDIR.
+        /// YodelDir.
         /// </summary>
         [EnumMember(Value = "YODEL_DIR")]
-        YODELDIR,
+        YodelDir,
 
         /// <summary>
-        /// STONE3PL.
+        /// Stone3Pl.
         /// </summary>
         [EnumMember(Value = "STONE3PL")]
-        STONE3PL,
+        Stone3Pl,
 
         /// <summary>
-        /// PARCELPALWEBHOOK.
+        /// ParcelpalWebhook.
         /// </summary>
         [EnumMember(Value = "PARCELPAL_WEBHOOK")]
-        PARCELPALWEBHOOK,
+        ParcelpalWebhook,
 
         /// <summary>
-        /// DHLECOMERCEASA.
+        /// DhlEcomerceAsa.
         /// </summary>
         [EnumMember(Value = "DHL_ECOMERCE_ASA")]
-        DHLECOMERCEASA,
+        DhlEcomerceAsa,
 
         /// <summary>
-        /// SIMPLYPOST.
+        /// Simplypost.
         /// </summary>
         [EnumMember(Value = "SIMPLYPOST")]
-        SIMPLYPOST,
+        Simplypost,
 
         /// <summary>
-        /// KYEXPRESS.
+        /// KyExpress.
         /// </summary>
         [EnumMember(Value = "KY_EXPRESS")]
-        KYEXPRESS,
+        KyExpress,
 
         /// <summary>
-        /// SHENZHEN.
+        /// Shenzhen.
         /// </summary>
         [EnumMember(Value = "SHENZHEN")]
-        SHENZHEN,
+        Shenzhen,
 
         /// <summary>
-        /// USLASERSHIP.
+        /// UsLasership.
         /// </summary>
         [EnumMember(Value = "US_LASERSHIP")]
-        USLASERSHIP,
+        UsLasership,
 
         /// <summary>
-        /// UCEXPRE.
+        /// UcExpre.
         /// </summary>
         [EnumMember(Value = "UC_EXPRE")]
-        UCEXPRE,
+        UcExpre,
 
         /// <summary>
-        /// DIDADI.
+        /// Didadi.
         /// </summary>
         [EnumMember(Value = "DIDADI")]
-        DIDADI,
+        Didadi,
 
         /// <summary>
-        /// CJKR.
+        /// CjKr.
         /// </summary>
         [EnumMember(Value = "CJ_KR")]
-        CJKR,
+        CjKr,
 
         /// <summary>
-        /// DBSCHENKERB2B.
+        /// DbschenkerB2B.
         /// </summary>
         [EnumMember(Value = "DBSCHENKER_B2B")]
-        DBSCHENKERB2B,
+        DbschenkerB2B,
 
         /// <summary>
-        /// MXE.
+        /// Mxe.
         /// </summary>
         [EnumMember(Value = "MXE")]
-        MXE,
+        Mxe,
 
         /// <summary>
-        /// CAEDELIVERS.
+        /// CaeDelivers.
         /// </summary>
         [EnumMember(Value = "CAE_DELIVERS")]
-        CAEDELIVERS,
+        CaeDelivers,
 
         /// <summary>
-        /// PFCEXPRESS.
+        /// Pfcexpress.
         /// </summary>
         [EnumMember(Value = "PFCEXPRESS")]
-        PFCEXPRESS,
+        Pfcexpress,
 
         /// <summary>
-        /// WHISTL.
+        /// Whistl.
         /// </summary>
         [EnumMember(Value = "WHISTL")]
-        WHISTL,
+        Whistl,
 
         /// <summary>
-        /// WEPOST.
+        /// Wepost.
         /// </summary>
         [EnumMember(Value = "WEPOST")]
-        WEPOST,
+        Wepost,
 
         /// <summary>
-        /// DHLPARCELES.
+        /// DhlParcelEs.
         /// </summary>
         [EnumMember(Value = "DHL_PARCEL_ES")]
-        DHLPARCELES,
+        DhlParcelEs,
 
         /// <summary>
-        /// DDEXPRESS.
+        /// Ddexpress.
         /// </summary>
         [EnumMember(Value = "DDEXPRESS")]
-        DDEXPRESS,
+        Ddexpress,
 
         /// <summary>
-        /// ARAMEXAU.
+        /// AramexAu.
         /// </summary>
         [EnumMember(Value = "ARAMEX_AU")]
-        ARAMEXAU,
+        AramexAu,
 
         /// <summary>
-        /// BNEED.
+        /// Bneed.
         /// </summary>
         [EnumMember(Value = "BNEED")]
-        BNEED,
+        Bneed,
 
         /// <summary>
-        /// HKTGX.
+        /// HkTgx.
         /// </summary>
         [EnumMember(Value = "HK_TGX")]
-        HKTGX,
+        HkTgx,
 
         /// <summary>
-        /// LATVIJASPASTS.
+        /// LatvijasPasts.
         /// </summary>
         [EnumMember(Value = "LATVIJAS_PASTS")]
-        LATVIJASPASTS,
+        LatvijasPasts,
 
         /// <summary>
-        /// VIAEUROPE.
+        /// Viaeurope.
         /// </summary>
         [EnumMember(Value = "VIAEUROPE")]
-        VIAEUROPE,
+        Viaeurope,
 
         /// <summary>
-        /// CORREOUY.
+        /// CorreoUy.
         /// </summary>
         [EnumMember(Value = "CORREO_UY")]
-        CORREOUY,
+        CorreoUy,
 
         /// <summary>
-        /// CHRONOPOSTFR.
+        /// ChronopostFr.
         /// </summary>
         [EnumMember(Value = "CHRONOPOST_FR")]
-        CHRONOPOSTFR,
+        ChronopostFr,
 
         /// <summary>
-        /// JNET.
+        /// JNet.
         /// </summary>
         [EnumMember(Value = "J_NET")]
-        JNET,
+        JNet,
 
         /// <summary>
-        /// _6LS.
+        /// _6Ls.
         /// </summary>
         [EnumMember(Value = "_6LS")]
-        _6LS,
+        _6Ls,
 
         /// <summary>
-        /// BLRBELPOST.
+        /// BlrBelpost.
         /// </summary>
         [EnumMember(Value = "BLR_BELPOST")]
-        BLRBELPOST,
+        BlrBelpost,
 
         /// <summary>
-        /// BIRDSYSTEM.
+        /// Birdsystem.
         /// </summary>
         [EnumMember(Value = "BIRDSYSTEM")]
-        BIRDSYSTEM,
+        Birdsystem,
 
         /// <summary>
-        /// DOBROPOST.
+        /// Dobropost.
         /// </summary>
         [EnumMember(Value = "DOBROPOST")]
-        DOBROPOST,
+        Dobropost,
 
         /// <summary>
-        /// WAHANAID.
+        /// WahanaId.
         /// </summary>
         [EnumMember(Value = "WAHANA_ID")]
-        WAHANAID,
+        WahanaId,
 
         /// <summary>
-        /// WEASHIP.
+        /// Weaship.
         /// </summary>
         [EnumMember(Value = "WEASHIP")]
-        WEASHIP,
+        Weaship,
 
         /// <summary>
-        /// SONICTL.
+        /// Sonictl.
         /// </summary>
         [EnumMember(Value = "SONICTL")]
-        SONICTL,
+        Sonictl,
 
         /// <summary>
-        /// KWT.
+        /// Kwt.
         /// </summary>
         [EnumMember(Value = "KWT")]
-        KWT,
+        Kwt,
 
         /// <summary>
-        /// AFLLOGFTP.
+        /// AfllogFtp.
         /// </summary>
         [EnumMember(Value = "AFLLOG_FTP")]
-        AFLLOGFTP,
+        AfllogFtp,
 
         /// <summary>
-        /// SKYNETWORLDWIDE.
+        /// SkynetWorldwide.
         /// </summary>
         [EnumMember(Value = "SKYNET_WORLDWIDE")]
-        SKYNETWORLDWIDE,
+        SkynetWorldwide,
 
         /// <summary>
-        /// NOVAPOSHTA.
+        /// NovaPoshta.
         /// </summary>
         [EnumMember(Value = "NOVA_POSHTA")]
-        NOVAPOSHTA,
+        NovaPoshta,
 
         /// <summary>
-        /// SEINO.
+        /// Seino.
         /// </summary>
         [EnumMember(Value = "SEINO")]
-        SEINO,
+        Seino,
 
         /// <summary>
-        /// SZENDEX.
+        /// Szendex.
         /// </summary>
         [EnumMember(Value = "SZENDEX")]
-        SZENDEX,
+        Szendex,
 
         /// <summary>
-        /// BPOSTINT.
+        /// BpostInt.
         /// </summary>
         [EnumMember(Value = "BPOST_INT")]
-        BPOSTINT,
+        BpostInt,
 
         /// <summary>
-        /// DBSCHENKERSV.
+        /// DbschenkerSv.
         /// </summary>
         [EnumMember(Value = "DBSCHENKER_SV")]
-        DBSCHENKERSV,
+        DbschenkerSv,
 
         /// <summary>
-        /// AODEUTSCHLAND.
+        /// AoDeutschland.
         /// </summary>
         [EnumMember(Value = "AO_DEUTSCHLAND")]
-        AODEUTSCHLAND,
+        AoDeutschland,
 
         /// <summary>
-        /// EUFLEETSOLUTIONS.
+        /// EuFleetSolutions.
         /// </summary>
         [EnumMember(Value = "EU_FLEET_SOLUTIONS")]
-        EUFLEETSOLUTIONS,
+        EuFleetSolutions,
 
         /// <summary>
-        /// PCFCORP.
+        /// Pcfcorp.
         /// </summary>
         [EnumMember(Value = "PCFCORP")]
-        PCFCORP,
+        Pcfcorp,
 
         /// <summary>
-        /// LINKBRIDGE.
+        /// Linkbridge.
         /// </summary>
         [EnumMember(Value = "LINKBRIDGE")]
-        LINKBRIDGE,
+        Linkbridge,
 
         /// <summary>
-        /// PRIMAMULTICIPTA.
+        /// Primamulticipta.
         /// </summary>
         [EnumMember(Value = "PRIMAMULTICIPTA")]
-        PRIMAMULTICIPTA,
+        Primamulticipta,
 
         /// <summary>
-        /// COUREX.
+        /// Courex.
         /// </summary>
         [EnumMember(Value = "COUREX")]
-        COUREX,
+        Courex,
 
         /// <summary>
-        /// ZAJILEXPRESS.
+        /// ZajilExpress.
         /// </summary>
         [EnumMember(Value = "ZAJIL_EXPRESS")]
-        ZAJILEXPRESS,
+        ZajilExpress,
 
         /// <summary>
-        /// COLLECTCO.
+        /// Collectco.
         /// </summary>
         [EnumMember(Value = "COLLECTCO")]
-        COLLECTCO,
+        Collectco,
 
         /// <summary>
-        /// JTEXPRESS.
+        /// Jtexpress.
         /// </summary>
         [EnumMember(Value = "JTEXPRESS")]
-        JTEXPRESS,
+        Jtexpress,
 
         /// <summary>
-        /// FEDEXUK.
+        /// FedexUk.
         /// </summary>
         [EnumMember(Value = "FEDEX_UK")]
-        FEDEXUK,
+        FedexUk,
 
         /// <summary>
-        /// USHIP.
+        /// Uship.
         /// </summary>
         [EnumMember(Value = "USHIP")]
-        USHIP,
+        Uship,
 
         /// <summary>
-        /// PIXSELL.
+        /// Pixsell.
         /// </summary>
         [EnumMember(Value = "PIXSELL")]
-        PIXSELL,
+        Pixsell,
 
         /// <summary>
-        /// SHIPTOR.
+        /// Shiptor.
         /// </summary>
         [EnumMember(Value = "SHIPTOR")]
-        SHIPTOR,
+        Shiptor,
 
         /// <summary>
-        /// CDEK.
+        /// Cdek.
         /// </summary>
         [EnumMember(Value = "CDEK")]
-        CDEK,
+        Cdek,
 
         /// <summary>
-        /// VNMVIETTELPOST.
+        /// VnmViettelpost.
         /// </summary>
         [EnumMember(Value = "VNM_VIETTELPOST")]
-        VNMVIETTELPOST,
+        VnmViettelpost,
 
         /// <summary>
-        /// CJCENTURY.
+        /// CjCentury.
         /// </summary>
         [EnumMember(Value = "CJ_CENTURY")]
-        CJCENTURY,
+        CjCentury,
 
         /// <summary>
-        /// GSO.
+        /// Gso.
         /// </summary>
         [EnumMember(Value = "GSO")]
-        GSO,
+        Gso,
 
         /// <summary>
-        /// VIWO.
+        /// Viwo.
         /// </summary>
         [EnumMember(Value = "VIWO")]
-        VIWO,
+        Viwo,
 
         /// <summary>
-        /// SKYBOX.
+        /// Skybox.
         /// </summary>
         [EnumMember(Value = "SKYBOX")]
-        SKYBOX,
+        Skybox,
 
         /// <summary>
-        /// KERRYTJ.
+        /// Kerrytj.
         /// </summary>
         [EnumMember(Value = "KERRYTJ")]
-        KERRYTJ,
+        Kerrytj,
 
         /// <summary>
-        /// NTLOGISTICSVN.
+        /// NtlogisticsVn.
         /// </summary>
         [EnumMember(Value = "NTLOGISTICS_VN")]
-        NTLOGISTICSVN,
+        NtlogisticsVn,
 
         /// <summary>
-        /// SDHSCM.
+        /// SdhScm.
         /// </summary>
         [EnumMember(Value = "SDH_SCM")]
-        SDHSCM,
+        SdhScm,
 
         /// <summary>
-        /// ZINC.
+        /// Zinc.
         /// </summary>
         [EnumMember(Value = "ZINC")]
-        ZINC,
+        Zinc,
 
         /// <summary>
-        /// DPESOUTHAFRC.
+        /// DpeSouthAfrc.
         /// </summary>
         [EnumMember(Value = "DPE_SOUTH_AFRC")]
-        DPESOUTHAFRC,
+        DpeSouthAfrc,
 
         /// <summary>
-        /// CESKACZ.
+        /// CeskaCz.
         /// </summary>
         [EnumMember(Value = "CESKA_CZ")]
-        CESKACZ,
+        CeskaCz,
 
         /// <summary>
-        /// ACSGR.
+        /// AcsGr.
         /// </summary>
         [EnumMember(Value = "ACS_GR")]
-        ACSGR,
+        AcsGr,
 
         /// <summary>
-        /// DEALERSEND.
+        /// Dealersend.
         /// </summary>
         [EnumMember(Value = "DEALERSEND")]
-        DEALERSEND,
+        Dealersend,
 
         /// <summary>
-        /// JOCOM.
+        /// Jocom.
         /// </summary>
         [EnumMember(Value = "JOCOM")]
-        JOCOM,
+        Jocom,
 
         /// <summary>
-        /// CSE.
+        /// Cse.
         /// </summary>
         [EnumMember(Value = "CSE")]
-        CSE,
+        Cse,
 
         /// <summary>
-        /// TFORCEFINALMILE.
+        /// TforceFinalmile.
         /// </summary>
         [EnumMember(Value = "TFORCE_FINALMILE")]
-        TFORCEFINALMILE,
+        TforceFinalmile,
 
         /// <summary>
-        /// SHIPGATE.
+        /// ShipGate.
         /// </summary>
         [EnumMember(Value = "SHIP_GATE")]
-        SHIPGATE,
+        ShipGate,
 
         /// <summary>
-        /// SHIPTER.
+        /// Shipter.
         /// </summary>
         [EnumMember(Value = "SHIPTER")]
-        SHIPTER,
+        Shipter,
 
         /// <summary>
-        /// NATIONALSAMEDAY.
+        /// NationalSameday.
         /// </summary>
         [EnumMember(Value = "NATIONAL_SAMEDAY")]
-        NATIONALSAMEDAY,
+        NationalSameday,
 
         /// <summary>
-        /// YUNEXPRESS.
+        /// Yunexpress.
         /// </summary>
         [EnumMember(Value = "YUNEXPRESS")]
-        YUNEXPRESS,
+        Yunexpress,
 
         /// <summary>
-        /// CAINIAO.
+        /// Cainiao.
         /// </summary>
         [EnumMember(Value = "CAINIAO")]
-        CAINIAO,
+        Cainiao,
 
         /// <summary>
-        /// DMSMATRIX.
+        /// DmsMatrix.
         /// </summary>
         [EnumMember(Value = "DMS_MATRIX")]
-        DMSMATRIX,
+        DmsMatrix,
 
         /// <summary>
-        /// DIRECTLOG.
+        /// Directlog.
         /// </summary>
         [EnumMember(Value = "DIRECTLOG")]
-        DIRECTLOG,
+        Directlog,
 
         /// <summary>
-        /// ASENDIAUS.
+        /// AsendiaUs.
         /// </summary>
         [EnumMember(Value = "ASENDIA_US")]
-        ASENDIAUS,
+        AsendiaUs,
 
         /// <summary>
-        /// _3JMSLOGISTICS.
+        /// _3Jmslogistics.
         /// </summary>
         [EnumMember(Value = "_3JMSLOGISTICS")]
-        _3JMSLOGISTICS,
+        _3Jmslogistics,
 
         /// <summary>
-        /// LICCARDIEXPRESS.
+        /// LiccardiExpress.
         /// </summary>
         [EnumMember(Value = "LICCARDI_EXPRESS")]
-        LICCARDIEXPRESS,
+        LiccardiExpress,
 
         /// <summary>
-        /// SKYPOSTAL.
+        /// SkyPostal.
         /// </summary>
         [EnumMember(Value = "SKY_POSTAL")]
-        SKYPOSTAL,
+        SkyPostal,
 
         /// <summary>
-        /// CNWANGTONG.
+        /// Cnwangtong.
         /// </summary>
         [EnumMember(Value = "CNWANGTONG")]
-        CNWANGTONG,
+        Cnwangtong,
 
         /// <summary>
-        /// POSTNORDLOGISTICSDK.
+        /// PostnordLogisticsDk.
         /// </summary>
         [EnumMember(Value = "POSTNORD_LOGISTICS_DK")]
-        POSTNORDLOGISTICSDK,
+        PostnordLogisticsDk,
 
         /// <summary>
-        /// LOGISTIKA.
+        /// Logistika.
         /// </summary>
         [EnumMember(Value = "LOGISTIKA")]
-        LOGISTIKA,
+        Logistika,
 
         /// <summary>
-        /// CELERITAS.
+        /// Celeritas.
         /// </summary>
         [EnumMember(Value = "CELERITAS")]
-        CELERITAS,
+        Celeritas,
 
         /// <summary>
-        /// PRESSIODE.
+        /// Pressiode.
         /// </summary>
         [EnumMember(Value = "PRESSIODE")]
-        PRESSIODE,
+        Pressiode,
 
         /// <summary>
-        /// SHREEMARUTI.
+        /// ShreeMaruti.
         /// </summary>
         [EnumMember(Value = "SHREE_MARUTI")]
-        SHREEMARUTI,
+        ShreeMaruti,
 
         /// <summary>
-        /// LOGISTICSWORLDWIDEHK.
+        /// LogisticsworldwideHk.
         /// </summary>
         [EnumMember(Value = "LOGISTICSWORLDWIDE_HK")]
-        LOGISTICSWORLDWIDEHK,
+        LogisticsworldwideHk,
 
         /// <summary>
-        /// EFEX.
+        /// Efex.
         /// </summary>
         [EnumMember(Value = "EFEX")]
-        EFEX,
+        Efex,
 
         /// <summary>
-        /// LOTTE.
+        /// Lotte.
         /// </summary>
         [EnumMember(Value = "LOTTE")]
-        LOTTE,
+        Lotte,
 
         /// <summary>
-        /// LONESTAR.
+        /// Lonestar.
         /// </summary>
         [EnumMember(Value = "LONESTAR")]
-        LONESTAR,
+        Lonestar,
 
         /// <summary>
-        /// APRISAEXPRESS.
+        /// Aprisaexpress.
         /// </summary>
         [EnumMember(Value = "APRISAEXPRESS")]
-        APRISAEXPRESS,
+        Aprisaexpress,
 
         /// <summary>
-        /// BELRS.
+        /// BelRs.
         /// </summary>
         [EnumMember(Value = "BEL_RS")]
-        BELRS,
+        BelRs,
 
         /// <summary>
-        /// OSMWORLDWIDE.
+        /// OsmWorldwide.
         /// </summary>
         [EnumMember(Value = "OSM_WORLDWIDE")]
-        OSMWORLDWIDE,
+        OsmWorldwide,
 
         /// <summary>
-        /// WESTGATEGL.
+        /// WestgateGl.
         /// </summary>
         [EnumMember(Value = "WESTGATE_GL")]
-        WESTGATEGL,
+        WestgateGl,
 
         /// <summary>
-        /// FASTRACK.
+        /// Fastrack.
         /// </summary>
         [EnumMember(Value = "FASTRACK")]
-        FASTRACK,
+        Fastrack,
 
         /// <summary>
-        /// DTDEXPR.
+        /// DtdExpr.
         /// </summary>
         [EnumMember(Value = "DTD_EXPR")]
-        DTDEXPR,
+        DtdExpr,
 
         /// <summary>
-        /// ALFATREX.
+        /// Alfatrex.
         /// </summary>
         [EnumMember(Value = "ALFATREX")]
-        ALFATREX,
+        Alfatrex,
 
         /// <summary>
-        /// PROMEDDELIVERY.
+        /// Promeddelivery.
         /// </summary>
         [EnumMember(Value = "PROMEDDELIVERY")]
-        PROMEDDELIVERY,
+        Promeddelivery,
 
         /// <summary>
-        /// THABITLOGISTICS.
+        /// ThabitLogistics.
         /// </summary>
         [EnumMember(Value = "THABIT_LOGISTICS")]
-        THABITLOGISTICS,
+        ThabitLogistics,
 
         /// <summary>
-        /// HCTLOGISTICS.
+        /// HctLogistics.
         /// </summary>
         [EnumMember(Value = "HCT_LOGISTICS")]
-        HCTLOGISTICS,
+        HctLogistics,
 
         /// <summary>
-        /// CARRYFLAP.
+        /// CarryFlap.
         /// </summary>
         [EnumMember(Value = "CARRY_FLAP")]
-        CARRYFLAP,
+        CarryFlap,
 
         /// <summary>
-        /// USOLDDOMINION.
+        /// UsOldDominion.
         /// </summary>
         [EnumMember(Value = "US_OLD_DOMINION")]
-        USOLDDOMINION,
+        UsOldDominion,
 
         /// <summary>
-        /// ANICAMBOX.
+        /// AnicamBox.
         /// </summary>
         [EnumMember(Value = "ANICAM_BOX")]
-        ANICAMBOX,
+        AnicamBox,
 
         /// <summary>
-        /// WANBEXPRESS.
+        /// Wanbexpress.
         /// </summary>
         [EnumMember(Value = "WANBEXPRESS")]
-        WANBEXPRESS,
+        Wanbexpress,
 
         /// <summary>
-        /// ANPOST.
+        /// AnPost.
         /// </summary>
         [EnumMember(Value = "AN_POST")]
-        ANPOST,
+        AnPost,
 
         /// <summary>
-        /// DPDLOCAL.
+        /// DpdLocal.
         /// </summary>
         [EnumMember(Value = "DPD_LOCAL")]
-        DPDLOCAL,
+        DpdLocal,
 
         /// <summary>
-        /// STALLIONEXPRESS.
+        /// Stallionexpress.
         /// </summary>
         [EnumMember(Value = "STALLIONEXPRESS")]
-        STALLIONEXPRESS,
+        Stallionexpress,
 
         /// <summary>
-        /// RAIDEREX.
+        /// Raiderex.
         /// </summary>
         [EnumMember(Value = "RAIDEREX")]
-        RAIDEREX,
+        Raiderex,
 
         /// <summary>
-        /// SHOPFANS.
+        /// Shopfans.
         /// </summary>
         [EnumMember(Value = "SHOPFANS")]
-        SHOPFANS,
+        Shopfans,
 
         /// <summary>
-        /// KYUNGDONGPARCEL.
+        /// KyungdongParcel.
         /// </summary>
         [EnumMember(Value = "KYUNGDONG_PARCEL")]
-        KYUNGDONGPARCEL,
+        KyungdongParcel,
 
         /// <summary>
-        /// CHAMPIONLOGISTICS.
+        /// ChampionLogistics.
         /// </summary>
         [EnumMember(Value = "CHAMPION_LOGISTICS")]
-        CHAMPIONLOGISTICS,
+        ChampionLogistics,
 
         /// <summary>
-        /// PICKUPPSGP.
+        /// PickuppSgp.
         /// </summary>
         [EnumMember(Value = "PICKUPP_SGP")]
-        PICKUPPSGP,
+        PickuppSgp,
 
         /// <summary>
-        /// MORNINGEXPRESS.
+        /// MorningExpress.
         /// </summary>
         [EnumMember(Value = "MORNING_EXPRESS")]
-        MORNINGEXPRESS,
+        MorningExpress,
 
         /// <summary>
-        /// NACEX.
+        /// Nacex.
         /// </summary>
         [EnumMember(Value = "NACEX")]
-        NACEX,
+        Nacex,
 
         /// <summary>
-        /// THENILEWEBHOOK.
+        /// ThenileWebhook.
         /// </summary>
         [EnumMember(Value = "THENILE_WEBHOOK")]
-        THENILEWEBHOOK,
+        ThenileWebhook,
 
         /// <summary>
-        /// HOLISOL.
+        /// Holisol.
         /// </summary>
         [EnumMember(Value = "HOLISOL")]
-        HOLISOL,
+        Holisol,
 
         /// <summary>
-        /// LBCEXPRESSFTP.
+        /// LbcexpressFtp.
         /// </summary>
         [EnumMember(Value = "LBCEXPRESS_FTP")]
-        LBCEXPRESSFTP,
+        LbcexpressFtp,
 
         /// <summary>
-        /// KURASI.
+        /// Kurasi.
         /// </summary>
         [EnumMember(Value = "KURASI")]
-        KURASI,
+        Kurasi,
 
         /// <summary>
-        /// USFREDDAWAY.
+        /// UsfReddaway.
         /// </summary>
         [EnumMember(Value = "USF_REDDAWAY")]
-        USFREDDAWAY,
+        UsfReddaway,
 
         /// <summary>
-        /// APG.
+        /// Apg.
         /// </summary>
         [EnumMember(Value = "APG")]
-        APG,
+        Apg,
 
         /// <summary>
-        /// CNBOXC.
+        /// CnBoxc.
         /// </summary>
         [EnumMember(Value = "CN_BOXC")]
-        CNBOXC,
+        CnBoxc,
 
         /// <summary>
-        /// ECOSCOOTING.
+        /// Ecoscooting.
         /// </summary>
         [EnumMember(Value = "ECOSCOOTING")]
-        ECOSCOOTING,
+        Ecoscooting,
 
         /// <summary>
-        /// MAINWAY.
+        /// Mainway.
         /// </summary>
         [EnumMember(Value = "MAINWAY")]
-        MAINWAY,
+        Mainway,
 
         /// <summary>
-        /// PAPERFLY.
+        /// Paperfly.
         /// </summary>
         [EnumMember(Value = "PAPERFLY")]
-        PAPERFLY,
+        Paperfly,
 
         /// <summary>
-        /// HOUNDEXPRESS.
+        /// Houndexpress.
         /// </summary>
         [EnumMember(Value = "HOUNDEXPRESS")]
-        HOUNDEXPRESS,
+        Houndexpress,
 
         /// <summary>
-        /// BOXBERRY.
+        /// BoxBerry.
         /// </summary>
         [EnumMember(Value = "BOX_BERRY")]
-        BOXBERRY,
+        BoxBerry,
 
         /// <summary>
-        /// EPBOX.
+        /// EpBox.
         /// </summary>
         [EnumMember(Value = "EP_BOX")]
-        EPBOX,
+        EpBox,
 
         /// <summary>
-        /// PLUSLOGUK.
+        /// PlusLogUk.
         /// </summary>
         [EnumMember(Value = "PLUS_LOG_UK")]
-        PLUSLOGUK,
+        PlusLogUk,
 
         /// <summary>
-        /// FULFILLA.
+        /// Fulfilla.
         /// </summary>
         [EnumMember(Value = "FULFILLA")]
-        FULFILLA,
+        Fulfilla,
 
         /// <summary>
-        /// ASE.
+        /// Ase.
         /// </summary>
         [EnumMember(Value = "ASE")]
-        ASE,
+        Ase,
 
         /// <summary>
-        /// MAILPLUS.
+        /// MailPlus.
         /// </summary>
         [EnumMember(Value = "MAIL_PLUS")]
-        MAILPLUS,
+        MailPlus,
 
         /// <summary>
-        /// XPOLOGISTICS.
+        /// XpoLogistics.
         /// </summary>
         [EnumMember(Value = "XPO_LOGISTICS")]
-        XPOLOGISTICS,
+        XpoLogistics,
 
         /// <summary>
-        /// WNDIRECT.
+        /// Wndirect.
         /// </summary>
         [EnumMember(Value = "WNDIRECT")]
-        WNDIRECT,
+        Wndirect,
 
         /// <summary>
-        /// CLOUDWISHASIA.
+        /// CloudwishAsia.
         /// </summary>
         [EnumMember(Value = "CLOUDWISH_ASIA")]
-        CLOUDWISHASIA,
+        CloudwishAsia,
 
         /// <summary>
-        /// ZELERIS.
+        /// Zeleris.
         /// </summary>
         [EnumMember(Value = "ZELERIS")]
-        ZELERIS,
+        Zeleris,
 
         /// <summary>
-        /// GIOEXPRESS.
+        /// GioExpress.
         /// </summary>
         [EnumMember(Value = "GIO_EXPRESS")]
-        GIOEXPRESS,
+        GioExpress,
 
         /// <summary>
-        /// OCSWORLDWIDE.
+        /// OcsWorldwide.
         /// </summary>
         [EnumMember(Value = "OCS_WORLDWIDE")]
-        OCSWORLDWIDE,
+        OcsWorldwide,
 
         /// <summary>
-        /// ARKLOGISTICS.
+        /// ArkLogistics.
         /// </summary>
         [EnumMember(Value = "ARK_LOGISTICS")]
-        ARKLOGISTICS,
+        ArkLogistics,
 
         /// <summary>
-        /// AQUILINE.
+        /// Aquiline.
         /// </summary>
         [EnumMember(Value = "AQUILINE")]
-        AQUILINE,
+        Aquiline,
 
         /// <summary>
-        /// PILOTFREIGHT.
+        /// PilotFreight.
         /// </summary>
         [EnumMember(Value = "PILOT_FREIGHT")]
-        PILOTFREIGHT,
+        PilotFreight,
 
         /// <summary>
-        /// QWINTRY.
+        /// Qwintry.
         /// </summary>
         [EnumMember(Value = "QWINTRY")]
-        QWINTRY,
+        Qwintry,
 
         /// <summary>
-        /// DANSKEFRAGT.
+        /// DanskeFragt.
         /// </summary>
         [EnumMember(Value = "DANSKE_FRAGT")]
-        DANSKEFRAGT,
+        DanskeFragt,
 
         /// <summary>
-        /// CARRIERS.
+        /// Carriers.
         /// </summary>
         [EnumMember(Value = "CARRIERS")]
-        CARRIERS,
+        Carriers,
 
         /// <summary>
-        /// AIRCANADAGLOBAL.
+        /// AirCanadaGlobal.
         /// </summary>
         [EnumMember(Value = "AIR_CANADA_GLOBAL")]
-        AIRCANADAGLOBAL,
+        AirCanadaGlobal,
 
         /// <summary>
-        /// PRESIDENTTRANS.
+        /// PresidentTrans.
         /// </summary>
         [EnumMember(Value = "PRESIDENT_TRANS")]
-        PRESIDENTTRANS,
+        PresidentTrans,
 
         /// <summary>
-        /// STEPFORWARDFS.
+        /// Stepforwardfs.
         /// </summary>
         [EnumMember(Value = "STEPFORWARDFS")]
-        STEPFORWARDFS,
+        Stepforwardfs,
 
         /// <summary>
-        /// SKYNETUK.
+        /// SkynetUk.
         /// </summary>
         [EnumMember(Value = "SKYNET_UK")]
-        SKYNETUK,
+        SkynetUk,
 
         /// <summary>
-        /// PITTOHIO.
+        /// Pittohio.
         /// </summary>
         [EnumMember(Value = "PITTOHIO")]
-        PITTOHIO,
+        Pittohio,
 
         /// <summary>
-        /// CORREOSEXPRESS.
+        /// CorreosExpress.
         /// </summary>
         [EnumMember(Value = "CORREOS_EXPRESS")]
-        CORREOSEXPRESS,
+        CorreosExpress,
 
         /// <summary>
-        /// RLUS.
+        /// RlUs.
         /// </summary>
         [EnumMember(Value = "RL_US")]
-        RLUS,
+        RlUs,
 
         /// <summary>
-        /// MARAXPRESS.
+        /// MaraXpress.
         /// </summary>
         [EnumMember(Value = "MARA_XPRESS")]
-        MARAXPRESS,
+        MaraXpress,
 
         /// <summary>
-        /// DESTINY.
+        /// Destiny.
         /// </summary>
         [EnumMember(Value = "DESTINY")]
-        DESTINY,
+        Destiny,
 
         /// <summary>
-        /// UKYODEL.
+        /// UkYodel.
         /// </summary>
         [EnumMember(Value = "UK_YODEL")]
-        UKYODEL,
+        UkYodel,
 
         /// <summary>
-        /// COMETTECH.
+        /// CometTech.
         /// </summary>
         [EnumMember(Value = "COMET_TECH")]
-        COMETTECH,
+        CometTech,
 
         /// <summary>
-        /// DHLPARCELRU.
+        /// DhlParcelRu.
         /// </summary>
         [EnumMember(Value = "DHL_PARCEL_RU")]
-        DHLPARCELRU,
+        DhlParcelRu,
 
         /// <summary>
-        /// TNTREFR.
+        /// TntRefr.
         /// </summary>
         [EnumMember(Value = "TNT_REFR")]
-        TNTREFR,
+        TntRefr,
 
         /// <summary>
-        /// SHREEANJANICOURIER.
+        /// ShreeAnjaniCourier.
         /// </summary>
         [EnumMember(Value = "SHREE_ANJANI_COURIER")]
-        SHREEANJANICOURIER,
+        ShreeAnjaniCourier,
 
         /// <summary>
-        /// MIKROPAKKETBE.
+        /// MikropakketBe.
         /// </summary>
         [EnumMember(Value = "MIKROPAKKET_BE")]
-        MIKROPAKKETBE,
+        MikropakketBe,
 
         /// <summary>
-        /// ETSEXPRESS.
+        /// EtsExpress.
         /// </summary>
         [EnumMember(Value = "ETS_EXPRESS")]
-        ETSEXPRESS,
+        EtsExpress,
 
         /// <summary>
-        /// COLISPRIVE.
+        /// ColisPrive.
         /// </summary>
         [EnumMember(Value = "COLIS_PRIVE")]
-        COLISPRIVE,
+        ColisPrive,
 
         /// <summary>
-        /// CNYUNDA.
+        /// CnYunda.
         /// </summary>
         [EnumMember(Value = "CN_YUNDA")]
-        CNYUNDA,
+        CnYunda,
 
         /// <summary>
-        /// AAACOOPER.
+        /// AaaCooper.
         /// </summary>
         [EnumMember(Value = "AAA_COOPER")]
-        AAACOOPER,
+        AaaCooper,
 
         /// <summary>
-        /// ROCKETPARCEL.
+        /// RocketParcel.
         /// </summary>
         [EnumMember(Value = "ROCKET_PARCEL")]
-        ROCKETPARCEL,
+        RocketParcel,
 
         /// <summary>
-        /// _360LION.
+        /// _360Lion.
         /// </summary>
         [EnumMember(Value = "_360LION")]
-        _360LION,
+        _360Lion,
 
         /// <summary>
-        /// PANDU.
+        /// Pandu.
         /// </summary>
         [EnumMember(Value = "PANDU")]
-        PANDU,
+        Pandu,
 
         /// <summary>
-        /// PROFESSIONALCOURIERS.
+        /// ProfessionalCouriers.
         /// </summary>
         [EnumMember(Value = "PROFESSIONAL_COURIERS")]
-        PROFESSIONALCOURIERS,
+        ProfessionalCouriers,
 
         /// <summary>
-        /// FLYTEXPRESS.
+        /// Flytexpress.
         /// </summary>
         [EnumMember(Value = "FLYTEXPRESS")]
-        FLYTEXPRESS,
+        Flytexpress,
 
         /// <summary>
-        /// LOGISTICSWORLDWIDEMY.
+        /// LogisticsworldwideMy.
         /// </summary>
         [EnumMember(Value = "LOGISTICSWORLDWIDE_MY")]
-        LOGISTICSWORLDWIDEMY,
+        LogisticsworldwideMy,
 
         /// <summary>
-        /// CORREOSDEESPANA.
+        /// CorreosDeEspana.
         /// </summary>
         [EnumMember(Value = "CORREOS_DE_ESPANA")]
-        CORREOSDEESPANA,
+        CorreosDeEspana,
 
         /// <summary>
-        /// IMX.
+        /// Imx.
         /// </summary>
         [EnumMember(Value = "IMX")]
-        IMX,
+        Imx,
 
         /// <summary>
-        /// FOURPXEXPRESS.
+        /// FourPxExpress.
         /// </summary>
         [EnumMember(Value = "FOUR_PX_EXPRESS")]
-        FOURPXEXPRESS,
+        FourPxExpress,
 
         /// <summary>
-        /// XPRESSBEES.
+        /// Xpressbees.
         /// </summary>
         [EnumMember(Value = "XPRESSBEES")]
-        XPRESSBEES,
+        Xpressbees,
 
         /// <summary>
-        /// PICKUPPVNM.
+        /// PickuppVnm.
         /// </summary>
         [EnumMember(Value = "PICKUPP_VNM")]
-        PICKUPPVNM,
+        PickuppVnm,
 
         /// <summary>
-        /// STARTRACKEXPRESS1.
+        /// StartrackExpress1.
         /// </summary>
         [EnumMember(Value = "STARTRACK_EXPRESS")]
-        STARTRACKEXPRESS1,
+        StartrackExpress1,
 
         /// <summary>
-        /// FRCOLISSIMO.
+        /// FrColissimo.
         /// </summary>
         [EnumMember(Value = "FR_COLISSIMO")]
-        FRCOLISSIMO,
+        FrColissimo,
 
         /// <summary>
-        /// NACEXSPAINREFERENCE.
+        /// NacexSpainReference.
         /// </summary>
         [EnumMember(Value = "NACEX_SPAIN_REFERENCE")]
-        NACEXSPAINREFERENCE,
+        NacexSpainReference,
 
         /// <summary>
-        /// DHLSUPPLYCHAINAU.
+        /// DhlSupplyChainAu.
         /// </summary>
         [EnumMember(Value = "DHL_SUPPLY_CHAIN_AU")]
-        DHLSUPPLYCHAINAU,
+        DhlSupplyChainAu,
 
         /// <summary>
-        /// ESHIPPING.
+        /// Eshipping.
         /// </summary>
         [EnumMember(Value = "ESHIPPING")]
-        ESHIPPING,
+        Eshipping,
 
         /// <summary>
-        /// SHREETIRUPATI.
+        /// Shreetirupati.
         /// </summary>
         [EnumMember(Value = "SHREETIRUPATI")]
-        SHREETIRUPATI,
+        Shreetirupati,
 
         /// <summary>
-        /// HXEXPRESS.
+        /// HxExpress.
         /// </summary>
         [EnumMember(Value = "HX_EXPRESS")]
-        HXEXPRESS,
+        HxExpress,
 
         /// <summary>
-        /// INDOPAKET.
+        /// Indopaket.
         /// </summary>
         [EnumMember(Value = "INDOPAKET")]
-        INDOPAKET,
+        Indopaket,
 
         /// <summary>
-        /// CN17POST.
+        /// Cn17Post.
         /// </summary>
         [EnumMember(Value = "CN_17POST")]
-        CN17POST,
+        Cn17Post,
 
         /// <summary>
-        /// K1EXPRESS.
+        /// K1Express.
         /// </summary>
         [EnumMember(Value = "K1_EXPRESS")]
-        K1EXPRESS,
+        K1Express,
 
         /// <summary>
-        /// CJGLS.
+        /// CjGls.
         /// </summary>
         [EnumMember(Value = "CJ_GLS")]
-        CJGLS,
+        CjGls,
 
         /// <summary>
-        /// MYSGDEX.
+        /// MysGdex.
         /// </summary>
         [EnumMember(Value = "MYS_GDEX")]
-        MYSGDEX,
+        MysGdex,
 
         /// <summary>
-        /// NATIONEX.
+        /// Nationex.
         /// </summary>
         [EnumMember(Value = "NATIONEX")]
-        NATIONEX,
+        Nationex,
 
         /// <summary>
-        /// ANJUN.
+        /// Anjun.
         /// </summary>
         [EnumMember(Value = "ANJUN")]
-        ANJUN,
+        Anjun,
 
         /// <summary>
-        /// FARGOOD.
+        /// Fargood.
         /// </summary>
         [EnumMember(Value = "FARGOOD")]
-        FARGOOD,
+        Fargood,
 
         /// <summary>
-        /// SMGEXPRESS.
+        /// SmgExpress.
         /// </summary>
         [EnumMember(Value = "SMG_EXPRESS")]
-        SMGEXPRESS,
+        SmgExpress,
 
         /// <summary>
-        /// RZYEXPRESS.
+        /// Rzyexpress.
         /// </summary>
         [EnumMember(Value = "RZYEXPRESS")]
-        RZYEXPRESS,
+        Rzyexpress,
 
         /// <summary>
-        /// SEFL.
+        /// Sefl.
         /// </summary>
         [EnumMember(Value = "SEFL")]
-        SEFL,
+        Sefl,
 
         /// <summary>
-        /// TNTCLICKIT.
+        /// TntClickIt.
         /// </summary>
         [EnumMember(Value = "TNT_CLICK_IT")]
-        TNTCLICKIT,
+        TntClickIt,
 
         /// <summary>
-        /// HDB.
+        /// Hdb.
         /// </summary>
         [EnumMember(Value = "HDB")]
-        HDB,
+        Hdb,
 
         /// <summary>
-        /// HIPSHIPPER.
+        /// Hipshipper.
         /// </summary>
         [EnumMember(Value = "HIPSHIPPER")]
-        HIPSHIPPER,
+        Hipshipper,
 
         /// <summary>
-        /// RPXLOGISTICS.
+        /// Rpxlogistics.
         /// </summary>
         [EnumMember(Value = "RPXLOGISTICS")]
-        RPXLOGISTICS,
+        Rpxlogistics,
 
         /// <summary>
-        /// KUEHNE.
+        /// Kuehne.
         /// </summary>
         [EnumMember(Value = "KUEHNE")]
-        KUEHNE,
+        Kuehne,
 
         /// <summary>
-        /// ITNEXIVE.
+        /// ItNexive.
         /// </summary>
         [EnumMember(Value = "IT_NEXIVE")]
-        ITNEXIVE,
+        ItNexive,
 
         /// <summary>
-        /// PTS.
+        /// Pts.
         /// </summary>
         [EnumMember(Value = "PTS")]
-        PTS,
+        Pts,
 
         /// <summary>
-        /// SWISSPOSTFTP.
+        /// SwissPostFtp.
         /// </summary>
         [EnumMember(Value = "SWISS_POST_FTP")]
-        SWISSPOSTFTP,
+        SwissPostFtp,
 
         /// <summary>
-        /// FASTRKSERV.
+        /// FastrkServ.
         /// </summary>
         [EnumMember(Value = "FASTRK_SERV")]
-        FASTRKSERV,
+        FastrkServ,
 
         /// <summary>
         /// _472.
@@ -3020,4660 +3020,4660 @@ namespace PaypalServerSDK.Standard.Models
         _472,
 
         /// <summary>
-        /// USYRC.
+        /// UsYrc.
         /// </summary>
         [EnumMember(Value = "US_YRC")]
-        USYRC,
+        UsYrc,
 
         /// <summary>
-        /// POSTNLINTL3S.
+        /// PostnlIntl3S.
         /// </summary>
         [EnumMember(Value = "POSTNL_INTL_3S")]
-        POSTNLINTL3S,
+        PostnlIntl3S,
 
         /// <summary>
-        /// ELIANPOST.
+        /// ElianPost.
         /// </summary>
         [EnumMember(Value = "ELIAN_POST")]
-        ELIANPOST,
+        ElianPost,
 
         /// <summary>
-        /// CUBYN.
+        /// Cubyn.
         /// </summary>
         [EnumMember(Value = "CUBYN")]
-        CUBYN,
+        Cubyn,
 
         /// <summary>
-        /// SAUSAUDIPOST.
+        /// SauSaudiPost.
         /// </summary>
         [EnumMember(Value = "SAU_SAUDI_POST")]
-        SAUSAUDIPOST,
+        SauSaudiPost,
 
         /// <summary>
-        /// ABXEXPRESSMY.
+        /// AbxexpressMy.
         /// </summary>
         [EnumMember(Value = "ABXEXPRESS_MY")]
-        ABXEXPRESSMY,
+        AbxexpressMy,
 
         /// <summary>
-        /// HUAHANEXPRESS.
+        /// HuahanExpress.
         /// </summary>
         [EnumMember(Value = "HUAHAN_EXPRESS")]
-        HUAHANEXPRESS,
+        HuahanExpress,
 
         /// <summary>
-        /// INDJAYONEXPRESS.
+        /// IndJayonexpress.
         /// </summary>
         [EnumMember(Value = "IND_JAYONEXPRESS")]
-        INDJAYONEXPRESS,
+        IndJayonexpress,
 
         /// <summary>
-        /// ZESEXPRESS.
+        /// ZesExpress.
         /// </summary>
         [EnumMember(Value = "ZES_EXPRESS")]
-        ZESEXPRESS,
+        ZesExpress,
 
         /// <summary>
-        /// ZEPTOEXPRESS.
+        /// ZeptoExpress.
         /// </summary>
         [EnumMember(Value = "ZEPTO_EXPRESS")]
-        ZEPTOEXPRESS,
+        ZeptoExpress,
 
         /// <summary>
-        /// SKYNETZA.
+        /// SkynetZa.
         /// </summary>
         [EnumMember(Value = "SKYNET_ZA")]
-        SKYNETZA,
+        SkynetZa,
 
         /// <summary>
-        /// ZEEK2DOOR.
+        /// Zeek2Door.
         /// </summary>
         [EnumMember(Value = "ZEEK_2_DOOR")]
-        ZEEK2DOOR,
+        Zeek2Door,
 
         /// <summary>
-        /// BLINKLASTMILE.
+        /// Blinklastmile.
         /// </summary>
         [EnumMember(Value = "BLINKLASTMILE")]
-        BLINKLASTMILE,
+        Blinklastmile,
 
         /// <summary>
-        /// POSTAUKR.
+        /// PostaUkr.
         /// </summary>
         [EnumMember(Value = "POSTA_UKR")]
-        POSTAUKR,
+        PostaUkr,
 
         /// <summary>
-        /// CHROBINSON.
+        /// Chrobinson.
         /// </summary>
         [EnumMember(Value = "CHROBINSON")]
-        CHROBINSON,
+        Chrobinson,
 
         /// <summary>
-        /// CNPOST56.
+        /// CnPost56.
         /// </summary>
         [EnumMember(Value = "CN_POST56")]
-        CNPOST56,
+        CnPost56,
 
         /// <summary>
-        /// COURANTPLUS.
+        /// CourantPlus.
         /// </summary>
         [EnumMember(Value = "COURANT_PLUS")]
-        COURANTPLUS,
+        CourantPlus,
 
         /// <summary>
-        /// SCUDEXEXPRESS.
+        /// ScudexExpress.
         /// </summary>
         [EnumMember(Value = "SCUDEX_EXPRESS")]
-        SCUDEXEXPRESS,
+        ScudexExpress,
 
         /// <summary>
-        /// SHIPENTEGRA.
+        /// Shipentegra.
         /// </summary>
         [EnumMember(Value = "SHIPENTEGRA")]
-        SHIPENTEGRA,
+        Shipentegra,
 
         /// <summary>
-        /// BTWOCEUROPE.
+        /// BTwoCEurope.
         /// </summary>
         [EnumMember(Value = "B_TWO_C_EUROPE")]
-        BTWOCEUROPE,
+        BTwoCEurope,
 
         /// <summary>
-        /// COPE.
+        /// Cope.
         /// </summary>
         [EnumMember(Value = "COPE")]
-        COPE,
+        Cope,
 
         /// <summary>
-        /// INDGATI.
+        /// IndGati.
         /// </summary>
         [EnumMember(Value = "IND_GATI")]
-        INDGATI,
+        IndGati,
 
         /// <summary>
-        /// CNWISHPOST.
+        /// CnWishpost.
         /// </summary>
         [EnumMember(Value = "CN_WISHPOST")]
-        CNWISHPOST,
+        CnWishpost,
 
         /// <summary>
-        /// NACEXES.
+        /// NacexEs.
         /// </summary>
         [EnumMember(Value = "NACEX_ES")]
-        NACEXES,
+        NacexEs,
 
         /// <summary>
-        /// TAQBINHK.
+        /// TaqbinHk.
         /// </summary>
         [EnumMember(Value = "TAQBIN_HK")]
-        TAQBINHK,
+        TaqbinHk,
 
         /// <summary>
-        /// GLOBALTRANZ.
+        /// Globaltranz.
         /// </summary>
         [EnumMember(Value = "GLOBALTRANZ")]
-        GLOBALTRANZ,
+        Globaltranz,
 
         /// <summary>
-        /// HKD.
+        /// Hkd.
         /// </summary>
         [EnumMember(Value = "HKD")]
-        HKD,
+        Hkd,
 
         /// <summary>
-        /// BJSHOMEDELIVERY.
+        /// Bjshomedelivery.
         /// </summary>
         [EnumMember(Value = "BJSHOMEDELIVERY")]
-        BJSHOMEDELIVERY,
+        Bjshomedelivery,
 
         /// <summary>
-        /// OMNIVA.
+        /// Omniva.
         /// </summary>
         [EnumMember(Value = "OMNIVA")]
-        OMNIVA,
+        Omniva,
 
         /// <summary>
-        /// SUTTON.
+        /// Sutton.
         /// </summary>
         [EnumMember(Value = "SUTTON")]
-        SUTTON,
+        Sutton,
 
         /// <summary>
-        /// PANTHERREFERENCE.
+        /// PantherReference.
         /// </summary>
         [EnumMember(Value = "PANTHER_REFERENCE")]
-        PANTHERREFERENCE,
+        PantherReference,
 
         /// <summary>
-        /// SFCSERVICE.
+        /// Sfcservice.
         /// </summary>
         [EnumMember(Value = "SFCSERVICE")]
-        SFCSERVICE,
+        Sfcservice,
 
         /// <summary>
-        /// LTL.
+        /// Ltl.
         /// </summary>
         [EnumMember(Value = "LTL")]
-        LTL,
+        Ltl,
 
         /// <summary>
-        /// PARKNPARCEL.
+        /// Parknparcel.
         /// </summary>
         [EnumMember(Value = "PARKNPARCEL")]
-        PARKNPARCEL,
+        Parknparcel,
 
         /// <summary>
-        /// SPRINGGDS.
+        /// SpringGds.
         /// </summary>
         [EnumMember(Value = "SPRING_GDS")]
-        SPRINGGDS,
+        SpringGds,
 
         /// <summary>
-        /// ECEXPRESS.
+        /// Ecexpress.
         /// </summary>
         [EnumMember(Value = "ECEXPRESS")]
-        ECEXPRESS,
+        Ecexpress,
 
         /// <summary>
-        /// INTERPARCELAU.
+        /// InterparcelAu.
         /// </summary>
         [EnumMember(Value = "INTERPARCEL_AU")]
-        INTERPARCELAU,
+        InterparcelAu,
 
         /// <summary>
-        /// AGILITY.
+        /// Agility.
         /// </summary>
         [EnumMember(Value = "AGILITY")]
-        AGILITY,
+        Agility,
 
         /// <summary>
-        /// XLEXPRESS.
+        /// XlExpress.
         /// </summary>
         [EnumMember(Value = "XL_EXPRESS")]
-        XLEXPRESS,
+        XlExpress,
 
         /// <summary>
-        /// ADERONLINE.
+        /// Aderonline.
         /// </summary>
         [EnumMember(Value = "ADERONLINE")]
-        ADERONLINE,
+        Aderonline,
 
         /// <summary>
-        /// DIRECTCOURIERS.
+        /// Directcouriers.
         /// </summary>
         [EnumMember(Value = "DIRECTCOURIERS")]
-        DIRECTCOURIERS,
+        Directcouriers,
 
         /// <summary>
-        /// PLANZER.
+        /// Planzer.
         /// </summary>
         [EnumMember(Value = "PLANZER")]
-        PLANZER,
+        Planzer,
 
         /// <summary>
-        /// SENDING.
+        /// Sending.
         /// </summary>
         [EnumMember(Value = "SENDING")]
-        SENDING,
+        Sending,
 
         /// <summary>
-        /// NINJAVANWB.
+        /// NinjavanWb.
         /// </summary>
         [EnumMember(Value = "NINJAVAN_WB")]
-        NINJAVANWB,
+        NinjavanWb,
 
         /// <summary>
-        /// NATIONWIDEMY.
+        /// NationwideMy.
         /// </summary>
         [EnumMember(Value = "NATIONWIDE_MY")]
-        NATIONWIDEMY,
+        NationwideMy,
 
         /// <summary>
-        /// SENDIT.
+        /// Sendit.
         /// </summary>
         [EnumMember(Value = "SENDIT")]
-        SENDIT,
+        Sendit,
 
         /// <summary>
-        /// GBARROW.
+        /// GbArrow.
         /// </summary>
         [EnumMember(Value = "GB_ARROW")]
-        GBARROW,
+        GbArrow,
 
         /// <summary>
-        /// INDGOJAVAS.
+        /// IndGojavas.
         /// </summary>
         [EnumMember(Value = "IND_GOJAVAS")]
-        INDGOJAVAS,
+        IndGojavas,
 
         /// <summary>
-        /// KPOST.
+        /// Kpost.
         /// </summary>
         [EnumMember(Value = "KPOST")]
-        KPOST,
+        Kpost,
 
         /// <summary>
-        /// DHLFREIGHT.
+        /// DhlFreight.
         /// </summary>
         [EnumMember(Value = "DHL_FREIGHT")]
-        DHLFREIGHT,
+        DhlFreight,
 
         /// <summary>
-        /// BLUECARE.
+        /// Bluecare.
         /// </summary>
         [EnumMember(Value = "BLUECARE")]
-        BLUECARE,
+        Bluecare,
 
         /// <summary>
-        /// JINDOUYUN.
+        /// Jindouyun.
         /// </summary>
         [EnumMember(Value = "JINDOUYUN")]
-        JINDOUYUN,
+        Jindouyun,
 
         /// <summary>
-        /// TRACKON.
+        /// Trackon.
         /// </summary>
         [EnumMember(Value = "TRACKON")]
-        TRACKON,
+        Trackon,
 
         /// <summary>
-        /// GBTUFFNELLS.
+        /// GbTuffnells.
         /// </summary>
         [EnumMember(Value = "GB_TUFFNELLS")]
-        GBTUFFNELLS,
+        GbTuffnells,
 
         /// <summary>
-        /// TRUMPCARD.
+        /// Trumpcard.
         /// </summary>
         [EnumMember(Value = "TRUMPCARD")]
-        TRUMPCARD,
+        Trumpcard,
 
         /// <summary>
-        /// ETOTAL.
+        /// Etotal.
         /// </summary>
         [EnumMember(Value = "ETOTAL")]
-        ETOTAL,
+        Etotal,
 
         /// <summary>
-        /// SFPLUSWEBHOOK.
+        /// SfplusWebhook.
         /// </summary>
         [EnumMember(Value = "SFPLUS_WEBHOOK")]
-        SFPLUSWEBHOOK,
+        SfplusWebhook,
 
         /// <summary>
-        /// SEKOLOGISTICS.
+        /// Sekologistics.
         /// </summary>
         [EnumMember(Value = "SEKOLOGISTICS")]
-        SEKOLOGISTICS,
+        Sekologistics,
 
         /// <summary>
-        /// HERMES2MANNHANDLING.
+        /// Hermes2MannHandling.
         /// </summary>
         [EnumMember(Value = "HERMES_2MANN_HANDLING")]
-        HERMES2MANNHANDLING,
+        Hermes2MannHandling,
 
         /// <summary>
-        /// DPDLOCALREF.
+        /// DpdLocalRef.
         /// </summary>
         [EnumMember(Value = "DPD_LOCAL_REF")]
-        DPDLOCALREF,
+        DpdLocalRef,
 
         /// <summary>
-        /// UDS.
+        /// Uds.
         /// </summary>
         [EnumMember(Value = "UDS")]
-        UDS,
+        Uds,
 
         /// <summary>
-        /// ZASPECIALISEDFREIGHT.
+        /// ZaSpecialisedFreight.
         /// </summary>
         [EnumMember(Value = "ZA_SPECIALISED_FREIGHT")]
-        ZASPECIALISEDFREIGHT,
+        ZaSpecialisedFreight,
 
         /// <summary>
-        /// THAKERRY.
+        /// ThaKerry.
         /// </summary>
         [EnumMember(Value = "THA_KERRY")]
-        THAKERRY,
+        ThaKerry,
 
         /// <summary>
-        /// PRTINTSEUR.
+        /// PrtIntSeur.
         /// </summary>
         [EnumMember(Value = "PRT_INT_SEUR")]
-        PRTINTSEUR,
+        PrtIntSeur,
 
         /// <summary>
-        /// BRACORREIOS.
+        /// BraCorreios.
         /// </summary>
         [EnumMember(Value = "BRA_CORREIOS")]
-        BRACORREIOS,
+        BraCorreios,
 
         /// <summary>
-        /// NZNZPOST.
+        /// NzNzPost.
         /// </summary>
         [EnumMember(Value = "NZ_NZ_POST")]
-        NZNZPOST,
+        NzNzPost,
 
         /// <summary>
-        /// CNEQUICK.
+        /// CnEquick.
         /// </summary>
         [EnumMember(Value = "CN_EQUICK")]
-        CNEQUICK,
+        CnEquick,
 
         /// <summary>
-        /// MYSEMS.
+        /// MysEms.
         /// </summary>
         [EnumMember(Value = "MYS_EMS")]
-        MYSEMS,
+        MysEms,
 
         /// <summary>
-        /// GBNORSK.
+        /// GbNorsk.
         /// </summary>
         [EnumMember(Value = "GB_NORSK")]
-        GBNORSK,
+        GbNorsk,
 
         /// <summary>
-        /// ESPMRW.
+        /// EspMrw.
         /// </summary>
         [EnumMember(Value = "ESP_MRW")]
-        ESPMRW,
+        EspMrw,
 
         /// <summary>
-        /// ESPPACKLINK.
+        /// EspPacklink.
         /// </summary>
         [EnumMember(Value = "ESP_PACKLINK")]
-        ESPPACKLINK,
+        EspPacklink,
 
         /// <summary>
-        /// KANGAROOMY.
+        /// KangarooMy.
         /// </summary>
         [EnumMember(Value = "KANGAROO_MY")]
-        KANGAROOMY,
+        KangarooMy,
 
         /// <summary>
-        /// RPX.
+        /// Rpx.
         /// </summary>
         [EnumMember(Value = "RPX")]
-        RPX,
+        Rpx,
 
         /// <summary>
-        /// XDPUKREFERENCE.
+        /// XdpUkReference.
         /// </summary>
         [EnumMember(Value = "XDP_UK_REFERENCE")]
-        XDPUKREFERENCE,
+        XdpUkReference,
 
         /// <summary>
-        /// NINJAVANMY.
+        /// NinjavanMy.
         /// </summary>
         [EnumMember(Value = "NINJAVAN_MY")]
-        NINJAVANMY,
+        NinjavanMy,
 
         /// <summary>
-        /// ADICIONAL.
+        /// Adicional.
         /// </summary>
         [EnumMember(Value = "ADICIONAL")]
-        ADICIONAL,
+        Adicional,
 
         /// <summary>
-        /// NINJAVANID.
+        /// NinjavanId.
         /// </summary>
         [EnumMember(Value = "NINJAVAN_ID")]
-        NINJAVANID,
+        NinjavanId,
 
         /// <summary>
-        /// ROADBULL.
+        /// Roadbull.
         /// </summary>
         [EnumMember(Value = "ROADBULL")]
-        ROADBULL,
+        Roadbull,
 
         /// <summary>
-        /// YAKIT.
+        /// Yakit.
         /// </summary>
         [EnumMember(Value = "YAKIT")]
-        YAKIT,
+        Yakit,
 
         /// <summary>
-        /// MAILAMERICAS.
+        /// Mailamericas.
         /// </summary>
         [EnumMember(Value = "MAILAMERICAS")]
-        MAILAMERICAS,
+        Mailamericas,
 
         /// <summary>
-        /// MIKROPAKKET.
+        /// Mikropakket.
         /// </summary>
         [EnumMember(Value = "MIKROPAKKET")]
-        MIKROPAKKET,
+        Mikropakket,
 
         /// <summary>
-        /// DYNALOGIC.
+        /// Dynalogic.
         /// </summary>
         [EnumMember(Value = "DYNALOGIC")]
-        DYNALOGIC,
+        Dynalogic,
 
         /// <summary>
-        /// DHLES.
+        /// DhlEs.
         /// </summary>
         [EnumMember(Value = "DHL_ES")]
-        DHLES,
+        DhlEs,
 
         /// <summary>
-        /// DHLPARCELNL.
+        /// DhlParcelNl.
         /// </summary>
         [EnumMember(Value = "DHL_PARCEL_NL")]
-        DHLPARCELNL,
+        DhlParcelNl,
 
         /// <summary>
-        /// DHLGLOBALMAILASIA.
+        /// DhlGlobalMailAsia.
         /// </summary>
         [EnumMember(Value = "DHL_GLOBAL_MAIL_ASIA")]
-        DHLGLOBALMAILASIA,
+        DhlGlobalMailAsia,
 
         /// <summary>
-        /// DAWNWING.
+        /// DawnWing.
         /// </summary>
         [EnumMember(Value = "DAWN_WING")]
-        DAWNWING,
+        DawnWing,
 
         /// <summary>
-        /// GENIKIGR.
+        /// GenikiGr.
         /// </summary>
         [EnumMember(Value = "GENIKI_GR")]
-        GENIKIGR,
+        GenikiGr,
 
         /// <summary>
-        /// HERMESWORLDUK.
+        /// HermesworldUk.
         /// </summary>
         [EnumMember(Value = "HERMESWORLD_UK")]
-        HERMESWORLDUK,
+        HermesworldUk,
 
         /// <summary>
-        /// ALPHAFAST.
+        /// Alphafast.
         /// </summary>
         [EnumMember(Value = "ALPHAFAST")]
-        ALPHAFAST,
+        Alphafast,
 
         /// <summary>
-        /// BUYLOGIC.
+        /// Buylogic.
         /// </summary>
         [EnumMember(Value = "BUYLOGIC")]
-        BUYLOGIC,
+        Buylogic,
 
         /// <summary>
-        /// EKART.
+        /// Ekart.
         /// </summary>
         [EnumMember(Value = "EKART")]
-        EKART,
+        Ekart,
 
         /// <summary>
-        /// MEXSENDA.
+        /// MexSenda.
         /// </summary>
         [EnumMember(Value = "MEX_SENDA")]
-        MEXSENDA,
+        MexSenda,
 
         /// <summary>
-        /// SFCLOGISTICS.
+        /// SfcLogistics.
         /// </summary>
         [EnumMember(Value = "SFC_LOGISTICS")]
-        SFCLOGISTICS,
+        SfcLogistics,
 
         /// <summary>
-        /// POSTSERBIA.
+        /// PostSerbia.
         /// </summary>
         [EnumMember(Value = "POST_SERBIA")]
-        POSTSERBIA,
+        PostSerbia,
 
         /// <summary>
-        /// INDDELHIVERY.
+        /// IndDelhivery.
         /// </summary>
         [EnumMember(Value = "IND_DELHIVERY")]
-        INDDELHIVERY,
+        IndDelhivery,
 
         /// <summary>
-        /// DEDPDDELISTRACK.
+        /// DeDpdDelistrack.
         /// </summary>
         [EnumMember(Value = "DE_DPD_DELISTRACK")]
-        DEDPDDELISTRACK,
+        DeDpdDelistrack,
 
         /// <summary>
-        /// RPD2MAN.
+        /// Rpd2Man.
         /// </summary>
         [EnumMember(Value = "RPD2MAN")]
-        RPD2MAN,
+        Rpd2Man,
 
         /// <summary>
-        /// CNSFEXPRESS.
+        /// CnSfExpress.
         /// </summary>
         [EnumMember(Value = "CN_SF_EXPRESS")]
-        CNSFEXPRESS,
+        CnSfExpress,
 
         /// <summary>
-        /// YANWEN.
+        /// Yanwen.
         /// </summary>
         [EnumMember(Value = "YANWEN")]
-        YANWEN,
+        Yanwen,
 
         /// <summary>
-        /// MYSSKYNET.
+        /// MysSkynet.
         /// </summary>
         [EnumMember(Value = "MYS_SKYNET")]
-        MYSSKYNET,
+        MysSkynet,
 
         /// <summary>
-        /// CORREOSDEMEXICO.
+        /// CorreosDeMexico.
         /// </summary>
         [EnumMember(Value = "CORREOS_DE_MEXICO")]
-        CORREOSDEMEXICO,
+        CorreosDeMexico,
 
         /// <summary>
-        /// CBLLOGISTICA.
+        /// CblLogistica.
         /// </summary>
         [EnumMember(Value = "CBL_LOGISTICA")]
-        CBLLOGISTICA,
+        CblLogistica,
 
         /// <summary>
-        /// MEXESTAFETA.
+        /// MexEstafeta.
         /// </summary>
         [EnumMember(Value = "MEX_ESTAFETA")]
-        MEXESTAFETA,
+        MexEstafeta,
 
         /// <summary>
-        /// AUAUSTRIANPOST.
+        /// AuAustrianPost.
         /// </summary>
         [EnumMember(Value = "AU_AUSTRIAN_POST")]
-        AUAUSTRIANPOST,
+        AuAustrianPost,
 
         /// <summary>
-        /// RINCOS.
+        /// Rincos.
         /// </summary>
         [EnumMember(Value = "RINCOS")]
-        RINCOS,
+        Rincos,
 
         /// <summary>
-        /// NLDDHL.
+        /// NldDhl.
         /// </summary>
         [EnumMember(Value = "NLD_DHL")]
-        NLDDHL,
+        NldDhl,
 
         /// <summary>
-        /// RUSSIANPOST.
+        /// RussianPost.
         /// </summary>
         [EnumMember(Value = "RUSSIAN_POST")]
-        RUSSIANPOST,
+        RussianPost,
 
         /// <summary>
-        /// COURIERSPLEASE.
+        /// CouriersPlease.
         /// </summary>
         [EnumMember(Value = "COURIERS_PLEASE")]
-        COURIERSPLEASE,
+        CouriersPlease,
 
         /// <summary>
-        /// POSTNORDLOGISTICS.
+        /// PostnordLogistics.
         /// </summary>
         [EnumMember(Value = "POSTNORD_LOGISTICS")]
-        POSTNORDLOGISTICS,
+        PostnordLogistics,
 
         /// <summary>
-        /// FEDEX.
+        /// Fedex.
         /// </summary>
         [EnumMember(Value = "FEDEX")]
-        FEDEX,
+        Fedex,
 
         /// <summary>
-        /// DPEEXPRESS.
+        /// DpeExpress.
         /// </summary>
         [EnumMember(Value = "DPE_EXPRESS")]
-        DPEEXPRESS,
+        DpeExpress,
 
         /// <summary>
-        /// DPD.
+        /// Dpd.
         /// </summary>
         [EnumMember(Value = "DPD")]
-        DPD,
+        Dpd,
 
         /// <summary>
-        /// ADSONE.
+        /// Adsone.
         /// </summary>
         [EnumMember(Value = "ADSONE")]
-        ADSONE,
+        Adsone,
 
         /// <summary>
-        /// IDNJNE.
+        /// IdnJne.
         /// </summary>
         [EnumMember(Value = "IDN_JNE")]
-        IDNJNE,
+        IdnJne,
 
         /// <summary>
-        /// THECOURIERGUY.
+        /// Thecourierguy.
         /// </summary>
         [EnumMember(Value = "THECOURIERGUY")]
-        THECOURIERGUY,
+        Thecourierguy,
 
         /// <summary>
-        /// CNEXPS.
+        /// Cnexps.
         /// </summary>
         [EnumMember(Value = "CNEXPS")]
-        CNEXPS,
+        Cnexps,
 
         /// <summary>
-        /// PRTCHRONOPOST.
+        /// PrtChronopost.
         /// </summary>
         [EnumMember(Value = "PRT_CHRONOPOST")]
-        PRTCHRONOPOST,
+        PrtChronopost,
 
         /// <summary>
-        /// LANDMARKGLOBAL.
+        /// LandmarkGlobal.
         /// </summary>
         [EnumMember(Value = "LANDMARK_GLOBAL")]
-        LANDMARKGLOBAL,
+        LandmarkGlobal,
 
         /// <summary>
-        /// ITDHLECOMMERCE.
+        /// ItDhlEcommerce.
         /// </summary>
         [EnumMember(Value = "IT_DHL_ECOMMERCE")]
-        ITDHLECOMMERCE,
+        ItDhlEcommerce,
 
         /// <summary>
-        /// ESPNACEX.
+        /// EspNacex.
         /// </summary>
         [EnumMember(Value = "ESP_NACEX")]
-        ESPNACEX,
+        EspNacex,
 
         /// <summary>
-        /// PRTCTT.
+        /// PrtCtt.
         /// </summary>
         [EnumMember(Value = "PRT_CTT")]
-        PRTCTT,
+        PrtCtt,
 
         /// <summary>
-        /// BEKIALA.
+        /// BeKiala.
         /// </summary>
         [EnumMember(Value = "BE_KIALA")]
-        BEKIALA,
+        BeKiala,
 
         /// <summary>
-        /// ASENDIAUK.
+        /// AsendiaUk.
         /// </summary>
         [EnumMember(Value = "ASENDIA_UK")]
-        ASENDIAUK,
+        AsendiaUk,
 
         /// <summary>
-        /// GLOBALTNT.
+        /// GlobalTnt.
         /// </summary>
         [EnumMember(Value = "GLOBAL_TNT")]
-        GLOBALTNT,
+        GlobalTnt,
 
         /// <summary>
-        /// POSTURIS.
+        /// PosturIs.
         /// </summary>
         [EnumMember(Value = "POSTUR_IS")]
-        POSTURIS,
+        PosturIs,
 
         /// <summary>
-        /// EPARCELKR.
+        /// EparcelKr.
         /// </summary>
         [EnumMember(Value = "EPARCEL_KR")]
-        EPARCELKR,
+        EparcelKr,
 
         /// <summary>
-        /// INPOSTPACZKOMATY.
+        /// InpostPaczkomaty.
         /// </summary>
         [EnumMember(Value = "INPOST_PACZKOMATY")]
-        INPOSTPACZKOMATY,
+        InpostPaczkomaty,
 
         /// <summary>
-        /// ITPOSTEITALIA.
+        /// ItPosteItalia.
         /// </summary>
         [EnumMember(Value = "IT_POSTE_ITALIA")]
-        ITPOSTEITALIA,
+        ItPosteItalia,
 
         /// <summary>
-        /// BEBPOST.
+        /// BeBpost.
         /// </summary>
         [EnumMember(Value = "BE_BPOST")]
-        BEBPOST,
+        BeBpost,
 
         /// <summary>
-        /// PLPOCZTAPOLSKA.
+        /// PlPocztaPolska.
         /// </summary>
         [EnumMember(Value = "PL_POCZTA_POLSKA")]
-        PLPOCZTAPOLSKA,
+        PlPocztaPolska,
 
         /// <summary>
-        /// MYSMYSPOST.
+        /// MysMysPost.
         /// </summary>
         [EnumMember(Value = "MYS_MYS_POST")]
-        MYSMYSPOST,
+        MysMysPost,
 
         /// <summary>
-        /// SGSGPOST.
+        /// SgSgPost.
         /// </summary>
         [EnumMember(Value = "SG_SG_POST")]
-        SGSGPOST,
+        SgSgPost,
 
         /// <summary>
-        /// THATHAILANDPOST.
+        /// ThaThailandPost.
         /// </summary>
         [EnumMember(Value = "THA_THAILAND_POST")]
-        THATHAILANDPOST,
+        ThaThailandPost,
 
         /// <summary>
-        /// LEXSHIP.
+        /// Lexship.
         /// </summary>
         [EnumMember(Value = "LEXSHIP")]
-        LEXSHIP,
+        Lexship,
 
         /// <summary>
-        /// FASTWAYNZ.
+        /// FastwayNz.
         /// </summary>
         [EnumMember(Value = "FASTWAY_NZ")]
-        FASTWAYNZ,
+        FastwayNz,
 
         /// <summary>
-        /// DHLAU.
+        /// DhlAu.
         /// </summary>
         [EnumMember(Value = "DHL_AU")]
-        DHLAU,
+        DhlAu,
 
         /// <summary>
-        /// COSTMETICSNOW.
+        /// Costmeticsnow.
         /// </summary>
         [EnumMember(Value = "COSTMETICSNOW")]
-        COSTMETICSNOW,
+        Costmeticsnow,
 
         /// <summary>
-        /// PFLOGISTICS.
+        /// Pflogistics.
         /// </summary>
         [EnumMember(Value = "PFLOGISTICS")]
-        PFLOGISTICS,
+        Pflogistics,
 
         /// <summary>
-        /// LOOMISEXPRESS.
+        /// LoomisExpress.
         /// </summary>
         [EnumMember(Value = "LOOMIS_EXPRESS")]
-        LOOMISEXPRESS,
+        LoomisExpress,
 
         /// <summary>
-        /// GLSITALY.
+        /// GlsItaly.
         /// </summary>
         [EnumMember(Value = "GLS_ITALY")]
-        GLSITALY,
+        GlsItaly,
 
         /// <summary>
-        /// LINE.
+        /// Line.
         /// </summary>
         [EnumMember(Value = "LINE")]
-        LINE,
+        Line,
 
         /// <summary>
-        /// GELEXPRESS.
+        /// GelExpress.
         /// </summary>
         [EnumMember(Value = "GEL_EXPRESS")]
-        GELEXPRESS,
+        GelExpress,
 
         /// <summary>
-        /// HUODULL.
+        /// Huodull.
         /// </summary>
         [EnumMember(Value = "HUODULL")]
-        HUODULL,
+        Huodull,
 
         /// <summary>
-        /// NINJAVANSG.
+        /// NinjavanSg.
         /// </summary>
         [EnumMember(Value = "NINJAVAN_SG")]
-        NINJAVANSG,
+        NinjavanSg,
 
         /// <summary>
-        /// JANIO.
+        /// Janio.
         /// </summary>
         [EnumMember(Value = "JANIO")]
-        JANIO,
+        Janio,
 
         /// <summary>
-        /// AOCOURIER.
+        /// AoCourier.
         /// </summary>
         [EnumMember(Value = "AO_COURIER")]
-        AOCOURIER,
+        AoCourier,
 
         /// <summary>
-        /// BRTITSENDERREF.
+        /// BrtItSenderRef.
         /// </summary>
         [EnumMember(Value = "BRT_IT_SENDER_REF")]
-        BRTITSENDERREF,
+        BrtItSenderRef,
 
         /// <summary>
-        /// SAILPOST.
+        /// Sailpost.
         /// </summary>
         [EnumMember(Value = "SAILPOST")]
-        SAILPOST,
+        Sailpost,
 
         /// <summary>
-        /// LALAMOVE.
+        /// Lalamove.
         /// </summary>
         [EnumMember(Value = "LALAMOVE")]
-        LALAMOVE,
+        Lalamove,
 
         /// <summary>
-        /// NEWZEALANDCOURIERS.
+        /// NewzealandCouriers.
         /// </summary>
         [EnumMember(Value = "NEWZEALAND_COURIERS")]
-        NEWZEALANDCOURIERS,
+        NewzealandCouriers,
 
         /// <summary>
-        /// ETOMARS.
+        /// Etomars.
         /// </summary>
         [EnumMember(Value = "ETOMARS")]
-        ETOMARS,
+        Etomars,
 
         /// <summary>
-        /// VIRTRANSPORT.
+        /// Virtransport.
         /// </summary>
         [EnumMember(Value = "VIRTRANSPORT")]
-        VIRTRANSPORT,
+        Virtransport,
 
         /// <summary>
-        /// WIZMO.
+        /// Wizmo.
         /// </summary>
         [EnumMember(Value = "WIZMO")]
-        WIZMO,
+        Wizmo,
 
         /// <summary>
-        /// PALLETWAYS.
+        /// Palletways.
         /// </summary>
         [EnumMember(Value = "PALLETWAYS")]
-        PALLETWAYS,
+        Palletways,
 
         /// <summary>
-        /// IDIKA.
+        /// IDika.
         /// </summary>
         [EnumMember(Value = "I_DIKA")]
-        IDIKA,
+        IDika,
 
         /// <summary>
-        /// CFLLOGISTICS.
+        /// CflLogistics.
         /// </summary>
         [EnumMember(Value = "CFL_LOGISTICS")]
-        CFLLOGISTICS,
+        CflLogistics,
 
         /// <summary>
-        /// GEMWORLDWIDE.
+        /// Gemworldwide.
         /// </summary>
         [EnumMember(Value = "GEMWORLDWIDE")]
-        GEMWORLDWIDE,
+        Gemworldwide,
 
         /// <summary>
-        /// GLOBALEXPRESS.
+        /// GlobalExpress.
         /// </summary>
         [EnumMember(Value = "GLOBAL_EXPRESS")]
-        GLOBALEXPRESS,
+        GlobalExpress,
 
         /// <summary>
-        /// LOGISTYXTRANSGROUP.
+        /// LogistyxTransgroup.
         /// </summary>
         [EnumMember(Value = "LOGISTYX_TRANSGROUP")]
-        LOGISTYXTRANSGROUP,
+        LogistyxTransgroup,
 
         /// <summary>
-        /// WESTBANKCOURIER.
+        /// WestbankCourier.
         /// </summary>
         [EnumMember(Value = "WESTBANK_COURIER")]
-        WESTBANKCOURIER,
+        WestbankCourier,
 
         /// <summary>
-        /// ARCOSPEDIZIONI.
+        /// ArcoSpedizioni.
         /// </summary>
         [EnumMember(Value = "ARCO_SPEDIZIONI")]
-        ARCOSPEDIZIONI,
+        ArcoSpedizioni,
 
         /// <summary>
-        /// YDHEXPRESS.
+        /// YdhExpress.
         /// </summary>
         [EnumMember(Value = "YDH_EXPRESS")]
-        YDHEXPRESS,
+        YdhExpress,
 
         /// <summary>
-        /// PARCELINKLOGISTICS.
+        /// Parcelinklogistics.
         /// </summary>
         [EnumMember(Value = "PARCELINKLOGISTICS")]
-        PARCELINKLOGISTICS,
+        Parcelinklogistics,
 
         /// <summary>
-        /// CNDEXPRESS.
+        /// Cndexpress.
         /// </summary>
         [EnumMember(Value = "CNDEXPRESS")]
-        CNDEXPRESS,
+        Cndexpress,
 
         /// <summary>
-        /// NOXNIGHTTIMEEXPRESS.
+        /// NoxNightTimeExpress.
         /// </summary>
         [EnumMember(Value = "NOX_NIGHT_TIME_EXPRESS")]
-        NOXNIGHTTIMEEXPRESS,
+        NoxNightTimeExpress,
 
         /// <summary>
-        /// AERONET.
+        /// Aeronet.
         /// </summary>
         [EnumMember(Value = "AERONET")]
-        AERONET,
+        Aeronet,
 
         /// <summary>
-        /// LTIANEXP.
+        /// Ltianexp.
         /// </summary>
         [EnumMember(Value = "LTIANEXP")]
-        LTIANEXP,
+        Ltianexp,
 
         /// <summary>
-        /// INTEGRA2FTP.
+        /// Integra2Ftp.
         /// </summary>
         [EnumMember(Value = "INTEGRA2_FTP")]
-        INTEGRA2FTP,
+        Integra2Ftp,
 
         /// <summary>
-        /// PARCELONE.
+        /// Parcelone.
         /// </summary>
         [EnumMember(Value = "PARCELONE")]
-        PARCELONE,
+        Parcelone,
 
         /// <summary>
-        /// NOXNACHTEXPRESS.
+        /// NoxNachtexpress.
         /// </summary>
         [EnumMember(Value = "NOX_NACHTEXPRESS")]
-        NOXNACHTEXPRESS,
+        NoxNachtexpress,
 
         /// <summary>
-        /// CNCHINAPOSTEMS.
+        /// CnChinaPostEms.
         /// </summary>
         [EnumMember(Value = "CN_CHINA_POST_EMS")]
-        CNCHINAPOSTEMS,
+        CnChinaPostEms,
 
         /// <summary>
-        /// CHUKOU1.
+        /// Chukou1.
         /// </summary>
         [EnumMember(Value = "CHUKOU1")]
-        CHUKOU1,
+        Chukou1,
 
         /// <summary>
-        /// GLSSLOV.
+        /// GlsSlov.
         /// </summary>
         [EnumMember(Value = "GLS_SLOV")]
-        GLSSLOV,
+        GlsSlov,
 
         /// <summary>
-        /// ORANGEDS.
+        /// OrangeDs.
         /// </summary>
         [EnumMember(Value = "ORANGE_DS")]
-        ORANGEDS,
+        OrangeDs,
 
         /// <summary>
-        /// JOOMLOGIS.
+        /// JoomLogis.
         /// </summary>
         [EnumMember(Value = "JOOM_LOGIS")]
-        JOOMLOGIS,
+        JoomLogis,
 
         /// <summary>
-        /// AUSSTARTRACK.
+        /// AusStartrack.
         /// </summary>
         [EnumMember(Value = "AUS_STARTRACK")]
-        AUSSTARTRACK,
+        AusStartrack,
 
         /// <summary>
-        /// DHL.
+        /// Dhl.
         /// </summary>
         [EnumMember(Value = "DHL")]
-        DHL,
+        Dhl,
 
         /// <summary>
-        /// GBAPC.
+        /// GbApc.
         /// </summary>
         [EnumMember(Value = "GB_APC")]
-        GBAPC,
+        GbApc,
 
         /// <summary>
-        /// BONDSCOURIERS.
+        /// Bondscouriers.
         /// </summary>
         [EnumMember(Value = "BONDSCOURIERS")]
-        BONDSCOURIERS,
+        Bondscouriers,
 
         /// <summary>
-        /// JPNJAPANPOST.
+        /// JpnJapanPost.
         /// </summary>
         [EnumMember(Value = "JPN_JAPAN_POST")]
-        JPNJAPANPOST,
+        JpnJapanPost,
 
         /// <summary>
-        /// USPS.
+        /// Usps.
         /// </summary>
         [EnumMember(Value = "USPS")]
-        USPS,
+        Usps,
 
         /// <summary>
-        /// WINIT.
+        /// Winit.
         /// </summary>
         [EnumMember(Value = "WINIT")]
-        WINIT,
+        Winit,
 
         /// <summary>
-        /// ARGOCA.
+        /// ArgOca.
         /// </summary>
         [EnumMember(Value = "ARG_OCA")]
-        ARGOCA,
+        ArgOca,
 
         /// <summary>
-        /// TWTAIWANPOST.
+        /// TwTaiwanPost.
         /// </summary>
         [EnumMember(Value = "TW_TAIWAN_POST")]
-        TWTAIWANPOST,
+        TwTaiwanPost,
 
         /// <summary>
-        /// DMMNETWORK.
+        /// DmmNetwork.
         /// </summary>
         [EnumMember(Value = "DMM_NETWORK")]
-        DMMNETWORK,
+        DmmNetwork,
 
         /// <summary>
-        /// TNT.
+        /// Tnt.
         /// </summary>
         [EnumMember(Value = "TNT")]
-        TNT,
+        Tnt,
 
         /// <summary>
-        /// BHPOSTA.
+        /// BhPosta.
         /// </summary>
         [EnumMember(Value = "BH_POSTA")]
-        BHPOSTA,
+        BhPosta,
 
         /// <summary>
-        /// SWEPOSTNORD.
+        /// SwePostnord.
         /// </summary>
         [EnumMember(Value = "SWE_POSTNORD")]
-        SWEPOSTNORD,
+        SwePostnord,
 
         /// <summary>
-        /// CACANADAPOST.
+        /// CaCanadaPost.
         /// </summary>
         [EnumMember(Value = "CA_CANADA_POST")]
-        CACANADAPOST,
+        CaCanadaPost,
 
         /// <summary>
-        /// WISELOADS.
+        /// Wiseloads.
         /// </summary>
         [EnumMember(Value = "WISELOADS")]
-        WISELOADS,
+        Wiseloads,
 
         /// <summary>
-        /// ASENDIAHK.
+        /// AsendiaHk.
         /// </summary>
         [EnumMember(Value = "ASENDIA_HK")]
-        ASENDIAHK,
+        AsendiaHk,
 
         /// <summary>
-        /// NLDGLS.
+        /// NldGls.
         /// </summary>
         [EnumMember(Value = "NLD_GLS")]
-        NLDGLS,
+        NldGls,
 
         /// <summary>
-        /// MEXREDPACK.
+        /// MexRedpack.
         /// </summary>
         [EnumMember(Value = "MEX_REDPACK")]
-        MEXREDPACK,
+        MexRedpack,
 
         /// <summary>
-        /// JETSHIP.
+        /// JetShip.
         /// </summary>
         [EnumMember(Value = "JET_SHIP")]
-        JETSHIP,
+        JetShip,
 
         /// <summary>
-        /// DEDHLEXPRESS.
+        /// DeDhlExpress.
         /// </summary>
         [EnumMember(Value = "DE_DHL_EXPRESS")]
-        DEDHLEXPRESS,
+        DeDhlExpress,
 
         /// <summary>
-        /// NINJAVANTHAI.
+        /// NinjavanThai.
         /// </summary>
         [EnumMember(Value = "NINJAVAN_THAI")]
-        NINJAVANTHAI,
+        NinjavanThai,
 
         /// <summary>
-        /// RABENGROUP.
+        /// RabenGroup.
         /// </summary>
         [EnumMember(Value = "RABEN_GROUP")]
-        RABENGROUP,
+        RabenGroup,
 
         /// <summary>
-        /// ESPASM.
+        /// EspAsm.
         /// </summary>
         [EnumMember(Value = "ESP_ASM")]
-        ESPASM,
+        EspAsm,
 
         /// <summary>
-        /// HRVHRVATSKA.
+        /// HrvHrvatska.
         /// </summary>
         [EnumMember(Value = "HRV_HRVATSKA")]
-        HRVHRVATSKA,
+        HrvHrvatska,
 
         /// <summary>
-        /// GLOBALESTES.
+        /// GlobalEstes.
         /// </summary>
         [EnumMember(Value = "GLOBAL_ESTES")]
-        GLOBALESTES,
+        GlobalEstes,
 
         /// <summary>
-        /// LTULIETUVOS.
+        /// LtuLietuvos.
         /// </summary>
         [EnumMember(Value = "LTU_LIETUVOS")]
-        LTULIETUVOS,
+        LtuLietuvos,
 
         /// <summary>
-        /// BELDHL.
+        /// BelDhl.
         /// </summary>
         [EnumMember(Value = "BEL_DHL")]
-        BELDHL,
+        BelDhl,
 
         /// <summary>
-        /// AUAUPOST.
+        /// AuAuPost.
         /// </summary>
         [EnumMember(Value = "AU_AU_POST")]
-        AUAUPOST,
+        AuAuPost,
 
         /// <summary>
-        /// SPEEDEXCOURIER.
+        /// Speedexcourier.
         /// </summary>
         [EnumMember(Value = "SPEEDEXCOURIER")]
-        SPEEDEXCOURIER,
+        Speedexcourier,
 
         /// <summary>
-        /// FRCOLIS.
+        /// FrColis.
         /// </summary>
         [EnumMember(Value = "FR_COLIS")]
-        FRCOLIS,
+        FrColis,
 
         /// <summary>
-        /// ARAMEX.
+        /// Aramex.
         /// </summary>
         [EnumMember(Value = "ARAMEX")]
-        ARAMEX,
+        Aramex,
 
         /// <summary>
-        /// DPEX.
+        /// Dpex.
         /// </summary>
         [EnumMember(Value = "DPEX")]
-        DPEX,
+        Dpex,
 
         /// <summary>
-        /// MYSAIRPAK.
+        /// MysAirpak.
         /// </summary>
         [EnumMember(Value = "MYS_AIRPAK")]
-        MYSAIRPAK,
+        MysAirpak,
 
         /// <summary>
-        /// CUCKOOEXPRESS.
+        /// Cuckooexpress.
         /// </summary>
         [EnumMember(Value = "CUCKOOEXPRESS")]
-        CUCKOOEXPRESS,
+        Cuckooexpress,
 
         /// <summary>
-        /// DPDPOLAND.
+        /// DpdPoland.
         /// </summary>
         [EnumMember(Value = "DPD_POLAND")]
-        DPDPOLAND,
+        DpdPoland,
 
         /// <summary>
-        /// NLDPOSTNL.
+        /// NldPostnl.
         /// </summary>
         [EnumMember(Value = "NLD_POSTNL")]
-        NLDPOSTNL,
+        NldPostnl,
 
         /// <summary>
-        /// NIMEXPRESS.
+        /// NimExpress.
         /// </summary>
         [EnumMember(Value = "NIM_EXPRESS")]
-        NIMEXPRESS,
+        NimExpress,
 
         /// <summary>
-        /// QUANTIUM.
+        /// Quantium.
         /// </summary>
         [EnumMember(Value = "QUANTIUM")]
-        QUANTIUM,
+        Quantium,
 
         /// <summary>
-        /// SENDLE.
+        /// Sendle.
         /// </summary>
         [EnumMember(Value = "SENDLE")]
-        SENDLE,
+        Sendle,
 
         /// <summary>
-        /// ESPREDUR.
+        /// EspRedur.
         /// </summary>
         [EnumMember(Value = "ESP_REDUR")]
-        ESPREDUR,
+        EspRedur,
 
         /// <summary>
-        /// MATKAHUOLTO.
+        /// Matkahuolto.
         /// </summary>
         [EnumMember(Value = "MATKAHUOLTO")]
-        MATKAHUOLTO,
+        Matkahuolto,
 
         /// <summary>
-        /// CPACKET.
+        /// Cpacket.
         /// </summary>
         [EnumMember(Value = "CPACKET")]
-        CPACKET,
+        Cpacket,
 
         /// <summary>
-        /// POSTI.
+        /// Posti.
         /// </summary>
         [EnumMember(Value = "POSTI")]
-        POSTI,
+        Posti,
 
         /// <summary>
-        /// HUNTEREXPRESS.
+        /// HunterExpress.
         /// </summary>
         [EnumMember(Value = "HUNTER_EXPRESS")]
-        HUNTEREXPRESS,
+        HunterExpress,
 
         /// <summary>
-        /// CHOIREXP.
+        /// ChoirExp.
         /// </summary>
         [EnumMember(Value = "CHOIR_EXP")]
-        CHOIREXP,
+        ChoirExp,
 
         /// <summary>
-        /// LEGIONEXPRESS.
+        /// LegionExpress.
         /// </summary>
         [EnumMember(Value = "LEGION_EXPRESS")]
-        LEGIONEXPRESS,
+        LegionExpress,
 
         /// <summary>
-        /// AUSTRIANPOSTEXPRESS.
+        /// AustrianPostExpress.
         /// </summary>
         [EnumMember(Value = "AUSTRIAN_POST_EXPRESS")]
-        AUSTRIANPOSTEXPRESS,
+        AustrianPostExpress,
 
         /// <summary>
-        /// GRUPO.
+        /// Grupo.
         /// </summary>
         [EnumMember(Value = "GRUPO")]
-        GRUPO,
+        Grupo,
 
         /// <summary>
-        /// POSTARO.
+        /// PostaRo.
         /// </summary>
         [EnumMember(Value = "POSTA_RO")]
-        POSTARO,
+        PostaRo,
 
         /// <summary>
-        /// INTERPARCELUK.
+        /// InterparcelUk.
         /// </summary>
         [EnumMember(Value = "INTERPARCEL_UK")]
-        INTERPARCELUK,
+        InterparcelUk,
 
         /// <summary>
-        /// GLOBALABF.
+        /// GlobalAbf.
         /// </summary>
         [EnumMember(Value = "GLOBAL_ABF")]
-        GLOBALABF,
+        GlobalAbf,
 
         /// <summary>
-        /// POSTENNORGE.
+        /// PostenNorge.
         /// </summary>
         [EnumMember(Value = "POSTEN_NORGE")]
-        POSTENNORGE,
+        PostenNorge,
 
         /// <summary>
-        /// XPERTDELIVERY.
+        /// XpertDelivery.
         /// </summary>
         [EnumMember(Value = "XPERT_DELIVERY")]
-        XPERTDELIVERY,
+        XpertDelivery,
 
         /// <summary>
-        /// DHLREFR.
+        /// DhlRefr.
         /// </summary>
         [EnumMember(Value = "DHL_REFR")]
-        DHLREFR,
+        DhlRefr,
 
         /// <summary>
-        /// DHLHK.
+        /// DhlHk.
         /// </summary>
         [EnumMember(Value = "DHL_HK")]
-        DHLHK,
+        DhlHk,
 
         /// <summary>
-        /// SKYNETUAE.
+        /// SkynetUae.
         /// </summary>
         [EnumMember(Value = "SKYNET_UAE")]
-        SKYNETUAE,
+        SkynetUae,
 
         /// <summary>
-        /// GOJEK.
+        /// Gojek.
         /// </summary>
         [EnumMember(Value = "GOJEK")]
-        GOJEK,
+        Gojek,
 
         /// <summary>
-        /// YODELINTNL.
+        /// YodelIntnl.
         /// </summary>
         [EnumMember(Value = "YODEL_INTNL")]
-        YODELINTNL,
+        YodelIntnl,
 
         /// <summary>
-        /// JANCO.
+        /// Janco.
         /// </summary>
         [EnumMember(Value = "JANCO")]
-        JANCO,
+        Janco,
 
         /// <summary>
-        /// YTO.
+        /// Yto.
         /// </summary>
         [EnumMember(Value = "YTO")]
-        YTO,
+        Yto,
 
         /// <summary>
-        /// WISEEXPRESS.
+        /// WiseExpress.
         /// </summary>
         [EnumMember(Value = "WISE_EXPRESS")]
-        WISEEXPRESS,
+        WiseExpress,
 
         /// <summary>
-        /// JTEXPRESSVN.
+        /// JtexpressVn.
         /// </summary>
         [EnumMember(Value = "JTEXPRESS_VN")]
-        JTEXPRESSVN,
+        JtexpressVn,
 
         /// <summary>
-        /// FEDEXINTLMLSERV.
+        /// FedexIntlMlserv.
         /// </summary>
         [EnumMember(Value = "FEDEX_INTL_MLSERV")]
-        FEDEXINTLMLSERV,
+        FedexIntlMlserv,
 
         /// <summary>
-        /// VAMOX.
+        /// Vamox.
         /// </summary>
         [EnumMember(Value = "VAMOX")]
-        VAMOX,
+        Vamox,
 
         /// <summary>
-        /// AMSGRP.
+        /// AmsGrp.
         /// </summary>
         [EnumMember(Value = "AMS_GRP")]
-        AMSGRP,
+        AmsGrp,
 
         /// <summary>
-        /// DHLJP.
+        /// DhlJp.
         /// </summary>
         [EnumMember(Value = "DHL_JP")]
-        DHLJP,
+        DhlJp,
 
         /// <summary>
-        /// HRPARCEL.
+        /// Hrparcel.
         /// </summary>
         [EnumMember(Value = "HRPARCEL")]
-        HRPARCEL,
+        Hrparcel,
 
         /// <summary>
-        /// GESWL.
+        /// Geswl.
         /// </summary>
         [EnumMember(Value = "GESWL")]
-        GESWL,
+        Geswl,
 
         /// <summary>
-        /// BLUESTAR.
+        /// Bluestar.
         /// </summary>
         [EnumMember(Value = "BLUESTAR")]
-        BLUESTAR,
+        Bluestar,
 
         /// <summary>
-        /// CDEKTR.
+        /// CdekTr.
         /// </summary>
         [EnumMember(Value = "CDEK_TR")]
-        CDEKTR,
+        CdekTr,
 
         /// <summary>
-        /// DESCARTES.
+        /// Descartes.
         /// </summary>
         [EnumMember(Value = "DESCARTES")]
-        DESCARTES,
+        Descartes,
 
         /// <summary>
-        /// DELTECUK.
+        /// DeltecUk.
         /// </summary>
         [EnumMember(Value = "DELTEC_UK")]
-        DELTECUK,
+        DeltecUk,
 
         /// <summary>
-        /// DTDCEXPRESS.
+        /// DtdcExpress.
         /// </summary>
         [EnumMember(Value = "DTDC_EXPRESS")]
-        DTDCEXPRESS,
+        DtdcExpress,
 
         /// <summary>
-        /// TOURLINE.
+        /// Tourline.
         /// </summary>
         [EnumMember(Value = "TOURLINE")]
-        TOURLINE,
+        Tourline,
 
         /// <summary>
-        /// BHWORLDWIDE.
+        /// BhWorldwide.
         /// </summary>
         [EnumMember(Value = "BH_WORLDWIDE")]
-        BHWORLDWIDE,
+        BhWorldwide,
 
         /// <summary>
-        /// OCS.
+        /// Ocs.
         /// </summary>
         [EnumMember(Value = "OCS")]
-        OCS,
+        Ocs,
 
         /// <summary>
-        /// YINGNUOLOGISTICS.
+        /// YingnuoLogistics.
         /// </summary>
         [EnumMember(Value = "YINGNUO_LOGISTICS")]
-        YINGNUOLOGISTICS,
+        YingnuoLogistics,
 
         /// <summary>
-        /// UPS.
+        /// Ups.
         /// </summary>
         [EnumMember(Value = "UPS")]
-        UPS,
+        Ups,
 
         /// <summary>
-        /// TOLL.
+        /// Toll.
         /// </summary>
         [EnumMember(Value = "TOLL")]
-        TOLL,
+        Toll,
 
         /// <summary>
-        /// PRTSEUR.
+        /// PrtSeur.
         /// </summary>
         [EnumMember(Value = "PRT_SEUR")]
-        PRTSEUR,
+        PrtSeur,
 
         /// <summary>
-        /// DTDCAU.
+        /// DtdcAu.
         /// </summary>
         [EnumMember(Value = "DTDC_AU")]
-        DTDCAU,
+        DtdcAu,
 
         /// <summary>
-        /// THADYNAMICLOGISTICS.
+        /// ThaDynamicLogistics.
         /// </summary>
         [EnumMember(Value = "THA_DYNAMIC_LOGISTICS")]
-        THADYNAMICLOGISTICS,
+        ThaDynamicLogistics,
 
         /// <summary>
-        /// UBILOGISTICS.
+        /// UbiLogistics.
         /// </summary>
         [EnumMember(Value = "UBI_LOGISTICS")]
-        UBILOGISTICS,
+        UbiLogistics,
 
         /// <summary>
-        /// FEDEXCROSSBORDER.
+        /// FedexCrossborder.
         /// </summary>
         [EnumMember(Value = "FEDEX_CROSSBORDER")]
-        FEDEXCROSSBORDER,
+        FedexCrossborder,
 
         /// <summary>
-        /// A1POST.
+        /// A1Post.
         /// </summary>
         [EnumMember(Value = "A1POST")]
-        A1POST,
+        A1Post,
 
         /// <summary>
-        /// TAZMANIANFREIGHT.
+        /// TazmanianFreight.
         /// </summary>
         [EnumMember(Value = "TAZMANIAN_FREIGHT")]
-        TAZMANIANFREIGHT,
+        TazmanianFreight,
 
         /// <summary>
-        /// CJINTMY.
+        /// CjIntMy.
         /// </summary>
         [EnumMember(Value = "CJ_INT_MY")]
-        CJINTMY,
+        CjIntMy,
 
         /// <summary>
-        /// SAIAFREIGHT.
+        /// SaiaFreight.
         /// </summary>
         [EnumMember(Value = "SAIA_FREIGHT")]
-        SAIAFREIGHT,
+        SaiaFreight,
 
         /// <summary>
-        /// SGQXPRESS.
+        /// SgQxpress.
         /// </summary>
         [EnumMember(Value = "SG_QXPRESS")]
-        SGQXPRESS,
+        SgQxpress,
 
         /// <summary>
-        /// NHANSSOLUTIONS.
+        /// NhansSolutions.
         /// </summary>
         [EnumMember(Value = "NHANS_SOLUTIONS")]
-        NHANSSOLUTIONS,
+        NhansSolutions,
 
         /// <summary>
-        /// DPDFR.
+        /// DpdFr.
         /// </summary>
         [EnumMember(Value = "DPD_FR")]
-        DPDFR,
+        DpdFr,
 
         /// <summary>
-        /// COORDINADORA.
+        /// Coordinadora.
         /// </summary>
         [EnumMember(Value = "COORDINADORA")]
-        COORDINADORA,
+        Coordinadora,
 
         /// <summary>
-        /// ANDREANI.
+        /// Andreani.
         /// </summary>
         [EnumMember(Value = "ANDREANI")]
-        ANDREANI,
+        Andreani,
 
         /// <summary>
-        /// DOORA.
+        /// Doora.
         /// </summary>
         [EnumMember(Value = "DOORA")]
-        DOORA,
+        Doora,
 
         /// <summary>
-        /// INTERPARCELNZ.
+        /// InterparcelNz.
         /// </summary>
         [EnumMember(Value = "INTERPARCEL_NZ")]
-        INTERPARCELNZ,
+        InterparcelNz,
 
         /// <summary>
-        /// PHLJAMEXPRESS.
+        /// PhlJamexpress.
         /// </summary>
         [EnumMember(Value = "PHL_JAMEXPRESS")]
-        PHLJAMEXPRESS,
+        PhlJamexpress,
 
         /// <summary>
-        /// BELBELGIUMPOST.
+        /// BelBelgiumPost.
         /// </summary>
         [EnumMember(Value = "BEL_BELGIUM_POST")]
-        BELBELGIUMPOST,
+        BelBelgiumPost,
 
         /// <summary>
-        /// USAPC.
+        /// UsApc.
         /// </summary>
         [EnumMember(Value = "US_APC")]
-        USAPC,
+        UsApc,
 
         /// <summary>
-        /// IDNPOS.
+        /// IdnPos.
         /// </summary>
         [EnumMember(Value = "IDN_POS")]
-        IDNPOS,
+        IdnPos,
 
         /// <summary>
-        /// FRMONDIAL.
+        /// FrMondial.
         /// </summary>
         [EnumMember(Value = "FR_MONDIAL")]
-        FRMONDIAL,
+        FrMondial,
 
         /// <summary>
-        /// DEDHL.
+        /// DeDhl.
         /// </summary>
         [EnumMember(Value = "DE_DHL")]
-        DEDHL,
+        DeDhl,
 
         /// <summary>
-        /// HKRPX.
+        /// HkRpx.
         /// </summary>
         [EnumMember(Value = "HK_RPX")]
-        HKRPX,
+        HkRpx,
 
         /// <summary>
-        /// DHLPIECEID.
+        /// DhlPieceid.
         /// </summary>
         [EnumMember(Value = "DHL_PIECEID")]
-        DHLPIECEID,
+        DhlPieceid,
 
         /// <summary>
-        /// VNPOSTEMS.
+        /// VnpostEms.
         /// </summary>
         [EnumMember(Value = "VNPOST_EMS")]
-        VNPOSTEMS,
+        VnpostEms,
 
         /// <summary>
-        /// RRDONNELLEY.
+        /// Rrdonnelley.
         /// </summary>
         [EnumMember(Value = "RRDONNELLEY")]
-        RRDONNELLEY,
+        Rrdonnelley,
 
         /// <summary>
-        /// DPDDE.
+        /// DpdDe.
         /// </summary>
         [EnumMember(Value = "DPD_DE")]
-        DPDDE,
+        DpdDe,
 
         /// <summary>
-        /// DELCARTIN.
+        /// DelcartIn.
         /// </summary>
         [EnumMember(Value = "DELCART_IN")]
-        DELCARTIN,
+        DelcartIn,
 
         /// <summary>
-        /// IMEXGLOBALSOLUTIONS.
+        /// Imexglobalsolutions.
         /// </summary>
         [EnumMember(Value = "IMEXGLOBALSOLUTIONS")]
-        IMEXGLOBALSOLUTIONS,
+        Imexglobalsolutions,
 
         /// <summary>
-        /// ACOMMERCE.
+        /// Acommerce.
         /// </summary>
         [EnumMember(Value = "ACOMMERCE")]
-        ACOMMERCE,
+        Acommerce,
 
         /// <summary>
-        /// EURODIS.
+        /// Eurodis.
         /// </summary>
         [EnumMember(Value = "EURODIS")]
-        EURODIS,
+        Eurodis,
 
         /// <summary>
-        /// CANPAR.
+        /// Canpar.
         /// </summary>
         [EnumMember(Value = "CANPAR")]
-        CANPAR,
+        Canpar,
 
         /// <summary>
-        /// GLS.
+        /// Gls.
         /// </summary>
         [EnumMember(Value = "GLS")]
-        GLS,
+        Gls,
 
         /// <summary>
-        /// INDECOM.
+        /// IndEcom.
         /// </summary>
         [EnumMember(Value = "IND_ECOM")]
-        INDECOM,
+        IndEcom,
 
         /// <summary>
-        /// ESPENVIALIA.
+        /// EspEnvialia.
         /// </summary>
         [EnumMember(Value = "ESP_ENVIALIA")]
-        ESPENVIALIA,
+        EspEnvialia,
 
         /// <summary>
-        /// DHLUK.
+        /// DhlUk.
         /// </summary>
         [EnumMember(Value = "DHL_UK")]
-        DHLUK,
+        DhlUk,
 
         /// <summary>
-        /// SMSAEXPRESS.
+        /// SmsaExpress.
         /// </summary>
         [EnumMember(Value = "SMSA_EXPRESS")]
-        SMSAEXPRESS,
+        SmsaExpress,
 
         /// <summary>
-        /// TNTFR.
+        /// TntFr.
         /// </summary>
         [EnumMember(Value = "TNT_FR")]
-        TNTFR,
+        TntFr,
 
         /// <summary>
-        /// DEXI.
+        /// DexI.
         /// </summary>
         [EnumMember(Value = "DEX_I")]
-        DEXI,
+        DexI,
 
         /// <summary>
-        /// BUDBEEWEBHOOK.
+        /// BudbeeWebhook.
         /// </summary>
         [EnumMember(Value = "BUDBEE_WEBHOOK")]
-        BUDBEEWEBHOOK,
+        BudbeeWebhook,
 
         /// <summary>
-        /// COPACOURIER.
+        /// CopaCourier.
         /// </summary>
         [EnumMember(Value = "COPA_COURIER")]
-        COPACOURIER,
+        CopaCourier,
 
         /// <summary>
-        /// VNMVIETNAMPOST.
+        /// VnmVietnamPost.
         /// </summary>
         [EnumMember(Value = "VNM_VIETNAM_POST")]
-        VNMVIETNAMPOST,
+        VnmVietnamPost,
 
         /// <summary>
-        /// DPDHK.
+        /// DpdHk.
         /// </summary>
         [EnumMember(Value = "DPD_HK")]
-        DPDHK,
+        DpdHk,
 
         /// <summary>
-        /// TOLLNZ.
+        /// TollNz.
         /// </summary>
         [EnumMember(Value = "TOLL_NZ")]
-        TOLLNZ,
+        TollNz,
 
         /// <summary>
-        /// ECHO.
+        /// Echo.
         /// </summary>
         [EnumMember(Value = "ECHO")]
-        ECHO,
+        Echo,
 
         /// <summary>
-        /// FEDEXFR.
+        /// FedexFr.
         /// </summary>
         [EnumMember(Value = "FEDEX_FR")]
-        FEDEXFR,
+        FedexFr,
 
         /// <summary>
-        /// BORDEREXPRESS.
+        /// Borderexpress.
         /// </summary>
         [EnumMember(Value = "BORDEREXPRESS")]
-        BORDEREXPRESS,
+        Borderexpress,
 
         /// <summary>
-        /// MAILPLUSJPN.
+        /// MailplusJpn.
         /// </summary>
         [EnumMember(Value = "MAILPLUS_JPN")]
-        MAILPLUSJPN,
+        MailplusJpn,
 
         /// <summary>
-        /// TNTUKREFR.
+        /// TntUkRefr.
         /// </summary>
         [EnumMember(Value = "TNT_UK_REFR")]
-        TNTUKREFR,
+        TntUkRefr,
 
         /// <summary>
-        /// KEC.
+        /// Kec.
         /// </summary>
         [EnumMember(Value = "KEC")]
-        KEC,
+        Kec,
 
         /// <summary>
-        /// DPDRO.
+        /// DpdRo.
         /// </summary>
         [EnumMember(Value = "DPD_RO")]
-        DPDRO,
+        DpdRo,
 
         /// <summary>
-        /// TNTJP.
+        /// TntJp.
         /// </summary>
         [EnumMember(Value = "TNT_JP")]
-        TNTJP,
+        TntJp,
 
         /// <summary>
-        /// THCJ.
+        /// ThCj.
         /// </summary>
         [EnumMember(Value = "TH_CJ")]
-        THCJ,
+        ThCj,
 
         /// <summary>
-        /// ECCN.
+        /// EcCn.
         /// </summary>
         [EnumMember(Value = "EC_CN")]
-        ECCN,
+        EcCn,
 
         /// <summary>
-        /// FASTWAYUK.
+        /// FastwayUk.
         /// </summary>
         [EnumMember(Value = "FASTWAY_UK")]
-        FASTWAYUK,
+        FastwayUk,
 
         /// <summary>
-        /// FASTWAYUS.
+        /// FastwayUs.
         /// </summary>
         [EnumMember(Value = "FASTWAY_US")]
-        FASTWAYUS,
+        FastwayUs,
 
         /// <summary>
-        /// GLSDE.
+        /// GlsDe.
         /// </summary>
         [EnumMember(Value = "GLS_DE")]
-        GLSDE,
+        GlsDe,
 
         /// <summary>
-        /// GLSES.
+        /// GlsEs.
         /// </summary>
         [EnumMember(Value = "GLS_ES")]
-        GLSES,
+        GlsEs,
 
         /// <summary>
-        /// GLSFR.
+        /// GlsFr.
         /// </summary>
         [EnumMember(Value = "GLS_FR")]
-        GLSFR,
+        GlsFr,
 
         /// <summary>
-        /// MONDIALBE.
+        /// MondialBe.
         /// </summary>
         [EnumMember(Value = "MONDIAL_BE")]
-        MONDIALBE,
+        MondialBe,
 
         /// <summary>
-        /// SGTIT.
+        /// SgtIt.
         /// </summary>
         [EnumMember(Value = "SGT_IT")]
-        SGTIT,
+        SgtIt,
 
         /// <summary>
-        /// TNTCN.
+        /// TntCn.
         /// </summary>
         [EnumMember(Value = "TNT_CN")]
-        TNTCN,
+        TntCn,
 
         /// <summary>
-        /// TNTDE.
+        /// TntDe.
         /// </summary>
         [EnumMember(Value = "TNT_DE")]
-        TNTDE,
+        TntDe,
 
         /// <summary>
-        /// TNTES.
+        /// TntEs.
         /// </summary>
         [EnumMember(Value = "TNT_ES")]
-        TNTES,
+        TntEs,
 
         /// <summary>
-        /// TNTPL.
+        /// TntPl.
         /// </summary>
         [EnumMember(Value = "TNT_PL")]
-        TNTPL,
+        TntPl,
 
         /// <summary>
-        /// PARCELFORCE.
+        /// Parcelforce.
         /// </summary>
         [EnumMember(Value = "PARCELFORCE")]
-        PARCELFORCE,
+        Parcelforce,
 
         /// <summary>
-        /// SWISSPOST.
+        /// SwissPost.
         /// </summary>
         [EnumMember(Value = "SWISS_POST")]
-        SWISSPOST,
+        SwissPost,
 
         /// <summary>
-        /// TOLLIPEC.
+        /// TollIpec.
         /// </summary>
         [EnumMember(Value = "TOLL_IPEC")]
-        TOLLIPEC,
+        TollIpec,
 
         /// <summary>
-        /// AIR21.
+        /// Air21.
         /// </summary>
         [EnumMember(Value = "AIR_21")]
-        AIR21,
+        Air21,
 
         /// <summary>
-        /// AIRSPEED.
+        /// Airspeed.
         /// </summary>
         [EnumMember(Value = "AIRSPEED")]
-        AIRSPEED,
+        Airspeed,
 
         /// <summary>
-        /// BERT.
+        /// Bert.
         /// </summary>
         [EnumMember(Value = "BERT")]
-        BERT,
+        Bert,
 
         /// <summary>
-        /// BLUEDART.
+        /// Bluedart.
         /// </summary>
         [EnumMember(Value = "BLUEDART")]
-        BLUEDART,
+        Bluedart,
 
         /// <summary>
-        /// COLLECTPLUS.
+        /// Collectplus.
         /// </summary>
         [EnumMember(Value = "COLLECTPLUS")]
-        COLLECTPLUS,
+        Collectplus,
 
         /// <summary>
-        /// COURIERPLUS.
+        /// Courierplus.
         /// </summary>
         [EnumMember(Value = "COURIERPLUS")]
-        COURIERPLUS,
+        Courierplus,
 
         /// <summary>
-        /// COURIERPOST.
+        /// CourierPost.
         /// </summary>
         [EnumMember(Value = "COURIER_POST")]
-        COURIERPOST,
+        CourierPost,
 
         /// <summary>
-        /// DHLGLOBALMAIL.
+        /// DhlGlobalMail.
         /// </summary>
         [EnumMember(Value = "DHL_GLOBAL_MAIL")]
-        DHLGLOBALMAIL,
+        DhlGlobalMail,
 
         /// <summary>
-        /// DPDUK.
+        /// DpdUk.
         /// </summary>
         [EnumMember(Value = "DPD_UK")]
-        DPDUK,
+        DpdUk,
 
         /// <summary>
-        /// DELTECDE.
+        /// DeltecDe.
         /// </summary>
         [EnumMember(Value = "DELTEC_DE")]
-        DELTECDE,
+        DeltecDe,
 
         /// <summary>
-        /// DEUTSCHEDE.
+        /// DeutscheDe.
         /// </summary>
         [EnumMember(Value = "DEUTSCHE_DE")]
-        DEUTSCHEDE,
+        DeutscheDe,
 
         /// <summary>
-        /// DOTZOT.
+        /// Dotzot.
         /// </summary>
         [EnumMember(Value = "DOTZOT")]
-        DOTZOT,
+        Dotzot,
 
         /// <summary>
-        /// ELTAGR.
+        /// EltaGr.
         /// </summary>
         [EnumMember(Value = "ELTA_GR")]
-        ELTAGR,
+        EltaGr,
 
         /// <summary>
-        /// EMSCN.
+        /// EmsCn.
         /// </summary>
         [EnumMember(Value = "EMS_CN")]
-        EMSCN,
+        EmsCn,
 
         /// <summary>
-        /// ECARGO.
+        /// Ecargo.
         /// </summary>
         [EnumMember(Value = "ECARGO")]
-        ECARGO,
+        Ecargo,
 
         /// <summary>
-        /// ENSENDA.
+        /// Ensenda.
         /// </summary>
         [EnumMember(Value = "ENSENDA")]
-        ENSENDA,
+        Ensenda,
 
         /// <summary>
-        /// FERCAMIT.
+        /// FercamIt.
         /// </summary>
         [EnumMember(Value = "FERCAM_IT")]
-        FERCAMIT,
+        FercamIt,
 
         /// <summary>
-        /// FASTWAYZA.
+        /// FastwayZa.
         /// </summary>
         [EnumMember(Value = "FASTWAY_ZA")]
-        FASTWAYZA,
+        FastwayZa,
 
         /// <summary>
-        /// FASTWAYAU.
+        /// FastwayAu.
         /// </summary>
         [EnumMember(Value = "FASTWAY_AU")]
-        FASTWAYAU,
+        FastwayAu,
 
         /// <summary>
-        /// FIRSTLOGISITCS.
+        /// FirstLogisitcs.
         /// </summary>
         [EnumMember(Value = "FIRST_LOGISITCS")]
-        FIRSTLOGISITCS,
+        FirstLogisitcs,
 
         /// <summary>
-        /// GEODIS.
+        /// Geodis.
         /// </summary>
         [EnumMember(Value = "GEODIS")]
-        GEODIS,
+        Geodis,
 
         /// <summary>
-        /// GLOBEGISTICS.
+        /// Globegistics.
         /// </summary>
         [EnumMember(Value = "GLOBEGISTICS")]
-        GLOBEGISTICS,
+        Globegistics,
 
         /// <summary>
-        /// GREYHOUND.
+        /// Greyhound.
         /// </summary>
         [EnumMember(Value = "GREYHOUND")]
-        GREYHOUND,
+        Greyhound,
 
         /// <summary>
-        /// JETSHIPMY.
+        /// JetshipMy.
         /// </summary>
         [EnumMember(Value = "JETSHIP_MY")]
-        JETSHIPMY,
+        JetshipMy,
 
         /// <summary>
-        /// LIONPARCEL.
+        /// LionParcel.
         /// </summary>
         [EnumMember(Value = "LION_PARCEL")]
-        LIONPARCEL,
+        LionParcel,
 
         /// <summary>
-        /// AEROFLASH.
+        /// Aeroflash.
         /// </summary>
         [EnumMember(Value = "AEROFLASH")]
-        AEROFLASH,
+        Aeroflash,
 
         /// <summary>
-        /// ONTRAC.
+        /// Ontrac.
         /// </summary>
         [EnumMember(Value = "ONTRAC")]
-        ONTRAC,
+        Ontrac,
 
         /// <summary>
-        /// SAGAWA.
+        /// Sagawa.
         /// </summary>
         [EnumMember(Value = "SAGAWA")]
-        SAGAWA,
+        Sagawa,
 
         /// <summary>
-        /// SIODEMKA.
+        /// Siodemka.
         /// </summary>
         [EnumMember(Value = "SIODEMKA")]
-        SIODEMKA,
+        Siodemka,
 
         /// <summary>
-        /// STARTRACK.
+        /// Startrack.
         /// </summary>
         [EnumMember(Value = "STARTRACK")]
-        STARTRACK,
+        Startrack,
 
         /// <summary>
-        /// TNTAU.
+        /// TntAu.
         /// </summary>
         [EnumMember(Value = "TNT_AU")]
-        TNTAU,
+        TntAu,
 
         /// <summary>
-        /// TNTIT.
+        /// TntIt.
         /// </summary>
         [EnumMember(Value = "TNT_IT")]
-        TNTIT,
+        TntIt,
 
         /// <summary>
-        /// TRANSMISSION.
+        /// Transmission.
         /// </summary>
         [EnumMember(Value = "TRANSMISSION")]
-        TRANSMISSION,
+        Transmission,
 
         /// <summary>
-        /// YAMATO.
+        /// Yamato.
         /// </summary>
         [EnumMember(Value = "YAMATO")]
-        YAMATO,
+        Yamato,
 
         /// <summary>
-        /// DHLIT.
+        /// DhlIt.
         /// </summary>
         [EnumMember(Value = "DHL_IT")]
-        DHLIT,
+        DhlIt,
 
         /// <summary>
-        /// DHLAT.
+        /// DhlAt.
         /// </summary>
         [EnumMember(Value = "DHL_AT")]
-        DHLAT,
+        DhlAt,
 
         /// <summary>
-        /// LOGISTICSWORLDWIDEKR.
+        /// LogisticsworldwideKr.
         /// </summary>
         [EnumMember(Value = "LOGISTICSWORLDWIDE_KR")]
-        LOGISTICSWORLDWIDEKR,
+        LogisticsworldwideKr,
 
         /// <summary>
-        /// GLSSPAIN.
+        /// GlsSpain.
         /// </summary>
         [EnumMember(Value = "GLS_SPAIN")]
-        GLSSPAIN,
+        GlsSpain,
 
         /// <summary>
-        /// AMAZONUKAPI.
+        /// AmazonUkApi.
         /// </summary>
         [EnumMember(Value = "AMAZON_UK_API")]
-        AMAZONUKAPI,
+        AmazonUkApi,
 
         /// <summary>
-        /// DPDFRREFERENCE.
+        /// DpdFrReference.
         /// </summary>
         [EnumMember(Value = "DPD_FR_REFERENCE")]
-        DPDFRREFERENCE,
+        DpdFrReference,
 
         /// <summary>
-        /// DHLPARCELUK.
+        /// DhlparcelUk.
         /// </summary>
         [EnumMember(Value = "DHLPARCEL_UK")]
-        DHLPARCELUK,
+        DhlparcelUk,
 
         /// <summary>
-        /// MEGASAVE.
+        /// Megasave.
         /// </summary>
         [EnumMember(Value = "MEGASAVE")]
-        MEGASAVE,
+        Megasave,
 
         /// <summary>
-        /// QUALITYPOST.
+        /// Qualitypost.
         /// </summary>
         [EnumMember(Value = "QUALITYPOST")]
-        QUALITYPOST,
+        Qualitypost,
 
         /// <summary>
-        /// IDSLOGISTICS.
+        /// IdsLogistics.
         /// </summary>
         [EnumMember(Value = "IDS_LOGISTICS")]
-        IDSLOGISTICS,
+        IdsLogistics,
 
         /// <summary>
-        /// JOYINGBOX1.
+        /// Joyingbox1.
         /// </summary>
         [EnumMember(Value = "JOYINGBOX")]
-        JOYINGBOX1,
+        Joyingbox1,
 
         /// <summary>
-        /// PANTHERORDERNUMBER.
+        /// PantherOrderNumber.
         /// </summary>
         [EnumMember(Value = "PANTHER_ORDER_NUMBER")]
-        PANTHERORDERNUMBER,
+        PantherOrderNumber,
 
         /// <summary>
-        /// WATKINSSHEPARD.
+        /// WatkinsShepard.
         /// </summary>
         [EnumMember(Value = "WATKINS_SHEPARD")]
-        WATKINSSHEPARD,
+        WatkinsShepard,
 
         /// <summary>
-        /// FASTTRACK.
+        /// Fasttrack.
         /// </summary>
         [EnumMember(Value = "FASTTRACK")]
-        FASTTRACK,
+        Fasttrack,
 
         /// <summary>
-        /// UPEXPRESS.
+        /// UpExpress.
         /// </summary>
         [EnumMember(Value = "UP_EXPRESS")]
-        UPEXPRESS,
+        UpExpress,
 
         /// <summary>
-        /// ELOGISTICA.
+        /// Elogistica.
         /// </summary>
         [EnumMember(Value = "ELOGISTICA")]
-        ELOGISTICA,
+        Elogistica,
 
         /// <summary>
-        /// ECOURIER.
+        /// Ecourier.
         /// </summary>
         [EnumMember(Value = "ECOURIER")]
-        ECOURIER,
+        Ecourier,
 
         /// <summary>
-        /// CJPHILIPPINES.
+        /// CjPhilippines.
         /// </summary>
         [EnumMember(Value = "CJ_PHILIPPINES")]
-        CJPHILIPPINES,
+        CjPhilippines,
 
         /// <summary>
-        /// SPEEDEX.
+        /// Speedex.
         /// </summary>
         [EnumMember(Value = "SPEEDEX")]
-        SPEEDEX,
+        Speedex,
 
         /// <summary>
-        /// ORANGECONNEX.
+        /// Orangeconnex.
         /// </summary>
         [EnumMember(Value = "ORANGECONNEX")]
-        ORANGECONNEX,
+        Orangeconnex,
 
         /// <summary>
-        /// TECOR.
+        /// Tecor.
         /// </summary>
         [EnumMember(Value = "TECOR")]
-        TECOR,
+        Tecor,
 
         /// <summary>
-        /// SAEE.
+        /// Saee.
         /// </summary>
         [EnumMember(Value = "SAEE")]
-        SAEE,
+        Saee,
 
         /// <summary>
-        /// GLSITALYFTP.
+        /// GlsItalyFtp.
         /// </summary>
         [EnumMember(Value = "GLS_ITALY_FTP")]
-        GLSITALYFTP,
+        GlsItalyFtp,
 
         /// <summary>
-        /// DELIVERE.
+        /// Delivere.
         /// </summary>
         [EnumMember(Value = "DELIVERE")]
-        DELIVERE,
+        Delivere,
 
         /// <summary>
-        /// YYCOM.
+        /// Yycom.
         /// </summary>
         [EnumMember(Value = "YYCOM")]
-        YYCOM,
+        Yycom,
 
         /// <summary>
-        /// ADICIONALPT.
+        /// AdicionalPt.
         /// </summary>
         [EnumMember(Value = "ADICIONAL_PT")]
-        ADICIONALPT,
+        AdicionalPt,
 
         /// <summary>
-        /// DKSH.
+        /// Dksh.
         /// </summary>
         [EnumMember(Value = "DKSH")]
-        DKSH,
+        Dksh,
 
         /// <summary>
-        /// NIPPONEXPRESSFTP.
+        /// NipponExpressFtp.
         /// </summary>
         [EnumMember(Value = "NIPPON_EXPRESS_FTP")]
-        NIPPONEXPRESSFTP,
+        NipponExpressFtp,
 
         /// <summary>
-        /// GOLS.
+        /// Gols.
         /// </summary>
         [EnumMember(Value = "GOLS")]
-        GOLS,
+        Gols,
 
         /// <summary>
-        /// FUJEXP.
+        /// Fujexp.
         /// </summary>
         [EnumMember(Value = "FUJEXP")]
-        FUJEXP,
+        Fujexp,
 
         /// <summary>
-        /// QTRACK.
+        /// Qtrack.
         /// </summary>
         [EnumMember(Value = "QTRACK")]
-        QTRACK,
+        Qtrack,
 
         /// <summary>
-        /// OMLOGISTICSAPI.
+        /// OmlogisticsApi.
         /// </summary>
         [EnumMember(Value = "OMLOGISTICS_API")]
-        OMLOGISTICSAPI,
+        OmlogisticsApi,
 
         /// <summary>
-        /// GDPHARM.
+        /// Gdpharm.
         /// </summary>
         [EnumMember(Value = "GDPHARM")]
-        GDPHARM,
+        Gdpharm,
 
         /// <summary>
-        /// MISUMICN.
+        /// MisumiCn.
         /// </summary>
         [EnumMember(Value = "MISUMI_CN")]
-        MISUMICN,
+        MisumiCn,
 
         /// <summary>
-        /// AIRCANADA.
+        /// AirCanada.
         /// </summary>
         [EnumMember(Value = "AIR_CANADA")]
-        AIRCANADA,
+        AirCanada,
 
         /// <summary>
-        /// CITY56WEBHOOK.
+        /// City56Webhook.
         /// </summary>
         [EnumMember(Value = "CITY56_WEBHOOK")]
-        CITY56WEBHOOK,
+        City56Webhook,
 
         /// <summary>
-        /// SAGAWAAPI.
+        /// SagawaApi.
         /// </summary>
         [EnumMember(Value = "SAGAWA_API")]
-        SAGAWAAPI,
+        SagawaApi,
 
         /// <summary>
-        /// KEDAEX.
+        /// Kedaex.
         /// </summary>
         [EnumMember(Value = "KEDAEX")]
-        KEDAEX,
+        Kedaex,
 
         /// <summary>
-        /// PGEONAPI.
+        /// PgeonApi.
         /// </summary>
         [EnumMember(Value = "PGEON_API")]
-        PGEONAPI,
+        PgeonApi,
 
         /// <summary>
-        /// WEWORLDEXPRESS.
+        /// Weworldexpress.
         /// </summary>
         [EnumMember(Value = "WEWORLDEXPRESS")]
-        WEWORLDEXPRESS,
+        Weworldexpress,
 
         /// <summary>
-        /// JTLOGISTICS.
+        /// JtLogistics.
         /// </summary>
         [EnumMember(Value = "JT_LOGISTICS")]
-        JTLOGISTICS,
+        JtLogistics,
 
         /// <summary>
-        /// TRUSK.
+        /// Trusk.
         /// </summary>
         [EnumMember(Value = "TRUSK")]
-        TRUSK,
+        Trusk,
 
         /// <summary>
-        /// VIAXPRESS.
+        /// Viaxpress.
         /// </summary>
         [EnumMember(Value = "VIAXPRESS")]
-        VIAXPRESS,
+        Viaxpress,
 
         /// <summary>
-        /// DHLSUPPLYCHAINID.
+        /// DhlSupplychainId.
         /// </summary>
         [EnumMember(Value = "DHL_SUPPLYCHAIN_ID")]
-        DHLSUPPLYCHAINID,
+        DhlSupplychainId,
 
         /// <summary>
-        /// ZUELLIGPHARMASFTP.
+        /// ZuelligpharmaSftp.
         /// </summary>
         [EnumMember(Value = "ZUELLIGPHARMA_SFTP")]
-        ZUELLIGPHARMASFTP,
+        ZuelligpharmaSftp,
 
         /// <summary>
-        /// MEEST.
+        /// Meest.
         /// </summary>
         [EnumMember(Value = "MEEST")]
-        MEEST,
+        Meest,
 
         /// <summary>
-        /// TOLLPRIORITY.
+        /// TollPriority.
         /// </summary>
         [EnumMember(Value = "TOLL_PRIORITY")]
-        TOLLPRIORITY,
+        TollPriority,
 
         /// <summary>
-        /// MOTHERSHIPAPI.
+        /// MothershipApi.
         /// </summary>
         [EnumMember(Value = "MOTHERSHIP_API")]
-        MOTHERSHIPAPI,
+        MothershipApi,
 
         /// <summary>
-        /// CAPITAL.
+        /// Capital.
         /// </summary>
         [EnumMember(Value = "CAPITAL")]
-        CAPITAL,
+        Capital,
 
         /// <summary>
-        /// EUROPAKETAPI.
+        /// EuropaketApi.
         /// </summary>
         [EnumMember(Value = "EUROPAKET_API")]
-        EUROPAKETAPI,
+        EuropaketApi,
 
         /// <summary>
-        /// HFD.
+        /// Hfd.
         /// </summary>
         [EnumMember(Value = "HFD")]
-        HFD,
+        Hfd,
 
         /// <summary>
-        /// TOURLINEREFERENCE.
+        /// TourlineReference.
         /// </summary>
         [EnumMember(Value = "TOURLINE_REFERENCE")]
-        TOURLINEREFERENCE,
+        TourlineReference,
 
         /// <summary>
-        /// GIOECOURIER.
+        /// GioEcourier.
         /// </summary>
         [EnumMember(Value = "GIO_ECOURIER")]
-        GIOECOURIER,
+        GioEcourier,
 
         /// <summary>
-        /// CNLOGISTICS.
+        /// CnLogistics.
         /// </summary>
         [EnumMember(Value = "CN_LOGISTICS")]
-        CNLOGISTICS,
+        CnLogistics,
 
         /// <summary>
-        /// PANDION.
+        /// Pandion.
         /// </summary>
         [EnumMember(Value = "PANDION")]
-        PANDION,
+        Pandion,
 
         /// <summary>
-        /// BPOSTAPI.
+        /// BpostApi.
         /// </summary>
         [EnumMember(Value = "BPOST_API")]
-        BPOSTAPI,
+        BpostApi,
 
         /// <summary>
-        /// PASSPORTSHIPPING.
+        /// Passportshipping.
         /// </summary>
         [EnumMember(Value = "PASSPORTSHIPPING")]
-        PASSPORTSHIPPING,
+        Passportshipping,
 
         /// <summary>
-        /// PAKAJO.
+        /// Pakajo.
         /// </summary>
         [EnumMember(Value = "PAKAJO")]
-        PAKAJO,
+        Pakajo,
 
         /// <summary>
-        /// DACHSER.
+        /// Dachser.
         /// </summary>
         [EnumMember(Value = "DACHSER")]
-        DACHSER,
+        Dachser,
 
         /// <summary>
-        /// YUSENSFTP.
+        /// YusenSftp.
         /// </summary>
         [EnumMember(Value = "YUSEN_SFTP")]
-        YUSENSFTP,
+        YusenSftp,
 
         /// <summary>
-        /// SHYPLITE.
+        /// Shyplite.
         /// </summary>
         [EnumMember(Value = "SHYPLITE")]
-        SHYPLITE,
+        Shyplite,
 
         /// <summary>
-        /// XYY.
+        /// Xyy.
         /// </summary>
         [EnumMember(Value = "XYY")]
-        XYY,
+        Xyy,
 
         /// <summary>
-        /// MWD.
+        /// Mwd.
         /// </summary>
         [EnumMember(Value = "MWD")]
-        MWD,
+        Mwd,
 
         /// <summary>
-        /// FAXECARGO.
+        /// Faxecargo.
         /// </summary>
         [EnumMember(Value = "FAXECARGO")]
-        FAXECARGO,
+        Faxecargo,
 
         /// <summary>
-        /// MAZET.
+        /// Mazet.
         /// </summary>
         [EnumMember(Value = "MAZET")]
-        MAZET,
+        Mazet,
 
         /// <summary>
-        /// FIRSTLOGISTICSAPI.
+        /// FirstLogisticsApi.
         /// </summary>
         [EnumMember(Value = "FIRST_LOGISTICS_API")]
-        FIRSTLOGISTICSAPI,
+        FirstLogisticsApi,
 
         /// <summary>
-        /// SPRINTPACK.
+        /// SprintPack.
         /// </summary>
         [EnumMember(Value = "SPRINT_PACK")]
-        SPRINTPACK,
+        SprintPack,
 
         /// <summary>
-        /// HERMESDEFTP.
+        /// HermesDeFtp.
         /// </summary>
         [EnumMember(Value = "HERMES_DE_FTP")]
-        HERMESDEFTP,
+        HermesDeFtp,
 
         /// <summary>
-        /// CONCISE.
+        /// Concise.
         /// </summary>
         [EnumMember(Value = "CONCISE")]
-        CONCISE,
+        Concise,
 
         /// <summary>
-        /// KERRYEXPRESSTWAPI.
+        /// KerryExpressTwApi.
         /// </summary>
         [EnumMember(Value = "KERRY_EXPRESS_TW_API")]
-        KERRYEXPRESSTWAPI,
+        KerryExpressTwApi,
 
         /// <summary>
-        /// EWE.
+        /// Ewe.
         /// </summary>
         [EnumMember(Value = "EWE")]
-        EWE,
+        Ewe,
 
         /// <summary>
-        /// FASTDESPATCH.
+        /// Fastdespatch.
         /// </summary>
         [EnumMember(Value = "FASTDESPATCH")]
-        FASTDESPATCH,
+        Fastdespatch,
 
         /// <summary>
-        /// ABCUSTOMSFTP.
+        /// AbcustomSftp.
         /// </summary>
         [EnumMember(Value = "ABCUSTOM_SFTP")]
-        ABCUSTOMSFTP,
+        AbcustomSftp,
 
         /// <summary>
-        /// CHAZKI.
+        /// Chazki.
         /// </summary>
         [EnumMember(Value = "CHAZKI")]
-        CHAZKI,
+        Chazki,
 
         /// <summary>
-        /// SHIPPIE.
+        /// Shippie.
         /// </summary>
         [EnumMember(Value = "SHIPPIE")]
-        SHIPPIE,
+        Shippie,
 
         /// <summary>
-        /// GEODISAPI.
+        /// GeodisApi.
         /// </summary>
         [EnumMember(Value = "GEODIS_API")]
-        GEODISAPI,
+        GeodisApi,
 
         /// <summary>
-        /// NAQELEXPRESS.
+        /// NaqelExpress.
         /// </summary>
         [EnumMember(Value = "NAQEL_EXPRESS")]
-        NAQELEXPRESS,
+        NaqelExpress,
 
         /// <summary>
-        /// PAPAWEBHOOK.
+        /// PapaWebhook.
         /// </summary>
         [EnumMember(Value = "PAPA_WEBHOOK")]
-        PAPAWEBHOOK,
+        PapaWebhook,
 
         /// <summary>
-        /// FORWARDAIR.
+        /// Forwardair.
         /// </summary>
         [EnumMember(Value = "FORWARDAIR")]
-        FORWARDAIR,
+        Forwardair,
 
         /// <summary>
-        /// DIALOGOLOGISTICAAPI.
+        /// DialogoLogisticaApi.
         /// </summary>
         [EnumMember(Value = "DIALOGO_LOGISTICA_API")]
-        DIALOGOLOGISTICAAPI,
+        DialogoLogisticaApi,
 
         /// <summary>
-        /// LALAMOVEAPI.
+        /// LalamoveApi.
         /// </summary>
         [EnumMember(Value = "LALAMOVE_API")]
-        LALAMOVEAPI,
+        LalamoveApi,
 
         /// <summary>
-        /// TOMYDOOR.
+        /// Tomydoor.
         /// </summary>
         [EnumMember(Value = "TOMYDOOR")]
-        TOMYDOOR,
+        Tomydoor,
 
         /// <summary>
-        /// KRONOSWEBHOOK.
+        /// KronosWebhook.
         /// </summary>
         [EnumMember(Value = "KRONOS_WEBHOOK")]
-        KRONOSWEBHOOK,
+        KronosWebhook,
 
         /// <summary>
-        /// JTCARGO.
+        /// Jtcargo.
         /// </summary>
         [EnumMember(Value = "JTCARGO")]
-        JTCARGO,
+        Jtcargo,
 
         /// <summary>
-        /// TCAT.
+        /// TCat.
         /// </summary>
         [EnumMember(Value = "T_CAT")]
-        TCAT,
+        TCat,
 
         /// <summary>
-        /// CONCISEWEBHOOK.
+        /// ConciseWebhook.
         /// </summary>
         [EnumMember(Value = "CONCISE_WEBHOOK")]
-        CONCISEWEBHOOK,
+        ConciseWebhook,
 
         /// <summary>
-        /// TELEPORTWEBHOOK.
+        /// TeleportWebhook.
         /// </summary>
         [EnumMember(Value = "TELEPORT_WEBHOOK")]
-        TELEPORTWEBHOOK,
+        TeleportWebhook,
 
         /// <summary>
-        /// CUSTOMCOAPI.
+        /// CustomcoApi.
         /// </summary>
         [EnumMember(Value = "CUSTOMCO_API")]
-        CUSTOMCOAPI,
+        CustomcoApi,
 
         /// <summary>
-        /// SPXTH.
+        /// SpxTh.
         /// </summary>
         [EnumMember(Value = "SPX_TH")]
-        SPXTH,
+        SpxTh,
 
         /// <summary>
-        /// BOLLORELOGISTICS.
+        /// BolloreLogistics.
         /// </summary>
         [EnumMember(Value = "BOLLORE_LOGISTICS")]
-        BOLLORELOGISTICS,
+        BolloreLogistics,
 
         /// <summary>
-        /// CLICKLINKSFTP.
+        /// ClicklinkSftp.
         /// </summary>
         [EnumMember(Value = "CLICKLINK_SFTP")]
-        CLICKLINKSFTP,
+        ClicklinkSftp,
 
         /// <summary>
-        /// M3LOGISTICS.
+        /// M3Logistics.
         /// </summary>
         [EnumMember(Value = "M3LOGISTICS")]
-        M3LOGISTICS,
+        M3Logistics,
 
         /// <summary>
-        /// VNPOSTAPI.
+        /// VnpostApi.
         /// </summary>
         [EnumMember(Value = "VNPOST_API")]
-        VNPOSTAPI,
+        VnpostApi,
 
         /// <summary>
-        /// AXLEHIREFTP.
+        /// AxlehireFtp.
         /// </summary>
         [EnumMember(Value = "AXLEHIRE_FTP")]
-        AXLEHIREFTP,
+        AxlehireFtp,
 
         /// <summary>
-        /// SHADOWFAX.
+        /// Shadowfax.
         /// </summary>
         [EnumMember(Value = "SHADOWFAX")]
-        SHADOWFAX,
+        Shadowfax,
 
         /// <summary>
-        /// MYHERMESUKAPI.
+        /// MyhermesUkApi.
         /// </summary>
         [EnumMember(Value = "MYHERMES_UK_API")]
-        MYHERMESUKAPI,
+        MyhermesUkApi,
 
         /// <summary>
-        /// DAIICHI.
+        /// Daiichi.
         /// </summary>
         [EnumMember(Value = "DAIICHI")]
-        DAIICHI,
+        Daiichi,
 
         /// <summary>
-        /// MENSAJEROSURBANOSAPI.
+        /// MensajerosurbanosApi.
         /// </summary>
         [EnumMember(Value = "MENSAJEROSURBANOS_API")]
-        MENSAJEROSURBANOSAPI,
+        MensajerosurbanosApi,
 
         /// <summary>
-        /// POLARSPEED.
+        /// Polarspeed.
         /// </summary>
         [EnumMember(Value = "POLARSPEED")]
-        POLARSPEED,
+        Polarspeed,
 
         /// <summary>
-        /// IDEXPRESSID.
+        /// IdexpressId.
         /// </summary>
         [EnumMember(Value = "IDEXPRESS_ID")]
-        IDEXPRESSID,
+        IdexpressId,
 
         /// <summary>
-        /// PAYO.
+        /// Payo.
         /// </summary>
         [EnumMember(Value = "PAYO")]
-        PAYO,
+        Payo,
 
         /// <summary>
-        /// WHISTLSFTP.
+        /// WhistlSftp.
         /// </summary>
         [EnumMember(Value = "WHISTL_SFTP")]
-        WHISTLSFTP,
+        WhistlSftp,
 
         /// <summary>
-        /// INTEXDE.
+        /// IntexDe.
         /// </summary>
         [EnumMember(Value = "INTEX_DE")]
-        INTEXDE,
+        IntexDe,
 
         /// <summary>
-        /// TRANS2U.
+        /// Trans2U.
         /// </summary>
         [EnumMember(Value = "TRANS2U")]
-        TRANS2U,
+        Trans2U,
 
         /// <summary>
-        /// PRODUCTCAREGROUPSFTP.
+        /// ProductcaregroupSftp.
         /// </summary>
         [EnumMember(Value = "PRODUCTCAREGROUP_SFTP")]
-        PRODUCTCAREGROUPSFTP,
+        ProductcaregroupSftp,
 
         /// <summary>
-        /// BIGSMART.
+        /// Bigsmart.
         /// </summary>
         [EnumMember(Value = "BIGSMART")]
-        BIGSMART,
+        Bigsmart,
 
         /// <summary>
-        /// EXPEDITORSAPIREF.
+        /// ExpeditorsApiRef.
         /// </summary>
         [EnumMember(Value = "EXPEDITORS_API_REF")]
-        EXPEDITORSAPIREF,
+        ExpeditorsApiRef,
 
         /// <summary>
-        /// AITWORLDWIDEAPI.
+        /// AitworldwideApi.
         /// </summary>
         [EnumMember(Value = "AITWORLDWIDE_API")]
-        AITWORLDWIDEAPI,
+        AitworldwideApi,
 
         /// <summary>
-        /// WORLDCOURIER.
+        /// Worldcourier.
         /// </summary>
         [EnumMember(Value = "WORLDCOURIER")]
-        WORLDCOURIER,
+        Worldcourier,
 
         /// <summary>
-        /// QUIQUP.
+        /// Quiqup.
         /// </summary>
         [EnumMember(Value = "QUIQUP")]
-        QUIQUP,
+        Quiqup,
 
         /// <summary>
-        /// AGEDISSSFTP.
+        /// AgedissSftp.
         /// </summary>
         [EnumMember(Value = "AGEDISS_SFTP")]
-        AGEDISSSFTP,
+        AgedissSftp,
 
         /// <summary>
-        /// ANDREANIAPI.
+        /// AndreaniApi.
         /// </summary>
         [EnumMember(Value = "ANDREANI_API")]
-        ANDREANIAPI,
+        AndreaniApi,
 
         /// <summary>
-        /// CRLEXPRESS.
+        /// Crlexpress.
         /// </summary>
         [EnumMember(Value = "CRLEXPRESS")]
-        CRLEXPRESS,
+        Crlexpress,
 
         /// <summary>
-        /// SMARTCAT.
+        /// Smartcat.
         /// </summary>
         [EnumMember(Value = "SMARTCAT")]
-        SMARTCAT,
+        Smartcat,
 
         /// <summary>
-        /// CROSSFLIGHT.
+        /// Crossflight.
         /// </summary>
         [EnumMember(Value = "CROSSFLIGHT")]
-        CROSSFLIGHT,
+        Crossflight,
 
         /// <summary>
-        /// PROCARRIER.
+        /// Procarrier.
         /// </summary>
         [EnumMember(Value = "PROCARRIER")]
-        PROCARRIER,
+        Procarrier,
 
         /// <summary>
-        /// DHLREFERENCEAPI.
+        /// DhlReferenceApi.
         /// </summary>
         [EnumMember(Value = "DHL_REFERENCE_API")]
-        DHLREFERENCEAPI,
+        DhlReferenceApi,
 
         /// <summary>
-        /// SEINOAPI.
+        /// SeinoApi.
         /// </summary>
         [EnumMember(Value = "SEINO_API")]
-        SEINOAPI,
+        SeinoApi,
 
         /// <summary>
-        /// WSPEXPRESS.
+        /// Wspexpress.
         /// </summary>
         [EnumMember(Value = "WSPEXPRESS")]
-        WSPEXPRESS,
+        Wspexpress,
 
         /// <summary>
-        /// KRONOS.
+        /// Kronos.
         /// </summary>
         [EnumMember(Value = "KRONOS")]
-        KRONOS,
+        Kronos,
 
         /// <summary>
-        /// TOTALEXPRESSAPI.
+        /// TotalExpressApi.
         /// </summary>
         [EnumMember(Value = "TOTAL_EXPRESS_API")]
-        TOTALEXPRESSAPI,
+        TotalExpressApi,
 
         /// <summary>
-        /// PARCLL.
+        /// Parcll.
         /// </summary>
         [EnumMember(Value = "PARCLL")]
-        PARCLL,
+        Parcll,
 
         /// <summary>
-        /// XPEDIGO.
+        /// Xpedigo.
         /// </summary>
         [EnumMember(Value = "XPEDIGO")]
-        XPEDIGO,
+        Xpedigo,
 
         /// <summary>
-        /// STARTRACKWEBHOOK.
+        /// StarTrackWebhook.
         /// </summary>
         [EnumMember(Value = "STAR_TRACK_WEBHOOK")]
-        STARTRACKWEBHOOK,
+        StarTrackWebhook,
 
         /// <summary>
-        /// GPOST.
+        /// Gpost.
         /// </summary>
         [EnumMember(Value = "GPOST")]
-        GPOST,
+        Gpost,
 
         /// <summary>
-        /// UCS.
+        /// Ucs.
         /// </summary>
         [EnumMember(Value = "UCS")]
-        UCS,
+        Ucs,
 
         /// <summary>
-        /// DMFGROUP.
+        /// Dmfgroup.
         /// </summary>
         [EnumMember(Value = "DMFGROUP")]
-        DMFGROUP,
+        Dmfgroup,
 
         /// <summary>
-        /// COORDINADORAAPI.
+        /// CoordinadoraApi.
         /// </summary>
         [EnumMember(Value = "COORDINADORA_API")]
-        COORDINADORAAPI,
+        CoordinadoraApi,
 
         /// <summary>
-        /// MARKEN.
+        /// Marken.
         /// </summary>
         [EnumMember(Value = "MARKEN")]
-        MARKEN,
+        Marken,
 
         /// <summary>
-        /// NTL.
+        /// Ntl.
         /// </summary>
         [EnumMember(Value = "NTL")]
-        NTL,
+        Ntl,
 
         /// <summary>
-        /// REDJEPAKKETJE.
+        /// Redjepakketje.
         /// </summary>
         [EnumMember(Value = "REDJEPAKKETJE")]
-        REDJEPAKKETJE,
+        Redjepakketje,
 
         /// <summary>
-        /// ALLIEDEXPRESSFTP.
+        /// AlliedExpressFtp.
         /// </summary>
         [EnumMember(Value = "ALLIED_EXPRESS_FTP")]
-        ALLIEDEXPRESSFTP,
+        AlliedExpressFtp,
 
         /// <summary>
-        /// MONDIALRELAYES.
+        /// MondialrelayEs.
         /// </summary>
         [EnumMember(Value = "MONDIALRELAY_ES")]
-        MONDIALRELAYES,
+        MondialrelayEs,
 
         /// <summary>
-        /// NAEKOFTP.
+        /// NaekoFtp.
         /// </summary>
         [EnumMember(Value = "NAEKO_FTP")]
-        NAEKOFTP,
+        NaekoFtp,
 
         /// <summary>
-        /// MHI.
+        /// Mhi.
         /// </summary>
         [EnumMember(Value = "MHI")]
-        MHI,
+        Mhi,
 
         /// <summary>
-        /// SHIPPIFY.
+        /// Shippify.
         /// </summary>
         [EnumMember(Value = "SHIPPIFY")]
-        SHIPPIFY,
+        Shippify,
 
         /// <summary>
-        /// MALCAAMITAPI.
+        /// MalcaAmitApi.
         /// </summary>
         [EnumMember(Value = "MALCA_AMIT_API")]
-        MALCAAMITAPI,
+        MalcaAmitApi,
 
         /// <summary>
-        /// JTEXPRESSSGAPI.
+        /// JtexpressSgApi.
         /// </summary>
         [EnumMember(Value = "JTEXPRESS_SG_API")]
-        JTEXPRESSSGAPI,
+        JtexpressSgApi,
 
         /// <summary>
-        /// DACHSERWEB.
+        /// DachserWeb.
         /// </summary>
         [EnumMember(Value = "DACHSER_WEB")]
-        DACHSERWEB,
+        DachserWeb,
 
         /// <summary>
-        /// FLIGHTLG.
+        /// Flightlg.
         /// </summary>
         [EnumMember(Value = "FLIGHTLG")]
-        FLIGHTLG,
+        Flightlg,
 
         /// <summary>
-        /// CAGO.
+        /// Cago.
         /// </summary>
         [EnumMember(Value = "CAGO")]
-        CAGO,
+        Cago,
 
         /// <summary>
-        /// COM1EXPRESS.
+        /// Com1Express.
         /// </summary>
         [EnumMember(Value = "COM1EXPRESS")]
-        COM1EXPRESS,
+        Com1Express,
 
         /// <summary>
-        /// TONAMIFTP.
+        /// TonamiFtp.
         /// </summary>
         [EnumMember(Value = "TONAMI_FTP")]
-        TONAMIFTP,
+        TonamiFtp,
 
         /// <summary>
-        /// PACKFLEET.
+        /// Packfleet.
         /// </summary>
         [EnumMember(Value = "PACKFLEET")]
-        PACKFLEET,
+        Packfleet,
 
         /// <summary>
-        /// PUROLATORINTERNATIONAL.
+        /// PurolatorInternational.
         /// </summary>
         [EnumMember(Value = "PUROLATOR_INTERNATIONAL")]
-        PUROLATORINTERNATIONAL,
+        PurolatorInternational,
 
         /// <summary>
-        /// WINESHIPPINGWEBHOOK.
+        /// WineshippingWebhook.
         /// </summary>
         [EnumMember(Value = "WINESHIPPING_WEBHOOK")]
-        WINESHIPPINGWEBHOOK,
+        WineshippingWebhook,
 
         /// <summary>
-        /// DHLESSFTP.
+        /// DhlEsSftp.
         /// </summary>
         [EnumMember(Value = "DHL_ES_SFTP")]
-        DHLESSFTP,
+        DhlEsSftp,
 
         /// <summary>
-        /// PCHOMEAPI.
+        /// PchomeApi.
         /// </summary>
         [EnumMember(Value = "PCHOME_API")]
-        PCHOMEAPI,
+        PchomeApi,
 
         /// <summary>
-        /// CESKAPOSTAAPI.
+        /// CeskapostaApi.
         /// </summary>
         [EnumMember(Value = "CESKAPOSTA_API")]
-        CESKAPOSTAAPI,
+        CeskapostaApi,
 
         /// <summary>
-        /// GORUSH.
+        /// Gorush.
         /// </summary>
         [EnumMember(Value = "GORUSH")]
-        GORUSH,
+        Gorush,
 
         /// <summary>
-        /// HOMERUNNER.
+        /// Homerunner.
         /// </summary>
         [EnumMember(Value = "HOMERUNNER")]
-        HOMERUNNER,
+        Homerunner,
 
         /// <summary>
-        /// AMAZONORDER.
+        /// AmazonOrder.
         /// </summary>
         [EnumMember(Value = "AMAZON_ORDER")]
-        AMAZONORDER,
+        AmazonOrder,
 
         /// <summary>
-        /// EFWNOWAPI.
+        /// EfwnowApi.
         /// </summary>
         [EnumMember(Value = "EFWNOW_API")]
-        EFWNOWAPI,
+        EfwnowApi,
 
         /// <summary>
-        /// CBLLOGISTICAAPI.
+        /// CblLogisticaApi.
         /// </summary>
         [EnumMember(Value = "CBL_LOGISTICA_API")]
-        CBLLOGISTICAAPI,
+        CblLogisticaApi,
 
         /// <summary>
-        /// NIMBUSPOST.
+        /// Nimbuspost.
         /// </summary>
         [EnumMember(Value = "NIMBUSPOST")]
-        NIMBUSPOST,
+        Nimbuspost,
 
         /// <summary>
-        /// LOGWINLOGISTICS.
+        /// LogwinLogistics.
         /// </summary>
         [EnumMember(Value = "LOGWIN_LOGISTICS")]
-        LOGWINLOGISTICS,
+        LogwinLogistics,
 
         /// <summary>
-        /// NOWLOGAPI.
+        /// NowlogApi.
         /// </summary>
         [EnumMember(Value = "NOWLOG_API")]
-        NOWLOGAPI,
+        NowlogApi,
 
         /// <summary>
-        /// DPDNL.
+        /// DpdNl.
         /// </summary>
         [EnumMember(Value = "DPD_NL")]
-        DPDNL,
+        DpdNl,
 
         /// <summary>
-        /// GODEPENDABLE.
+        /// Godependable.
         /// </summary>
         [EnumMember(Value = "GODEPENDABLE")]
-        GODEPENDABLE,
+        Godependable,
 
         /// <summary>
-        /// ESDEX.
+        /// Esdex.
         /// </summary>
         [EnumMember(Value = "ESDEX")]
-        ESDEX,
+        Esdex,
 
         /// <summary>
-        /// LOGISYSTEMSSFTP.
+        /// LogisystemsSftp.
         /// </summary>
         [EnumMember(Value = "LOGISYSTEMS_SFTP")]
-        LOGISYSTEMSSFTP,
+        LogisystemsSftp,
 
         /// <summary>
-        /// EXPEDITORS.
+        /// Expeditors.
         /// </summary>
         [EnumMember(Value = "EXPEDITORS")]
-        EXPEDITORS,
+        Expeditors,
 
         /// <summary>
-        /// SNTGLOBALAPI.
+        /// SntglobalApi.
         /// </summary>
         [EnumMember(Value = "SNTGLOBAL_API")]
-        SNTGLOBALAPI,
+        SntglobalApi,
 
         /// <summary>
-        /// SHIPX.
+        /// Shipx.
         /// </summary>
         [EnumMember(Value = "SHIPX")]
-        SHIPX,
+        Shipx,
 
         /// <summary>
-        /// QINTLAPI.
+        /// QintlApi.
         /// </summary>
         [EnumMember(Value = "QINTL_API")]
-        QINTLAPI,
+        QintlApi,
 
         /// <summary>
-        /// PACKS.
+        /// Packs.
         /// </summary>
         [EnumMember(Value = "PACKS")]
-        PACKS,
+        Packs,
 
         /// <summary>
-        /// POSTNLINTERNATIONAL.
+        /// PostnlInternational.
         /// </summary>
         [EnumMember(Value = "POSTNL_INTERNATIONAL")]
-        POSTNLINTERNATIONAL,
+        PostnlInternational,
 
         /// <summary>
-        /// AMAZONEMAILPUSH.
+        /// AmazonEmailPush.
         /// </summary>
         [EnumMember(Value = "AMAZON_EMAIL_PUSH")]
-        AMAZONEMAILPUSH,
+        AmazonEmailPush,
 
         /// <summary>
-        /// DHLAPI.
+        /// DhlApi.
         /// </summary>
         [EnumMember(Value = "DHL_API")]
-        DHLAPI,
+        DhlApi,
 
         /// <summary>
-        /// SPX.
+        /// Spx.
         /// </summary>
         [EnumMember(Value = "SPX")]
-        SPX,
+        Spx,
 
         /// <summary>
-        /// AXLEHIRE.
+        /// Axlehire.
         /// </summary>
         [EnumMember(Value = "AXLEHIRE")]
-        AXLEHIRE,
+        Axlehire,
 
         /// <summary>
-        /// ICSCOURIER.
+        /// Icscourier.
         /// </summary>
         [EnumMember(Value = "ICSCOURIER")]
-        ICSCOURIER,
+        Icscourier,
 
         /// <summary>
-        /// DIALOGOLOGISTICA.
+        /// DialogoLogistica.
         /// </summary>
         [EnumMember(Value = "DIALOGO_LOGISTICA")]
-        DIALOGOLOGISTICA,
+        DialogoLogistica,
 
         /// <summary>
-        /// SHUNBANGEXPRESS.
+        /// ShunbangExpress.
         /// </summary>
         [EnumMember(Value = "SHUNBANG_EXPRESS")]
-        SHUNBANGEXPRESS,
+        ShunbangExpress,
 
         /// <summary>
-        /// TCSAPI.
+        /// TcsApi.
         /// </summary>
         [EnumMember(Value = "TCS_API")]
-        TCSAPI,
+        TcsApi,
 
         /// <summary>
-        /// SFEXPRESSCN.
+        /// SfExpressCn.
         /// </summary>
         [EnumMember(Value = "SF_EXPRESS_CN")]
-        SFEXPRESSCN,
+        SfExpressCn,
 
         /// <summary>
-        /// PACKETA.
+        /// Packeta.
         /// </summary>
         [EnumMember(Value = "PACKETA")]
-        PACKETA,
+        Packeta,
 
         /// <summary>
-        /// SICTELIWAY.
+        /// SicTeliway.
         /// </summary>
         [EnumMember(Value = "SIC_TELIWAY")]
-        SICTELIWAY,
+        SicTeliway,
 
         /// <summary>
-        /// MONDIALRELAYFR.
+        /// MondialrelayFr.
         /// </summary>
         [EnumMember(Value = "MONDIALRELAY_FR")]
-        MONDIALRELAYFR,
+        MondialrelayFr,
 
         /// <summary>
-        /// INTIMEFTP.
+        /// IntimeFtp.
         /// </summary>
         [EnumMember(Value = "INTIME_FTP")]
-        INTIMEFTP,
+        IntimeFtp,
 
         /// <summary>
-        /// JDEXPRESS.
+        /// JdExpress.
         /// </summary>
         [EnumMember(Value = "JD_EXPRESS")]
-        JDEXPRESS,
+        JdExpress,
 
         /// <summary>
-        /// FASTBOX.
+        /// Fastbox.
         /// </summary>
         [EnumMember(Value = "FASTBOX")]
-        FASTBOX,
+        Fastbox,
 
         /// <summary>
-        /// PATHEON.
+        /// Patheon.
         /// </summary>
         [EnumMember(Value = "PATHEON")]
-        PATHEON,
+        Patheon,
 
         /// <summary>
-        /// INDIAPOST.
+        /// IndiaPost.
         /// </summary>
         [EnumMember(Value = "INDIA_POST")]
-        INDIAPOST,
+        IndiaPost,
 
         /// <summary>
-        /// TIPSAREF.
+        /// TipsaRef.
         /// </summary>
         [EnumMember(Value = "TIPSA_REF")]
-        TIPSAREF,
+        TipsaRef,
 
         /// <summary>
-        /// ECOFREIGHT.
+        /// Ecofreight.
         /// </summary>
         [EnumMember(Value = "ECOFREIGHT")]
-        ECOFREIGHT,
+        Ecofreight,
 
         /// <summary>
-        /// VOX.
+        /// Vox.
         /// </summary>
         [EnumMember(Value = "VOX")]
-        VOX,
+        Vox,
 
         /// <summary>
-        /// DIRECTFREIGHTAUREF.
+        /// DirectfreightAuRef.
         /// </summary>
         [EnumMember(Value = "DIRECTFREIGHT_AU_REF")]
-        DIRECTFREIGHTAUREF,
+        DirectfreightAuRef,
 
         /// <summary>
-        /// BESTTRANSPORTSFTP.
+        /// BesttransportSftp.
         /// </summary>
         [EnumMember(Value = "BESTTRANSPORT_SFTP")]
-        BESTTRANSPORTSFTP,
+        BesttransportSftp,
 
         /// <summary>
-        /// AUSTRALIAPOSTAPI.
+        /// AustraliaPostApi.
         /// </summary>
         [EnumMember(Value = "AUSTRALIA_POST_API")]
-        AUSTRALIAPOSTAPI,
+        AustraliaPostApi,
 
         /// <summary>
-        /// FRAGILEPAKSFTP.
+        /// FragilepakSftp.
         /// </summary>
         [EnumMember(Value = "FRAGILEPAK_SFTP")]
-        FRAGILEPAKSFTP,
+        FragilepakSftp,
 
         /// <summary>
-        /// FLIPXP.
+        /// Flipxp.
         /// </summary>
         [EnumMember(Value = "FLIPXP")]
-        FLIPXP,
+        Flipxp,
 
         /// <summary>
-        /// VALUEWEBHOOK.
+        /// ValueWebhook.
         /// </summary>
         [EnumMember(Value = "VALUE_WEBHOOK")]
-        VALUEWEBHOOK,
+        ValueWebhook,
 
         /// <summary>
-        /// DAESHIN.
+        /// Daeshin.
         /// </summary>
         [EnumMember(Value = "DAESHIN")]
-        DAESHIN,
+        Daeshin,
 
         /// <summary>
-        /// SHERPA.
+        /// Sherpa.
         /// </summary>
         [EnumMember(Value = "SHERPA")]
-        SHERPA,
+        Sherpa,
 
         /// <summary>
-        /// MWDAPI.
+        /// MwdApi.
         /// </summary>
         [EnumMember(Value = "MWD_API")]
-        MWDAPI,
+        MwdApi,
 
         /// <summary>
-        /// SMARTKARGO.
+        /// Smartkargo.
         /// </summary>
         [EnumMember(Value = "SMARTKARGO")]
-        SMARTKARGO,
+        Smartkargo,
 
         /// <summary>
-        /// DNJEXPRESS.
+        /// DnjExpress.
         /// </summary>
         [EnumMember(Value = "DNJ_EXPRESS")]
-        DNJEXPRESS,
+        DnjExpress,
 
         /// <summary>
-        /// GOPEOPLE.
+        /// Gopeople.
         /// </summary>
         [EnumMember(Value = "GOPEOPLE")]
-        GOPEOPLE,
+        Gopeople,
 
         /// <summary>
-        /// MYSENDLEAPI.
+        /// MysendleApi.
         /// </summary>
         [EnumMember(Value = "MYSENDLE_API")]
-        MYSENDLEAPI,
+        MysendleApi,
 
         /// <summary>
-        /// ARAMEXAPI.
+        /// AramexApi.
         /// </summary>
         [EnumMember(Value = "ARAMEX_API")]
-        ARAMEXAPI,
+        AramexApi,
 
         /// <summary>
-        /// PIDGE.
+        /// Pidge.
         /// </summary>
         [EnumMember(Value = "PIDGE")]
-        PIDGE,
+        Pidge,
 
         /// <summary>
-        /// THAIPARCELS.
+        /// Thaiparcels.
         /// </summary>
         [EnumMember(Value = "THAIPARCELS")]
-        THAIPARCELS,
+        Thaiparcels,
 
         /// <summary>
-        /// PANTHERREFERENCEAPI.
+        /// PantherReferenceApi.
         /// </summary>
         [EnumMember(Value = "PANTHER_REFERENCE_API")]
-        PANTHERREFERENCEAPI,
+        PantherReferenceApi,
 
         /// <summary>
-        /// POSTAPLUS1.
+        /// Postaplus1.
         /// </summary>
         [EnumMember(Value = "POSTAPLUS")]
-        POSTAPLUS1,
+        Postaplus1,
 
         /// <summary>
-        /// BUFFALO.
+        /// Buffalo.
         /// </summary>
         [EnumMember(Value = "BUFFALO")]
-        BUFFALO,
+        Buffalo,
 
         /// <summary>
-        /// UENVIOS.
+        /// UEnvios.
         /// </summary>
         [EnumMember(Value = "U_ENVIOS")]
-        UENVIOS,
+        UEnvios,
 
         /// <summary>
-        /// ELITECO.
+        /// EliteCo.
         /// </summary>
         [EnumMember(Value = "ELITE_CO")]
-        ELITECO,
+        EliteCo,
 
         /// <summary>
-        /// BARQEXP.
+        /// Barqexp.
         /// </summary>
         [EnumMember(Value = "BARQEXP")]
-        BARQEXP,
+        Barqexp,
 
         /// <summary>
-        /// ROCHEINTERNALSFTP.
+        /// RocheInternalSftp.
         /// </summary>
         [EnumMember(Value = "ROCHE_INTERNAL_SFTP")]
-        ROCHEINTERNALSFTP,
+        RocheInternalSftp,
 
         /// <summary>
-        /// DBSCHENKERICELAND.
+        /// DbschenkerIceland.
         /// </summary>
         [EnumMember(Value = "DBSCHENKER_ICELAND")]
-        DBSCHENKERICELAND,
+        DbschenkerIceland,
 
         /// <summary>
-        /// TNTFRREFERENCE.
+        /// TntFrReference.
         /// </summary>
         [EnumMember(Value = "TNT_FR_REFERENCE")]
-        TNTFRREFERENCE,
+        TntFrReference,
 
         /// <summary>
-        /// NEWGISTICSAPI.
+        /// Newgisticsapi.
         /// </summary>
         [EnumMember(Value = "NEWGISTICSAPI")]
-        NEWGISTICSAPI,
+        Newgisticsapi,
 
         /// <summary>
-        /// GLOVO.
+        /// Glovo.
         /// </summary>
         [EnumMember(Value = "GLOVO")]
-        GLOVO,
+        Glovo,
 
         /// <summary>
-        /// GWLOGISAPI.
+        /// GwlogisApi.
         /// </summary>
         [EnumMember(Value = "GWLOGIS_API")]
-        GWLOGISAPI,
+        GwlogisApi,
 
         /// <summary>
-        /// SPREETAILAPI.
+        /// SpreetailApi.
         /// </summary>
         [EnumMember(Value = "SPREETAIL_API")]
-        SPREETAILAPI,
+        SpreetailApi,
 
         /// <summary>
-        /// MOOVA.
+        /// Moova.
         /// </summary>
         [EnumMember(Value = "MOOVA")]
-        MOOVA,
+        Moova,
 
         /// <summary>
-        /// PLYCONGROUP.
+        /// Plycongroup.
         /// </summary>
         [EnumMember(Value = "PLYCONGROUP")]
-        PLYCONGROUP,
+        Plycongroup,
 
         /// <summary>
-        /// USPSWEBHOOK.
+        /// UspsWebhook.
         /// </summary>
         [EnumMember(Value = "USPS_WEBHOOK")]
-        USPSWEBHOOK,
+        UspsWebhook,
 
         /// <summary>
-        /// REIMAGINEDELIVERY.
+        /// Reimaginedelivery.
         /// </summary>
         [EnumMember(Value = "REIMAGINEDELIVERY")]
-        REIMAGINEDELIVERY,
+        Reimaginedelivery,
 
         /// <summary>
-        /// EDFFTP.
+        /// EdfFtp.
         /// </summary>
         [EnumMember(Value = "EDF_FTP")]
-        EDFFTP,
+        EdfFtp,
 
         /// <summary>
-        /// DAO365.
+        /// Dao365.
         /// </summary>
         [EnumMember(Value = "DAO365")]
-        DAO365,
+        Dao365,
 
         /// <summary>
-        /// BIOCAIRFTP.
+        /// BiocairFtp.
         /// </summary>
         [EnumMember(Value = "BIOCAIR_FTP")]
-        BIOCAIRFTP,
+        BiocairFtp,
 
         /// <summary>
-        /// RANSAWEBHOOK.
+        /// RansaWebhook.
         /// </summary>
         [EnumMember(Value = "RANSA_WEBHOOK")]
-        RANSAWEBHOOK,
+        RansaWebhook,
 
         /// <summary>
-        /// SHIPXPRES.
+        /// Shipxpres.
         /// </summary>
         [EnumMember(Value = "SHIPXPRES")]
-        SHIPXPRES,
+        Shipxpres,
 
         /// <summary>
-        /// COURANTPLUSAPI.
+        /// CourantPlusApi.
         /// </summary>
         [EnumMember(Value = "COURANT_PLUS_API")]
-        COURANTPLUSAPI,
+        CourantPlusApi,
 
         /// <summary>
-        /// SHIPA.
+        /// Shipa.
         /// </summary>
         [EnumMember(Value = "SHIPA")]
-        SHIPA,
+        Shipa,
 
         /// <summary>
-        /// HOMELOGISTICS.
+        /// Homelogistics.
         /// </summary>
         [EnumMember(Value = "HOMELOGISTICS")]
-        HOMELOGISTICS,
+        Homelogistics,
 
         /// <summary>
-        /// DX.
+        /// Dx.
         /// </summary>
         [EnumMember(Value = "DX")]
-        DX,
+        Dx,
 
         /// <summary>
-        /// POSTEITALIANEPACCOCELERE.
+        /// PosteItalianePaccocelere.
         /// </summary>
         [EnumMember(Value = "POSTE_ITALIANE_PACCOCELERE")]
-        POSTEITALIANEPACCOCELERE,
+        PosteItalianePaccocelere,
 
         /// <summary>
-        /// TOLLWEBHOOK.
+        /// TollWebhook.
         /// </summary>
         [EnumMember(Value = "TOLL_WEBHOOK")]
-        TOLLWEBHOOK,
+        TollWebhook,
 
         /// <summary>
-        /// LCTBRAPI.
+        /// LctbrApi.
         /// </summary>
         [EnumMember(Value = "LCTBR_API")]
-        LCTBRAPI,
+        LctbrApi,
 
         /// <summary>
-        /// DXFREIGHT.
+        /// DxFreight.
         /// </summary>
         [EnumMember(Value = "DX_FREIGHT")]
-        DXFREIGHT,
+        DxFreight,
 
         /// <summary>
-        /// DHLSFTP.
+        /// DhlSftp.
         /// </summary>
         [EnumMember(Value = "DHL_SFTP")]
-        DHLSFTP,
+        DhlSftp,
 
         /// <summary>
-        /// SHIPROCKET.
+        /// Shiprocket.
         /// </summary>
         [EnumMember(Value = "SHIPROCKET")]
-        SHIPROCKET,
+        Shiprocket,
 
         /// <summary>
-        /// UBERWEBHOOK.
+        /// UberWebhook.
         /// </summary>
         [EnumMember(Value = "UBER_WEBHOOK")]
-        UBERWEBHOOK,
+        UberWebhook,
 
         /// <summary>
-        /// STATOVERNIGHT.
+        /// Statovernight.
         /// </summary>
         [EnumMember(Value = "STATOVERNIGHT")]
-        STATOVERNIGHT,
+        Statovernight,
 
         /// <summary>
-        /// BURD.
+        /// Burd.
         /// </summary>
         [EnumMember(Value = "BURD")]
-        BURD,
+        Burd,
 
         /// <summary>
-        /// FASTSHIP.
+        /// Fastship.
         /// </summary>
         [EnumMember(Value = "FASTSHIP")]
-        FASTSHIP,
+        Fastship,
 
         /// <summary>
-        /// IBVENTUREWEBHOOK.
+        /// IbventureWebhook.
         /// </summary>
         [EnumMember(Value = "IBVENTURE_WEBHOOK")]
-        IBVENTUREWEBHOOK,
+        IbventureWebhook,
 
         /// <summary>
-        /// GATIKWEAPI.
+        /// GatiKweApi.
         /// </summary>
         [EnumMember(Value = "GATI_KWE_API")]
-        GATIKWEAPI,
+        GatiKweApi,
 
         /// <summary>
-        /// CRYOPDPFTP.
+        /// CryopdpFtp.
         /// </summary>
         [EnumMember(Value = "CRYOPDP_FTP")]
-        CRYOPDPFTP,
+        CryopdpFtp,
 
         /// <summary>
-        /// HUBBED.
+        /// Hubbed.
         /// </summary>
         [EnumMember(Value = "HUBBED")]
-        HUBBED,
+        Hubbed,
 
         /// <summary>
-        /// TIPSAAPI.
+        /// TipsaApi.
         /// </summary>
         [EnumMember(Value = "TIPSA_API")]
-        TIPSAAPI,
+        TipsaApi,
 
         /// <summary>
-        /// ARASKARGO.
+        /// Araskargo.
         /// </summary>
         [EnumMember(Value = "ARASKARGO")]
-        ARASKARGO,
+        Araskargo,
 
         /// <summary>
-        /// THIJSNL.
+        /// ThijsNl.
         /// </summary>
         [EnumMember(Value = "THIJS_NL")]
-        THIJSNL,
+        ThijsNl,
 
         /// <summary>
-        /// ATSHEALTHCAREREFERENCE.
+        /// AtshealthcareReference.
         /// </summary>
         [EnumMember(Value = "ATSHEALTHCARE_REFERENCE")]
-        ATSHEALTHCAREREFERENCE,
+        AtshealthcareReference,
 
         /// <summary>
-        /// Enum99MINUTOS.
+        /// Enum99Minutos.
         /// </summary>
         [EnumMember(Value = "99MINUTOS")]
-        Enum99MINUTOS,
+        Enum99Minutos,
 
         /// <summary>
-        /// HELLENICPOST.
+        /// HellenicPost.
         /// </summary>
         [EnumMember(Value = "HELLENIC_POST")]
-        HELLENICPOST,
+        HellenicPost,
 
         /// <summary>
-        /// HSMGLOBAL.
+        /// HsmGlobal.
         /// </summary>
         [EnumMember(Value = "HSM_GLOBAL")]
-        HSMGLOBAL,
+        HsmGlobal,
 
         /// <summary>
-        /// MNX.
+        /// Mnx.
         /// </summary>
         [EnumMember(Value = "MNX")]
-        MNX,
+        Mnx,
 
         /// <summary>
-        /// NMTRANSFER.
+        /// Nmtransfer.
         /// </summary>
         [EnumMember(Value = "NMTRANSFER")]
-        NMTRANSFER,
+        Nmtransfer,
 
         /// <summary>
-        /// LOGYSTO.
+        /// Logysto.
         /// </summary>
         [EnumMember(Value = "LOGYSTO")]
-        LOGYSTO,
+        Logysto,
 
         /// <summary>
-        /// INDIAPOSTINT.
+        /// IndiaPostInt.
         /// </summary>
         [EnumMember(Value = "INDIA_POST_INT")]
-        INDIAPOSTINT,
+        IndiaPostInt,
 
         /// <summary>
-        /// AMAZONFBASWISHIPIN.
+        /// AmazonFbaSwishipIn.
         /// </summary>
         [EnumMember(Value = "AMAZON_FBA_SWISHIP_IN")]
-        AMAZONFBASWISHIPIN,
+        AmazonFbaSwishipIn,
 
         /// <summary>
-        /// SRTTRANSPORT.
+        /// SrtTransport.
         /// </summary>
         [EnumMember(Value = "SRT_TRANSPORT")]
-        SRTTRANSPORT,
+        SrtTransport,
 
         /// <summary>
-        /// BOMI.
+        /// Bomi.
         /// </summary>
         [EnumMember(Value = "BOMI")]
-        BOMI,
+        Bomi,
 
         /// <summary>
-        /// DELIVERRSFTP.
+        /// DeliverrSftp.
         /// </summary>
         [EnumMember(Value = "DELIVERR_SFTP")]
-        DELIVERRSFTP,
+        DeliverrSftp,
 
         /// <summary>
-        /// HSDEXPRESS.
+        /// Hsdexpress.
         /// </summary>
         [EnumMember(Value = "HSDEXPRESS")]
-        HSDEXPRESS,
+        Hsdexpress,
 
         /// <summary>
-        /// SIMPLETIREWEBHOOK.
+        /// SimpletireWebhook.
         /// </summary>
         [EnumMember(Value = "SIMPLETIRE_WEBHOOK")]
-        SIMPLETIREWEBHOOK,
+        SimpletireWebhook,
 
         /// <summary>
-        /// HUNTEREXPRESSSFTP.
+        /// HunterExpressSftp.
         /// </summary>
         [EnumMember(Value = "HUNTER_EXPRESS_SFTP")]
-        HUNTEREXPRESSSFTP,
+        HunterExpressSftp,
 
         /// <summary>
-        /// UPSAPI.
+        /// UpsApi.
         /// </summary>
         [EnumMember(Value = "UPS_API")]
-        UPSAPI,
+        UpsApi,
 
         /// <summary>
-        /// WOOYOUNGLOGISTICSSFTP.
+        /// WooyoungLogisticsSftp.
         /// </summary>
         [EnumMember(Value = "WOOYOUNG_LOGISTICS_SFTP")]
-        WOOYOUNGLOGISTICSSFTP,
+        WooyoungLogisticsSftp,
 
         /// <summary>
-        /// PHSEAPI.
+        /// PhseApi.
         /// </summary>
         [EnumMember(Value = "PHSE_API")]
-        PHSEAPI,
+        PhseApi,
 
         /// <summary>
-        /// WISHEMAILPUSH.
+        /// WishEmailPush.
         /// </summary>
         [EnumMember(Value = "WISH_EMAIL_PUSH")]
-        WISHEMAILPUSH,
+        WishEmailPush,
 
         /// <summary>
-        /// NORTHLINE.
+        /// Northline.
         /// </summary>
         [EnumMember(Value = "NORTHLINE")]
-        NORTHLINE,
+        Northline,
 
         /// <summary>
-        /// MEDAFRICA.
+        /// Medafrica.
         /// </summary>
         [EnumMember(Value = "MEDAFRICA")]
-        MEDAFRICA,
+        Medafrica,
 
         /// <summary>
-        /// DPDATSFTP.
+        /// DpdAtSftp.
         /// </summary>
         [EnumMember(Value = "DPD_AT_SFTP")]
-        DPDATSFTP,
+        DpdAtSftp,
 
         /// <summary>
-        /// ANTERAJA.
+        /// Anteraja.
         /// </summary>
         [EnumMember(Value = "ANTERAJA")]
-        ANTERAJA,
+        Anteraja,
 
         /// <summary>
-        /// DHLGLOBALFORWARDINGAPI.
+        /// DhlGlobalForwardingApi.
         /// </summary>
         [EnumMember(Value = "DHL_GLOBAL_FORWARDING_API")]
-        DHLGLOBALFORWARDINGAPI,
+        DhlGlobalForwardingApi,
 
         /// <summary>
-        /// LBCEXPRESSAPI.
+        /// LbcexpressApi.
         /// </summary>
         [EnumMember(Value = "LBCEXPRESS_API")]
-        LBCEXPRESSAPI,
+        LbcexpressApi,
 
         /// <summary>
-        /// SIMSGLOBAL.
+        /// Simsglobal.
         /// </summary>
         [EnumMember(Value = "SIMSGLOBAL")]
-        SIMSGLOBAL,
+        Simsglobal,
 
         /// <summary>
-        /// CDLDELIVERS.
+        /// Cdldelivers.
         /// </summary>
         [EnumMember(Value = "CDLDELIVERS")]
-        CDLDELIVERS,
+        Cdldelivers,
 
         /// <summary>
-        /// TYP.
+        /// Typ.
         /// </summary>
         [EnumMember(Value = "TYP")]
-        TYP,
+        Typ,
 
         /// <summary>
-        /// TESTINGCOURIERWEBHOOK.
+        /// TestingCourierWebhook.
         /// </summary>
         [EnumMember(Value = "TESTING_COURIER_WEBHOOK")]
-        TESTINGCOURIERWEBHOOK,
+        TestingCourierWebhook,
 
         /// <summary>
-        /// PANDAGOAPI.
+        /// PandagoApi.
         /// </summary>
         [EnumMember(Value = "PANDAGO_API")]
-        PANDAGOAPI,
+        PandagoApi,
 
         /// <summary>
-        /// ROYALMAILFTP.
+        /// RoyalMailFtp.
         /// </summary>
         [EnumMember(Value = "ROYAL_MAIL_FTP")]
-        ROYALMAILFTP,
+        RoyalMailFtp,
 
         /// <summary>
-        /// THUNDEREXPRESS.
+        /// Thunderexpress.
         /// </summary>
         [EnumMember(Value = "THUNDEREXPRESS")]
-        THUNDEREXPRESS,
+        Thunderexpress,
 
         /// <summary>
-        /// SECRETLABWEBHOOK.
+        /// SecretlabWebhook.
         /// </summary>
         [EnumMember(Value = "SECRETLAB_WEBHOOK")]
-        SECRETLABWEBHOOK,
+        SecretlabWebhook,
 
         /// <summary>
-        /// SETEL.
+        /// Setel.
         /// </summary>
         [EnumMember(Value = "SETEL")]
-        SETEL,
+        Setel,
 
         /// <summary>
-        /// JDWORLDWIDE.
+        /// JdWorldwide.
         /// </summary>
         [EnumMember(Value = "JD_WORLDWIDE")]
-        JDWORLDWIDE,
+        JdWorldwide,
 
         /// <summary>
-        /// DPDRUAPI.
+        /// DpdRuApi.
         /// </summary>
         [EnumMember(Value = "DPD_RU_API")]
-        DPDRUAPI,
+        DpdRuApi,
 
         /// <summary>
-        /// ARGENTSWEBHOOK.
+        /// ArgentsWebhook.
         /// </summary>
         [EnumMember(Value = "ARGENTS_WEBHOOK")]
-        ARGENTSWEBHOOK,
+        ArgentsWebhook,
 
         /// <summary>
-        /// POSTONE.
+        /// Postone.
         /// </summary>
         [EnumMember(Value = "POSTONE")]
-        POSTONE,
+        Postone,
 
         /// <summary>
-        /// TUSKLOGISTICS.
+        /// Tusklogistics.
         /// </summary>
         [EnumMember(Value = "TUSKLOGISTICS")]
-        TUSKLOGISTICS,
+        Tusklogistics,
 
         /// <summary>
-        /// RHENUSUKAPI.
+        /// RhenusUkApi.
         /// </summary>
         [EnumMember(Value = "RHENUS_UK_API")]
-        RHENUSUKAPI,
+        RhenusUkApi,
 
         /// <summary>
-        /// TAQBINSGAPI.
+        /// TaqbinSgApi.
         /// </summary>
         [EnumMember(Value = "TAQBIN_SG_API")]
-        TAQBINSGAPI,
+        TaqbinSgApi,
 
         /// <summary>
-        /// INNTRALOGSFTP.
+        /// InntralogSftp.
         /// </summary>
         [EnumMember(Value = "INNTRALOG_SFTP")]
-        INNTRALOGSFTP,
+        InntralogSftp,
 
         /// <summary>
-        /// DAYROSS.
+        /// Dayross.
         /// </summary>
         [EnumMember(Value = "DAYROSS")]
-        DAYROSS,
+        Dayross,
 
         /// <summary>
-        /// CORREOSEXPRESSAPI.
+        /// CorreosexpressApi.
         /// </summary>
         [EnumMember(Value = "CORREOSEXPRESS_API")]
-        CORREOSEXPRESSAPI,
+        CorreosexpressApi,
 
         /// <summary>
-        /// INTERNATIONALSEURAPI.
+        /// InternationalSeurApi.
         /// </summary>
         [EnumMember(Value = "INTERNATIONAL_SEUR_API")]
-        INTERNATIONALSEURAPI,
+        InternationalSeurApi,
 
         /// <summary>
-        /// YODELAPI.
+        /// YodelApi.
         /// </summary>
         [EnumMember(Value = "YODEL_API")]
-        YODELAPI,
+        YodelApi,
 
         /// <summary>
-        /// HEROEXPRESS.
+        /// Heroexpress.
         /// </summary>
         [EnumMember(Value = "HEROEXPRESS")]
-        HEROEXPRESS,
+        Heroexpress,
 
         /// <summary>
-        /// DHLSUPPLYCHAININ.
+        /// DhlSupplychainIn.
         /// </summary>
         [EnumMember(Value = "DHL_SUPPLYCHAIN_IN")]
-        DHLSUPPLYCHAININ,
+        DhlSupplychainIn,
 
         /// <summary>
-        /// URGENTCARGUS.
+        /// UrgentCargus.
         /// </summary>
         [EnumMember(Value = "URGENT_CARGUS")]
-        URGENTCARGUS,
+        UrgentCargus,
 
         /// <summary>
-        /// FRONTDOORCORP.
+        /// Frontdoorcorp.
         /// </summary>
         [EnumMember(Value = "FRONTDOORCORP")]
-        FRONTDOORCORP,
+        Frontdoorcorp,
 
         /// <summary>
-        /// JTEXPRESSPH.
+        /// JtexpressPh.
         /// </summary>
         [EnumMember(Value = "JTEXPRESS_PH")]
-        JTEXPRESSPH,
+        JtexpressPh,
 
         /// <summary>
-        /// PARCELSTARSWEBHOOK.
+        /// ParcelstarsWebhook.
         /// </summary>
         [EnumMember(Value = "PARCELSTARS_WEBHOOK")]
-        PARCELSTARSWEBHOOK,
+        ParcelstarsWebhook,
 
         /// <summary>
-        /// DPDSKSFTP.
+        /// DpdSkSftp.
         /// </summary>
         [EnumMember(Value = "DPD_SK_SFTP")]
-        DPDSKSFTP,
+        DpdSkSftp,
 
         /// <summary>
-        /// MOVIANTO.
+        /// Movianto.
         /// </summary>
         [EnumMember(Value = "MOVIANTO")]
-        MOVIANTO,
+        Movianto,
 
         /// <summary>
-        /// OZEPARTSSHIPPING.
+        /// OzepartsShipping.
         /// </summary>
         [EnumMember(Value = "OZEPARTS_SHIPPING")]
-        OZEPARTSSHIPPING,
+        OzepartsShipping,
 
         /// <summary>
-        /// KARGOMKOLAY.
+        /// Kargomkolay.
         /// </summary>
         [EnumMember(Value = "KARGOMKOLAY")]
-        KARGOMKOLAY,
+        Kargomkolay,
 
         /// <summary>
-        /// TRUNKRS.
+        /// Trunkrs.
         /// </summary>
         [EnumMember(Value = "TRUNKRS")]
-        TRUNKRS,
+        Trunkrs,
 
         /// <summary>
-        /// OMNIRPSWEBHOOK.
+        /// OmnirpsWebhook.
         /// </summary>
         [EnumMember(Value = "OMNIRPS_WEBHOOK")]
-        OMNIRPSWEBHOOK,
+        OmnirpsWebhook,
 
         /// <summary>
-        /// CHILEXPRESS.
+        /// Chilexpress.
         /// </summary>
         [EnumMember(Value = "CHILEXPRESS")]
-        CHILEXPRESS,
+        Chilexpress,
 
         /// <summary>
-        /// TESTINGCOURIER.
+        /// TestingCourier.
         /// </summary>
         [EnumMember(Value = "TESTING_COURIER")]
-        TESTINGCOURIER,
+        TestingCourier,
 
         /// <summary>
-        /// JNEAPI.
+        /// JneApi.
         /// </summary>
         [EnumMember(Value = "JNE_API")]
-        JNEAPI,
+        JneApi,
 
         /// <summary>
-        /// BJSHOMEDELIVERYFTP.
+        /// BjshomedeliveryFtp.
         /// </summary>
         [EnumMember(Value = "BJSHOMEDELIVERY_FTP")]
-        BJSHOMEDELIVERYFTP,
+        BjshomedeliveryFtp,
 
         /// <summary>
-        /// DEXPRESSWEBHOOK.
+        /// DexpressWebhook.
         /// </summary>
         [EnumMember(Value = "DEXPRESS_WEBHOOK")]
-        DEXPRESSWEBHOOK,
+        DexpressWebhook,
 
         /// <summary>
-        /// USPSAPI.
+        /// UspsApi.
         /// </summary>
         [EnumMember(Value = "USPS_API")]
-        USPSAPI,
+        UspsApi,
 
         /// <summary>
-        /// TRANSVIRTUAL.
+        /// Transvirtual.
         /// </summary>
         [EnumMember(Value = "TRANSVIRTUAL")]
-        TRANSVIRTUAL,
+        Transvirtual,
 
         /// <summary>
-        /// SOLISTICAAPI.
+        /// SolisticaApi.
         /// </summary>
         [EnumMember(Value = "SOLISTICA_API")]
-        SOLISTICAAPI,
+        SolisticaApi,
 
         /// <summary>
-        /// CHIENVENTUREWEBHOOK.
+        /// ChienventureWebhook.
         /// </summary>
         [EnumMember(Value = "CHIENVENTURE_WEBHOOK")]
-        CHIENVENTUREWEBHOOK,
+        ChienventureWebhook,
 
         /// <summary>
-        /// DPDUKSFTP.
+        /// DpdUkSftp.
         /// </summary>
         [EnumMember(Value = "DPD_UK_SFTP")]
-        DPDUKSFTP,
+        DpdUkSftp,
 
         /// <summary>
-        /// INPOSTUK.
+        /// InpostUk.
         /// </summary>
         [EnumMember(Value = "INPOST_UK")]
-        INPOSTUK,
+        InpostUk,
 
         /// <summary>
-        /// JAVIT.
+        /// Javit.
         /// </summary>
         [EnumMember(Value = "JAVIT")]
-        JAVIT,
+        Javit,
 
         /// <summary>
-        /// ZTODOMESTIC.
+        /// ZtoDomestic.
         /// </summary>
         [EnumMember(Value = "ZTO_DOMESTIC")]
-        ZTODOMESTIC,
+        ZtoDomestic,
 
         /// <summary>
-        /// DHLGTAPI.
+        /// DhlGtApi.
         /// </summary>
         [EnumMember(Value = "DHL_GT_API")]
-        DHLGTAPI,
+        DhlGtApi,
 
         /// <summary>
-        /// CEVATRACKING.
+        /// CevaTracking.
         /// </summary>
         [EnumMember(Value = "CEVA_TRACKING")]
-        CEVATRACKING,
+        CevaTracking,
 
         /// <summary>
-        /// KOMONEXPRESS.
+        /// KomonExpress.
         /// </summary>
         [EnumMember(Value = "KOMON_EXPRESS")]
-        KOMONEXPRESS,
+        KomonExpress,
 
         /// <summary>
-        /// EASTWESTCOURIERFTP.
+        /// EastwestcourierFtp.
         /// </summary>
         [EnumMember(Value = "EASTWESTCOURIER_FTP")]
-        EASTWESTCOURIERFTP,
+        EastwestcourierFtp,
 
         /// <summary>
-        /// DANNIAO.
+        /// Danniao.
         /// </summary>
         [EnumMember(Value = "DANNIAO")]
-        DANNIAO,
+        Danniao,
 
         /// <summary>
-        /// SPECTRAN.
+        /// Spectran.
         /// </summary>
         [EnumMember(Value = "SPECTRAN")]
-        SPECTRAN,
+        Spectran,
 
         /// <summary>
-        /// DELIVERIT.
+        /// DeliverIt.
         /// </summary>
         [EnumMember(Value = "DELIVER_IT")]
-        DELIVERIT,
+        DeliverIt,
 
         /// <summary>
-        /// RELAISCOLIS.
+        /// Relaiscolis.
         /// </summary>
         [EnumMember(Value = "RELAISCOLIS")]
-        RELAISCOLIS,
+        Relaiscolis,
 
         /// <summary>
-        /// GLSSPAINAPI.
+        /// GlsSpainApi.
         /// </summary>
         [EnumMember(Value = "GLS_SPAIN_API")]
-        GLSSPAINAPI,
+        GlsSpainApi,
 
         /// <summary>
-        /// POSTPLUS.
+        /// Postplus.
         /// </summary>
         [EnumMember(Value = "POSTPLUS")]
-        POSTPLUS,
+        Postplus,
 
         /// <summary>
-        /// AIRTERRA.
+        /// Airterra.
         /// </summary>
         [EnumMember(Value = "AIRTERRA")]
-        AIRTERRA,
+        Airterra,
 
         /// <summary>
-        /// GIOECOURIERAPI.
+        /// GioEcourierApi.
         /// </summary>
         [EnumMember(Value = "GIO_ECOURIER_API")]
-        GIOECOURIERAPI,
+        GioEcourierApi,
 
         /// <summary>
-        /// DPDCHSFTP.
+        /// DpdChSftp.
         /// </summary>
         [EnumMember(Value = "DPD_CH_SFTP")]
-        DPDCHSFTP,
+        DpdChSftp,
 
         /// <summary>
-        /// FEDEXAPI.
+        /// FedexApi.
         /// </summary>
         [EnumMember(Value = "FEDEX_API")]
-        FEDEXAPI,
+        FedexApi,
 
         /// <summary>
-        /// INTERSMARTTRANS.
+        /// Intersmarttrans.
         /// </summary>
         [EnumMember(Value = "INTERSMARTTRANS")]
-        INTERSMARTTRANS,
+        Intersmarttrans,
 
         /// <summary>
-        /// HERMESUKSFTP.
+        /// HermesUkSftp.
         /// </summary>
         [EnumMember(Value = "HERMES_UK_SFTP")]
-        HERMESUKSFTP,
+        HermesUkSftp,
 
         /// <summary>
-        /// EXELOTFTP.
+        /// ExelotFtp.
         /// </summary>
         [EnumMember(Value = "EXELOT_FTP")]
-        EXELOTFTP,
+        ExelotFtp,
 
         /// <summary>
-        /// DHLPAAPI.
+        /// DhlPaApi.
         /// </summary>
         [EnumMember(Value = "DHL_PA_API")]
-        DHLPAAPI,
+        DhlPaApi,
 
         /// <summary>
-        /// VIRTRANSPORTSFTP.
+        /// VirtransportSftp.
         /// </summary>
         [EnumMember(Value = "VIRTRANSPORT_SFTP")]
-        VIRTRANSPORTSFTP,
+        VirtransportSftp,
 
         /// <summary>
-        /// WORLDNET.
+        /// Worldnet.
         /// </summary>
         [EnumMember(Value = "WORLDNET")]
-        WORLDNET,
+        Worldnet,
 
         /// <summary>
-        /// INSTABOXWEBHOOK.
+        /// InstaboxWebhook.
         /// </summary>
         [EnumMember(Value = "INSTABOX_WEBHOOK")]
-        INSTABOXWEBHOOK,
+        InstaboxWebhook,
 
         /// <summary>
-        /// KNG.
+        /// Kng.
         /// </summary>
         [EnumMember(Value = "KNG")]
-        KNG,
+        Kng,
 
         /// <summary>
-        /// FLASHEXPRESSWEBHOOK.
+        /// FlashexpressWebhook.
         /// </summary>
         [EnumMember(Value = "FLASHEXPRESS_WEBHOOK")]
-        FLASHEXPRESSWEBHOOK,
+        FlashexpressWebhook,
 
         /// <summary>
-        /// MAGYARPOSTAAPI.
+        /// MagyarPostaApi.
         /// </summary>
         [EnumMember(Value = "MAGYAR_POSTA_API")]
-        MAGYARPOSTAAPI,
+        MagyarPostaApi,
 
         /// <summary>
-        /// WESHIPAPI.
+        /// WeshipApi.
         /// </summary>
         [EnumMember(Value = "WESHIP_API")]
-        WESHIPAPI,
+        WeshipApi,
 
         /// <summary>
-        /// OHIWEBHOOK.
+        /// OhiWebhook.
         /// </summary>
         [EnumMember(Value = "OHI_WEBHOOK")]
-        OHIWEBHOOK,
+        OhiWebhook,
 
         /// <summary>
-        /// MUDITA.
+        /// Mudita.
         /// </summary>
         [EnumMember(Value = "MUDITA")]
-        MUDITA,
+        Mudita,
 
         /// <summary>
-        /// BLUEDARTAPI.
+        /// BluedartApi.
         /// </summary>
         [EnumMember(Value = "BLUEDART_API")]
-        BLUEDARTAPI,
+        BluedartApi,
 
         /// <summary>
-        /// TCATAPI.
+        /// TCatApi.
         /// </summary>
         [EnumMember(Value = "T_CAT_API")]
-        TCATAPI,
+        TCatApi,
 
         /// <summary>
-        /// ADS.
+        /// Ads.
         /// </summary>
         [EnumMember(Value = "ADS")]
-        ADS,
+        Ads,
 
         /// <summary>
-        /// HERMESIT.
+        /// HermesIt.
         /// </summary>
         [EnumMember(Value = "HERMES_IT")]
-        HERMESIT,
+        HermesIt,
 
         /// <summary>
-        /// FITZMARKAPI.
+        /// FitzmarkApi.
         /// </summary>
         [EnumMember(Value = "FITZMARK_API")]
-        FITZMARKAPI,
+        FitzmarkApi,
 
         /// <summary>
-        /// POSTIAPI.
+        /// PostiApi.
         /// </summary>
         [EnumMember(Value = "POSTI_API")]
-        POSTIAPI,
+        PostiApi,
 
         /// <summary>
-        /// SMSAEXPRESSWEBHOOK.
+        /// SmsaExpressWebhook.
         /// </summary>
         [EnumMember(Value = "SMSA_EXPRESS_WEBHOOK")]
-        SMSAEXPRESSWEBHOOK,
+        SmsaExpressWebhook,
 
         /// <summary>
-        /// TAMERGROUPWEBHOOK.
+        /// TamergroupWebhook.
         /// </summary>
         [EnumMember(Value = "TAMERGROUP_WEBHOOK")]
-        TAMERGROUPWEBHOOK,
+        TamergroupWebhook,
 
         /// <summary>
-        /// LIVRAPIDE.
+        /// Livrapide.
         /// </summary>
         [EnumMember(Value = "LIVRAPIDE")]
-        LIVRAPIDE,
+        Livrapide,
 
         /// <summary>
-        /// NIPPONEXPRESS.
+        /// NipponExpress.
         /// </summary>
         [EnumMember(Value = "NIPPON_EXPRESS")]
-        NIPPONEXPRESS,
+        NipponExpress,
 
         /// <summary>
-        /// BETTERTRUCKS.
+        /// Bettertrucks.
         /// </summary>
         [EnumMember(Value = "BETTERTRUCKS")]
-        BETTERTRUCKS,
+        Bettertrucks,
 
         /// <summary>
-        /// FAN.
+        /// Fan.
         /// </summary>
         [EnumMember(Value = "FAN")]
-        FAN,
+        Fan,
 
         /// <summary>
-        /// PBUSPSFLATSFTP.
+        /// PbUspsflatsFtp.
         /// </summary>
         [EnumMember(Value = "PB_USPSFLATS_FTP")]
-        PBUSPSFLATSFTP,
+        PbUspsflatsFtp,
 
         /// <summary>
-        /// PARCELRIGHT.
+        /// Parcelright.
         /// </summary>
         [EnumMember(Value = "PARCELRIGHT")]
-        PARCELRIGHT,
+        Parcelright,
 
         /// <summary>
-        /// ITHINKLOGISTICS.
+        /// Ithinklogistics.
         /// </summary>
         [EnumMember(Value = "ITHINKLOGISTICS")]
-        ITHINKLOGISTICS,
+        Ithinklogistics,
 
         /// <summary>
-        /// KERRYEXPRESSTHWEBHOOK.
+        /// KerryExpressThWebhook.
         /// </summary>
         [EnumMember(Value = "KERRY_EXPRESS_TH_WEBHOOK")]
-        KERRYEXPRESSTHWEBHOOK,
+        KerryExpressThWebhook,
 
         /// <summary>
-        /// ECOUTIER.
+        /// Ecoutier.
         /// </summary>
         [EnumMember(Value = "ECOUTIER")]
-        ECOUTIER,
+        Ecoutier,
 
         /// <summary>
-        /// SHOWL.
+        /// Showl.
         /// </summary>
         [EnumMember(Value = "SHOWL")]
-        SHOWL,
+        Showl,
 
         /// <summary>
-        /// BRTITAPI.
+        /// BrtItApi.
         /// </summary>
         [EnumMember(Value = "BRT_IT_API")]
-        BRTITAPI,
+        BrtItApi,
 
         /// <summary>
-        /// RIXONHKAPI.
+        /// RixonhkApi.
         /// </summary>
         [EnumMember(Value = "RIXONHK_API")]
-        RIXONHKAPI,
+        RixonhkApi,
 
         /// <summary>
-        /// DBSCHENKERAPI.
+        /// DbschenkerApi.
         /// </summary>
         [EnumMember(Value = "DBSCHENKER_API")]
-        DBSCHENKERAPI,
+        DbschenkerApi,
 
         /// <summary>
-        /// ILYANGLOGIS.
+        /// Ilyanglogis.
         /// </summary>
         [EnumMember(Value = "ILYANGLOGIS")]
-        ILYANGLOGIS,
+        Ilyanglogis,
 
         /// <summary>
-        /// MAILBOXETC.
+        /// MailBoxEtc.
         /// </summary>
         [EnumMember(Value = "MAIL_BOX_ETC")]
-        MAILBOXETC,
+        MailBoxEtc,
 
         /// <summary>
-        /// WESHIP.
+        /// Weship.
         /// </summary>
         [EnumMember(Value = "WESHIP")]
-        WESHIP,
+        Weship,
 
         /// <summary>
-        /// DHLGLOBALMAILAPI.
+        /// DhlGlobalMailApi.
         /// </summary>
         [EnumMember(Value = "DHL_GLOBAL_MAIL_API")]
-        DHLGLOBALMAILAPI,
+        DhlGlobalMailApi,
 
         /// <summary>
-        /// ACTIVOS24API.
+        /// Activos24Api.
         /// </summary>
         [EnumMember(Value = "ACTIVOS24_API")]
-        ACTIVOS24API,
+        Activos24Api,
 
         /// <summary>
-        /// ATSHEALTHCARE.
+        /// Atshealthcare.
         /// </summary>
         [EnumMember(Value = "ATSHEALTHCARE")]
-        ATSHEALTHCARE,
+        Atshealthcare,
 
         /// <summary>
-        /// LUWJISTIK.
+        /// Luwjistik.
         /// </summary>
         [EnumMember(Value = "LUWJISTIK")]
-        LUWJISTIK,
+        Luwjistik,
 
         /// <summary>
-        /// GWWORLD.
+        /// GwWorld.
         /// </summary>
         [EnumMember(Value = "GW_WORLD")]
-        GWWORLD,
+        GwWorld,
 
         /// <summary>
-        /// FAIRSENDENAPI.
+        /// FairsendenApi.
         /// </summary>
         [EnumMember(Value = "FAIRSENDEN_API")]
-        FAIRSENDENAPI,
+        FairsendenApi,
 
         /// <summary>
-        /// SERVIPWEBHOOK.
+        /// ServipWebhook.
         /// </summary>
         [EnumMember(Value = "SERVIP_WEBHOOK")]
-        SERVIPWEBHOOK,
+        ServipWebhook,
 
         /// <summary>
-        /// SWISHIP.
+        /// Swiship.
         /// </summary>
         [EnumMember(Value = "SWISHIP")]
-        SWISHIP,
+        Swiship,
 
         /// <summary>
-        /// TANET.
+        /// Tanet.
         /// </summary>
         [EnumMember(Value = "TANET")]
-        TANET,
+        Tanet,
 
         /// <summary>
-        /// HOTSINCARGO.
+        /// HotsinCargo.
         /// </summary>
         [EnumMember(Value = "HOTSIN_CARGO")]
-        HOTSINCARGO,
+        HotsinCargo,
 
         /// <summary>
-        /// DIREX.
+        /// Direx.
         /// </summary>
         [EnumMember(Value = "DIREX")]
-        DIREX,
+        Direx,
 
         /// <summary>
-        /// HUANTONG.
+        /// Huantong.
         /// </summary>
         [EnumMember(Value = "HUANTONG")]
-        HUANTONG,
+        Huantong,
 
         /// <summary>
-        /// IMILEAPI.
+        /// ImileApi.
         /// </summary>
         [EnumMember(Value = "IMILE_API")]
-        IMILEAPI,
+        ImileApi,
 
         /// <summary>
-        /// BDMNET.
+        /// Bdmnet.
         /// </summary>
         [EnumMember(Value = "BDMNET")]
-        BDMNET,
+        Bdmnet,
 
         /// <summary>
-        /// AUEXPRESS.
+        /// Auexpress.
         /// </summary>
         [EnumMember(Value = "AUEXPRESS")]
-        AUEXPRESS,
+        Auexpress,
 
         /// <summary>
-        /// NYTLOGISTICS.
+        /// Nytlogistics.
         /// </summary>
         [EnumMember(Value = "NYTLOGISTICS")]
-        NYTLOGISTICS,
+        Nytlogistics,
 
         /// <summary>
-        /// DSVREFERENCE.
+        /// DsvReference.
         /// </summary>
         [EnumMember(Value = "DSV_REFERENCE")]
-        DSVREFERENCE,
+        DsvReference,
 
         /// <summary>
-        /// NOVOFARMAWEBHOOK.
+        /// NovofarmaWebhook.
         /// </summary>
         [EnumMember(Value = "NOVOFARMA_WEBHOOK")]
-        NOVOFARMAWEBHOOK,
+        NovofarmaWebhook,
 
         /// <summary>
-        /// AITWORLDWIDESFTP.
+        /// AitworldwideSftp.
         /// </summary>
         [EnumMember(Value = "AITWORLDWIDE_SFTP")]
-        AITWORLDWIDESFTP,
+        AitworldwideSftp,
 
         /// <summary>
-        /// SHOPOLIVE.
+        /// Shopolive.
         /// </summary>
         [EnumMember(Value = "SHOPOLIVE")]
-        SHOPOLIVE,
+        Shopolive,
 
         /// <summary>
-        /// FNFZA.
+        /// FnfZa.
         /// </summary>
         [EnumMember(Value = "FNF_ZA")]
-        FNFZA,
+        FnfZa,
 
         /// <summary>
-        /// DHLECOMMERCEGC.
+        /// DhlEcommerceGc.
         /// </summary>
         [EnumMember(Value = "DHL_ECOMMERCE_GC")]
-        DHLECOMMERCEGC,
+        DhlEcommerceGc,
 
         /// <summary>
-        /// FETCHR.
+        /// Fetchr.
         /// </summary>
         [EnumMember(Value = "FETCHR")]
-        FETCHR,
+        Fetchr,
 
         /// <summary>
-        /// STARLINKSAPI.
+        /// StarlinksApi.
         /// </summary>
         [EnumMember(Value = "STARLINKS_API")]
-        STARLINKSAPI,
+        StarlinksApi,
 
         /// <summary>
-        /// YYEXPRESS.
+        /// Yyexpress.
         /// </summary>
         [EnumMember(Value = "YYEXPRESS")]
-        YYEXPRESS,
+        Yyexpress,
 
         /// <summary>
-        /// SERVIENTREGA.
+        /// Servientrega.
         /// </summary>
         [EnumMember(Value = "SERVIENTREGA")]
-        SERVIENTREGA,
+        Servientrega,
 
         /// <summary>
-        /// HANJIN.
+        /// Hanjin.
         /// </summary>
         [EnumMember(Value = "HANJIN")]
-        HANJIN,
+        Hanjin,
 
         /// <summary>
-        /// SPANISHSEURFTP.
+        /// SpanishSeurFtp.
         /// </summary>
         [EnumMember(Value = "SPANISH_SEUR_FTP")]
-        SPANISHSEURFTP,
+        SpanishSeurFtp,
 
         /// <summary>
-        /// DXB2BCONNUM.
+        /// DxB2BConnum.
         /// </summary>
         [EnumMember(Value = "DX_B2B_CONNUM")]
-        DXB2BCONNUM,
+        DxB2BConnum,
 
         /// <summary>
-        /// HELTHJEMAPI.
+        /// HelthjemApi.
         /// </summary>
         [EnumMember(Value = "HELTHJEM_API")]
-        HELTHJEMAPI,
+        HelthjemApi,
 
         /// <summary>
-        /// INEXPOST.
+        /// Inexpost.
         /// </summary>
         [EnumMember(Value = "INEXPOST")]
-        INEXPOST,
+        Inexpost,
 
         /// <summary>
-        /// A2BBA.
+        /// A2BBa.
         /// </summary>
         [EnumMember(Value = "A2B_BA")]
-        A2BBA,
+        A2BBa,
 
         /// <summary>
-        /// RHENUSGROUP.
+        /// RhenusGroup.
         /// </summary>
         [EnumMember(Value = "RHENUS_GROUP")]
-        RHENUSGROUP,
+        RhenusGroup,
 
         /// <summary>
-        /// SBERLOGISTICSRU.
+        /// SberlogisticsRu.
         /// </summary>
         [EnumMember(Value = "SBERLOGISTICS_RU")]
-        SBERLOGISTICSRU,
+        SberlogisticsRu,
 
         /// <summary>
-        /// MALCAAMIT.
+        /// MalcaAmit.
         /// </summary>
         [EnumMember(Value = "MALCA_AMIT")]
-        MALCAAMIT,
+        MalcaAmit,
 
         /// <summary>
-        /// PPL.
+        /// Ppl.
         /// </summary>
         [EnumMember(Value = "PPL")]
-        PPL,
+        Ppl,
 
         /// <summary>
-        /// OSMWORLDWIDESFTP.
+        /// OsmWorldwideSftp.
         /// </summary>
         [EnumMember(Value = "OSM_WORLDWIDE_SFTP")]
-        OSMWORLDWIDESFTP,
+        OsmWorldwideSftp,
 
         /// <summary>
-        /// ACILOGISTIX.
+        /// Acilogistix.
         /// </summary>
         [EnumMember(Value = "ACILOGISTIX")]
-        ACILOGISTIX,
+        Acilogistix,
 
         /// <summary>
-        /// OPTIMACOURIER.
+        /// Optimacourier.
         /// </summary>
         [EnumMember(Value = "OPTIMACOURIER")]
-        OPTIMACOURIER,
+        Optimacourier,
 
         /// <summary>
-        /// NOVAPOSHTAAPI.
+        /// NovaPoshtaApi.
         /// </summary>
         [EnumMember(Value = "NOVA_POSHTA_API")]
-        NOVAPOSHTAAPI,
+        NovaPoshtaApi,
 
         /// <summary>
-        /// LOGGI.
+        /// Loggi.
         /// </summary>
         [EnumMember(Value = "LOGGI")]
-        LOGGI,
+        Loggi,
 
         /// <summary>
-        /// YIFAN.
+        /// Yifan.
         /// </summary>
         [EnumMember(Value = "YIFAN")]
-        YIFAN,
+        Yifan,
 
         /// <summary>
-        /// MYDYNALOGIC.
+        /// Mydynalogic.
         /// </summary>
         [EnumMember(Value = "MYDYNALOGIC")]
-        MYDYNALOGIC,
+        Mydynalogic,
 
         /// <summary>
-        /// MORNINGLOBAL.
+        /// Morninglobal.
         /// </summary>
         [EnumMember(Value = "MORNINGLOBAL")]
-        MORNINGLOBAL,
+        Morninglobal,
 
         /// <summary>
-        /// CONCISEAPI.
+        /// ConciseApi.
         /// </summary>
         [EnumMember(Value = "CONCISE_API")]
-        CONCISEAPI,
+        ConciseApi,
 
         /// <summary>
-        /// FXTRAN.
+        /// Fxtran.
         /// </summary>
         [EnumMember(Value = "FXTRAN")]
-        FXTRAN,
+        Fxtran,
 
         /// <summary>
-        /// DELIVERYOURPARCELZA.
+        /// DeliveryourparcelZa.
         /// </summary>
         [EnumMember(Value = "DELIVERYOURPARCEL_ZA")]
-        DELIVERYOURPARCELZA,
+        DeliveryourparcelZa,
 
         /// <summary>
-        /// UPARCEL.
+        /// Uparcel.
         /// </summary>
         [EnumMember(Value = "UPARCEL")]
-        UPARCEL,
+        Uparcel,
 
         /// <summary>
-        /// MOBIBR.
+        /// MobiBr.
         /// </summary>
         [EnumMember(Value = "MOBI_BR")]
-        MOBIBR,
+        MobiBr,
 
         /// <summary>
-        /// LOGINEXTWEBHOOK.
+        /// LoginextWebhook.
         /// </summary>
         [EnumMember(Value = "LOGINEXT_WEBHOOK")]
-        LOGINEXTWEBHOOK,
+        LoginextWebhook,
 
         /// <summary>
-        /// EMS.
+        /// Ems.
         /// </summary>
         [EnumMember(Value = "EMS")]
-        EMS,
+        Ems,
 
         /// <summary>
-        /// SPEEDY.
+        /// Speedy.
         /// </summary>
         [EnumMember(Value = "SPEEDY")]
-        SPEEDY,
+        Speedy,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

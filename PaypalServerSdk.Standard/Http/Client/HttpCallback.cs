@@ -1,13 +1,13 @@
 // <copyright file="HttpCallback.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
-using PaypalServerSDK.Standard.Http.Request;
-using PaypalServerSDK.Standard.Http.Response;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard.Http.Request;
+using PaypalServerSdk.Standard.Http.Response;
+using PaypalServerSdk.Standard.Utilities;
 using APIMatic.Core.Types;
 using APIMatic.Core.Types.Sdk;
 
-namespace PaypalServerSDK.Standard.Http.Client
+namespace PaypalServerSdk.Standard.Http.Client
 {
     /// <summary>
     /// To use for the capturing of the outgoing HTTP request and incoming Http response.

@@ -3,12 +3,12 @@
 // </copyright>
 using APIMatic.Core.Types.Sdk;
 using APIMatic.Core.Utilities;
-using PaypalServerSDK.Standard.Exceptions;
-using PaypalServerSDK.Standard.Http.Client;
-using PaypalServerSDK.Standard.Http.Request;
-using PaypalServerSDK.Standard.Http.Response;
+using PaypalServerSdk.Standard.Exceptions;
+using PaypalServerSdk.Standard.Http.Client;
+using PaypalServerSdk.Standard.Http.Request;
+using PaypalServerSdk.Standard.Http.Response;
 
-namespace PaypalServerSDK.Standard.Utilities
+namespace PaypalServerSdk.Standard.Utilities
 {
     internal class CompatibilityFactory : ICompatibilityFactory<HttpRequest, HttpResponse, HttpContext, ApiException>
     {

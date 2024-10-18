@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ProcessorResponseCode.
@@ -92,10 +92,10 @@ namespace PaypalServerSDK.Standard.Models
         Enum1000,
 
         /// <summary>
-        /// Enum10BR.
+        /// Enum10Br.
         /// </summary>
         [EnumMember(Value = "10BR")]
-        Enum10BR,
+        Enum10Br,
 
         /// <summary>
         /// Enum1300.
@@ -464,484 +464,484 @@ namespace PaypalServerSDK.Standard.Models
         Enum9600,
 
         /// <summary>
-        /// PCNR.
+        /// Pcnr.
         /// </summary>
         [EnumMember(Value = "PCNR")]
-        PCNR,
+        Pcnr,
 
         /// <summary>
-        /// PCVV.
+        /// Pcvv.
         /// </summary>
         [EnumMember(Value = "PCVV")]
-        PCVV,
+        Pcvv,
 
         /// <summary>
-        /// PP06.
+        /// Pp06.
         /// </summary>
         [EnumMember(Value = "PP06")]
-        PP06,
+        Pp06,
 
         /// <summary>
-        /// PPRN.
+        /// Pprn.
         /// </summary>
         [EnumMember(Value = "PPRN")]
-        PPRN,
+        Pprn,
 
         /// <summary>
-        /// PPAD.
+        /// Ppad.
         /// </summary>
         [EnumMember(Value = "PPAD")]
-        PPAD,
+        Ppad,
 
         /// <summary>
-        /// PPAB.
+        /// Ppab.
         /// </summary>
         [EnumMember(Value = "PPAB")]
-        PPAB,
+        Ppab,
 
         /// <summary>
-        /// PPAE.
+        /// Ppae.
         /// </summary>
         [EnumMember(Value = "PPAE")]
-        PPAE,
+        Ppae,
 
         /// <summary>
-        /// PPAG.
+        /// Ppag.
         /// </summary>
         [EnumMember(Value = "PPAG")]
-        PPAG,
+        Ppag,
 
         /// <summary>
-        /// PPAI.
+        /// Ppai.
         /// </summary>
         [EnumMember(Value = "PPAI")]
-        PPAI,
+        Ppai,
 
         /// <summary>
-        /// PPAR.
+        /// Ppar.
         /// </summary>
         [EnumMember(Value = "PPAR")]
-        PPAR,
+        Ppar,
 
         /// <summary>
-        /// PPAU.
+        /// Ppau.
         /// </summary>
         [EnumMember(Value = "PPAU")]
-        PPAU,
+        Ppau,
 
         /// <summary>
-        /// PPAV.
+        /// Ppav.
         /// </summary>
         [EnumMember(Value = "PPAV")]
-        PPAV,
+        Ppav,
 
         /// <summary>
-        /// PPAX.
+        /// Ppax.
         /// </summary>
         [EnumMember(Value = "PPAX")]
-        PPAX,
+        Ppax,
 
         /// <summary>
-        /// PPBG.
+        /// Ppbg.
         /// </summary>
         [EnumMember(Value = "PPBG")]
-        PPBG,
+        Ppbg,
 
         /// <summary>
-        /// PPC2.
+        /// Ppc2.
         /// </summary>
         [EnumMember(Value = "PPC2")]
-        PPC2,
+        Ppc2,
 
         /// <summary>
-        /// PPCE.
+        /// Ppce.
         /// </summary>
         [EnumMember(Value = "PPCE")]
-        PPCE,
+        Ppce,
 
         /// <summary>
-        /// PPCO.
+        /// Ppco.
         /// </summary>
         [EnumMember(Value = "PPCO")]
-        PPCO,
+        Ppco,
 
         /// <summary>
-        /// PPCR.
+        /// Ppcr.
         /// </summary>
         [EnumMember(Value = "PPCR")]
-        PPCR,
+        Ppcr,
 
         /// <summary>
-        /// PPCT.
+        /// Ppct.
         /// </summary>
         [EnumMember(Value = "PPCT")]
-        PPCT,
+        Ppct,
 
         /// <summary>
-        /// PPCU.
+        /// Ppcu.
         /// </summary>
         [EnumMember(Value = "PPCU")]
-        PPCU,
+        Ppcu,
 
         /// <summary>
-        /// PPD3.
+        /// Ppd3.
         /// </summary>
         [EnumMember(Value = "PPD3")]
-        PPD3,
+        Ppd3,
 
         /// <summary>
-        /// PPDC.
+        /// Ppdc.
         /// </summary>
         [EnumMember(Value = "PPDC")]
-        PPDC,
+        Ppdc,
 
         /// <summary>
-        /// PPDI.
+        /// Ppdi.
         /// </summary>
         [EnumMember(Value = "PPDI")]
-        PPDI,
+        Ppdi,
 
         /// <summary>
-        /// PPDV.
+        /// Ppdv.
         /// </summary>
         [EnumMember(Value = "PPDV")]
-        PPDV,
+        Ppdv,
 
         /// <summary>
-        /// PPDT.
+        /// Ppdt.
         /// </summary>
         [EnumMember(Value = "PPDT")]
-        PPDT,
+        Ppdt,
 
         /// <summary>
-        /// PPEF.
+        /// Ppef.
         /// </summary>
         [EnumMember(Value = "PPEF")]
-        PPEF,
+        Ppef,
 
         /// <summary>
-        /// PPEL.
+        /// Ppel.
         /// </summary>
         [EnumMember(Value = "PPEL")]
-        PPEL,
+        Ppel,
 
         /// <summary>
-        /// PPER.
+        /// Pper.
         /// </summary>
         [EnumMember(Value = "PPER")]
-        PPER,
+        Pper,
 
         /// <summary>
-        /// PPEX.
+        /// Ppex.
         /// </summary>
         [EnumMember(Value = "PPEX")]
-        PPEX,
+        Ppex,
 
         /// <summary>
-        /// PPFE.
+        /// Ppfe.
         /// </summary>
         [EnumMember(Value = "PPFE")]
-        PPFE,
+        Ppfe,
 
         /// <summary>
-        /// PPFI.
+        /// Ppfi.
         /// </summary>
         [EnumMember(Value = "PPFI")]
-        PPFI,
+        Ppfi,
 
         /// <summary>
-        /// PPFR.
+        /// Ppfr.
         /// </summary>
         [EnumMember(Value = "PPFR")]
-        PPFR,
+        Ppfr,
 
         /// <summary>
-        /// PPFV.
+        /// Ppfv.
         /// </summary>
         [EnumMember(Value = "PPFV")]
-        PPFV,
+        Ppfv,
 
         /// <summary>
-        /// PPGR.
+        /// Ppgr.
         /// </summary>
         [EnumMember(Value = "PPGR")]
-        PPGR,
+        Ppgr,
 
         /// <summary>
-        /// PPH1.
+        /// Pph1.
         /// </summary>
         [EnumMember(Value = "PPH1")]
-        PPH1,
+        Pph1,
 
         /// <summary>
-        /// PPIF.
+        /// Ppif.
         /// </summary>
         [EnumMember(Value = "PPIF")]
-        PPIF,
+        Ppif,
 
         /// <summary>
-        /// PPII.
+        /// Ppii.
         /// </summary>
         [EnumMember(Value = "PPII")]
-        PPII,
+        Ppii,
 
         /// <summary>
-        /// PPIM.
+        /// Ppim.
         /// </summary>
         [EnumMember(Value = "PPIM")]
-        PPIM,
+        Ppim,
 
         /// <summary>
-        /// PPIT.
+        /// Ppit.
         /// </summary>
         [EnumMember(Value = "PPIT")]
-        PPIT,
+        Ppit,
 
         /// <summary>
-        /// PPLR.
+        /// Pplr.
         /// </summary>
         [EnumMember(Value = "PPLR")]
-        PPLR,
+        Pplr,
 
         /// <summary>
-        /// PPLS.
+        /// Ppls.
         /// </summary>
         [EnumMember(Value = "PPLS")]
-        PPLS,
+        Ppls,
 
         /// <summary>
-        /// PPMB.
+        /// Ppmb.
         /// </summary>
         [EnumMember(Value = "PPMB")]
-        PPMB,
+        Ppmb,
 
         /// <summary>
-        /// PPMC.
+        /// Ppmc.
         /// </summary>
         [EnumMember(Value = "PPMC")]
-        PPMC,
+        Ppmc,
 
         /// <summary>
-        /// PPMD.
+        /// Ppmd.
         /// </summary>
         [EnumMember(Value = "PPMD")]
-        PPMD,
+        Ppmd,
 
         /// <summary>
-        /// PPNC.
+        /// Ppnc.
         /// </summary>
         [EnumMember(Value = "PPNC")]
-        PPNC,
+        Ppnc,
 
         /// <summary>
-        /// PPNL.
+        /// Ppnl.
         /// </summary>
         [EnumMember(Value = "PPNL")]
-        PPNL,
+        Ppnl,
 
         /// <summary>
-        /// PPNM.
+        /// Ppnm.
         /// </summary>
         [EnumMember(Value = "PPNM")]
-        PPNM,
+        Ppnm,
 
         /// <summary>
-        /// PPNT.
+        /// Ppnt.
         /// </summary>
         [EnumMember(Value = "PPNT")]
-        PPNT,
+        Ppnt,
 
         /// <summary>
-        /// PPPH.
+        /// Ppph.
         /// </summary>
         [EnumMember(Value = "PPPH")]
-        PPPH,
+        Ppph,
 
         /// <summary>
-        /// PPPI.
+        /// Pppi.
         /// </summary>
         [EnumMember(Value = "PPPI")]
-        PPPI,
+        Pppi,
 
         /// <summary>
-        /// PPPM.
+        /// Pppm.
         /// </summary>
         [EnumMember(Value = "PPPM")]
-        PPPM,
+        Pppm,
 
         /// <summary>
-        /// PPQC.
+        /// Ppqc.
         /// </summary>
         [EnumMember(Value = "PPQC")]
-        PPQC,
+        Ppqc,
 
         /// <summary>
-        /// PPRE.
+        /// Ppre.
         /// </summary>
         [EnumMember(Value = "PPRE")]
-        PPRE,
+        Ppre,
 
         /// <summary>
-        /// PPRF.
+        /// Pprf.
         /// </summary>
         [EnumMember(Value = "PPRF")]
-        PPRF,
+        Pprf,
 
         /// <summary>
-        /// PPRR.
+        /// Pprr.
         /// </summary>
         [EnumMember(Value = "PPRR")]
-        PPRR,
+        Pprr,
 
         /// <summary>
-        /// PPS0.
+        /// Pps0.
         /// </summary>
         [EnumMember(Value = "PPS0")]
-        PPS0,
+        Pps0,
 
         /// <summary>
-        /// PPS1.
+        /// Pps1.
         /// </summary>
         [EnumMember(Value = "PPS1")]
-        PPS1,
+        Pps1,
 
         /// <summary>
-        /// PPS2.
+        /// Pps2.
         /// </summary>
         [EnumMember(Value = "PPS2")]
-        PPS2,
+        Pps2,
 
         /// <summary>
-        /// PPS3.
+        /// Pps3.
         /// </summary>
         [EnumMember(Value = "PPS3")]
-        PPS3,
+        Pps3,
 
         /// <summary>
-        /// PPS4.
+        /// Pps4.
         /// </summary>
         [EnumMember(Value = "PPS4")]
-        PPS4,
+        Pps4,
 
         /// <summary>
-        /// PPS5.
+        /// Pps5.
         /// </summary>
         [EnumMember(Value = "PPS5")]
-        PPS5,
+        Pps5,
 
         /// <summary>
-        /// PPS6.
+        /// Pps6.
         /// </summary>
         [EnumMember(Value = "PPS6")]
-        PPS6,
+        Pps6,
 
         /// <summary>
-        /// PPSC.
+        /// Ppsc.
         /// </summary>
         [EnumMember(Value = "PPSC")]
-        PPSC,
+        Ppsc,
 
         /// <summary>
-        /// PPSD.
+        /// Ppsd.
         /// </summary>
         [EnumMember(Value = "PPSD")]
-        PPSD,
+        Ppsd,
 
         /// <summary>
-        /// PPSE.
+        /// Ppse.
         /// </summary>
         [EnumMember(Value = "PPSE")]
-        PPSE,
+        Ppse,
 
         /// <summary>
-        /// PPTE.
+        /// Ppte.
         /// </summary>
         [EnumMember(Value = "PPTE")]
-        PPTE,
+        Ppte,
 
         /// <summary>
-        /// PPTF.
+        /// Pptf.
         /// </summary>
         [EnumMember(Value = "PPTF")]
-        PPTF,
+        Pptf,
 
         /// <summary>
-        /// PPTI.
+        /// Ppti.
         /// </summary>
         [EnumMember(Value = "PPTI")]
-        PPTI,
+        Ppti,
 
         /// <summary>
-        /// PPTR.
+        /// Pptr.
         /// </summary>
         [EnumMember(Value = "PPTR")]
-        PPTR,
+        Pptr,
 
         /// <summary>
-        /// PPTT.
+        /// Pptt.
         /// </summary>
         [EnumMember(Value = "PPTT")]
-        PPTT,
+        Pptt,
 
         /// <summary>
-        /// PPTV.
+        /// Pptv.
         /// </summary>
         [EnumMember(Value = "PPTV")]
-        PPTV,
+        Pptv,
 
         /// <summary>
-        /// PPUA.
+        /// Ppua.
         /// </summary>
         [EnumMember(Value = "PPUA")]
-        PPUA,
+        Ppua,
 
         /// <summary>
-        /// PPUC.
+        /// Ppuc.
         /// </summary>
         [EnumMember(Value = "PPUC")]
-        PPUC,
+        Ppuc,
 
         /// <summary>
-        /// PPUE.
+        /// Ppue.
         /// </summary>
         [EnumMember(Value = "PPUE")]
-        PPUE,
+        Ppue,
 
         /// <summary>
-        /// PPUI.
+        /// Ppui.
         /// </summary>
         [EnumMember(Value = "PPUI")]
-        PPUI,
+        Ppui,
 
         /// <summary>
-        /// PPUP.
+        /// Ppup.
         /// </summary>
         [EnumMember(Value = "PPUP")]
-        PPUP,
+        Ppup,
 
         /// <summary>
-        /// PPUR.
+        /// Ppur.
         /// </summary>
         [EnumMember(Value = "PPUR")]
-        PPUR,
+        Ppur,
 
         /// <summary>
-        /// PPVC.
+        /// Ppvc.
         /// </summary>
         [EnumMember(Value = "PPVC")]
-        PPVC,
+        Ppvc,
 
         /// <summary>
-        /// PPVE.
+        /// Ppve.
         /// </summary>
         [EnumMember(Value = "PPVE")]
-        PPVE,
+        Ppve,
 
         /// <summary>
-        /// PPVT.
+        /// Ppvt.
         /// </summary>
         [EnumMember(Value = "PPVT")]
-        PPVT,
+        Ppvt,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

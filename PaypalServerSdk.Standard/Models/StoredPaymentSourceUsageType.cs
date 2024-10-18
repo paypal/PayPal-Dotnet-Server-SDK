@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// StoredPaymentSourceUsageType.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum StoredPaymentSourceUsageType
     {
         /// <summary>
-        /// FIRST.
+        /// First.
         /// </summary>
         [EnumMember(Value = "FIRST")]
-        FIRST,
+        First,
 
         /// <summary>
-        /// SUBSEQUENT.
+        /// Subsequent.
         /// </summary>
         [EnumMember(Value = "SUBSEQUENT")]
-        SUBSEQUENT,
+        Subsequent,
 
         /// <summary>
-        /// DERIVED.
+        /// Derived.
         /// </summary>
         [EnumMember(Value = "DERIVED")]
-        DERIVED,
+        Derived,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

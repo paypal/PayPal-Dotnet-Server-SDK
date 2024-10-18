@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// AuthorizationStatus.
@@ -20,40 +20,40 @@ namespace PaypalServerSDK.Standard.Models
     public enum AuthorizationStatus
     {
         /// <summary>
-        /// CREATED.
+        /// Created.
         /// </summary>
         [EnumMember(Value = "CREATED")]
-        CREATED,
+        Created,
 
         /// <summary>
-        /// CAPTURED.
+        /// Captured.
         /// </summary>
         [EnumMember(Value = "CAPTURED")]
-        CAPTURED,
+        Captured,
 
         /// <summary>
-        /// DENIED.
+        /// Denied.
         /// </summary>
         [EnumMember(Value = "DENIED")]
-        DENIED,
+        Denied,
 
         /// <summary>
-        /// PARTIALLYCAPTURED.
+        /// PartiallyCaptured.
         /// </summary>
         [EnumMember(Value = "PARTIALLY_CAPTURED")]
-        PARTIALLYCAPTURED,
+        PartiallyCaptured,
 
         /// <summary>
-        /// VOIDED.
+        /// Voided.
         /// </summary>
         [EnumMember(Value = "VOIDED")]
-        VOIDED,
+        Voided,
 
         /// <summary>
-        /// PENDING.
+        /// Pending.
         /// </summary>
         [EnumMember(Value = "PENDING")]
-        PENDING,
+        Pending,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

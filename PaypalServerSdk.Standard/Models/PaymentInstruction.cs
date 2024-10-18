@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// PaymentInstruction.
@@ -37,7 +37,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="payeeReceivableFxRateId">payee_receivable_fx_rate_id.</param>
         public PaymentInstruction(
             List<Models.PlatformFee> platformFees = null,
-            Models.DisbursementMode? disbursementMode = Models.DisbursementMode.INSTANT,
+            Models.DisbursementMode? disbursementMode = Models.DisbursementMode.Instant,
             string payeePricingTierId = null,
             string payeeReceivableFxRateId = null)
         {

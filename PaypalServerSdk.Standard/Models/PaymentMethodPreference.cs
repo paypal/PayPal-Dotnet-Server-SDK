@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// PaymentMethodPreference.
@@ -34,8 +34,8 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="payeePreferred">payee_preferred.</param>
         /// <param name="standardEntryClassCode">standard_entry_class_code.</param>
         public PaymentMethodPreference(
-            Models.PayeePaymentMethodPreference? payeePreferred = Models.PayeePaymentMethodPreference.UNRESTRICTED,
-            Models.StandardEntryClassCode? standardEntryClassCode = Models.StandardEntryClassCode.WEB)
+            Models.PayeePaymentMethodPreference? payeePreferred = Models.PayeePaymentMethodPreference.Unrestricted,
+            Models.StandardEntryClassCode? standardEntryClassCode = Models.StandardEntryClassCode.Web)
         {
             this.PayeePreferred = payeePreferred;
             this.StandardEntryClassCode = standardEntryClassCode;

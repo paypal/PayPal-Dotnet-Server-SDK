@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// VenmoPaymentTokenUsagePattern.
@@ -20,40 +20,40 @@ namespace PaypalServerSDK.Standard.Models
     public enum VenmoPaymentTokenUsagePattern
     {
         /// <summary>
-        /// IMMEDIATE.
+        /// Immediate.
         /// </summary>
         [EnumMember(Value = "IMMEDIATE")]
-        IMMEDIATE,
+        Immediate,
 
         /// <summary>
-        /// DEFERRED.
+        /// Deferred.
         /// </summary>
         [EnumMember(Value = "DEFERRED")]
-        DEFERRED,
+        Deferred,
 
         /// <summary>
-        /// RECURRINGPREPAID.
+        /// RecurringPrepaid.
         /// </summary>
         [EnumMember(Value = "RECURRING_PREPAID")]
-        RECURRINGPREPAID,
+        RecurringPrepaid,
 
         /// <summary>
-        /// RECURRINGPOSTPAID.
+        /// RecurringPostpaid.
         /// </summary>
         [EnumMember(Value = "RECURRING_POSTPAID")]
-        RECURRINGPOSTPAID,
+        RecurringPostpaid,
 
         /// <summary>
-        /// THRESHOLDPREPAID.
+        /// ThresholdPrepaid.
         /// </summary>
         [EnumMember(Value = "THRESHOLD_PREPAID")]
-        THRESHOLDPREPAID,
+        ThresholdPrepaid,
 
         /// <summary>
-        /// THRESHOLDPOSTPAID.
+        /// ThresholdPostpaid.
         /// </summary>
         [EnumMember(Value = "THRESHOLD_POSTPAID")]
-        THRESHOLDPOSTPAID,
+        ThresholdPostpaid,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -21,12 +21,12 @@ To use a custom logger, you can provide any implementation of Microsoft.Extensio
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using PaypalServerSDK.Standard;
+using PaypalServerSdk.Standard;
 
 var factory = LoggerFactory.Create(builder => { builder.AddConsole(); });
-var logger = factory.CreateLogger<PaypalServerSDKClient>();
+var logger = factory.CreateLogger<PaypalServerSdkClient>();
 
-var client = new PaypalServerSDKClient.Builder()
+var client = new PaypalServerSdkClient.Builder()
     .LoggingConfig(config => config
         .Logger(logger)
         .LogLevel(LogLevel.Information)

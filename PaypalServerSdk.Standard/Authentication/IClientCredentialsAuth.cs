@@ -4,7 +4,7 @@
 using System.Threading.Tasks;
 using System.Collections.Generic;
 
-namespace PaypalServerSDK.Standard.Authentication
+namespace PaypalServerSdk.Standard.Authentication
 {
     public interface IClientCredentialsAuth
     {

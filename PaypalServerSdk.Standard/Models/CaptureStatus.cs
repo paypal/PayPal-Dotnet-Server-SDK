@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CaptureStatus.
@@ -20,40 +20,40 @@ namespace PaypalServerSDK.Standard.Models
     public enum CaptureStatus
     {
         /// <summary>
-        /// COMPLETED.
+        /// Completed.
         /// </summary>
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED,
+        Completed,
 
         /// <summary>
-        /// DECLINED.
+        /// Declined.
         /// </summary>
         [EnumMember(Value = "DECLINED")]
-        DECLINED,
+        Declined,
 
         /// <summary>
-        /// PARTIALLYREFUNDED.
+        /// PartiallyRefunded.
         /// </summary>
         [EnumMember(Value = "PARTIALLY_REFUNDED")]
-        PARTIALLYREFUNDED,
+        PartiallyRefunded,
 
         /// <summary>
-        /// PENDING.
+        /// Pending.
         /// </summary>
         [EnumMember(Value = "PENDING")]
-        PENDING,
+        Pending,
 
         /// <summary>
-        /// REFUNDED.
+        /// Refunded.
         /// </summary>
         [EnumMember(Value = "REFUNDED")]
-        REFUNDED,
+        Refunded,
 
         /// <summary>
-        /// FAILED.
+        /// Failed.
         /// </summary>
         [EnumMember(Value = "FAILED")]
-        FAILED,
+        Failed,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -2,10 +2,10 @@
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using APIMatic.Core.Types.Sdk;
-using PaypalServerSDK.Standard.Http.Request;
-using PaypalServerSDK.Standard.Http.Response;
+using PaypalServerSdk.Standard.Http.Request;
+using PaypalServerSdk.Standard.Http.Response;
 
-namespace PaypalServerSDK.Standard.Http.Client
+namespace PaypalServerSdk.Standard.Http.Client
 {
     /// <summary>
     /// Represents the contextual information of HTTP request and response.

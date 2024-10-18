@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ProcessingInstruction.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum ProcessingInstruction
     {
         /// <summary>
-        /// ORDERCOMPLETEONPAYMENTAPPROVAL.
+        /// OrderCompleteOnPaymentApproval.
         /// </summary>
         [EnumMember(Value = "ORDER_COMPLETE_ON_PAYMENT_APPROVAL")]
-        ORDERCOMPLETEONPAYMENTAPPROVAL,
+        OrderCompleteOnPaymentApproval,
 
         /// <summary>
-        /// NOINSTRUCTION.
+        /// NoInstruction.
         /// </summary>
         [EnumMember(Value = "NO_INSTRUCTION")]
-        NOINSTRUCTION,
+        NoInstruction,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.
