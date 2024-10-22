@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ApplePayPaymentDataType.
@@ -20,16 +20,16 @@ namespace PaypalServerSDK.Standard.Models
     public enum ApplePayPaymentDataType
     {
         /// <summary>
-        /// Enum3DSECURE.
+        /// Enum3Dsecure.
         /// </summary>
         [EnumMember(Value = "3DSECURE")]
-        Enum3DSECURE,
+        Enum3Dsecure,
 
         /// <summary>
-        /// EMV.
+        /// Emv.
         /// </summary>
         [EnumMember(Value = "EMV")]
-        EMV,
+        Emv,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

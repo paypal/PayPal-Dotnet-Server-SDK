@@ -2,9 +2,9 @@
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
-using PaypalServerSDK.Standard.Models;
+using PaypalServerSdk.Standard.Models;
 
-namespace PaypalServerSDK.Standard.Authentication
+namespace PaypalServerSdk.Standard.Authentication
 {
     internal static class OAuthTokenExtensions
     {

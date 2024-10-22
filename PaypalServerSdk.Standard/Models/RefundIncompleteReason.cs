@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// RefundIncompleteReason.
@@ -20,10 +20,10 @@ namespace PaypalServerSDK.Standard.Models
     public enum RefundIncompleteReason
     {
         /// <summary>
-        /// ECHECK.
+        /// Echeck.
         /// </summary>
         [EnumMember(Value = "ECHECK")]
-        ECHECK,
+        Echeck,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

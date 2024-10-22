@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// NetworkToken.
@@ -40,7 +40,7 @@ namespace PaypalServerSDK.Standard.Models
             string number,
             string expiry,
             string cryptogram = null,
-            Models.ECIFlag? eciFlag = null,
+            Models.EciFlag? eciFlag = null,
             string tokenRequestorId = null)
         {
             this.Number = number;
@@ -72,7 +72,7 @@ namespace PaypalServerSDK.Standard.Models
         /// Electronic Commerce Indicator (ECI). The ECI value is part of the 2 data elements that indicate the transaction was processed electronically. This should be passed on the authorization transaction to the Gateway/Processor.
         /// </summary>
         [JsonProperty("eci_flag", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ECIFlag? EciFlag { get; set; }
+        public Models.EciFlag? EciFlag { get; set; }
 
         /// <summary>
         /// A TRID, or a Token Requestor ID, is an identifier used by merchants to request network tokens from card networks. A TRID is a precursor to obtaining a network token for a credit card primary account number (PAN), and will aid in enabling secure card on file (COF) payments and reducing fraud.

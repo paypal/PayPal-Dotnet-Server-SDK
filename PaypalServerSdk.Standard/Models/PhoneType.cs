@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// PhoneType.
@@ -20,34 +20,34 @@ namespace PaypalServerSDK.Standard.Models
     public enum PhoneType
     {
         /// <summary>
-        /// FAX.
+        /// Fax.
         /// </summary>
         [EnumMember(Value = "FAX")]
-        FAX,
+        Fax,
 
         /// <summary>
-        /// HOME.
+        /// Home.
         /// </summary>
         [EnumMember(Value = "HOME")]
-        HOME,
+        Home,
 
         /// <summary>
-        /// MOBILE.
+        /// Mobile.
         /// </summary>
         [EnumMember(Value = "MOBILE")]
-        MOBILE,
+        Mobile,
 
         /// <summary>
-        /// OTHER.
+        /// Other.
         /// </summary>
         [EnumMember(Value = "OTHER")]
-        OTHER,
+        Other,
 
         /// <summary>
-        /// PAGER.
+        /// Pager.
         /// </summary>
         [EnumMember(Value = "PAGER")]
-        PAGER,
+        Pager,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

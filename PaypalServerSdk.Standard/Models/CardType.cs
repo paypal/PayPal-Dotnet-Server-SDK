@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CardType.
@@ -20,34 +20,34 @@ namespace PaypalServerSDK.Standard.Models
     public enum CardType
     {
         /// <summary>
-        /// CREDIT.
+        /// Credit.
         /// </summary>
         [EnumMember(Value = "CREDIT")]
-        CREDIT,
+        Credit,
 
         /// <summary>
-        /// DEBIT.
+        /// Debit.
         /// </summary>
         [EnumMember(Value = "DEBIT")]
-        DEBIT,
+        Debit,
 
         /// <summary>
-        /// PREPAID.
+        /// Prepaid.
         /// </summary>
         [EnumMember(Value = "PREPAID")]
-        PREPAID,
+        Prepaid,
 
         /// <summary>
-        /// STORE.
+        /// Store.
         /// </summary>
         [EnumMember(Value = "STORE")]
-        STORE,
+        Store,
 
         /// <summary>
-        /// UNKNOWN.
+        /// Unknown.
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]
-        UNKNOWN,
+        Unknown,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// Capture.
@@ -57,7 +57,7 @@ namespace PaypalServerSDK.Standard.Models
             Models.SellerProtection sellerProtection = null,
             bool? finalCapture = false,
             Models.SellerReceivableBreakdown sellerReceivableBreakdown = null,
-            Models.DisbursementMode? disbursementMode = Models.DisbursementMode.INSTANT,
+            Models.DisbursementMode? disbursementMode = Models.DisbursementMode.Instant,
             List<Models.LinkDescription> links = null,
             Models.ProcessorResponse processorResponse = null,
             string createTime = null,

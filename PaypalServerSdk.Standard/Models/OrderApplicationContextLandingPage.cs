@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// OrderApplicationContextLandingPage.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum OrderApplicationContextLandingPage
     {
         /// <summary>
-        /// LOGIN.
+        /// Login.
         /// </summary>
         [EnumMember(Value = "LOGIN")]
-        LOGIN,
+        Login,
 
         /// <summary>
-        /// BILLING.
+        /// Billing.
         /// </summary>
         [EnumMember(Value = "BILLING")]
-        BILLING,
+        Billing,
 
         /// <summary>
-        /// NOPREFERENCE.
+        /// NoPreference.
         /// </summary>
         [EnumMember(Value = "NO_PREFERENCE")]
-        NOPREFERENCE,
+        NoPreference,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

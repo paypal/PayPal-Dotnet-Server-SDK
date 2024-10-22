@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// SellerProtectionStatus.
@@ -20,22 +20,22 @@ namespace PaypalServerSDK.Standard.Models
     public enum SellerProtectionStatus
     {
         /// <summary>
-        /// ELIGIBLE.
+        /// Eligible.
         /// </summary>
         [EnumMember(Value = "ELIGIBLE")]
-        ELIGIBLE,
+        Eligible,
 
         /// <summary>
-        /// PARTIALLYELIGIBLE.
+        /// PartiallyEligible.
         /// </summary>
         [EnumMember(Value = "PARTIALLY_ELIGIBLE")]
-        PARTIALLYELIGIBLE,
+        PartiallyEligible,
 
         /// <summary>
-        /// NOTELIGIBLE.
+        /// NotEligible.
         /// </summary>
         [EnumMember(Value = "NOT_ELIGIBLE")]
-        NOTELIGIBLE,
+        NotEligible,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

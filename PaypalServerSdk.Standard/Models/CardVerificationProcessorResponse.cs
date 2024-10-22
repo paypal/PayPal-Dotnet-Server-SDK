@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CardVerificationProcessorResponse.
@@ -34,8 +34,8 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="avsCode">avs_code.</param>
         /// <param name="cvvCode">cvv_code.</param>
         public CardVerificationProcessorResponse(
-            Models.AVSCode? avsCode = null,
-            Models.CVVCode? cvvCode = null)
+            Models.AvsCode? avsCode = null,
+            Models.CvvCode? cvvCode = null)
         {
             this.AvsCode = avsCode;
             this.CvvCode = cvvCode;
@@ -45,13 +45,13 @@ namespace PaypalServerSDK.Standard.Models
         /// The address verification code for Visa, Discover, Mastercard, or American Express transactions.
         /// </summary>
         [JsonProperty("avs_code", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.AVSCode? AvsCode { get; set; }
+        public Models.AvsCode? AvsCode { get; set; }
 
         /// <summary>
         /// The card verification value code for for Visa, Discover, Mastercard, or American Express.
         /// </summary>
         [JsonProperty("cvv_code", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CVVCode? CvvCode { get; set; }
+        public Models.CvvCode? CvvCode { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

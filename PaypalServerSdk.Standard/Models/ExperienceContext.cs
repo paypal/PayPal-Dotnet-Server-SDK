@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ExperienceContext.
@@ -39,7 +39,7 @@ namespace PaypalServerSDK.Standard.Models
         public ExperienceContext(
             string brandName = null,
             string locale = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GETFROMFILE,
+            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile,
             string returnUrl = null,
             string cancelUrl = null)
         {

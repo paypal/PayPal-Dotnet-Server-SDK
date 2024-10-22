@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// CaptureIncompleteReason.
@@ -20,76 +20,76 @@ namespace PaypalServerSDK.Standard.Models
     public enum CaptureIncompleteReason
     {
         /// <summary>
-        /// BUYERCOMPLAINT.
+        /// BuyerComplaint.
         /// </summary>
         [EnumMember(Value = "BUYER_COMPLAINT")]
-        BUYERCOMPLAINT,
+        BuyerComplaint,
 
         /// <summary>
-        /// CHARGEBACK.
+        /// Chargeback.
         /// </summary>
         [EnumMember(Value = "CHARGEBACK")]
-        CHARGEBACK,
+        Chargeback,
 
         /// <summary>
-        /// ECHECK.
+        /// Echeck.
         /// </summary>
         [EnumMember(Value = "ECHECK")]
-        ECHECK,
+        Echeck,
 
         /// <summary>
-        /// INTERNATIONALWITHDRAWAL.
+        /// InternationalWithdrawal.
         /// </summary>
         [EnumMember(Value = "INTERNATIONAL_WITHDRAWAL")]
-        INTERNATIONALWITHDRAWAL,
+        InternationalWithdrawal,
 
         /// <summary>
-        /// OTHER.
+        /// Other.
         /// </summary>
         [EnumMember(Value = "OTHER")]
-        OTHER,
+        Other,
 
         /// <summary>
-        /// PENDINGREVIEW.
+        /// PendingReview.
         /// </summary>
         [EnumMember(Value = "PENDING_REVIEW")]
-        PENDINGREVIEW,
+        PendingReview,
 
         /// <summary>
-        /// RECEIVINGPREFERENCEMANDATESMANUALACTION.
+        /// ReceivingPreferenceMandatesManualAction.
         /// </summary>
         [EnumMember(Value = "RECEIVING_PREFERENCE_MANDATES_MANUAL_ACTION")]
-        RECEIVINGPREFERENCEMANDATESMANUALACTION,
+        ReceivingPreferenceMandatesManualAction,
 
         /// <summary>
-        /// REFUNDED.
+        /// Refunded.
         /// </summary>
         [EnumMember(Value = "REFUNDED")]
-        REFUNDED,
+        Refunded,
 
         /// <summary>
-        /// TRANSACTIONAPPROVEDAWAITINGFUNDING.
+        /// TransactionApprovedAwaitingFunding.
         /// </summary>
         [EnumMember(Value = "TRANSACTION_APPROVED_AWAITING_FUNDING")]
-        TRANSACTIONAPPROVEDAWAITINGFUNDING,
+        TransactionApprovedAwaitingFunding,
 
         /// <summary>
-        /// UNILATERAL.
+        /// Unilateral.
         /// </summary>
         [EnumMember(Value = "UNILATERAL")]
-        UNILATERAL,
+        Unilateral,
 
         /// <summary>
-        /// VERIFICATIONREQUIRED.
+        /// VerificationRequired.
         /// </summary>
         [EnumMember(Value = "VERIFICATION_REQUIRED")]
-        VERIFICATIONREQUIRED,
+        VerificationRequired,
 
         /// <summary>
-        /// DECLINEDBYRISKFRAUDFILTERS.
+        /// DeclinedByRiskFraudFilters.
         /// </summary>
         [EnumMember(Value = "DECLINED_BY_RISK_FRAUD_FILTERS")]
-        DECLINEDBYRISKFRAUDFILTERS,
+        DeclinedByRiskFraudFilters,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

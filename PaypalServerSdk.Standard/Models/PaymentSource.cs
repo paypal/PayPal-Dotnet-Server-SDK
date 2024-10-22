@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// PaymentSource.
@@ -49,13 +49,13 @@ namespace PaypalServerSDK.Standard.Models
         public PaymentSource(
             Models.CardRequest card = null,
             Models.Token token = null,
-            Models.PayPalWallet paypal = null,
+            Models.PaypalWallet paypal = null,
             Models.BancontactPaymentRequest bancontact = null,
-            Models.BLIKPaymentRequest blik = null,
-            Models.EPSPaymentRequest eps = null,
+            Models.BlikPaymentRequest blik = null,
+            Models.EpsPaymentRequest eps = null,
             Models.GiropayPaymentRequest giropay = null,
-            Models.IDEALPaymentRequest ideal = null,
-            Models.MyBankPaymentRequest mybank = null,
+            Models.IdealPaymentRequest ideal = null,
+            Models.MybankPaymentRequest mybank = null,
             Models.P24PaymentRequest p24 = null,
             Models.SofortPaymentRequest sofort = null,
             Models.TrustlyPaymentRequest trustly = null,
@@ -98,7 +98,7 @@ namespace PaypalServerSDK.Standard.Models
         /// A resource that identifies a PayPal Wallet is used for payment.
         /// </summary>
         [JsonProperty("paypal", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PayPalWallet Paypal { get; set; }
+        public Models.PaypalWallet Paypal { get; set; }
 
         /// <summary>
         /// Information needed to pay using Bancontact.
@@ -110,13 +110,13 @@ namespace PaypalServerSDK.Standard.Models
         /// Information needed to pay using BLIK.
         /// </summary>
         [JsonProperty("blik", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.BLIKPaymentRequest Blik { get; set; }
+        public Models.BlikPaymentRequest Blik { get; set; }
 
         /// <summary>
         /// Information needed to pay using eps.
         /// </summary>
         [JsonProperty("eps", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.EPSPaymentRequest Eps { get; set; }
+        public Models.EpsPaymentRequest Eps { get; set; }
 
         /// <summary>
         /// Information needed to pay using giropay.
@@ -128,13 +128,13 @@ namespace PaypalServerSDK.Standard.Models
         /// Information needed to pay using iDEAL.
         /// </summary>
         [JsonProperty("ideal", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.IDEALPaymentRequest Ideal { get; set; }
+        public Models.IdealPaymentRequest Ideal { get; set; }
 
         /// <summary>
         /// Information needed to pay using MyBank.
         /// </summary>
         [JsonProperty("mybank", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.MyBankPaymentRequest Mybank { get; set; }
+        public Models.MybankPaymentRequest Mybank { get; set; }
 
         /// <summary>
         /// Information needed to pay using P24 (Przelewy24).

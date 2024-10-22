@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Http.Client;
-using PaypalServerSDK.Standard.Models;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Http.Client;
+using PaypalServerSdk.Standard.Models;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Exceptions
+namespace PaypalServerSdk.Standard.Exceptions
 {
     /// <summary>
     /// OAuthProviderException.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ThreeDSecureAuthenticationResponse.
@@ -34,7 +34,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="authenticationStatus">authentication_status.</param>
         /// <param name="enrollmentStatus">enrollment_status.</param>
         public ThreeDSecureAuthenticationResponse(
-            Models.PAResStatus? authenticationStatus = null,
+            Models.PaResStatus? authenticationStatus = null,
             Models.EnrollmentStatus? enrollmentStatus = null)
         {
             this.AuthenticationStatus = authenticationStatus;
@@ -45,7 +45,7 @@ namespace PaypalServerSDK.Standard.Models
         /// Transactions status result identifier. The outcome of the issuer's authentication.
         /// </summary>
         [JsonProperty("authentication_status", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PAResStatus? AuthenticationStatus { get; set; }
+        public Models.PaResStatus? AuthenticationStatus { get; set; }
 
         /// <summary>
         /// Status of Authentication eligibility.

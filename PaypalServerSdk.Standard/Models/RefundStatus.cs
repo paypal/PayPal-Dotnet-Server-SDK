@@ -7,10 +7,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// RefundStatus.
@@ -20,28 +20,28 @@ namespace PaypalServerSDK.Standard.Models
     public enum RefundStatus
     {
         /// <summary>
-        /// CANCELLED.
+        /// Cancelled.
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
-        CANCELLED,
+        Cancelled,
 
         /// <summary>
-        /// FAILED.
+        /// Failed.
         /// </summary>
         [EnumMember(Value = "FAILED")]
-        FAILED,
+        Failed,
 
         /// <summary>
-        /// PENDING.
+        /// Pending.
         /// </summary>
         [EnumMember(Value = "PENDING")]
-        PENDING,
+        Pending,
 
         /// <summary>
-        /// COMPLETED.
+        /// Completed.
         /// </summary>
         [EnumMember(Value = "COMPLETED")]
-        COMPLETED,
+        Completed,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using APIMatic.Core.Utilities.Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using PaypalServerSDK.Standard;
-using PaypalServerSDK.Standard.Utilities;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
 
-namespace PaypalServerSDK.Standard.Models
+namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
     /// ConfirmOrderRequest.
@@ -36,7 +36,7 @@ namespace PaypalServerSDK.Standard.Models
         /// <param name="applicationContext">application_context.</param>
         public ConfirmOrderRequest(
             Models.PaymentSource paymentSource,
-            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NOINSTRUCTION,
+            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NoInstruction,
             Models.OrderConfirmApplicationContext applicationContext = null)
         {
             this.PaymentSource = paymentSource;
