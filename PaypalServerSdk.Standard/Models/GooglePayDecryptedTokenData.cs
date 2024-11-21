@@ -32,6 +32,7 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="GooglePayDecryptedTokenData"/> class.
         /// </summary>
         /// <param name="paymentMethod">payment_method.</param>
+        /// <param name="card">card.</param>
         /// <param name="authenticationMethod">authentication_method.</param>
         /// <param name="messageId">message_id.</param>
         /// <param name="messageExpiration">message_expiration.</param>
@@ -39,6 +40,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="eciIndicator">eci_indicator.</param>
         public GooglePayDecryptedTokenData(
             Models.GooglePayPaymentMethod paymentMethod,
+            Models.GooglePayCard card,
             Models.GooglePayAuthenticationMethod authenticationMethod,
             string messageId = null,
             string messageExpiration = null,
@@ -48,6 +50,7 @@ namespace PaypalServerSdk.Standard.Models
             this.MessageId = messageId;
             this.MessageExpiration = messageExpiration;
             this.PaymentMethod = paymentMethod;
+            this.Card = card;
             this.AuthenticationMethod = authenticationMethod;
             this.Cryptogram = cryptogram;
             this.EciIndicator = eciIndicator;
@@ -70,6 +73,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("payment_method")]
         public Models.GooglePayPaymentMethod PaymentMethod { get; set; }
+
+        /// <summary>
+        /// The payment card used to fund a Google Pay payment. Can be a credit or debit card.
+        /// </summary>
+        [JsonProperty("card")]
+        public Models.GooglePayCard Card { get; set; }
 
         /// <summary>
         /// Authentication Method which is used for the card transaction.
@@ -114,6 +123,7 @@ namespace PaypalServerSdk.Standard.Models
             return obj is GooglePayDecryptedTokenData other &&                ((this.MessageId == null && other.MessageId == null) || (this.MessageId?.Equals(other.MessageId) == true)) &&
                 ((this.MessageExpiration == null && other.MessageExpiration == null) || (this.MessageExpiration?.Equals(other.MessageExpiration) == true)) &&
                 this.PaymentMethod.Equals(other.PaymentMethod) &&
+                ((this.Card == null && other.Card == null) || (this.Card?.Equals(other.Card) == true)) &&
                 this.AuthenticationMethod.Equals(other.AuthenticationMethod) &&
                 ((this.Cryptogram == null && other.Cryptogram == null) || (this.Cryptogram?.Equals(other.Cryptogram) == true)) &&
                 ((this.EciIndicator == null && other.EciIndicator == null) || (this.EciIndicator?.Equals(other.EciIndicator) == true));
@@ -128,6 +138,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"this.MessageId = {(this.MessageId == null ? "null" : this.MessageId)}");
             toStringOutput.Add($"this.MessageExpiration = {(this.MessageExpiration == null ? "null" : this.MessageExpiration)}");
             toStringOutput.Add($"this.PaymentMethod = {this.PaymentMethod}");
+            toStringOutput.Add($"this.Card = {(this.Card == null ? "null" : this.Card.ToString())}");
             toStringOutput.Add($"this.AuthenticationMethod = {this.AuthenticationMethod}");
             toStringOutput.Add($"this.Cryptogram = {(this.Cryptogram == null ? "null" : this.Cryptogram)}");
             toStringOutput.Add($"this.EciIndicator = {(this.EciIndicator == null ? "null" : this.EciIndicator)}");

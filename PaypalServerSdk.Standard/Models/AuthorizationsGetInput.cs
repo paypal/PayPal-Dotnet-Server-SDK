@@ -1,4 +1,4 @@
-// <copyright file="AuthorizationsVoidInput.cs" company="APIMatic">
+// <copyright file="AuthorizationsGetInput.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -17,38 +17,32 @@ using PaypalServerSdk.Standard.Utilities;
 namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
-    /// AuthorizationsVoidInput.
+    /// AuthorizationsGetInput.
     /// </summary>
-    public class AuthorizationsVoidInput
+    public class AuthorizationsGetInput
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizationsVoidInput"/> class.
+        /// Initializes a new instance of the <see cref="AuthorizationsGetInput"/> class.
         /// </summary>
-        public AuthorizationsVoidInput()
+        public AuthorizationsGetInput()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AuthorizationsVoidInput"/> class.
+        /// Initializes a new instance of the <see cref="AuthorizationsGetInput"/> class.
         /// </summary>
         /// <param name="authorizationId">authorization_id.</param>
         /// <param name="paypalAuthAssertion">PayPal-Auth-Assertion.</param>
-        /// <param name="paypalRequestId">PayPal-Request-Id.</param>
-        /// <param name="prefer">Prefer.</param>
-        public AuthorizationsVoidInput(
+        public AuthorizationsGetInput(
             string authorizationId,
-            string paypalAuthAssertion = null,
-            string paypalRequestId = null,
-            string prefer = "return=minimal")
+            string paypalAuthAssertion = null)
         {
             this.AuthorizationId = authorizationId;
             this.PaypalAuthAssertion = paypalAuthAssertion;
-            this.PaypalRequestId = paypalRequestId;
-            this.Prefer = prefer;
         }
 
         /// <summary>
-        /// The PayPal-generated ID for the authorized payment to void.
+        /// The ID of the authorized payment for which to show details.
         /// </summary>
         [JsonProperty("authorization_id")]
         public string AuthorizationId { get; set; }
@@ -59,18 +53,6 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("PayPal-Auth-Assertion", NullValueHandling = NullValueHandling.Ignore)]
         public string PaypalAuthAssertion { get; set; }
 
-        /// <summary>
-        /// The server stores keys for 45 days.
-        /// </summary>
-        [JsonProperty("PayPal-Request-Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string PaypalRequestId { get; set; }
-
-        /// <summary>
-        /// The preferred server response upon successful completion of the request. Value is:<ul><li><code>return=minimal</code>. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the <code>id</code>, <code>status</code> and HATEOAS links.</li><li><code>return=representation</code>. The server returns a complete resource representation, including the current state of the resource.</li></ul>
-        /// </summary>
-        [JsonProperty("Prefer", NullValueHandling = NullValueHandling.Ignore)]
-        public string Prefer { get; set; }
-
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -78,7 +60,7 @@ namespace PaypalServerSdk.Standard.Models
 
             this.ToString(toStringOutput);
 
-            return $"AuthorizationsVoidInput : ({string.Join(", ", toStringOutput)})";
+            return $"AuthorizationsGetInput : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
@@ -93,10 +75,8 @@ namespace PaypalServerSdk.Standard.Models
             {
                 return true;
             }
-            return obj is AuthorizationsVoidInput other &&                ((this.AuthorizationId == null && other.AuthorizationId == null) || (this.AuthorizationId?.Equals(other.AuthorizationId) == true)) &&
-                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true)) &&
-                ((this.PaypalRequestId == null && other.PaypalRequestId == null) || (this.PaypalRequestId?.Equals(other.PaypalRequestId) == true)) &&
-                ((this.Prefer == null && other.Prefer == null) || (this.Prefer?.Equals(other.Prefer) == true));
+            return obj is AuthorizationsGetInput other &&                ((this.AuthorizationId == null && other.AuthorizationId == null) || (this.AuthorizationId?.Equals(other.AuthorizationId) == true)) &&
+                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true));
         }
         
         /// <summary>
@@ -107,8 +87,6 @@ namespace PaypalServerSdk.Standard.Models
         {
             toStringOutput.Add($"this.AuthorizationId = {(this.AuthorizationId == null ? "null" : this.AuthorizationId)}");
             toStringOutput.Add($"this.PaypalAuthAssertion = {(this.PaypalAuthAssertion == null ? "null" : this.PaypalAuthAssertion)}");
-            toStringOutput.Add($"this.PaypalRequestId = {(this.PaypalRequestId == null ? "null" : this.PaypalRequestId)}");
-            toStringOutput.Add($"this.Prefer = {(this.Prefer == null ? "null" : this.Prefer)}");
         }
     }
 }

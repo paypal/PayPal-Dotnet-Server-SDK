@@ -36,7 +36,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="applicationContext">application_context.</param>
         public ConfirmOrderRequest(
             Models.PaymentSource paymentSource,
-            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NoInstruction,
+            JsonValue processingInstruction = null,
             Models.OrderConfirmApplicationContext applicationContext = null)
         {
             this.PaymentSource = paymentSource;
@@ -51,10 +51,10 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaymentSource PaymentSource { get; set; }
 
         /// <summary>
-        /// The instruction to process an order.
+        /// Gets or sets ProcessingInstruction.
         /// </summary>
         [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ProcessingInstruction? ProcessingInstruction { get; set; }
+        public JsonValue ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Customizes the payer confirmation experience.
@@ -96,7 +96,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
-            toStringOutput.Add($"this.ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
+            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
             toStringOutput.Add($"this.ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
         }
     }

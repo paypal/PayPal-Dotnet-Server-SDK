@@ -47,7 +47,7 @@ namespace PaypalServerSdk.Standard.Models
             string id = null,
             Models.PaymentSourceResponse paymentSource = null,
             Models.CheckoutPaymentIntent? intent = null,
-            Models.ProcessingInstruction? processingInstruction = Models.ProcessingInstruction.NoInstruction,
+            JsonValue processingInstruction = null,
             Models.Payer payer = null,
             List<Models.PurchaseUnit> purchaseUnits = null,
             Models.OrderStatus? status = null,
@@ -96,10 +96,10 @@ namespace PaypalServerSdk.Standard.Models
         public Models.CheckoutPaymentIntent? Intent { get; set; }
 
         /// <summary>
-        /// The instruction to process an order.
+        /// Gets or sets ProcessingInstruction.
         /// </summary>
         [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ProcessingInstruction? ProcessingInstruction { get; set; }
+        public JsonValue ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Gets or sets Payer.
@@ -120,7 +120,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.OrderStatus? Status { get; set; }
 
         /// <summary>
-        /// An array of request-related HATEOAS links. To complete payer approval, use the `approve` link to redirect the payer. The API caller has 3 hours (default setting, this which can be changed by your account manager to 24/48/72 hours to accommodate your use case) from the time the order is created, to redirect your payer. Once redirected, the API caller has 3 hours for the payer to approve the order and either authorize or capture the order. If you are not using the PayPal JavaScript SDK to initiate PayPal Checkout (in context) ensure that you include `application_context.return_url` is specified or you will get "We're sorry, Things don't appear to be working at the moment" after the payer approves the payment.
+        /// An array of request-related HATEOAS links. To complete payer approval, use the `approve` link to redirect the payer. The API caller has 6 hours (default setting, this which can be changed by your account manager to 24/48/72 hours to accommodate your use case) from the time the order is created, to redirect your payer. Once redirected, the API caller has 6 hours for the payer to approve the order and either authorize or capture the order. If you are not using the PayPal JavaScript SDK to initiate PayPal Checkout (in context) ensure that you include `application_context.return_url` is specified or you will get "We're sorry, Things don't appear to be working at the moment" after the payer approves the payment.
         /// </summary>
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.LinkDescription> Links { get; set; }
@@ -170,7 +170,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
             toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
             toStringOutput.Add($"this.Intent = {(this.Intent == null ? "null" : this.Intent.ToString())}");
-            toStringOutput.Add($"this.ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
+            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
             toStringOutput.Add($"this.Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
             toStringOutput.Add($"this.PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
             toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status.ToString())}");

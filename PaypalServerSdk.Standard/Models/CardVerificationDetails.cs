@@ -37,13 +37,15 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="time">time.</param>
         /// <param name="amount">amount.</param>
         /// <param name="processorResponse">processor_response.</param>
+        /// <param name="threeDSecure">three_d_secure.</param>
         public CardVerificationDetails(
             string networkTransactionId = null,
             string date = null,
             Models.CardBrand? network = null,
             string time = null,
             Models.Money amount = null,
-            Models.CardVerificationProcessorResponse processorResponse = null)
+            Models.CardVerificationProcessorResponse processorResponse = null,
+            JsonValue threeDSecure = null)
         {
             this.NetworkTransactionId = networkTransactionId;
             this.Date = date;
@@ -51,6 +53,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Time = time;
             this.Amount = amount;
             this.ProcessorResponse = processorResponse;
+            this.ThreeDSecure = threeDSecure;
         }
 
         /// <summary>
@@ -89,6 +92,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("processor_response", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CardVerificationProcessorResponse ProcessorResponse { get; set; }
 
+        /// <summary>
+        /// DEPRECATED. This field is DEPRECATED. Please find the 3D secure authentication data in 'three_d_secure' object under 'authentication_result' object instead of the 'verification' field.
+        /// </summary>
+        [JsonProperty("three_d_secure", NullValueHandling = NullValueHandling.Ignore)]
+        public JsonValue ThreeDSecure { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -116,7 +125,8 @@ namespace PaypalServerSdk.Standard.Models
                 ((this.Network == null && other.Network == null) || (this.Network?.Equals(other.Network) == true)) &&
                 ((this.Time == null && other.Time == null) || (this.Time?.Equals(other.Time) == true)) &&
                 ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true)) &&
-                ((this.ProcessorResponse == null && other.ProcessorResponse == null) || (this.ProcessorResponse?.Equals(other.ProcessorResponse) == true));
+                ((this.ProcessorResponse == null && other.ProcessorResponse == null) || (this.ProcessorResponse?.Equals(other.ProcessorResponse) == true)) &&
+                ((this.ThreeDSecure == null && other.ThreeDSecure == null) || (this.ThreeDSecure?.Equals(other.ThreeDSecure) == true));
         }
         
         /// <summary>
@@ -131,6 +141,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"this.Time = {(this.Time == null ? "null" : this.Time)}");
             toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
             toStringOutput.Add($"this.ProcessorResponse = {(this.ProcessorResponse == null ? "null" : this.ProcessorResponse.ToString())}");
+            toStringOutput.Add($"ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
         }
     }
 }

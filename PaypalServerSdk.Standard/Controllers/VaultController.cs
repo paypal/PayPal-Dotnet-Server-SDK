@@ -35,6 +35,40 @@ namespace PaypalServerSdk.Standard.Controllers
         internal VaultController(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
+        /// Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
+        public ApiResponse<Models.PaymentTokenResponse> PaymentTokensCreate(
+                Models.PaymentTokensCreateInput input)
+            => CoreHelper.RunTask(PaymentTokensCreateAsync(input));
+
+        /// <summary>
+        /// Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <param name="cancellationToken"> cancellationToken. </param>
+        /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
+        public async Task<ApiResponse<Models.PaymentTokenResponse>> PaymentTokensCreateAsync(
+                Models.PaymentTokensCreateInput input,
+                CancellationToken cancellationToken = default)
+            => await CreateApiCall<Models.PaymentTokenResponse>()
+              .RequestBuilder(_requestBuilder => _requestBuilder
+                  .Setup(HttpMethod.Post, "/v3/vault/payment-tokens")
+                  .WithAuth("Oauth2")
+                  .Parameters(_parameters => _parameters
+                      .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
+                      .Header(_header => _header.Setup("Content-Type", "application/json"))))
+              .ResponseHandler(_responseHandler => _responseHandler
+                  .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("404", CreateErrorCase("Request contains reference to resources that do not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("422", CreateErrorCase("The requested action could not be performed, semantically incorrect, or failed business validation.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("500", CreateErrorCase("An internal server error has occurred.", (_reason, _context) => new ErrorException(_reason, _context))))
+              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
+
+        /// <summary>
         /// Returns all payment tokens for a customer.
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
@@ -99,36 +133,31 @@ namespace PaypalServerSdk.Standard.Controllers
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+        /// Delete the payment token associated with the payment token id.
         /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
-        /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentTokenResponse> PaymentTokensCreate(
-                Models.PaymentTokensCreateInput input)
-            => CoreHelper.RunTask(PaymentTokensCreateAsync(input));
+        /// <param name="id">Required parameter: ID of the payment token..</param>
+        public void PaymentTokensDelete(
+                string id)
+            => CoreHelper.RunVoidTask(PaymentTokensDeleteAsync(id));
 
         /// <summary>
-        /// Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+        /// Delete the payment token associated with the payment token id.
         /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
+        /// <param name="id">Required parameter: ID of the payment token..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentTokenResponse>> PaymentTokensCreateAsync(
-                Models.PaymentTokensCreateInput input,
+        /// <returns>Returns the void response from the API call.</returns>
+        public async Task PaymentTokensDeleteAsync(
+                string id,
                 CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.PaymentTokenResponse>()
+            => await CreateApiCall<VoidType>()
               .RequestBuilder(_requestBuilder => _requestBuilder
-                  .Setup(HttpMethod.Post, "/v3/vault/payment-tokens")
+                  .Setup(HttpMethod.Delete, "/v3/vault/payment-tokens/{id}")
                   .WithAuth("Oauth2")
                   .Parameters(_parameters => _parameters
-                      .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
-                      .Header(_header => _header.Setup("Content-Type", "application/json"))))
+                      .Template(_template => _template.Setup("id", id))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("404", CreateErrorCase("Request contains reference to resources that do not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("422", CreateErrorCase("The requested action could not be performed, semantically incorrect, or failed business validation.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("500", CreateErrorCase("An internal server error has occurred.", (_reason, _context) => new ErrorException(_reason, _context))))
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
@@ -162,35 +191,6 @@ namespace PaypalServerSdk.Standard.Controllers
                   .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("422", CreateErrorCase("The requested action could not be performed, semantically incorrect, or failed business validation.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("500", CreateErrorCase("An internal server error has occurred.", (_reason, _context) => new ErrorException(_reason, _context))))
-              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
-
-        /// <summary>
-        /// Delete the payment token associated with the payment token id.
-        /// </summary>
-        /// <param name="id">Required parameter: ID of the payment token..</param>
-        public void PaymentTokensDelete(
-                string id)
-            => CoreHelper.RunVoidTask(PaymentTokensDeleteAsync(id));
-
-        /// <summary>
-        /// Delete the payment token associated with the payment token id.
-        /// </summary>
-        /// <param name="id">Required parameter: ID of the payment token..</param>
-        /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the void response from the API call.</returns>
-        public async Task PaymentTokensDeleteAsync(
-                string id,
-                CancellationToken cancellationToken = default)
-            => await CreateApiCall<VoidType>()
-              .RequestBuilder(_requestBuilder => _requestBuilder
-                  .Setup(HttpMethod.Delete, "/v3/vault/payment-tokens/{id}")
-                  .WithAuth("Oauth2")
-                  .Parameters(_parameters => _parameters
-                      .Template(_template => _template.Setup("id", id))))
-              .ResponseHandler(_responseHandler => _responseHandler
-                  .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("500", CreateErrorCase("An internal server error has occurred.", (_reason, _context) => new ErrorException(_reason, _context))))
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 

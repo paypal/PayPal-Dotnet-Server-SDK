@@ -69,7 +69,7 @@ namespace PaypalServerSdk.Standard.Models
         public string ContentType { get; set; }
 
         /// <summary>
-        /// The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager.
+        /// The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc).
         /// </summary>
         [JsonProperty("PayPal-Request-Id", NullValueHandling = NullValueHandling.Ignore)]
         public string PaypalRequestId { get; set; }

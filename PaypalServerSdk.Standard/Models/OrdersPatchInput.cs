@@ -33,14 +33,17 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="id">id.</param>
         /// <param name="contentType">Content-Type.</param>
+        /// <param name="paypalAuthAssertion">PayPal-Auth-Assertion.</param>
         /// <param name="body">body.</param>
         public OrdersPatchInput(
             string id,
             string contentType,
+            string paypalAuthAssertion = null,
             List<Models.Patch> body = null)
         {
             this.Id = id;
             this.ContentType = contentType;
+            this.PaypalAuthAssertion = paypalAuthAssertion;
             this.Body = body;
         }
 
@@ -55,6 +58,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("Content-Type")]
         public string ContentType { get; set; }
+
+        /// <summary>
+        /// An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see <a href="https://developer.paypal.com/api/rest/requests/#paypal-auth-assertion">PayPal-Auth-Assertion</a>.
+        /// </summary>
+        [JsonProperty("PayPal-Auth-Assertion", NullValueHandling = NullValueHandling.Ignore)]
+        public string PaypalAuthAssertion { get; set; }
 
         /// <summary>
         /// Gets or sets Body.
@@ -86,6 +95,7 @@ namespace PaypalServerSdk.Standard.Models
             }
             return obj is OrdersPatchInput other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
                 ((this.ContentType == null && other.ContentType == null) || (this.ContentType?.Equals(other.ContentType) == true)) &&
+                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true)) &&
                 ((this.Body == null && other.Body == null) || (this.Body?.Equals(other.Body) == true));
         }
         
@@ -97,6 +107,7 @@ namespace PaypalServerSdk.Standard.Models
         {
             toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
             toStringOutput.Add($"this.ContentType = {(this.ContentType == null ? "null" : this.ContentType)}");
+            toStringOutput.Add($"this.PaypalAuthAssertion = {(this.PaypalAuthAssertion == null ? "null" : this.PaypalAuthAssertion)}");
             toStringOutput.Add($"this.Body = {(this.Body == null ? "null" : $"[{string.Join(", ", this.Body)} ]")}");
         }
     }

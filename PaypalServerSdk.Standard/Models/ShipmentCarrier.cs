@@ -7676,6 +7676,654 @@ namespace PaypalServerSdk.Standard.Models
         Speedy,
 
         /// <summary>
+        /// ZoomRed.
+        /// </summary>
+        [EnumMember(Value = "ZOOM_RED")]
+        ZoomRed,
+
+        /// <summary>
+        /// Navlungo.
+        /// </summary>
+        [EnumMember(Value = "NAVLUNGO")]
+        Navlungo,
+
+        /// <summary>
+        /// Castleparcels.
+        /// </summary>
+        [EnumMember(Value = "CASTLEPARCELS")]
+        Castleparcels,
+
+        /// <summary>
+        /// Weee.
+        /// </summary>
+        [EnumMember(Value = "WEEE")]
+        Weee,
+
+        /// <summary>
+        /// Packaly.
+        /// </summary>
+        [EnumMember(Value = "PACKALY")]
+        Packaly,
+
+        /// <summary>
+        /// Yunhuipost.
+        /// </summary>
+        [EnumMember(Value = "YUNHUIPOST")]
+        Yunhuipost,
+
+        /// <summary>
+        /// Youparcel.
+        /// </summary>
+        [EnumMember(Value = "YOUPARCEL")]
+        Youparcel,
+
+        /// <summary>
+        /// Leman.
+        /// </summary>
+        [EnumMember(Value = "LEMAN")]
+        Leman,
+
+        /// <summary>
+        /// Moovin.
+        /// </summary>
+        [EnumMember(Value = "MOOVIN")]
+        Moovin,
+
+        /// <summary>
+        /// UrbIt.
+        /// </summary>
+        [EnumMember(Value = "URB_IT")]
+        UrbIt,
+
+        /// <summary>
+        /// Multientregapanama.
+        /// </summary>
+        [EnumMember(Value = "MULTIENTREGAPANAMA")]
+        Multientregapanama,
+
+        /// <summary>
+        /// Jusdasr.
+        /// </summary>
+        [EnumMember(Value = "JUSDASR")]
+        Jusdasr,
+
+        /// <summary>
+        /// Discountpost.
+        /// </summary>
+        [EnumMember(Value = "DISCOUNTPOST")]
+        Discountpost,
+
+        /// <summary>
+        /// RhenusUk.
+        /// </summary>
+        [EnumMember(Value = "RHENUS_UK")]
+        RhenusUk,
+
+        /// <summary>
+        /// SwishipJp.
+        /// </summary>
+        [EnumMember(Value = "SWISHIP_JP")]
+        SwishipJp,
+
+        /// <summary>
+        /// GlsUs.
+        /// </summary>
+        [EnumMember(Value = "GLS_US")]
+        GlsUs,
+
+        /// <summary>
+        /// Smtl.
+        /// </summary>
+        [EnumMember(Value = "SMTL")]
+        Smtl,
+
+        /// <summary>
+        /// Emega.
+        /// </summary>
+        [EnumMember(Value = "EMEGA")]
+        Emega,
+
+        /// <summary>
+        /// ExpressoneSv.
+        /// </summary>
+        [EnumMember(Value = "EXPRESSONE_SV")]
+        ExpressoneSv,
+
+        /// <summary>
+        /// Hepsijet.
+        /// </summary>
+        [EnumMember(Value = "HEPSIJET")]
+        Hepsijet,
+
+        /// <summary>
+        /// Welivery.
+        /// </summary>
+        [EnumMember(Value = "WELIVERY")]
+        Welivery,
+
+        /// <summary>
+        /// Bringer.
+        /// </summary>
+        [EnumMember(Value = "BRINGER")]
+        Bringer,
+
+        /// <summary>
+        /// Easyroutes.
+        /// </summary>
+        [EnumMember(Value = "EASYROUTES")]
+        Easyroutes,
+
+        /// <summary>
+        /// Mrw.
+        /// </summary>
+        [EnumMember(Value = "MRW")]
+        Mrw,
+
+        /// <summary>
+        /// Rpm.
+        /// </summary>
+        [EnumMember(Value = "RPM")]
+        Rpm,
+
+        /// <summary>
+        /// DpdPrt.
+        /// </summary>
+        [EnumMember(Value = "DPD_PRT")]
+        DpdPrt,
+
+        /// <summary>
+        /// GlsRomania.
+        /// </summary>
+        [EnumMember(Value = "GLS_ROMANIA")]
+        GlsRomania,
+
+        /// <summary>
+        /// Lmparcel.
+        /// </summary>
+        [EnumMember(Value = "LMPARCEL")]
+        Lmparcel,
+
+        /// <summary>
+        /// Gtagsm.
+        /// </summary>
+        [EnumMember(Value = "GTAGSM")]
+        Gtagsm,
+
+        /// <summary>
+        /// Domino.
+        /// </summary>
+        [EnumMember(Value = "DOMINO")]
+        Domino,
+
+        /// <summary>
+        /// Eshipper.
+        /// </summary>
+        [EnumMember(Value = "ESHIPPER")]
+        Eshipper,
+
+        /// <summary>
+        /// Transpak.
+        /// </summary>
+        [EnumMember(Value = "TRANSPAK")]
+        Transpak,
+
+        /// <summary>
+        /// Xindus.
+        /// </summary>
+        [EnumMember(Value = "XINDUS")]
+        Xindus,
+
+        /// <summary>
+        /// Aoyue.
+        /// </summary>
+        [EnumMember(Value = "AOYUE")]
+        Aoyue,
+
+        /// <summary>
+        /// Easyparcel.
+        /// </summary>
+        [EnumMember(Value = "EASYPARCEL")]
+        Easyparcel,
+
+        /// <summary>
+        /// Expressone.
+        /// </summary>
+        [EnumMember(Value = "EXPRESSONE")]
+        Expressone,
+
+        /// <summary>
+        /// SendeoKargo.
+        /// </summary>
+        [EnumMember(Value = "SENDEO_KARGO")]
+        SendeoKargo,
+
+        /// <summary>
+        /// Speedaf.
+        /// </summary>
+        [EnumMember(Value = "SPEEDAF")]
+        Speedaf,
+
+        /// <summary>
+        /// Etower.
+        /// </summary>
+        [EnumMember(Value = "ETOWER")]
+        Etower,
+
+        /// <summary>
+        /// Gcx.
+        /// </summary>
+        [EnumMember(Value = "GCX")]
+        Gcx,
+
+        /// <summary>
+        /// NinjavanVn.
+        /// </summary>
+        [EnumMember(Value = "NINJAVAN_VN")]
+        NinjavanVn,
+
+        /// <summary>
+        /// Allegro.
+        /// </summary>
+        [EnumMember(Value = "ALLEGRO")]
+        Allegro,
+
+        /// <summary>
+        /// Jumppoint.
+        /// </summary>
+        [EnumMember(Value = "JUMPPOINT")]
+        Jumppoint,
+
+        /// <summary>
+        /// ShipglobalUs.
+        /// </summary>
+        [EnumMember(Value = "SHIPGLOBAL_US")]
+        ShipglobalUs,
+
+        /// <summary>
+        /// Kinisi.
+        /// </summary>
+        [EnumMember(Value = "KINISI")]
+        Kinisi,
+
+        /// <summary>
+        /// Oakh.
+        /// </summary>
+        [EnumMember(Value = "OAKH")]
+        Oakh,
+
+        /// <summary>
+        /// Awest.
+        /// </summary>
+        [EnumMember(Value = "AWEST")]
+        Awest,
+
+        /// <summary>
+        /// Barsan.
+        /// </summary>
+        [EnumMember(Value = "BARSAN")]
+        Barsan,
+
+        /// <summary>
+        /// Energologistic.
+        /// </summary>
+        [EnumMember(Value = "ENERGOLOGISTIC")]
+        Energologistic,
+
+        /// <summary>
+        /// Madrooex.
+        /// </summary>
+        [EnumMember(Value = "MADROOEX")]
+        Madrooex,
+
+        /// <summary>
+        /// Gobolt.
+        /// </summary>
+        [EnumMember(Value = "GOBOLT")]
+        Gobolt,
+
+        /// <summary>
+        /// SwissUniversalExpress.
+        /// </summary>
+        [EnumMember(Value = "SWISS_UNIVERSAL_EXPRESS")]
+        SwissUniversalExpress,
+
+        /// <summary>
+        /// Iordirect.
+        /// </summary>
+        [EnumMember(Value = "IORDIRECT")]
+        Iordirect,
+
+        /// <summary>
+        /// Xmszm.
+        /// </summary>
+        [EnumMember(Value = "XMSZM")]
+        Xmszm,
+
+        /// <summary>
+        /// GlsHun.
+        /// </summary>
+        [EnumMember(Value = "GLS_HUN")]
+        GlsHun,
+
+        /// <summary>
+        /// Sendy.
+        /// </summary>
+        [EnumMember(Value = "SENDY")]
+        Sendy,
+
+        /// <summary>
+        /// Braunsexpress.
+        /// </summary>
+        [EnumMember(Value = "BRAUNSEXPRESS")]
+        Braunsexpress,
+
+        /// <summary>
+        /// Grandslamexpress.
+        /// </summary>
+        [EnumMember(Value = "GRANDSLAMEXPRESS")]
+        Grandslamexpress,
+
+        /// <summary>
+        /// Xgs.
+        /// </summary>
+        [EnumMember(Value = "XGS")]
+        Xgs,
+
+        /// <summary>
+        /// Otschile.
+        /// </summary>
+        [EnumMember(Value = "OTSCHILE")]
+        Otschile,
+
+        /// <summary>
+        /// PackUp.
+        /// </summary>
+        [EnumMember(Value = "PACK_UP")]
+        PackUp,
+
+        /// <summary>
+        /// Parcelstars.
+        /// </summary>
+        [EnumMember(Value = "PARCELSTARS")]
+        Parcelstars,
+
+        /// <summary>
+        /// Teamexpressllc.
+        /// </summary>
+        [EnumMember(Value = "TEAMEXPRESSLLC")]
+        Teamexpressllc,
+
+        /// <summary>
+        /// Asyadexpress.
+        /// </summary>
+        [EnumMember(Value = "ASYADEXPRESS")]
+        Asyadexpress,
+
+        /// <summary>
+        /// Tdn.
+        /// </summary>
+        [EnumMember(Value = "TDN")]
+        Tdn,
+
+        /// <summary>
+        /// Earlybird.
+        /// </summary>
+        [EnumMember(Value = "EARLYBIRD")]
+        Earlybird,
+
+        /// <summary>
+        /// Cacesa.
+        /// </summary>
+        [EnumMember(Value = "CACESA")]
+        Cacesa,
+
+        /// <summary>
+        /// Parceljet.
+        /// </summary>
+        [EnumMember(Value = "PARCELJET")]
+        Parceljet,
+
+        /// <summary>
+        /// MngKargo.
+        /// </summary>
+        [EnumMember(Value = "MNG_KARGO")]
+        MngKargo,
+
+        /// <summary>
+        /// Superpackline.
+        /// </summary>
+        [EnumMember(Value = "SUPERPACKLINE")]
+        Superpackline,
+
+        /// <summary>
+        /// Speedx.
+        /// </summary>
+        [EnumMember(Value = "SPEEDX")]
+        Speedx,
+
+        /// <summary>
+        /// Vesyl.
+        /// </summary>
+        [EnumMember(Value = "VESYL")]
+        Vesyl,
+
+        /// <summary>
+        /// Skyking.
+        /// </summary>
+        [EnumMember(Value = "SKYKING")]
+        Skyking,
+
+        /// <summary>
+        /// Dirmensajeria.
+        /// </summary>
+        [EnumMember(Value = "DIRMENSAJERIA")]
+        Dirmensajeria,
+
+        /// <summary>
+        /// Netlogixgroup.
+        /// </summary>
+        [EnumMember(Value = "NETLOGIXGROUP")]
+        Netlogixgroup,
+
+        /// <summary>
+        /// Zyou.
+        /// </summary>
+        [EnumMember(Value = "ZYOU")]
+        Zyou,
+
+        /// <summary>
+        /// Jawar.
+        /// </summary>
+        [EnumMember(Value = "JAWAR")]
+        Jawar,
+
+        /// <summary>
+        /// Agsystems.
+        /// </summary>
+        [EnumMember(Value = "AGSYSTEMS")]
+        Agsystems,
+
+        /// <summary>
+        /// Gps.
+        /// </summary>
+        [EnumMember(Value = "GPS")]
+        Gps,
+
+        /// <summary>
+        /// PttKargo.
+        /// </summary>
+        [EnumMember(Value = "PTT_KARGO")]
+        PttKargo,
+
+        /// <summary>
+        /// Maergo.
+        /// </summary>
+        [EnumMember(Value = "MAERGO")]
+        Maergo,
+
+        /// <summary>
+        /// Arihantcourier.
+        /// </summary>
+        [EnumMember(Value = "ARIHANTCOURIER")]
+        Arihantcourier,
+
+        /// <summary>
+        /// Vtfe.
+        /// </summary>
+        [EnumMember(Value = "VTFE")]
+        Vtfe,
+
+        /// <summary>
+        /// Yunant.
+        /// </summary>
+        [EnumMember(Value = "YUNANT")]
+        Yunant,
+
+        /// <summary>
+        /// Urbify.
+        /// </summary>
+        [EnumMember(Value = "URBIFY")]
+        Urbify,
+
+        /// <summary>
+        /// PackMan.
+        /// </summary>
+        [EnumMember(Value = "PACK_MAN")]
+        PackMan,
+
+        /// <summary>
+        /// Liefergrun.
+        /// </summary>
+        [EnumMember(Value = "LIEFERGRUN")]
+        Liefergrun,
+
+        /// <summary>
+        /// Obibox.
+        /// </summary>
+        [EnumMember(Value = "OBIBOX")]
+        Obibox,
+
+        /// <summary>
+        /// Paikeda.
+        /// </summary>
+        [EnumMember(Value = "PAIKEDA")]
+        Paikeda,
+
+        /// <summary>
+        /// Scotty.
+        /// </summary>
+        [EnumMember(Value = "SCOTTY")]
+        Scotty,
+
+        /// <summary>
+        /// IntelcomCa.
+        /// </summary>
+        [EnumMember(Value = "INTELCOM_CA")]
+        IntelcomCa,
+
+        /// <summary>
+        /// Swe.
+        /// </summary>
+        [EnumMember(Value = "SWE")]
+        Swe,
+
+        /// <summary>
+        /// Asendia.
+        /// </summary>
+        [EnumMember(Value = "ASENDIA")]
+        Asendia,
+
+        /// <summary>
+        /// DpdAt.
+        /// </summary>
+        [EnumMember(Value = "DPD_AT")]
+        DpdAt,
+
+        /// <summary>
+        /// Relay.
+        /// </summary>
+        [EnumMember(Value = "RELAY")]
+        Relay,
+
+        /// <summary>
+        /// Ata.
+        /// </summary>
+        [EnumMember(Value = "ATA")]
+        Ata,
+
+        /// <summary>
+        /// SkyexpressInternational.
+        /// </summary>
+        [EnumMember(Value = "SKYEXPRESS_INTERNATIONAL")]
+        SkyexpressInternational,
+
+        /// <summary>
+        /// SuratKargo.
+        /// </summary>
+        [EnumMember(Value = "SURAT_KARGO")]
+        SuratKargo,
+
+        /// <summary>
+        /// Sglink.
+        /// </summary>
+        [EnumMember(Value = "SGLINK")]
+        Sglink,
+
+        /// <summary>
+        /// Fleetopticsinc.
+        /// </summary>
+        [EnumMember(Value = "FLEETOPTICSINC")]
+        Fleetopticsinc,
+
+        /// <summary>
+        /// Shopline.
+        /// </summary>
+        [EnumMember(Value = "SHOPLINE")]
+        Shopline,
+
+        /// <summary>
+        /// Piggyship.
+        /// </summary>
+        [EnumMember(Value = "PIGGYSHIP")]
+        Piggyship,
+
+        /// <summary>
+        /// Logoix.
+        /// </summary>
+        [EnumMember(Value = "LOGOIX")]
+        Logoix,
+
+        /// <summary>
+        /// KolayGelsin.
+        /// </summary>
+        [EnumMember(Value = "KOLAY_GELSIN")]
+        KolayGelsin,
+
+        /// <summary>
+        /// AssociatedCouriers.
+        /// </summary>
+        [EnumMember(Value = "ASSOCIATED_COURIERS")]
+        AssociatedCouriers,
+
+        /// <summary>
+        /// UpsChecker.
+        /// </summary>
+        [EnumMember(Value = "UPS_CHECKER")]
+        UpsChecker,
+
+        /// <summary>
+        /// Wineshipping.
+        /// </summary>
+        [EnumMember(Value = "WINESHIPPING")]
+        Wineshipping,
+
+        /// <summary>
+        /// Spedisci.
+        /// </summary>
+        [EnumMember(Value = "SPEDISCI")]
+        Spedisci,
+
+        /// <summary>
         /// Unknown values will be mapped by this enum member.
         /// </summary>
         _Unknown

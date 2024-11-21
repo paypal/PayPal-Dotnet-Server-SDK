@@ -32,12 +32,15 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="OrdersGetInput"/> class.
         /// </summary>
         /// <param name="id">id.</param>
+        /// <param name="paypalAuthAssertion">PayPal-Auth-Assertion.</param>
         /// <param name="fields">fields.</param>
         public OrdersGetInput(
             string id,
+            string paypalAuthAssertion = null,
             string fields = null)
         {
             this.Id = id;
+            this.PaypalAuthAssertion = paypalAuthAssertion;
             this.Fields = fields;
         }
 
@@ -46,6 +49,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }
+
+        /// <summary>
+        /// An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see <a href="https://developer.paypal.com/api/rest/requests/#paypal-auth-assertion">PayPal-Auth-Assertion</a>.
+        /// </summary>
+        [JsonProperty("PayPal-Auth-Assertion", NullValueHandling = NullValueHandling.Ignore)]
+        public string PaypalAuthAssertion { get; set; }
 
         /// <summary>
         /// A comma-separated list of fields that should be returned for the order. Valid filter field is `payment_source`.
@@ -76,6 +85,7 @@ namespace PaypalServerSdk.Standard.Models
                 return true;
             }
             return obj is OrdersGetInput other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
+                ((this.PaypalAuthAssertion == null && other.PaypalAuthAssertion == null) || (this.PaypalAuthAssertion?.Equals(other.PaypalAuthAssertion) == true)) &&
                 ((this.Fields == null && other.Fields == null) || (this.Fields?.Equals(other.Fields) == true));
         }
         
@@ -86,6 +96,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
+            toStringOutput.Add($"this.PaypalAuthAssertion = {(this.PaypalAuthAssertion == null ? "null" : this.PaypalAuthAssertion)}");
             toStringOutput.Add($"this.Fields = {(this.Fields == null ? "null" : this.Fields)}");
         }
     }

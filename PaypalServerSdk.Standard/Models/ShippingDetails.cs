@@ -39,7 +39,7 @@ namespace PaypalServerSdk.Standard.Models
         public ShippingDetails(
             Models.ShippingName name = null,
             Models.PhoneNumberWithCountryCode phoneNumber = null,
-            Models.FullfillmentType? type = null,
+            Models.FulfillmentType? type = null,
             List<Models.ShippingOption> options = null,
             Models.Address address = null)
         {
@@ -66,7 +66,7 @@ namespace PaypalServerSdk.Standard.Models
         /// A classification for the method of purchase fulfillment (e.g shipping, in-store pickup, etc). Either `type` or `options` may be present, but not both.
         /// </summary>
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.FullfillmentType? Type { get; set; }
+        public Models.FulfillmentType? Type { get; set; }
 
         /// <summary>
         /// An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items.
