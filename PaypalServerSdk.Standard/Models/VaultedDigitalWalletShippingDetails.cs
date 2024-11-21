@@ -36,7 +36,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="address">address.</param>
         public VaultedDigitalWalletShippingDetails(
             Models.ShippingName name = null,
-            Models.FullfillmentType? type = null,
+            Models.FulfillmentType? type = null,
             Models.Address address = null)
         {
             this.Name = name;
@@ -54,7 +54,7 @@ namespace PaypalServerSdk.Standard.Models
         /// A classification for the method of purchase fulfillment (e.g shipping, in-store pickup, etc). Either `type` or `options` may be present, but not both.
         /// </summary>
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.FullfillmentType? Type { get; set; }
+        public Models.FulfillmentType? Type { get; set; }
 
         /// <summary>
         /// The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute).

@@ -1,4 +1,4 @@
-// <copyright file="FullfillmentType.cs" company="APIMatic">
+// <copyright file="FulfillmentType.cs" company="APIMatic">
 // Copyright (c) APIMatic. All rights reserved.
 // </copyright>
 using System;
@@ -13,11 +13,11 @@ using PaypalServerSdk.Standard.Utilities;
 namespace PaypalServerSdk.Standard.Models
 {
     /// <summary>
-    /// FullfillmentType.
+    /// FulfillmentType.
     /// </summary>
 
     [JsonConverter(typeof(UnknownEnumConverter<StringEnumConverter>), nameof(_Unknown))]
-    public enum FullfillmentType
+    public enum FulfillmentType
     {
         /// <summary>
         /// Shipping.

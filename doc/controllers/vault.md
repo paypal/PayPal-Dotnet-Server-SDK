@@ -12,12 +12,68 @@ VaultController vaultController = client.VaultController;
 
 ## Methods
 
+* [Payment-Tokens Create](../../doc/controllers/vault.md#payment-tokens-create)
 * [Customer Payment-Tokens Get](../../doc/controllers/vault.md#customer-payment-tokens-get)
 * [Payment-Tokens Get](../../doc/controllers/vault.md#payment-tokens-get)
-* [Payment-Tokens Create](../../doc/controllers/vault.md#payment-tokens-create)
-* [Setup-Tokens Create](../../doc/controllers/vault.md#setup-tokens-create)
 * [Payment-Tokens Delete](../../doc/controllers/vault.md#payment-tokens-delete)
+* [Setup-Tokens Create](../../doc/controllers/vault.md#setup-tokens-create)
 * [Setup-Tokens Get](../../doc/controllers/vault.md#setup-tokens-get)
+
+
+# Payment-Tokens Create
+
+Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+
+```csharp
+PaymentTokensCreateAsync(
+    Models.PaymentTokensCreateInput input)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
+| `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
+
+## Response Type
+
+[`Task<ApiResponse<Models.PaymentTokenResponse>>`](../../doc/models/payment-token-response.md)
+
+## Example Usage
+
+```csharp
+PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
+{
+    PaypalRequestId = "PayPal-Request-Id6",
+    Body = new PaymentTokenRequest
+    {
+        PaymentSource = new PaymentTokenRequestPaymentSource
+        {
+        },
+    },
+};
+
+try
+{
+    ApiResponse<PaymentTokenResponse> result = await vaultController.PaymentTokensCreateAsync(paymentTokensCreateInput);
+}
+catch (ApiException e)
+{
+    // TODO: Handle exception here
+    Console.WriteLine(e.Message);
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 404 | Request contains reference to resources that do not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
 # Customer Payment-Tokens Get
@@ -117,43 +173,32 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Payment-Tokens Create
+# Payment-Tokens Delete
 
-Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
+Delete the payment token associated with the payment token id.
 
 ```csharp
-PaymentTokensCreateAsync(
-    Models.PaymentTokensCreateInput input)
+PaymentTokensDeleteAsync(
+    string id)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
-| `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
+| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.PaymentTokenResponse>>`](../../doc/models/payment-token-response.md)
+`Task`
 
 ## Example Usage
 
 ```csharp
-PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
-{
-    PaypalRequestId = "PayPal-Request-Id6",
-    Body = new PaymentTokenRequest
-    {
-        PaymentSource = new PaymentTokenRequestPaymentSource
-        {
-        },
-    },
-};
-
+string id = "id0";
 try
 {
-    ApiResponse<PaymentTokenResponse> result = await vaultController.PaymentTokensCreateAsync(paymentTokensCreateInput);
+    await vaultController.PaymentTokensDeleteAsync(id);
 }
 catch (ApiException e)
 {
@@ -168,8 +213,6 @@ catch (ApiException e)
 |  --- | --- | --- |
 | 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 404 | Request contains reference to resources that do not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
@@ -225,49 +268,6 @@ catch (ApiException e)
 | 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 422 | The requested action could not be performed, semantically incorrect, or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
-
-
-# Payment-Tokens Delete
-
-Delete the payment token associated with the payment token id.
-
-```csharp
-PaymentTokensDeleteAsync(
-    string id)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
-
-## Response Type
-
-`Task`
-
-## Example Usage
-
-```csharp
-string id = "id0";
-try
-{
-    await vaultController.PaymentTokensDeleteAsync(id);
-}
-catch (ApiException e)
-{
-    // TODO: Handle exception here
-    Console.WriteLine(e.Message);
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Request is not well-formed, syntactically incorrect, or violates schema. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 403 | Authorization failed due to insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
