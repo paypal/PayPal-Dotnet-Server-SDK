@@ -129,52 +129,55 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Item : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Item other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.UnitAmount == null && other.UnitAmount == null) || (this.UnitAmount?.Equals(other.UnitAmount) == true)) &&
-                ((this.Tax == null && other.Tax == null) || (this.Tax?.Equals(other.Tax) == true)) &&
-                ((this.Quantity == null && other.Quantity == null) || (this.Quantity?.Equals(other.Quantity) == true)) &&
-                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
-                ((this.Sku == null && other.Sku == null) || (this.Sku?.Equals(other.Sku) == true)) &&
-                ((this.Url == null && other.Url == null) || (this.Url?.Equals(other.Url) == true)) &&
-                ((this.Category == null && other.Category == null) || (this.Category?.Equals(other.Category) == true)) &&
-                ((this.ImageUrl == null && other.ImageUrl == null) || (this.ImageUrl?.Equals(other.ImageUrl) == true)) &&
-                ((this.Upc == null && other.Upc == null) || (this.Upc?.Equals(other.Upc) == true));
+            return obj is Item other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.UnitAmount == null && other.UnitAmount == null ||
+                 this.UnitAmount?.Equals(other.UnitAmount) == true) &&
+                (this.Tax == null && other.Tax == null ||
+                 this.Tax?.Equals(other.Tax) == true) &&
+                (this.Quantity == null && other.Quantity == null ||
+                 this.Quantity?.Equals(other.Quantity) == true) &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true) &&
+                (this.Sku == null && other.Sku == null ||
+                 this.Sku?.Equals(other.Sku) == true) &&
+                (this.Url == null && other.Url == null ||
+                 this.Url?.Equals(other.Url) == true) &&
+                (this.Category == null && other.Category == null ||
+                 this.Category?.Equals(other.Category) == true) &&
+                (this.ImageUrl == null && other.ImageUrl == null ||
+                 this.ImageUrl?.Equals(other.ImageUrl) == true) &&
+                (this.Upc == null && other.Upc == null ||
+                 this.Upc?.Equals(other.Upc) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.UnitAmount = {(this.UnitAmount == null ? "null" : this.UnitAmount.ToString())}");
-            toStringOutput.Add($"this.Tax = {(this.Tax == null ? "null" : this.Tax.ToString())}");
-            toStringOutput.Add($"this.Quantity = {(this.Quantity == null ? "null" : this.Quantity)}");
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
-            toStringOutput.Add($"this.Sku = {(this.Sku == null ? "null" : this.Sku)}");
-            toStringOutput.Add($"this.Url = {(this.Url == null ? "null" : this.Url)}");
-            toStringOutput.Add($"this.Category = {(this.Category == null ? "null" : this.Category.ToString())}");
-            toStringOutput.Add($"this.ImageUrl = {(this.ImageUrl == null ? "null" : this.ImageUrl)}");
-            toStringOutput.Add($"this.Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"UnitAmount = {(this.UnitAmount == null ? "null" : this.UnitAmount.ToString())}");
+            toStringOutput.Add($"Tax = {(this.Tax == null ? "null" : this.Tax.ToString())}");
+            toStringOutput.Add($"Quantity = {this.Quantity ?? "null"}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
+            toStringOutput.Add($"Sku = {this.Sku ?? "null"}");
+            toStringOutput.Add($"Url = {this.Url ?? "null"}");
+            toStringOutput.Add($"Category = {(this.Category == null ? "null" : this.Category.ToString())}");
+            toStringOutput.Add($"ImageUrl = {this.ImageUrl ?? "null"}");
+            toStringOutput.Add($"Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
         }
     }
 }

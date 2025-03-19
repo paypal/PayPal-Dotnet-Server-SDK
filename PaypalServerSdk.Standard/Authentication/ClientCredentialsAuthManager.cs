@@ -21,17 +21,20 @@ namespace PaypalServerSdk.Standard.Authentication
     /// </summary>
     public class ClientCredentialsAuthManager : AuthManager, IClientCredentialsAuth
     {
-        private Func<OAuthAuthorizationController> oAuthApi;
+        private readonly Func<OAuthAuthorizationController> getOAuthController;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ClientCredentialsAuthManager"/> class.
         /// </summary>
         /// <param name="clientCredentialsAuth"> OAuth 2 Client Cridentials Model.</param>
-        internal ClientCredentialsAuthManager(ClientCredentialsAuthModel clientCredentialsAuth)
+        /// <param name="getOAuthController">A function that provides an instance of <see cref="OAuthAuthorizationController"/>.</param>
+        internal ClientCredentialsAuthManager(ClientCredentialsAuthModel clientCredentialsAuth,
+            Func<OAuthAuthorizationController> getOAuthController)
         {
             OAuthClientId = clientCredentialsAuth?.OAuthClientId;
             OAuthClientSecret = clientCredentialsAuth?.OAuthClientSecret;
             OAuthToken = clientCredentialsAuth?.OAuthToken;
+            this.getOAuthController = getOAuthController;
             OAuthClockSkew = clientCredentialsAuth?.OAuthClockSkew;
             OAuthTokenProvider = clientCredentialsAuth?.OAuthTokenProvider;
             OAuthOnTokenUpdate = clientCredentialsAuth?.OAuthOnTokenUpdate;
@@ -106,10 +109,10 @@ namespace PaypalServerSdk.Standard.Authentication
         /// <returns>Models.OAuthToken.</returns>
         public async Task<Models.OAuthToken> FetchTokenAsync(Dictionary<string, object> additionalParameters = null)
         {
-            var token = await oAuthApi?.Invoke().RequestTokenAsync(new RequestTokenInput()
+            var token = await getOAuthController().RequestTokenAsync(new RequestTokenInput()
             {
                 Authorization = BuildBasicAuthHeader(),
-            }, additionalParameters);
+            }, additionalParameters).ConfigureAwait(false);
 
             if (token.Data.ExpiresIn != null && token.Data.ExpiresIn != 0)
             {
@@ -134,21 +137,16 @@ namespace PaypalServerSdk.Standard.Authentication
                && this.OAuthToken.Expiry < (long)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
         }
 
-        public void ApplyGlobalConfiguration(Func<OAuthAuthorizationController> controllerGetter)
-        {
-            oAuthApi = controllerGetter;
-        }
-
         /// <inheritdoc />
         public override async Task Apply(RequestBuilder requestBuilder)
         {
-            var token = await FetchOrReturnToken(); 
+            var token = await FetchOrReturnToken().ConfigureAwait(false);
             Parameters(authParameter => authParameter
                 .Header(headerParameter => headerParameter
                     .Setup("Authorization",
                         token?.AccessToken == null ? null : $"Bearer {token.AccessToken}"
                     ).Required()));
-            await base.Apply(requestBuilder);
+            await base.Apply(requestBuilder).ConfigureAwait(false);
         }
 
         private async Task<OAuthToken> FetchOrReturnToken()
@@ -156,14 +154,14 @@ namespace PaypalServerSdk.Standard.Authentication
             if (OAuthTokenAutoRefresh != null && !OAuthTokenAutoRefresh.IsTokenExpired(OAuthClockSkew))
                 return OAuthTokenAutoRefresh;
 
-            await semaphoreSlim.WaitAsync();
+            await semaphoreSlim.WaitAsync().ConfigureAwait(false);
             try
             {
                 if (OAuthTokenAutoRefresh != null && !OAuthTokenAutoRefresh.IsTokenExpired(OAuthClockSkew))
                     return OAuthTokenAutoRefresh;
                 OAuthTokenAutoRefresh = OAuthTokenProvider != null
-                    ? await OAuthTokenProvider(this, OAuthTokenAutoRefresh)
-                    : await FetchTokenAsync();
+                    ? await OAuthTokenProvider(this, OAuthTokenAutoRefresh).ConfigureAwait(false)
+                    : await FetchTokenAsync().ConfigureAwait(false);
             }
             finally
             {

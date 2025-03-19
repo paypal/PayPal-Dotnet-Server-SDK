@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ApplePayPaymentData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ApplePayPaymentData other &&                ((this.Cryptogram == null && other.Cryptogram == null) || (this.Cryptogram?.Equals(other.Cryptogram) == true)) &&
-                ((this.EciIndicator == null && other.EciIndicator == null) || (this.EciIndicator?.Equals(other.EciIndicator) == true)) &&
-                ((this.EmvData == null && other.EmvData == null) || (this.EmvData?.Equals(other.EmvData) == true)) &&
-                ((this.Pin == null && other.Pin == null) || (this.Pin?.Equals(other.Pin) == true));
+            return obj is ApplePayPaymentData other &&
+                (this.Cryptogram == null && other.Cryptogram == null ||
+                 this.Cryptogram?.Equals(other.Cryptogram) == true) &&
+                (this.EciIndicator == null && other.EciIndicator == null ||
+                 this.EciIndicator?.Equals(other.EciIndicator) == true) &&
+                (this.EmvData == null && other.EmvData == null ||
+                 this.EmvData?.Equals(other.EmvData) == true) &&
+                (this.Pin == null && other.Pin == null ||
+                 this.Pin?.Equals(other.Pin) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Cryptogram = {(this.Cryptogram == null ? "null" : this.Cryptogram)}");
-            toStringOutput.Add($"this.EciIndicator = {(this.EciIndicator == null ? "null" : this.EciIndicator)}");
-            toStringOutput.Add($"this.EmvData = {(this.EmvData == null ? "null" : this.EmvData)}");
-            toStringOutput.Add($"this.Pin = {(this.Pin == null ? "null" : this.Pin)}");
+            toStringOutput.Add($"Cryptogram = {this.Cryptogram ?? "null"}");
+            toStringOutput.Add($"EciIndicator = {this.EciIndicator ?? "null"}");
+            toStringOutput.Add($"EmvData = {this.EmvData ?? "null"}");
+            toStringOutput.Add($"Pin = {this.Pin ?? "null"}");
         }
     }
 }

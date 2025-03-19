@@ -156,58 +156,64 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"LineItem : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is LineItem other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.Quantity == null && other.Quantity == null) || (this.Quantity?.Equals(other.Quantity) == true)) &&
-                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
-                ((this.Sku == null && other.Sku == null) || (this.Sku?.Equals(other.Sku) == true)) &&
-                ((this.Url == null && other.Url == null) || (this.Url?.Equals(other.Url) == true)) &&
-                ((this.ImageUrl == null && other.ImageUrl == null) || (this.ImageUrl?.Equals(other.ImageUrl) == true)) &&
-                ((this.Upc == null && other.Upc == null) || (this.Upc?.Equals(other.Upc) == true)) &&
-                ((this.UnitAmount == null && other.UnitAmount == null) || (this.UnitAmount?.Equals(other.UnitAmount) == true)) &&
-                ((this.Tax == null && other.Tax == null) || (this.Tax?.Equals(other.Tax) == true)) &&
-                ((this.CommodityCode == null && other.CommodityCode == null) || (this.CommodityCode?.Equals(other.CommodityCode) == true)) &&
-                ((this.DiscountAmount == null && other.DiscountAmount == null) || (this.DiscountAmount?.Equals(other.DiscountAmount) == true)) &&
-                ((this.TotalAmount == null && other.TotalAmount == null) || (this.TotalAmount?.Equals(other.TotalAmount) == true)) &&
-                ((this.UnitOfMeasure == null && other.UnitOfMeasure == null) || (this.UnitOfMeasure?.Equals(other.UnitOfMeasure) == true));
+            return obj is LineItem other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.Quantity == null && other.Quantity == null ||
+                 this.Quantity?.Equals(other.Quantity) == true) &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true) &&
+                (this.Sku == null && other.Sku == null ||
+                 this.Sku?.Equals(other.Sku) == true) &&
+                (this.Url == null && other.Url == null ||
+                 this.Url?.Equals(other.Url) == true) &&
+                (this.ImageUrl == null && other.ImageUrl == null ||
+                 this.ImageUrl?.Equals(other.ImageUrl) == true) &&
+                (this.Upc == null && other.Upc == null ||
+                 this.Upc?.Equals(other.Upc) == true) &&
+                (this.UnitAmount == null && other.UnitAmount == null ||
+                 this.UnitAmount?.Equals(other.UnitAmount) == true) &&
+                (this.Tax == null && other.Tax == null ||
+                 this.Tax?.Equals(other.Tax) == true) &&
+                (this.CommodityCode == null && other.CommodityCode == null ||
+                 this.CommodityCode?.Equals(other.CommodityCode) == true) &&
+                (this.DiscountAmount == null && other.DiscountAmount == null ||
+                 this.DiscountAmount?.Equals(other.DiscountAmount) == true) &&
+                (this.TotalAmount == null && other.TotalAmount == null ||
+                 this.TotalAmount?.Equals(other.TotalAmount) == true) &&
+                (this.UnitOfMeasure == null && other.UnitOfMeasure == null ||
+                 this.UnitOfMeasure?.Equals(other.UnitOfMeasure) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.Quantity = {(this.Quantity == null ? "null" : this.Quantity)}");
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
-            toStringOutput.Add($"this.Sku = {(this.Sku == null ? "null" : this.Sku)}");
-            toStringOutput.Add($"this.Url = {(this.Url == null ? "null" : this.Url)}");
-            toStringOutput.Add($"this.ImageUrl = {(this.ImageUrl == null ? "null" : this.ImageUrl)}");
-            toStringOutput.Add($"this.Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
-            toStringOutput.Add($"this.UnitAmount = {(this.UnitAmount == null ? "null" : this.UnitAmount.ToString())}");
-            toStringOutput.Add($"this.Tax = {(this.Tax == null ? "null" : this.Tax.ToString())}");
-            toStringOutput.Add($"this.CommodityCode = {(this.CommodityCode == null ? "null" : this.CommodityCode)}");
-            toStringOutput.Add($"this.DiscountAmount = {(this.DiscountAmount == null ? "null" : this.DiscountAmount.ToString())}");
-            toStringOutput.Add($"this.TotalAmount = {(this.TotalAmount == null ? "null" : this.TotalAmount.ToString())}");
-            toStringOutput.Add($"this.UnitOfMeasure = {(this.UnitOfMeasure == null ? "null" : this.UnitOfMeasure)}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"Quantity = {this.Quantity ?? "null"}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
+            toStringOutput.Add($"Sku = {this.Sku ?? "null"}");
+            toStringOutput.Add($"Url = {this.Url ?? "null"}");
+            toStringOutput.Add($"ImageUrl = {this.ImageUrl ?? "null"}");
+            toStringOutput.Add($"Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
+            toStringOutput.Add($"UnitAmount = {(this.UnitAmount == null ? "null" : this.UnitAmount.ToString())}");
+            toStringOutput.Add($"Tax = {(this.Tax == null ? "null" : this.Tax.ToString())}");
+            toStringOutput.Add($"CommodityCode = {this.CommodityCode ?? "null"}");
+            toStringOutput.Add($"DiscountAmount = {(this.DiscountAmount == null ? "null" : this.DiscountAmount.ToString())}");
+            toStringOutput.Add($"TotalAmount = {(this.TotalAmount == null ? "null" : this.TotalAmount.ToString())}");
+            toStringOutput.Add($"UnitOfMeasure = {this.UnitOfMeasure ?? "null"}");
         }
     }
 }

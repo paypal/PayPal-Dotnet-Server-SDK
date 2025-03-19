@@ -20,12 +20,14 @@ namespace PaypalServerSdk.Standard.Models
     public enum AuthorizationIncompleteReason
     {
         /// <summary>
+        ///Authorization is pending manual review.
         /// PendingReview.
         /// </summary>
         [EnumMember(Value = "PENDING_REVIEW")]
         PendingReview,
 
         /// <summary>
+        ///Risk Filter set by the payee failed for the transaction.
         /// DeclinedByRiskFraudFilters.
         /// </summary>
         [EnumMember(Value = "DECLINED_BY_RISK_FRAUD_FILTERS")]

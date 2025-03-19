@@ -20,88 +20,102 @@ namespace PaypalServerSdk.Standard.Models
     public enum CvvCode
     {
         /// <summary>
-        /// E.
+        ///For Visa, Mastercard, Discover, or American Express, error - unrecognized or unknown response.
+        /// CvvE.
         /// </summary>
         [EnumMember(Value = "E")]
-        E,
+        CvvE,
 
         /// <summary>
-        /// I.
+        ///For Visa, Mastercard, Discover, or American Express, invalid or null.
+        /// CvvI.
         /// </summary>
         [EnumMember(Value = "I")]
-        I,
+        CvvI,
 
         /// <summary>
-        /// M.
+        ///For Visa, Mastercard, Discover, or American Express, the CVV2/CSC matches.
+        /// CvvM.
         /// </summary>
         [EnumMember(Value = "M")]
-        M,
+        CvvM,
 
         /// <summary>
-        /// N.
+        ///For Visa, Mastercard, Discover, or American Express, the CVV2/CSC does not match.
+        /// CvvN.
         /// </summary>
         [EnumMember(Value = "N")]
-        N,
+        CvvN,
 
         /// <summary>
-        /// P.
+        ///For Visa, Mastercard, Discover, or American Express, it was not processed.
+        /// CvvP.
         /// </summary>
         [EnumMember(Value = "P")]
-        P,
+        CvvP,
 
         /// <summary>
-        /// S.
+        ///For Visa, Mastercard, Discover, or American Express, the service is not supported.
+        /// CvvS.
         /// </summary>
         [EnumMember(Value = "S")]
-        S,
+        CvvS,
 
         /// <summary>
-        /// U.
+        ///For Visa, Mastercard, Discover, or American Express, unknown - the issuer is not certified.
+        /// CvvU.
         /// </summary>
         [EnumMember(Value = "U")]
-        U,
+        CvvU,
 
         /// <summary>
-        /// X.
+        ///For Visa, Mastercard, Discover, or American Express, no response. For Maestro, the service is not available.
+        /// CvvX.
         /// </summary>
         [EnumMember(Value = "X")]
-        X,
+        CvvX,
 
         /// <summary>
+        ///For Visa, Mastercard, Discover, or American Express, error.
         /// EnumAllOthers.
         /// </summary>
         [EnumMember(Value = "All others")]
         EnumAllOthers,
 
         /// <summary>
-        /// Enum0.
+        ///For Maestro, the CVV2 matched.
+        /// Cvv0.
         /// </summary>
         [EnumMember(Value = "0")]
-        Enum0,
+        Cvv0,
 
         /// <summary>
-        /// Enum1.
+        ///For Maestro, the CVV2 did not match.
+        /// Cvv1.
         /// </summary>
         [EnumMember(Value = "1")]
-        Enum1,
+        Cvv1,
 
         /// <summary>
-        /// Enum2.
+        ///For Maestro, the merchant has not implemented CVV2 code handling.
+        /// Cvv2.
         /// </summary>
         [EnumMember(Value = "2")]
-        Enum2,
+        Cvv2,
 
         /// <summary>
-        /// Enum3.
+        ///For Maestro, the merchant has indicated that CVV2 is not present on card.
+        /// Cvv3.
         /// </summary>
         [EnumMember(Value = "3")]
-        Enum3,
+        Cvv3,
 
         /// <summary>
-        /// Enum4.
+        ///For Maestro, the service is not available.
+        /// Cvv4.
         /// </summary>
         [EnumMember(Value = "4")]
-        Enum4,
+        Cvv4,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

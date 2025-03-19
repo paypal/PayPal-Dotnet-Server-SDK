@@ -12,40 +12,39 @@ VaultController vaultController = client.VaultController;
 
 ## Methods
 
-* [Payment-Tokens Create](../../doc/controllers/vault.md#payment-tokens-create)
-* [Customer Payment-Tokens Get](../../doc/controllers/vault.md#customer-payment-tokens-get)
-* [Payment-Tokens Get](../../doc/controllers/vault.md#payment-tokens-get)
-* [Payment-Tokens Delete](../../doc/controllers/vault.md#payment-tokens-delete)
-* [Setup-Tokens Create](../../doc/controllers/vault.md#setup-tokens-create)
-* [Setup-Tokens Get](../../doc/controllers/vault.md#setup-tokens-get)
+* [Create Payment Token](../../doc/controllers/vault.md#create-payment-token)
+* [List Customer Payment Tokens](../../doc/controllers/vault.md#list-customer-payment-tokens)
+* [Get Payment Token](../../doc/controllers/vault.md#get-payment-token)
+* [Delete Payment Token](../../doc/controllers/vault.md#delete-payment-token)
+* [Create Setup Token](../../doc/controllers/vault.md#create-setup-token)
+* [Get Setup Token](../../doc/controllers/vault.md#get-setup-token)
 
 
-# Payment-Tokens Create
+# Create Payment Token
 
 Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
 
 ```csharp
-PaymentTokensCreateAsync(
-    Models.PaymentTokensCreateInput input)
+CreatePaymentTokenAsync(
+    Models.CreatePaymentTokenInput input)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
+| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 3 hours.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10000`, *Pattern*: `^.*$` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.PaymentTokenResponse>>`](../../doc/models/payment-token-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentTokenResponse](../../doc/models/payment-token-response.md).
 
 ## Example Usage
 
 ```csharp
-PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
+CreatePaymentTokenInput createPaymentTokenInput = new CreatePaymentTokenInput
 {
-    PaypalRequestId = "PayPal-Request-Id6",
     Body = new PaymentTokenRequest
     {
         PaymentSource = new PaymentTokenRequestPaymentSource
@@ -56,7 +55,7 @@ PaymentTokensCreateInput paymentTokensCreateInput = new PaymentTokensCreateInput
 
 try
 {
-    ApiResponse<PaymentTokenResponse> result = await vaultController.PaymentTokensCreateAsync(paymentTokensCreateInput);
+    ApiResponse<PaymentTokenResponse> result = await vaultController.CreatePaymentTokenAsync(createPaymentTokenInput);
 }
 catch (ApiException e)
 {
@@ -76,13 +75,13 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Customer Payment-Tokens Get
+# List Customer Payment Tokens
 
 Returns all payment tokens for a customer.
 
 ```csharp
-CustomerPaymentTokensGetAsync(
-    Models.CustomerPaymentTokensGetInput input)
+ListCustomerPaymentTokensAsync(
+    Models.ListCustomerPaymentTokensInput input)
 ```
 
 ## Parameters
@@ -90,18 +89,18 @@ CustomerPaymentTokensGetAsync(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `customerId` | `string` | Query, Required | A unique identifier representing a specific customer in merchant's/partner's system or records.<br>**Constraints**: *Minimum Length*: `7`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
-| `pageSize` | `int?` | Query, Optional | A non-negative, non-zero integer indicating the maximum number of results to return at one time.<br>**Default**: `5`<br>**Constraints**: `>= 1` |
-| `page` | `int?` | Query, Optional | A non-negative, non-zero integer representing the page of the results.<br>**Default**: `1`<br>**Constraints**: `>= 1` |
+| `pageSize` | `int?` | Query, Optional | A non-negative, non-zero integer indicating the maximum number of results to return at one time.<br>**Default**: `5`<br>**Constraints**: `>= 1`, `<= 5` |
+| `page` | `int?` | Query, Optional | A non-negative, non-zero integer representing the page of the results.<br>**Default**: `1`<br>**Constraints**: `>= 1`, `<= 10` |
 | `totalRequired` | `bool?` | Query, Optional | A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.<br>**Default**: `false` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.CustomerVaultPaymentTokensResponse>>`](../../doc/models/customer-vault-payment-tokens-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.CustomerVaultPaymentTokensResponse](../../doc/models/customer-vault-payment-tokens-response.md).
 
 ## Example Usage
 
 ```csharp
-CustomerPaymentTokensGetInput customerPaymentTokensGetInput = new CustomerPaymentTokensGetInput
+ListCustomerPaymentTokensInput listCustomerPaymentTokensInput = new ListCustomerPaymentTokensInput
 {
     CustomerId = "customer_id8",
     PageSize = 5,
@@ -111,7 +110,7 @@ CustomerPaymentTokensGetInput customerPaymentTokensGetInput = new CustomerPaymen
 
 try
 {
-    ApiResponse<CustomerVaultPaymentTokensResponse> result = await vaultController.CustomerPaymentTokensGetAsync(customerPaymentTokensGetInput);
+    ApiResponse<CustomerVaultPaymentTokensResponse> result = await vaultController.ListCustomerPaymentTokensAsync(listCustomerPaymentTokensInput);
 }
 catch (ApiException e)
 {
@@ -129,12 +128,12 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Payment-Tokens Get
+# Get Payment Token
 
 Returns a readable representation of vaulted payment source associated with the payment token id.
 
 ```csharp
-PaymentTokensGetAsync(
+GetPaymentTokenAsync(
     string id)
 ```
 
@@ -142,11 +141,11 @@ PaymentTokensGetAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
+| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.PaymentTokenResponse>>`](../../doc/models/payment-token-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentTokenResponse](../../doc/models/payment-token-response.md).
 
 ## Example Usage
 
@@ -154,7 +153,7 @@ PaymentTokensGetAsync(
 string id = "id0";
 try
 {
-    ApiResponse<PaymentTokenResponse> result = await vaultController.PaymentTokensGetAsync(id);
+    ApiResponse<PaymentTokenResponse> result = await vaultController.GetPaymentTokenAsync(id);
 }
 catch (ApiException e)
 {
@@ -173,12 +172,12 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Payment-Tokens Delete
+# Delete Payment Token
 
 Delete the payment token associated with the payment token id.
 
 ```csharp
-PaymentTokensDeleteAsync(
+DeletePaymentTokenAsync(
     string id)
 ```
 
@@ -186,7 +185,7 @@ PaymentTokensDeleteAsync(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
+| `id` | `string` | Template, Required | ID of the payment token.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
 
@@ -198,7 +197,7 @@ PaymentTokensDeleteAsync(
 string id = "id0";
 try
 {
-    await vaultController.PaymentTokensDeleteAsync(id);
+    await vaultController.DeletePaymentTokenAsync(id);
 }
 catch (ApiException e)
 {
@@ -216,32 +215,31 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Setup-Tokens Create
+# Create Setup Token
 
 Creates a Setup Token from the given payment source and adds it to the Vault of the associated customer.
 
 ```csharp
-SetupTokensCreateAsync(
-    Models.SetupTokensCreateInput input)
+CreateSetupTokenAsync(
+    Models.CreateSetupTokenInput input)
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `paypalRequestId` | `string` | Header, Required | The server stores keys for 3 hours. |
 | `body` | [`SetupTokenRequest`](../../doc/models/setup-token-request.md) | Body, Required | Setup Token creation with a instrument type optional financial instrument details and customer_id. |
+| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 3 hours.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `10000`, *Pattern*: `^.*$` |
 
 ## Response Type
 
-[`Task<ApiResponse<Models.SetupTokenResponse>>`](../../doc/models/setup-token-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SetupTokenResponse](../../doc/models/setup-token-response.md).
 
 ## Example Usage
 
 ```csharp
-SetupTokensCreateInput setupTokensCreateInput = new SetupTokensCreateInput
+CreateSetupTokenInput createSetupTokenInput = new CreateSetupTokenInput
 {
-    PaypalRequestId = "PayPal-Request-Id6",
     Body = new SetupTokenRequest
     {
         PaymentSource = new SetupTokenRequestPaymentSource
@@ -252,7 +250,7 @@ SetupTokensCreateInput setupTokensCreateInput = new SetupTokensCreateInput
 
 try
 {
-    ApiResponse<SetupTokenResponse> result = await vaultController.SetupTokensCreateAsync(setupTokensCreateInput);
+    ApiResponse<SetupTokenResponse> result = await vaultController.CreateSetupTokenAsync(createSetupTokenInput);
 }
 catch (ApiException e)
 {
@@ -271,12 +269,12 @@ catch (ApiException e)
 | 500 | An internal server error has occurred. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
-# Setup-Tokens Get
+# Get Setup Token
 
 Returns a readable representation of temporarily vaulted payment source associated with the setup token id.
 
 ```csharp
-SetupTokensGetAsync(
+GetSetupTokenAsync(
     string id)
 ```
 
@@ -288,7 +286,7 @@ SetupTokensGetAsync(
 
 ## Response Type
 
-[`Task<ApiResponse<Models.SetupTokenResponse>>`](../../doc/models/setup-token-response.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SetupTokenResponse](../../doc/models/setup-token-response.md).
 
 ## Example Usage
 
@@ -296,7 +294,7 @@ SetupTokensGetAsync(
 string id = "id0";
 try
 {
-    ApiResponse<SetupTokenResponse> result = await vaultController.SetupTokensGetAsync(id);
+    ApiResponse<SetupTokenResponse> result = await vaultController.GetSetupTokenAsync(id);
 }
 catch (ApiException e)
 {

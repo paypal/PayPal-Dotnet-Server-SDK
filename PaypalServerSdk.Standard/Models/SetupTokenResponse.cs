@@ -32,21 +32,18 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="SetupTokenResponse"/> class.
         /// </summary>
         /// <param name="id">id.</param>
-        /// <param name="ordinal">ordinal.</param>
         /// <param name="customer">customer.</param>
         /// <param name="status">status.</param>
         /// <param name="paymentSource">payment_source.</param>
         /// <param name="links">links.</param>
         public SetupTokenResponse(
             string id = null,
-            int? ordinal = null,
-            Models.CustomerRequest customer = null,
-            string status = "CREATED",
+            Models.Customer customer = null,
+            Models.PaymentTokenStatus? status = Models.PaymentTokenStatus.Created,
             Models.SetupTokenResponsePaymentSource paymentSource = null,
             List<Models.LinkDescription> links = null)
         {
             this.Id = id;
-            this.Ordinal = ordinal;
             this.Customer = customer;
             this.Status = status;
             this.PaymentSource = paymentSource;
@@ -60,22 +57,16 @@ namespace PaypalServerSdk.Standard.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// Ordinal number for sorting.
-        /// </summary>
-        [JsonProperty("ordinal", NullValueHandling = NullValueHandling.Ignore)]
-        public int? Ordinal { get; set; }
-
-        /// <summary>
-        /// Customer in merchant's or partner's system of records.
+        /// This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CustomerRequest Customer { get; set; }
+        public Models.Customer Customer { get; set; }
 
         /// <summary>
         /// The status of the payment token.
         /// </summary>
         [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
-        public string Status { get; set; }
+        public Models.PaymentTokenStatus? Status { get; set; }
 
         /// <summary>
         /// The setup payment method details.
@@ -93,44 +84,40 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SetupTokenResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SetupTokenResponse other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Ordinal == null && other.Ordinal == null) || (this.Ordinal?.Equals(other.Ordinal) == true)) &&
-                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
-                ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
-                ((this.PaymentSource == null && other.PaymentSource == null) || (this.PaymentSource?.Equals(other.PaymentSource) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true));
+            return obj is SetupTokenResponse other &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Customer == null && other.Customer == null ||
+                 this.Customer?.Equals(other.Customer) == true) &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.PaymentSource == null && other.PaymentSource == null ||
+                 this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Ordinal = {(this.Ordinal == null ? "null" : this.Ordinal.ToString())}");
-            toStringOutput.Add($"this.Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
-            toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status)}");
-            toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
         }
     }
 }

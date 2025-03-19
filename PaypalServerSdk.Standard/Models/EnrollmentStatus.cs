@@ -20,28 +20,32 @@ namespace PaypalServerSdk.Standard.Models
     public enum EnrollmentStatus
     {
         /// <summary>
-        /// Y.
+        ///Yes. The bank is participating in 3-D Secure protocol and will return the ACSUrl.
+        /// Enrolled.
         /// </summary>
         [EnumMember(Value = "Y")]
-        Y,
+        Enrolled,
 
         /// <summary>
-        /// N.
+        ///No. The bank is not participating in 3-D Secure protocol.
+        /// NotEnrolled.
         /// </summary>
         [EnumMember(Value = "N")]
-        N,
+        NotEnrolled,
 
         /// <summary>
-        /// U.
+        ///Unavailable. The DS or ACS is not available for authentication at the time of the request.
+        /// Unavailable.
         /// </summary>
         [EnumMember(Value = "U")]
-        U,
+        Unavailable,
 
         /// <summary>
-        /// B.
+        ///Bypass. The merchant authentication rule is triggered to bypass authentication.
+        /// Bypass.
         /// </summary>
         [EnumMember(Value = "B")]
-        B,
+        Bypass,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

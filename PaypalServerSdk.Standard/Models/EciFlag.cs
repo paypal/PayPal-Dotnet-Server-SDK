@@ -20,36 +20,42 @@ namespace PaypalServerSdk.Standard.Models
     public enum EciFlag
     {
         /// <summary>
+        ///Mastercard non-3-D Secure transaction.
         /// MastercardNon3DSecureTransaction.
         /// </summary>
         [EnumMember(Value = "MASTERCARD_NON_3D_SECURE_TRANSACTION")]
         MastercardNon3DSecureTransaction,
 
         /// <summary>
+        ///Mastercard attempted authentication transaction.
         /// MastercardAttemptedAuthenticationTransaction.
         /// </summary>
         [EnumMember(Value = "MASTERCARD_ATTEMPTED_AUTHENTICATION_TRANSACTION")]
         MastercardAttemptedAuthenticationTransaction,
 
         /// <summary>
+        ///Mastercard fully authenticated transaction.
         /// MastercardFullyAuthenticatedTransaction.
         /// </summary>
         [EnumMember(Value = "MASTERCARD_FULLY_AUTHENTICATED_TRANSACTION")]
         MastercardFullyAuthenticatedTransaction,
 
         /// <summary>
+        ///VISA, AMEX, JCB, DINERS CLUB fully authenticated transaction.
         /// FullyAuthenticatedTransaction.
         /// </summary>
         [EnumMember(Value = "FULLY_AUTHENTICATED_TRANSACTION")]
         FullyAuthenticatedTransaction,
 
         /// <summary>
+        ///VISA, AMEX, JCB, DINERS CLUB attempted authentication transaction.
         /// AttemptedAuthenticationTransaction.
         /// </summary>
         [EnumMember(Value = "ATTEMPTED_AUTHENTICATION_TRANSACTION")]
         AttemptedAuthenticationTransaction,
 
         /// <summary>
+        ///VISA, AMEX, JCB, DINERS CLUB non-3-D Secure transaction.
         /// Non3DSecureTransaction.
         /// </summary>
         [EnumMember(Value = "NON_3D_SECURE_TRANSACTION")]

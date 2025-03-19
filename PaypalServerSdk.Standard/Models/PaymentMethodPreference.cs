@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentMethodPreference : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentMethodPreference other &&                ((this.PayeePreferred == null && other.PayeePreferred == null) || (this.PayeePreferred?.Equals(other.PayeePreferred) == true)) &&
-                ((this.StandardEntryClassCode == null && other.StandardEntryClassCode == null) || (this.StandardEntryClassCode?.Equals(other.StandardEntryClassCode) == true));
+            return obj is PaymentMethodPreference other &&
+                (this.PayeePreferred == null && other.PayeePreferred == null ||
+                 this.PayeePreferred?.Equals(other.PayeePreferred) == true) &&
+                (this.StandardEntryClassCode == null && other.StandardEntryClassCode == null ||
+                 this.StandardEntryClassCode?.Equals(other.StandardEntryClassCode) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PayeePreferred = {(this.PayeePreferred == null ? "null" : this.PayeePreferred.ToString())}");
-            toStringOutput.Add($"this.StandardEntryClassCode = {(this.StandardEntryClassCode == null ? "null" : this.StandardEntryClassCode.ToString())}");
+            toStringOutput.Add($"PayeePreferred = {(this.PayeePreferred == null ? "null" : this.PayeePreferred.ToString())}");
+            toStringOutput.Add($"StandardEntryClassCode = {(this.StandardEntryClassCode == null ? "null" : this.StandardEntryClassCode.ToString())}");
         }
     }
 }

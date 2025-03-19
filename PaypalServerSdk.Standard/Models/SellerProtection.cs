@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SellerProtection : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SellerProtection other &&                ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
-                ((this.DisputeCategories == null && other.DisputeCategories == null) || (this.DisputeCategories?.Equals(other.DisputeCategories) == true));
+            return obj is SellerProtection other &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.DisputeCategories == null && other.DisputeCategories == null ||
+                 this.DisputeCategories?.Equals(other.DisputeCategories) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status.ToString())}");
-            toStringOutput.Add($"this.DisputeCategories = {(this.DisputeCategories == null ? "null" : $"[{string.Join(", ", this.DisputeCategories)} ]")}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"DisputeCategories = {(this.DisputeCategories == null ? "null" : $"[{string.Join(", ", this.DisputeCategories)} ]")}");
         }
     }
 }

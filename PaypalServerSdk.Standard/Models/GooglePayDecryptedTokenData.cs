@@ -102,46 +102,44 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"GooglePayDecryptedTokenData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is GooglePayDecryptedTokenData other &&                ((this.MessageId == null && other.MessageId == null) || (this.MessageId?.Equals(other.MessageId) == true)) &&
-                ((this.MessageExpiration == null && other.MessageExpiration == null) || (this.MessageExpiration?.Equals(other.MessageExpiration) == true)) &&
-                this.PaymentMethod.Equals(other.PaymentMethod) &&
-                ((this.Card == null && other.Card == null) || (this.Card?.Equals(other.Card) == true)) &&
-                this.AuthenticationMethod.Equals(other.AuthenticationMethod) &&
-                ((this.Cryptogram == null && other.Cryptogram == null) || (this.Cryptogram?.Equals(other.Cryptogram) == true)) &&
-                ((this.EciIndicator == null && other.EciIndicator == null) || (this.EciIndicator?.Equals(other.EciIndicator) == true));
+            return obj is GooglePayDecryptedTokenData other &&
+                (this.MessageId == null && other.MessageId == null ||
+                 this.MessageId?.Equals(other.MessageId) == true) &&
+                (this.MessageExpiration == null && other.MessageExpiration == null ||
+                 this.MessageExpiration?.Equals(other.MessageExpiration) == true) &&
+                (this.PaymentMethod.Equals(other.PaymentMethod)) &&
+                (this.Card == null && other.Card == null ||
+                 this.Card?.Equals(other.Card) == true) &&
+                (this.AuthenticationMethod.Equals(other.AuthenticationMethod)) &&
+                (this.Cryptogram == null && other.Cryptogram == null ||
+                 this.Cryptogram?.Equals(other.Cryptogram) == true) &&
+                (this.EciIndicator == null && other.EciIndicator == null ||
+                 this.EciIndicator?.Equals(other.EciIndicator) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.MessageId = {(this.MessageId == null ? "null" : this.MessageId)}");
-            toStringOutput.Add($"this.MessageExpiration = {(this.MessageExpiration == null ? "null" : this.MessageExpiration)}");
-            toStringOutput.Add($"this.PaymentMethod = {this.PaymentMethod}");
-            toStringOutput.Add($"this.Card = {(this.Card == null ? "null" : this.Card.ToString())}");
-            toStringOutput.Add($"this.AuthenticationMethod = {this.AuthenticationMethod}");
-            toStringOutput.Add($"this.Cryptogram = {(this.Cryptogram == null ? "null" : this.Cryptogram)}");
-            toStringOutput.Add($"this.EciIndicator = {(this.EciIndicator == null ? "null" : this.EciIndicator)}");
+            toStringOutput.Add($"MessageId = {this.MessageId ?? "null"}");
+            toStringOutput.Add($"MessageExpiration = {this.MessageExpiration ?? "null"}");
+            toStringOutput.Add($"PaymentMethod = {this.PaymentMethod}");
+            toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
+            toStringOutput.Add($"AuthenticationMethod = {this.AuthenticationMethod}");
+            toStringOutput.Add($"Cryptogram = {this.Cryptogram ?? "null"}");
+            toStringOutput.Add($"EciIndicator = {this.EciIndicator ?? "null"}");
         }
     }
 }

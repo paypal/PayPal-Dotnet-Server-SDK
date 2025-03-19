@@ -60,7 +60,7 @@ namespace PaypalServerSdk.Standard.Models
         public string IssuingBank { get; set; }
 
         /// <summary>
-        /// The [two-character ISO 3166-1 code](/api/rest/reference/country-codes/) that identifies the country or region.<blockquote><strong>Note:</strong> The country code for Great Britain is <code>GB</code> and not <code>UK</code> as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.</blockquote>
+        /// The [two-character ISO 3166-1 code](/api/rest/reference/country-codes/) that identifies the country or region. Note: The country code for Great Britain is GB and not UK as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.
         /// </summary>
         [JsonProperty("bin_country_code", NullValueHandling = NullValueHandling.Ignore)]
         public string BinCountryCode { get; set; }
@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"BinDetails : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is BinDetails other &&                ((this.Bin == null && other.Bin == null) || (this.Bin?.Equals(other.Bin) == true)) &&
-                ((this.IssuingBank == null && other.IssuingBank == null) || (this.IssuingBank?.Equals(other.IssuingBank) == true)) &&
-                ((this.BinCountryCode == null && other.BinCountryCode == null) || (this.BinCountryCode?.Equals(other.BinCountryCode) == true)) &&
-                ((this.Products == null && other.Products == null) || (this.Products?.Equals(other.Products) == true));
+            return obj is BinDetails other &&
+                (this.Bin == null && other.Bin == null ||
+                 this.Bin?.Equals(other.Bin) == true) &&
+                (this.IssuingBank == null && other.IssuingBank == null ||
+                 this.IssuingBank?.Equals(other.IssuingBank) == true) &&
+                (this.BinCountryCode == null && other.BinCountryCode == null ||
+                 this.BinCountryCode?.Equals(other.BinCountryCode) == true) &&
+                (this.Products == null && other.Products == null ||
+                 this.Products?.Equals(other.Products) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Bin = {(this.Bin == null ? "null" : this.Bin)}");
-            toStringOutput.Add($"this.IssuingBank = {(this.IssuingBank == null ? "null" : this.IssuingBank)}");
-            toStringOutput.Add($"this.BinCountryCode = {(this.BinCountryCode == null ? "null" : this.BinCountryCode)}");
-            toStringOutput.Add($"this.Products = {(this.Products == null ? "null" : $"[{string.Join(", ", this.Products)} ]")}");
+            toStringOutput.Add($"Bin = {this.Bin ?? "null"}");
+            toStringOutput.Add($"IssuingBank = {this.IssuingBank ?? "null"}");
+            toStringOutput.Add($"BinCountryCode = {this.BinCountryCode ?? "null"}");
+            toStringOutput.Add($"Products = {(this.Products == null ? "null" : $"[{string.Join(", ", this.Products)} ]")}");
         }
     }
 }

@@ -93,44 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ErrorDetails : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ErrorDetails other &&                ((this.Field == null && other.Field == null) || (this.Field?.Equals(other.Field) == true)) &&
-                ((this.MValue == null && other.MValue == null) || (this.MValue?.Equals(other.MValue) == true)) &&
-                ((this.Location == null && other.Location == null) || (this.Location?.Equals(other.Location) == true)) &&
-                ((this.Issue == null && other.Issue == null) || (this.Issue?.Equals(other.Issue) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true)) &&
-                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true));
+            return obj is ErrorDetails other &&
+                (this.Field == null && other.Field == null ||
+                 this.Field?.Equals(other.Field) == true) &&
+                (this.MValue == null && other.MValue == null ||
+                 this.MValue?.Equals(other.MValue) == true) &&
+                (this.Location == null && other.Location == null ||
+                 this.Location?.Equals(other.Location) == true) &&
+                (this.Issue == null && other.Issue == null ||
+                 this.Issue?.Equals(other.Issue) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true) &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Field = {(this.Field == null ? "null" : this.Field)}");
-            toStringOutput.Add($"this.MValue = {(this.MValue == null ? "null" : this.MValue)}");
-            toStringOutput.Add($"this.Location = {(this.Location == null ? "null" : this.Location)}");
-            toStringOutput.Add($"this.Issue = {(this.Issue == null ? "null" : this.Issue)}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
+            toStringOutput.Add($"Field = {this.Field ?? "null"}");
+            toStringOutput.Add($"MValue = {this.MValue ?? "null"}");
+            toStringOutput.Add($"Location = {this.Location ?? "null"}");
+            toStringOutput.Add($"Issue = {this.Issue ?? "null"}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
         }
     }
 }

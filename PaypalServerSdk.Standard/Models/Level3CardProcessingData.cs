@@ -93,44 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Level3CardProcessingData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Level3CardProcessingData other &&                ((this.ShippingAmount == null && other.ShippingAmount == null) || (this.ShippingAmount?.Equals(other.ShippingAmount) == true)) &&
-                ((this.DutyAmount == null && other.DutyAmount == null) || (this.DutyAmount?.Equals(other.DutyAmount) == true)) &&
-                ((this.DiscountAmount == null && other.DiscountAmount == null) || (this.DiscountAmount?.Equals(other.DiscountAmount) == true)) &&
-                ((this.ShippingAddress == null && other.ShippingAddress == null) || (this.ShippingAddress?.Equals(other.ShippingAddress) == true)) &&
-                ((this.ShipsFromPostalCode == null && other.ShipsFromPostalCode == null) || (this.ShipsFromPostalCode?.Equals(other.ShipsFromPostalCode) == true)) &&
-                ((this.LineItems == null && other.LineItems == null) || (this.LineItems?.Equals(other.LineItems) == true));
+            return obj is Level3CardProcessingData other &&
+                (this.ShippingAmount == null && other.ShippingAmount == null ||
+                 this.ShippingAmount?.Equals(other.ShippingAmount) == true) &&
+                (this.DutyAmount == null && other.DutyAmount == null ||
+                 this.DutyAmount?.Equals(other.DutyAmount) == true) &&
+                (this.DiscountAmount == null && other.DiscountAmount == null ||
+                 this.DiscountAmount?.Equals(other.DiscountAmount) == true) &&
+                (this.ShippingAddress == null && other.ShippingAddress == null ||
+                 this.ShippingAddress?.Equals(other.ShippingAddress) == true) &&
+                (this.ShipsFromPostalCode == null && other.ShipsFromPostalCode == null ||
+                 this.ShipsFromPostalCode?.Equals(other.ShipsFromPostalCode) == true) &&
+                (this.LineItems == null && other.LineItems == null ||
+                 this.LineItems?.Equals(other.LineItems) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.ShippingAmount = {(this.ShippingAmount == null ? "null" : this.ShippingAmount.ToString())}");
-            toStringOutput.Add($"this.DutyAmount = {(this.DutyAmount == null ? "null" : this.DutyAmount.ToString())}");
-            toStringOutput.Add($"this.DiscountAmount = {(this.DiscountAmount == null ? "null" : this.DiscountAmount.ToString())}");
-            toStringOutput.Add($"this.ShippingAddress = {(this.ShippingAddress == null ? "null" : this.ShippingAddress.ToString())}");
-            toStringOutput.Add($"this.ShipsFromPostalCode = {(this.ShipsFromPostalCode == null ? "null" : this.ShipsFromPostalCode)}");
-            toStringOutput.Add($"this.LineItems = {(this.LineItems == null ? "null" : $"[{string.Join(", ", this.LineItems)} ]")}");
+            toStringOutput.Add($"ShippingAmount = {(this.ShippingAmount == null ? "null" : this.ShippingAmount.ToString())}");
+            toStringOutput.Add($"DutyAmount = {(this.DutyAmount == null ? "null" : this.DutyAmount.ToString())}");
+            toStringOutput.Add($"DiscountAmount = {(this.DiscountAmount == null ? "null" : this.DiscountAmount.ToString())}");
+            toStringOutput.Add($"ShippingAddress = {(this.ShippingAddress == null ? "null" : this.ShippingAddress.ToString())}");
+            toStringOutput.Add($"ShipsFromPostalCode = {this.ShipsFromPostalCode ?? "null"}");
+            toStringOutput.Add($"LineItems = {(this.LineItems == null ? "null" : $"[{string.Join(", ", this.LineItems)} ]")}");
         }
     }
 }

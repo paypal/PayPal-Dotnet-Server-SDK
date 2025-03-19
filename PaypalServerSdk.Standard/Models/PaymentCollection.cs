@@ -36,7 +36,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="refunds">refunds.</param>
         public PaymentCollection(
             List<Models.AuthorizationWithAdditionalData> authorizations = null,
-            List<Models.Capture> captures = null,
+            List<Models.OrdersCapture> captures = null,
             List<Models.Refund> refunds = null)
         {
             this.Authorizations = authorizations;
@@ -54,7 +54,7 @@ namespace PaypalServerSdk.Standard.Models
         /// An array of captured payments for a purchase unit. A purchase unit can have zero or more captured payments.
         /// </summary>
         [JsonProperty("captures", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Models.Capture> Captures { get; set; }
+        public List<Models.OrdersCapture> Captures { get; set; }
 
         /// <summary>
         /// An array of refunds for a purchase unit. A purchase unit can have zero or more refunds.
@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentCollection : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentCollection other &&                ((this.Authorizations == null && other.Authorizations == null) || (this.Authorizations?.Equals(other.Authorizations) == true)) &&
-                ((this.Captures == null && other.Captures == null) || (this.Captures?.Equals(other.Captures) == true)) &&
-                ((this.Refunds == null && other.Refunds == null) || (this.Refunds?.Equals(other.Refunds) == true));
+            return obj is PaymentCollection other &&
+                (this.Authorizations == null && other.Authorizations == null ||
+                 this.Authorizations?.Equals(other.Authorizations) == true) &&
+                (this.Captures == null && other.Captures == null ||
+                 this.Captures?.Equals(other.Captures) == true) &&
+                (this.Refunds == null && other.Refunds == null ||
+                 this.Refunds?.Equals(other.Refunds) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Authorizations = {(this.Authorizations == null ? "null" : $"[{string.Join(", ", this.Authorizations)} ]")}");
-            toStringOutput.Add($"this.Captures = {(this.Captures == null ? "null" : $"[{string.Join(", ", this.Captures)} ]")}");
-            toStringOutput.Add($"this.Refunds = {(this.Refunds == null ? "null" : $"[{string.Join(", ", this.Refunds)} ]")}");
+            toStringOutput.Add($"Authorizations = {(this.Authorizations == null ? "null" : $"[{string.Join(", ", this.Authorizations)} ]")}");
+            toStringOutput.Add($"Captures = {(this.Captures == null ? "null" : $"[{string.Join(", ", this.Captures)} ]")}");
+            toStringOutput.Add($"Refunds = {(this.Refunds == null ? "null" : $"[{string.Join(", ", this.Refunds)} ]")}");
         }
     }
 }

@@ -41,7 +41,7 @@ namespace PaypalServerSdk.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "PayPal REST API DotNet SDK, Version: 0.6.1, on OS {os-info}";
+        private const string userAgent = "PayPal REST API DotNet SDK, Version: 0.7.0, on OS {os-info}";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<OrdersController> orders;
         private readonly Lazy<PaymentsController> payments;
@@ -60,8 +60,8 @@ namespace PaypalServerSdk.Standard
             this.HttpClientConfiguration = httpClientConfiguration;
             this.sdkLoggingConfiguration = sdkLoggingConfiguration;
             ClientCredentialsAuthModel = clientCredentialsAuthModel;
-            var clientCredentialsAuthManager = new ClientCredentialsAuthManager(clientCredentialsAuthModel);
-            clientCredentialsAuthManager.ApplyGlobalConfiguration(() => OAuthAuthorizationController);
+            var clientCredentialsAuthManager = new ClientCredentialsAuthManager(clientCredentialsAuthModel,
+                () => OAuthAuthorizationController);
             globalConfiguration = new GlobalConfiguration.Builder()
                 .AuthManagers(new Dictionary<string, AuthManager> {
                     {"Oauth2", clientCredentialsAuthManager},

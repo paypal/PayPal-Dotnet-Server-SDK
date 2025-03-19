@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ExchangeRate : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ExchangeRate other &&                ((this.SourceCurrency == null && other.SourceCurrency == null) || (this.SourceCurrency?.Equals(other.SourceCurrency) == true)) &&
-                ((this.TargetCurrency == null && other.TargetCurrency == null) || (this.TargetCurrency?.Equals(other.TargetCurrency) == true)) &&
-                ((this.MValue == null && other.MValue == null) || (this.MValue?.Equals(other.MValue) == true));
+            return obj is ExchangeRate other &&
+                (this.SourceCurrency == null && other.SourceCurrency == null ||
+                 this.SourceCurrency?.Equals(other.SourceCurrency) == true) &&
+                (this.TargetCurrency == null && other.TargetCurrency == null ||
+                 this.TargetCurrency?.Equals(other.TargetCurrency) == true) &&
+                (this.MValue == null && other.MValue == null ||
+                 this.MValue?.Equals(other.MValue) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.SourceCurrency = {(this.SourceCurrency == null ? "null" : this.SourceCurrency)}");
-            toStringOutput.Add($"this.TargetCurrency = {(this.TargetCurrency == null ? "null" : this.TargetCurrency)}");
-            toStringOutput.Add($"this.MValue = {(this.MValue == null ? "null" : this.MValue)}");
+            toStringOutput.Add($"SourceCurrency = {this.SourceCurrency ?? "null"}");
+            toStringOutput.Add($"TargetCurrency = {this.TargetCurrency ?? "null"}");
+            toStringOutput.Add($"MValue = {this.MValue ?? "null"}");
         }
     }
 }

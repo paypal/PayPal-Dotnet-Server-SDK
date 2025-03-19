@@ -20,18 +20,21 @@ namespace PaypalServerSdk.Standard.Models
     public enum LiabilityShiftIndicator
     {
         /// <summary>
+        ///Liability is with the merchant.
         /// No.
         /// </summary>
         [EnumMember(Value = "NO")]
         No,
 
         /// <summary>
+        ///Liability may shift to the card issuer.
         /// Possible.
         /// </summary>
         [EnumMember(Value = "POSSIBLE")]
         Possible,
 
         /// <summary>
+        ///The authentication system is not available.
         /// Unknown.
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]

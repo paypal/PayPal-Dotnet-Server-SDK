@@ -75,7 +75,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaymentSource PaymentSource { get; set; }
 
         /// <summary>
-        /// Customizes the payer experience during the approval process for the payment with PayPal.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>brand_name</code> and <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
+        /// Customizes the payer experience during the approval process for the payment with PayPal. Note: Partners and Marketplaces might configure brand_name and shipping_preference during partner account setup, which overrides the request values.
         /// </summary>
         [JsonProperty("application_context", NullValueHandling = NullValueHandling.Ignore)]
         public Models.OrderApplicationContext ApplicationContext { get; set; }
@@ -84,42 +84,39 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"OrderRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is OrderRequest other &&                this.Intent.Equals(other.Intent) &&
-                ((this.Payer == null && other.Payer == null) || (this.Payer?.Equals(other.Payer) == true)) &&
-                ((this.PurchaseUnits == null && other.PurchaseUnits == null) || (this.PurchaseUnits?.Equals(other.PurchaseUnits) == true)) &&
-                ((this.PaymentSource == null && other.PaymentSource == null) || (this.PaymentSource?.Equals(other.PaymentSource) == true)) &&
-                ((this.ApplicationContext == null && other.ApplicationContext == null) || (this.ApplicationContext?.Equals(other.ApplicationContext) == true));
+            return obj is OrderRequest other &&
+                (this.Intent.Equals(other.Intent)) &&
+                (this.Payer == null && other.Payer == null ||
+                 this.Payer?.Equals(other.Payer) == true) &&
+                (this.PurchaseUnits == null && other.PurchaseUnits == null ||
+                 this.PurchaseUnits?.Equals(other.PurchaseUnits) == true) &&
+                (this.PaymentSource == null && other.PaymentSource == null ||
+                 this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.ApplicationContext == null && other.ApplicationContext == null ||
+                 this.ApplicationContext?.Equals(other.ApplicationContext) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Intent = {this.Intent}");
-            toStringOutput.Add($"this.Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
-            toStringOutput.Add($"this.PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
-            toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
-            toStringOutput.Add($"this.ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
+            toStringOutput.Add($"Intent = {this.Intent}");
+            toStringOutput.Add($"Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
+            toStringOutput.Add($"PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
+            toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
         }
     }
 }

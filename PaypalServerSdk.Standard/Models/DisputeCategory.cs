@@ -20,12 +20,14 @@ namespace PaypalServerSdk.Standard.Models
     public enum DisputeCategory
     {
         /// <summary>
+        ///The payer paid for an item that they did not receive.
         /// ItemNotReceived.
         /// </summary>
         [EnumMember(Value = "ITEM_NOT_RECEIVED")]
         ItemNotReceived,
 
         /// <summary>
+        ///The payer did not authorize the payment.
         /// UnauthorizedTransaction.
         /// </summary>
         [EnumMember(Value = "UNAUTHORIZED_TRANSACTION")]

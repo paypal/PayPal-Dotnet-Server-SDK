@@ -20,12 +20,14 @@ namespace PaypalServerSdk.Standard.Models
     public enum PaypalWalletAccountVerificationStatus
     {
         /// <summary>
+        ///The buyer has completed the verification of the financial details associated with this PayPal account. For example: confirming their bank account.
         /// Verified.
         /// </summary>
         [EnumMember(Value = "VERIFIED")]
         Verified,
 
         /// <summary>
+        ///The buyer has not completed the verification of the financial details associated with this PayPal account. For example: confirming their bank account.
         /// Unverified.
         /// </summary>
         [EnumMember(Value = "UNVERIFIED")]

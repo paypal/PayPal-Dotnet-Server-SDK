@@ -48,34 +48,28 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"BlikOneClickPaymentObject : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is BlikOneClickPaymentObject other &&                ((this.ConsumerReference == null && other.ConsumerReference == null) || (this.ConsumerReference?.Equals(other.ConsumerReference) == true));
+            return obj is BlikOneClickPaymentObject other &&
+                (this.ConsumerReference == null && other.ConsumerReference == null ||
+                 this.ConsumerReference?.Equals(other.ConsumerReference) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.ConsumerReference = {(this.ConsumerReference == null ? "null" : this.ConsumerReference)}");
+            toStringOutput.Add($"ConsumerReference = {this.ConsumerReference ?? "null"}");
         }
     }
 }

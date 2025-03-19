@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CobrandedCard : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CobrandedCard other &&                ((this.Labels == null && other.Labels == null) || (this.Labels?.Equals(other.Labels) == true)) &&
-                ((this.Payee == null && other.Payee == null) || (this.Payee?.Equals(other.Payee) == true)) &&
-                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true));
+            return obj is CobrandedCard other &&
+                (this.Labels == null && other.Labels == null ||
+                 this.Labels?.Equals(other.Labels) == true) &&
+                (this.Payee == null && other.Payee == null ||
+                 this.Payee?.Equals(other.Payee) == true) &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Labels = {(this.Labels == null ? "null" : $"[{string.Join(", ", this.Labels)} ]")}");
-            toStringOutput.Add($"this.Payee = {(this.Payee == null ? "null" : this.Payee.ToString())}");
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"Labels = {(this.Labels == null ? "null" : $"[{string.Join(", ", this.Labels)} ]")}");
+            toStringOutput.Add($"Payee = {(this.Payee == null ? "null" : this.Payee.ToString())}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
         }
     }
 }

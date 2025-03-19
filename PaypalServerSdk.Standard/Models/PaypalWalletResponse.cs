@@ -42,6 +42,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="taxInfo">tax_info.</param>
         /// <param name="address">address.</param>
         /// <param name="attributes">attributes.</param>
+        /// <param name="storedCredential">stored_credential.</param>
         public PaypalWalletResponse(
             string emailAddress = null,
             string accountId = null,
@@ -53,7 +54,8 @@ namespace PaypalServerSdk.Standard.Models
             string businessName = null,
             Models.TaxInfo taxInfo = null,
             Models.Address address = null,
-            Models.PaypalWalletAttributesResponse attributes = null)
+            Models.PaypalWalletAttributesResponse attributes = null,
+            Models.PaypalWalletStoredCredential storedCredential = null)
         {
             this.EmailAddress = emailAddress;
             this.AccountId = accountId;
@@ -66,10 +68,11 @@ namespace PaypalServerSdk.Standard.Models
             this.TaxInfo = taxInfo;
             this.Address = address;
             this.Attributes = attributes;
+            this.StoredCredential = storedCredential;
         }
 
         /// <summary>
-        /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
         /// </summary>
         [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
@@ -134,58 +137,71 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalWalletAttributesResponse Attributes { get; set; }
 
+        /// <summary>
+        /// Provides additional details to process a payment using the PayPal wallet billing agreement or a vaulted payment method that has been stored or is intended to be stored.
+        /// </summary>
+        [JsonProperty("stored_credential", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.PaypalWalletStoredCredential StoredCredential { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaypalWalletResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaypalWalletResponse other &&                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
-                ((this.AccountId == null && other.AccountId == null) || (this.AccountId?.Equals(other.AccountId) == true)) &&
-                ((this.AccountStatus == null && other.AccountStatus == null) || (this.AccountStatus?.Equals(other.AccountStatus) == true)) &&
-                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.PhoneType == null && other.PhoneType == null) || (this.PhoneType?.Equals(other.PhoneType) == true)) &&
-                ((this.PhoneNumber == null && other.PhoneNumber == null) || (this.PhoneNumber?.Equals(other.PhoneNumber) == true)) &&
-                ((this.BirthDate == null && other.BirthDate == null) || (this.BirthDate?.Equals(other.BirthDate) == true)) &&
-                ((this.BusinessName == null && other.BusinessName == null) || (this.BusinessName?.Equals(other.BusinessName) == true)) &&
-                ((this.TaxInfo == null && other.TaxInfo == null) || (this.TaxInfo?.Equals(other.TaxInfo) == true)) &&
-                ((this.Address == null && other.Address == null) || (this.Address?.Equals(other.Address) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true));
+            return obj is PaypalWalletResponse other &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.AccountId == null && other.AccountId == null ||
+                 this.AccountId?.Equals(other.AccountId) == true) &&
+                (this.AccountStatus == null && other.AccountStatus == null ||
+                 this.AccountStatus?.Equals(other.AccountStatus) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.PhoneType == null && other.PhoneType == null ||
+                 this.PhoneType?.Equals(other.PhoneType) == true) &&
+                (this.PhoneNumber == null && other.PhoneNumber == null ||
+                 this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
+                (this.BirthDate == null && other.BirthDate == null ||
+                 this.BirthDate?.Equals(other.BirthDate) == true) &&
+                (this.BusinessName == null && other.BusinessName == null ||
+                 this.BusinessName?.Equals(other.BusinessName) == true) &&
+                (this.TaxInfo == null && other.TaxInfo == null ||
+                 this.TaxInfo?.Equals(other.TaxInfo) == true) &&
+                (this.Address == null && other.Address == null ||
+                 this.Address?.Equals(other.Address) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true) &&
+                (this.StoredCredential == null && other.StoredCredential == null ||
+                 this.StoredCredential?.Equals(other.StoredCredential) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.EmailAddress = {(this.EmailAddress == null ? "null" : this.EmailAddress)}");
-            toStringOutput.Add($"this.AccountId = {(this.AccountId == null ? "null" : this.AccountId)}");
-            toStringOutput.Add($"this.AccountStatus = {(this.AccountStatus == null ? "null" : this.AccountStatus.ToString())}");
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name.ToString())}");
-            toStringOutput.Add($"this.PhoneType = {(this.PhoneType == null ? "null" : this.PhoneType.ToString())}");
-            toStringOutput.Add($"this.PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
-            toStringOutput.Add($"this.BirthDate = {(this.BirthDate == null ? "null" : this.BirthDate)}");
-            toStringOutput.Add($"this.BusinessName = {(this.BusinessName == null ? "null" : this.BusinessName)}");
-            toStringOutput.Add($"this.TaxInfo = {(this.TaxInfo == null ? "null" : this.TaxInfo.ToString())}");
-            toStringOutput.Add($"this.Address = {(this.Address == null ? "null" : this.Address.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"AccountId = {this.AccountId ?? "null"}");
+            toStringOutput.Add($"AccountStatus = {(this.AccountStatus == null ? "null" : this.AccountStatus.ToString())}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
+            toStringOutput.Add($"PhoneType = {(this.PhoneType == null ? "null" : this.PhoneType.ToString())}");
+            toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
+            toStringOutput.Add($"BirthDate = {this.BirthDate ?? "null"}");
+            toStringOutput.Add($"BusinessName = {this.BusinessName ?? "null"}");
+            toStringOutput.Add($"TaxInfo = {(this.TaxInfo == null ? "null" : this.TaxInfo.ToString())}");
+            toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
         }
     }
 }

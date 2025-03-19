@@ -72,7 +72,7 @@ namespace PaypalServerSdk.Standard.Models
         public string AdminArea2 { get; set; }
 
         /// <summary>
-        /// The highest-level sub-division in a country, which is usually a province, state, or ISO-3166-2 subdivision. This data is formatted for postal delivery, for example, `CA` and not `California`. Value, by country, is:<ul><li>UK. A county.</li><li>US. A state.</li><li>Canada. A province.</li><li>Japan. A prefecture.</li><li>Switzerland. A *kanton*.</li></ul>
+        /// The highest-level sub-division in a country, which is usually a province, state, or ISO-3166-2 subdivision. This data is formatted for postal delivery, for example, `CA` and not `California`. Value, by country, is: UK. A county. US. A state. Canada. A province. Japan. A prefecture. Switzerland. A *kanton*.
         /// </summary>
         [JsonProperty("admin_area_1", NullValueHandling = NullValueHandling.Ignore)]
         public string AdminArea1 { get; set; }
@@ -84,7 +84,7 @@ namespace PaypalServerSdk.Standard.Models
         public string PostalCode { get; set; }
 
         /// <summary>
-        /// The [2-character ISO 3166-1 code](/api/rest/reference/country-codes/) that identifies the country or region.<blockquote><strong>Note:</strong> The country code for Great Britain is <code>GB</code> and not <code>UK</code> as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.</blockquote>
+        /// The [2-character ISO 3166-1 code](/api/rest/reference/country-codes/) that identifies the country or region. Note: The country code for Great Britain is GB and not UK as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.
         /// </summary>
         [JsonProperty("country_code")]
         public string CountryCode { get; set; }
@@ -93,44 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Address : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Address other &&                ((this.AddressLine1 == null && other.AddressLine1 == null) || (this.AddressLine1?.Equals(other.AddressLine1) == true)) &&
-                ((this.AddressLine2 == null && other.AddressLine2 == null) || (this.AddressLine2?.Equals(other.AddressLine2) == true)) &&
-                ((this.AdminArea2 == null && other.AdminArea2 == null) || (this.AdminArea2?.Equals(other.AdminArea2) == true)) &&
-                ((this.AdminArea1 == null && other.AdminArea1 == null) || (this.AdminArea1?.Equals(other.AdminArea1) == true)) &&
-                ((this.PostalCode == null && other.PostalCode == null) || (this.PostalCode?.Equals(other.PostalCode) == true)) &&
-                ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true));
+            return obj is Address other &&
+                (this.AddressLine1 == null && other.AddressLine1 == null ||
+                 this.AddressLine1?.Equals(other.AddressLine1) == true) &&
+                (this.AddressLine2 == null && other.AddressLine2 == null ||
+                 this.AddressLine2?.Equals(other.AddressLine2) == true) &&
+                (this.AdminArea2 == null && other.AdminArea2 == null ||
+                 this.AdminArea2?.Equals(other.AdminArea2) == true) &&
+                (this.AdminArea1 == null && other.AdminArea1 == null ||
+                 this.AdminArea1?.Equals(other.AdminArea1) == true) &&
+                (this.PostalCode == null && other.PostalCode == null ||
+                 this.PostalCode?.Equals(other.PostalCode) == true) &&
+                (this.CountryCode == null && other.CountryCode == null ||
+                 this.CountryCode?.Equals(other.CountryCode) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.AddressLine1 = {(this.AddressLine1 == null ? "null" : this.AddressLine1)}");
-            toStringOutput.Add($"this.AddressLine2 = {(this.AddressLine2 == null ? "null" : this.AddressLine2)}");
-            toStringOutput.Add($"this.AdminArea2 = {(this.AdminArea2 == null ? "null" : this.AdminArea2)}");
-            toStringOutput.Add($"this.AdminArea1 = {(this.AdminArea1 == null ? "null" : this.AdminArea1)}");
-            toStringOutput.Add($"this.PostalCode = {(this.PostalCode == null ? "null" : this.PostalCode)}");
-            toStringOutput.Add($"this.CountryCode = {(this.CountryCode == null ? "null" : this.CountryCode)}");
+            toStringOutput.Add($"AddressLine1 = {this.AddressLine1 ?? "null"}");
+            toStringOutput.Add($"AddressLine2 = {this.AddressLine2 ?? "null"}");
+            toStringOutput.Add($"AdminArea2 = {this.AdminArea2 ?? "null"}");
+            toStringOutput.Add($"AdminArea1 = {this.AdminArea1 ?? "null"}");
+            toStringOutput.Add($"PostalCode = {this.PostalCode ?? "null"}");
+            toStringOutput.Add($"CountryCode = {this.CountryCode ?? "null"}");
         }
     }
 }

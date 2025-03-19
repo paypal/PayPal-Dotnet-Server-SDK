@@ -84,42 +84,40 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"NetworkToken : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is NetworkToken other &&                ((this.Number == null && other.Number == null) || (this.Number?.Equals(other.Number) == true)) &&
-                ((this.Expiry == null && other.Expiry == null) || (this.Expiry?.Equals(other.Expiry) == true)) &&
-                ((this.Cryptogram == null && other.Cryptogram == null) || (this.Cryptogram?.Equals(other.Cryptogram) == true)) &&
-                ((this.EciFlag == null && other.EciFlag == null) || (this.EciFlag?.Equals(other.EciFlag) == true)) &&
-                ((this.TokenRequestorId == null && other.TokenRequestorId == null) || (this.TokenRequestorId?.Equals(other.TokenRequestorId) == true));
+            return obj is NetworkToken other &&
+                (this.Number == null && other.Number == null ||
+                 this.Number?.Equals(other.Number) == true) &&
+                (this.Expiry == null && other.Expiry == null ||
+                 this.Expiry?.Equals(other.Expiry) == true) &&
+                (this.Cryptogram == null && other.Cryptogram == null ||
+                 this.Cryptogram?.Equals(other.Cryptogram) == true) &&
+                (this.EciFlag == null && other.EciFlag == null ||
+                 this.EciFlag?.Equals(other.EciFlag) == true) &&
+                (this.TokenRequestorId == null && other.TokenRequestorId == null ||
+                 this.TokenRequestorId?.Equals(other.TokenRequestorId) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Number = {(this.Number == null ? "null" : this.Number)}");
-            toStringOutput.Add($"this.Expiry = {(this.Expiry == null ? "null" : this.Expiry)}");
-            toStringOutput.Add($"this.Cryptogram = {(this.Cryptogram == null ? "null" : this.Cryptogram)}");
-            toStringOutput.Add($"this.EciFlag = {(this.EciFlag == null ? "null" : this.EciFlag.ToString())}");
-            toStringOutput.Add($"this.TokenRequestorId = {(this.TokenRequestorId == null ? "null" : this.TokenRequestorId)}");
+            toStringOutput.Add($"Number = {this.Number ?? "null"}");
+            toStringOutput.Add($"Expiry = {this.Expiry ?? "null"}");
+            toStringOutput.Add($"Cryptogram = {this.Cryptogram ?? "null"}");
+            toStringOutput.Add($"EciFlag = {(this.EciFlag == null ? "null" : this.EciFlag.ToString())}");
+            toStringOutput.Add($"TokenRequestorId = {this.TokenRequestorId ?? "null"}");
         }
     }
 }

@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"RelatedIdentifiers : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is RelatedIdentifiers other &&                ((this.OrderId == null && other.OrderId == null) || (this.OrderId?.Equals(other.OrderId) == true)) &&
-                ((this.AuthorizationId == null && other.AuthorizationId == null) || (this.AuthorizationId?.Equals(other.AuthorizationId) == true)) &&
-                ((this.CaptureId == null && other.CaptureId == null) || (this.CaptureId?.Equals(other.CaptureId) == true));
+            return obj is RelatedIdentifiers other &&
+                (this.OrderId == null && other.OrderId == null ||
+                 this.OrderId?.Equals(other.OrderId) == true) &&
+                (this.AuthorizationId == null && other.AuthorizationId == null ||
+                 this.AuthorizationId?.Equals(other.AuthorizationId) == true) &&
+                (this.CaptureId == null && other.CaptureId == null ||
+                 this.CaptureId?.Equals(other.CaptureId) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.OrderId = {(this.OrderId == null ? "null" : this.OrderId)}");
-            toStringOutput.Add($"this.AuthorizationId = {(this.AuthorizationId == null ? "null" : this.AuthorizationId)}");
-            toStringOutput.Add($"this.CaptureId = {(this.CaptureId == null ? "null" : this.CaptureId)}");
+            toStringOutput.Add($"OrderId = {this.OrderId ?? "null"}");
+            toStringOutput.Add($"AuthorizationId = {this.AuthorizationId ?? "null"}");
+            toStringOutput.Add($"CaptureId = {this.CaptureId ?? "null"}");
         }
     }
 }
