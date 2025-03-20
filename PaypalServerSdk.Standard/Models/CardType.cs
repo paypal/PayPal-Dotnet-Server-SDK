@@ -20,30 +20,35 @@ namespace PaypalServerSdk.Standard.Models
     public enum CardType
     {
         /// <summary>
+        ///A credit card.
         /// Credit.
         /// </summary>
         [EnumMember(Value = "CREDIT")]
         Credit,
 
         /// <summary>
+        ///A debit card.
         /// Debit.
         /// </summary>
         [EnumMember(Value = "DEBIT")]
         Debit,
 
         /// <summary>
+        ///A Prepaid card.
         /// Prepaid.
         /// </summary>
         [EnumMember(Value = "PREPAID")]
         Prepaid,
 
         /// <summary>
+        ///A store card.
         /// Store.
         /// </summary>
         [EnumMember(Value = "STORE")]
         Store,
 
         /// <summary>
+        ///Card type cannot be determined.
         /// Unknown.
         /// </summary>
         [EnumMember(Value = "UNKNOWN")]

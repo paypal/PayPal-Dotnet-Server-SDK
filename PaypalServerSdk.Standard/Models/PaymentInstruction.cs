@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentInstruction : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentInstruction other &&                ((this.PlatformFees == null && other.PlatformFees == null) || (this.PlatformFees?.Equals(other.PlatformFees) == true)) &&
-                ((this.DisbursementMode == null && other.DisbursementMode == null) || (this.DisbursementMode?.Equals(other.DisbursementMode) == true)) &&
-                ((this.PayeePricingTierId == null && other.PayeePricingTierId == null) || (this.PayeePricingTierId?.Equals(other.PayeePricingTierId) == true)) &&
-                ((this.PayeeReceivableFxRateId == null && other.PayeeReceivableFxRateId == null) || (this.PayeeReceivableFxRateId?.Equals(other.PayeeReceivableFxRateId) == true));
+            return obj is PaymentInstruction other &&
+                (this.PlatformFees == null && other.PlatformFees == null ||
+                 this.PlatformFees?.Equals(other.PlatformFees) == true) &&
+                (this.DisbursementMode == null && other.DisbursementMode == null ||
+                 this.DisbursementMode?.Equals(other.DisbursementMode) == true) &&
+                (this.PayeePricingTierId == null && other.PayeePricingTierId == null ||
+                 this.PayeePricingTierId?.Equals(other.PayeePricingTierId) == true) &&
+                (this.PayeeReceivableFxRateId == null && other.PayeeReceivableFxRateId == null ||
+                 this.PayeeReceivableFxRateId?.Equals(other.PayeeReceivableFxRateId) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
-            toStringOutput.Add($"this.DisbursementMode = {(this.DisbursementMode == null ? "null" : this.DisbursementMode.ToString())}");
-            toStringOutput.Add($"this.PayeePricingTierId = {(this.PayeePricingTierId == null ? "null" : this.PayeePricingTierId)}");
-            toStringOutput.Add($"this.PayeeReceivableFxRateId = {(this.PayeeReceivableFxRateId == null ? "null" : this.PayeeReceivableFxRateId)}");
+            toStringOutput.Add($"PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
+            toStringOutput.Add($"DisbursementMode = {(this.DisbursementMode == null ? "null" : this.DisbursementMode.ToString())}");
+            toStringOutput.Add($"PayeePricingTierId = {this.PayeePricingTierId ?? "null"}");
+            toStringOutput.Add($"PayeeReceivableFxRateId = {this.PayeeReceivableFxRateId ?? "null"}");
         }
     }
 }

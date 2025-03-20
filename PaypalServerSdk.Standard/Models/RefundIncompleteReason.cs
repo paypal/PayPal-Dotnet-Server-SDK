@@ -20,6 +20,7 @@ namespace PaypalServerSdk.Standard.Models
     public enum RefundIncompleteReason
     {
         /// <summary>
+        ///The customer's account is funded through an eCheck, which has not yet cleared.
         /// Echeck.
         /// </summary>
         [EnumMember(Value = "ECHECK")]

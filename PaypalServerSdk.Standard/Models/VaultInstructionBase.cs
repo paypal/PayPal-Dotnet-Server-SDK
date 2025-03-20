@@ -48,34 +48,28 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VaultInstructionBase : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VaultInstructionBase other &&                ((this.StoreInVault == null && other.StoreInVault == null) || (this.StoreInVault?.Equals(other.StoreInVault) == true));
+            return obj is VaultInstructionBase other &&
+                (this.StoreInVault == null && other.StoreInVault == null ||
+                 this.StoreInVault?.Equals(other.StoreInVault) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.StoreInVault = {(this.StoreInVault == null ? "null" : this.StoreInVault.ToString())}");
+            toStringOutput.Add($"StoreInVault = {(this.StoreInVault == null ? "null" : this.StoreInVault.ToString())}");
         }
     }
 }

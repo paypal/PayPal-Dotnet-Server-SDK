@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Level2CardProcessingData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Level2CardProcessingData other &&                ((this.InvoiceId == null && other.InvoiceId == null) || (this.InvoiceId?.Equals(other.InvoiceId) == true)) &&
-                ((this.TaxTotal == null && other.TaxTotal == null) || (this.TaxTotal?.Equals(other.TaxTotal) == true));
+            return obj is Level2CardProcessingData other &&
+                (this.InvoiceId == null && other.InvoiceId == null ||
+                 this.InvoiceId?.Equals(other.InvoiceId) == true) &&
+                (this.TaxTotal == null && other.TaxTotal == null ||
+                 this.TaxTotal?.Equals(other.TaxTotal) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.InvoiceId = {(this.InvoiceId == null ? "null" : this.InvoiceId)}");
-            toStringOutput.Add($"this.TaxTotal = {(this.TaxTotal == null ? "null" : this.TaxTotal.ToString())}");
+            toStringOutput.Add($"InvoiceId = {this.InvoiceId ?? "null"}");
+            toStringOutput.Add($"TaxTotal = {(this.TaxTotal == null ? "null" : this.TaxTotal.ToString())}");
         }
     }
 }

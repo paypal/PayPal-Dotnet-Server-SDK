@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardAttributes : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardAttributes other &&                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
-                ((this.Vault == null && other.Vault == null) || (this.Vault?.Equals(other.Vault) == true)) &&
-                ((this.Verification == null && other.Verification == null) || (this.Verification?.Equals(other.Verification) == true));
+            return obj is CardAttributes other &&
+                (this.Customer == null && other.Customer == null ||
+                 this.Customer?.Equals(other.Customer) == true) &&
+                (this.Vault == null && other.Vault == null ||
+                 this.Vault?.Equals(other.Vault) == true) &&
+                (this.Verification == null && other.Verification == null ||
+                 this.Verification?.Equals(other.Verification) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
-            toStringOutput.Add($"this.Vault = {(this.Vault == null ? "null" : this.Vault.ToString())}");
-            toStringOutput.Add($"this.Verification = {(this.Verification == null ? "null" : this.Verification.ToString())}");
+            toStringOutput.Add($"Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
+            toStringOutput.Add($"Vault = {(this.Vault == null ? "null" : this.Vault.ToString())}");
+            toStringOutput.Add($"Verification = {(this.Verification == null ? "null" : this.Verification.ToString())}");
         }
     }
 }

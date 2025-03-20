@@ -57,13 +57,13 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// Transaction Identifier as given by the network to indicate a previously executed CIT authorization. Only present when authorization is successful for a verification.
+        /// DEPRECATED. This field is DEPRECATED. Please find the network transaction id data in the 'id' field under the 'network_transaction_reference' object instead of the 'verification' object.
         /// </summary>
         [JsonProperty("network_transaction_id", NullValueHandling = NullValueHandling.Ignore)]
         public string NetworkTransactionId { get; set; }
 
         /// <summary>
-        /// The date that the transaction was authorized by the scheme. This field may not be returned for all networks. MasterCard refers to this field as "BankNet reference date".
+        /// DEPRECATED. This field is DEPRECATED. Please find the date data in the 'date' field under the 'network_transaction_reference' object instead of the 'verification' object.
         /// </summary>
         [JsonProperty("date", NullValueHandling = NullValueHandling.Ignore)]
         public string Date { get; set; }
@@ -75,7 +75,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.CardBrand? Network { get; set; }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("time", NullValueHandling = NullValueHandling.Ignore)]
         public string Time { get; set; }
@@ -93,7 +93,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.CardVerificationProcessorResponse ProcessorResponse { get; set; }
 
         /// <summary>
-        /// DEPRECATED. This field is DEPRECATED. Please find the 3D secure authentication data in 'three_d_secure' object under 'authentication_result' object instead of the 'verification' field.
+        /// DEPRECATED. This field is DEPRECATED. Please find the 3D secure authentication data in the 'three_d_secure' object under the 'authentication_result' object instead of the 'verification' object.
         /// </summary>
         [JsonProperty("three_d_secure", NullValueHandling = NullValueHandling.Ignore)]
         public JsonValue ThreeDSecure { get; set; }
@@ -102,45 +102,45 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardVerificationDetails : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardVerificationDetails other &&                ((this.NetworkTransactionId == null && other.NetworkTransactionId == null) || (this.NetworkTransactionId?.Equals(other.NetworkTransactionId) == true)) &&
-                ((this.Date == null && other.Date == null) || (this.Date?.Equals(other.Date) == true)) &&
-                ((this.Network == null && other.Network == null) || (this.Network?.Equals(other.Network) == true)) &&
-                ((this.Time == null && other.Time == null) || (this.Time?.Equals(other.Time) == true)) &&
-                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true)) &&
-                ((this.ProcessorResponse == null && other.ProcessorResponse == null) || (this.ProcessorResponse?.Equals(other.ProcessorResponse) == true)) &&
-                ((this.ThreeDSecure == null && other.ThreeDSecure == null) || (this.ThreeDSecure?.Equals(other.ThreeDSecure) == true));
+            return obj is CardVerificationDetails other &&
+                (this.NetworkTransactionId == null && other.NetworkTransactionId == null ||
+                 this.NetworkTransactionId?.Equals(other.NetworkTransactionId) == true) &&
+                (this.Date == null && other.Date == null ||
+                 this.Date?.Equals(other.Date) == true) &&
+                (this.Network == null && other.Network == null ||
+                 this.Network?.Equals(other.Network) == true) &&
+                (this.Time == null && other.Time == null ||
+                 this.Time?.Equals(other.Time) == true) &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true) &&
+                (this.ProcessorResponse == null && other.ProcessorResponse == null ||
+                 this.ProcessorResponse?.Equals(other.ProcessorResponse) == true) &&
+                (this.ThreeDSecure == null && other.ThreeDSecure == null ||
+                 this.ThreeDSecure?.Equals(other.ThreeDSecure) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.NetworkTransactionId = {(this.NetworkTransactionId == null ? "null" : this.NetworkTransactionId)}");
-            toStringOutput.Add($"this.Date = {(this.Date == null ? "null" : this.Date)}");
-            toStringOutput.Add($"this.Network = {(this.Network == null ? "null" : this.Network.ToString())}");
-            toStringOutput.Add($"this.Time = {(this.Time == null ? "null" : this.Time)}");
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
-            toStringOutput.Add($"this.ProcessorResponse = {(this.ProcessorResponse == null ? "null" : this.ProcessorResponse.ToString())}");
+            toStringOutput.Add($"NetworkTransactionId = {this.NetworkTransactionId ?? "null"}");
+            toStringOutput.Add($"Date = {this.Date ?? "null"}");
+            toStringOutput.Add($"Network = {(this.Network == null ? "null" : this.Network.ToString())}");
+            toStringOutput.Add($"Time = {this.Time ?? "null"}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"ProcessorResponse = {(this.ProcessorResponse == null ? "null" : this.ProcessorResponse.ToString())}");
             toStringOutput.Add($"ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
         }
     }

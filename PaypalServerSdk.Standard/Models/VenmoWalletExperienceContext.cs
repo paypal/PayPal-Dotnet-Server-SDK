@@ -33,12 +33,15 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="brandName">brand_name.</param>
         /// <param name="shippingPreference">shipping_preference.</param>
+        /// <param name="orderUpdateCallbackConfig">order_update_callback_config.</param>
         public VenmoWalletExperienceContext(
             string brandName = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile)
+            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile,
+            Models.CallbackConfiguration orderUpdateCallbackConfig = null)
         {
             this.BrandName = brandName;
             this.ShippingPreference = shippingPreference;
+            this.OrderUpdateCallbackConfig = orderUpdateCallbackConfig;
         }
 
         /// <summary>
@@ -53,40 +56,44 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ShippingPreference? ShippingPreference { get; set; }
 
+        /// <summary>
+        /// CallBack Configuration that the merchant can provide to PayPal/Venmo.
+        /// </summary>
+        [JsonProperty("order_update_callback_config", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.CallbackConfiguration OrderUpdateCallbackConfig { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VenmoWalletExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VenmoWalletExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true));
+            return obj is VenmoWalletExperienceContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.ShippingPreference == null && other.ShippingPreference == null ||
+                 this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.OrderUpdateCallbackConfig == null && other.OrderUpdateCallbackConfig == null ||
+                 this.OrderUpdateCallbackConfig?.Equals(other.OrderUpdateCallbackConfig) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"OrderUpdateCallbackConfig = {(this.OrderUpdateCallbackConfig == null ? "null" : this.OrderUpdateCallbackConfig.ToString())}");
         }
     }
 }

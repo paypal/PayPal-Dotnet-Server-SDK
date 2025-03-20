@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"BlikOneClickPaymentRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is BlikOneClickPaymentRequest other &&                ((this.AuthCode == null && other.AuthCode == null) || (this.AuthCode?.Equals(other.AuthCode) == true)) &&
-                ((this.ConsumerReference == null && other.ConsumerReference == null) || (this.ConsumerReference?.Equals(other.ConsumerReference) == true)) &&
-                ((this.AliasLabel == null && other.AliasLabel == null) || (this.AliasLabel?.Equals(other.AliasLabel) == true)) &&
-                ((this.AliasKey == null && other.AliasKey == null) || (this.AliasKey?.Equals(other.AliasKey) == true));
+            return obj is BlikOneClickPaymentRequest other &&
+                (this.AuthCode == null && other.AuthCode == null ||
+                 this.AuthCode?.Equals(other.AuthCode) == true) &&
+                (this.ConsumerReference == null && other.ConsumerReference == null ||
+                 this.ConsumerReference?.Equals(other.ConsumerReference) == true) &&
+                (this.AliasLabel == null && other.AliasLabel == null ||
+                 this.AliasLabel?.Equals(other.AliasLabel) == true) &&
+                (this.AliasKey == null && other.AliasKey == null ||
+                 this.AliasKey?.Equals(other.AliasKey) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.AuthCode = {(this.AuthCode == null ? "null" : this.AuthCode)}");
-            toStringOutput.Add($"this.ConsumerReference = {(this.ConsumerReference == null ? "null" : this.ConsumerReference)}");
-            toStringOutput.Add($"this.AliasLabel = {(this.AliasLabel == null ? "null" : this.AliasLabel)}");
-            toStringOutput.Add($"this.AliasKey = {(this.AliasKey == null ? "null" : this.AliasKey)}");
+            toStringOutput.Add($"AuthCode = {this.AuthCode ?? "null"}");
+            toStringOutput.Add($"ConsumerReference = {this.ConsumerReference ?? "null"}");
+            toStringOutput.Add($"AliasLabel = {this.AliasLabel ?? "null"}");
+            toStringOutput.Add($"AliasKey = {this.AliasKey ?? "null"}");
         }
     }
 }

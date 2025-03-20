@@ -102,46 +102,46 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"AmountBreakdown : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is AmountBreakdown other &&                ((this.ItemTotal == null && other.ItemTotal == null) || (this.ItemTotal?.Equals(other.ItemTotal) == true)) &&
-                ((this.Shipping == null && other.Shipping == null) || (this.Shipping?.Equals(other.Shipping) == true)) &&
-                ((this.Handling == null && other.Handling == null) || (this.Handling?.Equals(other.Handling) == true)) &&
-                ((this.TaxTotal == null && other.TaxTotal == null) || (this.TaxTotal?.Equals(other.TaxTotal) == true)) &&
-                ((this.Insurance == null && other.Insurance == null) || (this.Insurance?.Equals(other.Insurance) == true)) &&
-                ((this.ShippingDiscount == null && other.ShippingDiscount == null) || (this.ShippingDiscount?.Equals(other.ShippingDiscount) == true)) &&
-                ((this.Discount == null && other.Discount == null) || (this.Discount?.Equals(other.Discount) == true));
+            return obj is AmountBreakdown other &&
+                (this.ItemTotal == null && other.ItemTotal == null ||
+                 this.ItemTotal?.Equals(other.ItemTotal) == true) &&
+                (this.Shipping == null && other.Shipping == null ||
+                 this.Shipping?.Equals(other.Shipping) == true) &&
+                (this.Handling == null && other.Handling == null ||
+                 this.Handling?.Equals(other.Handling) == true) &&
+                (this.TaxTotal == null && other.TaxTotal == null ||
+                 this.TaxTotal?.Equals(other.TaxTotal) == true) &&
+                (this.Insurance == null && other.Insurance == null ||
+                 this.Insurance?.Equals(other.Insurance) == true) &&
+                (this.ShippingDiscount == null && other.ShippingDiscount == null ||
+                 this.ShippingDiscount?.Equals(other.ShippingDiscount) == true) &&
+                (this.Discount == null && other.Discount == null ||
+                 this.Discount?.Equals(other.Discount) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.ItemTotal = {(this.ItemTotal == null ? "null" : this.ItemTotal.ToString())}");
-            toStringOutput.Add($"this.Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
-            toStringOutput.Add($"this.Handling = {(this.Handling == null ? "null" : this.Handling.ToString())}");
-            toStringOutput.Add($"this.TaxTotal = {(this.TaxTotal == null ? "null" : this.TaxTotal.ToString())}");
-            toStringOutput.Add($"this.Insurance = {(this.Insurance == null ? "null" : this.Insurance.ToString())}");
-            toStringOutput.Add($"this.ShippingDiscount = {(this.ShippingDiscount == null ? "null" : this.ShippingDiscount.ToString())}");
-            toStringOutput.Add($"this.Discount = {(this.Discount == null ? "null" : this.Discount.ToString())}");
+            toStringOutput.Add($"ItemTotal = {(this.ItemTotal == null ? "null" : this.ItemTotal.ToString())}");
+            toStringOutput.Add($"Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
+            toStringOutput.Add($"Handling = {(this.Handling == null ? "null" : this.Handling.ToString())}");
+            toStringOutput.Add($"TaxTotal = {(this.TaxTotal == null ? "null" : this.TaxTotal.ToString())}");
+            toStringOutput.Add($"Insurance = {(this.Insurance == null ? "null" : this.Insurance.ToString())}");
+            toStringOutput.Add($"ShippingDiscount = {(this.ShippingDiscount == null ? "null" : this.ShippingDiscount.ToString())}");
+            toStringOutput.Add($"Discount = {(this.Discount == null ? "null" : this.Discount.ToString())}");
         }
     }
 }

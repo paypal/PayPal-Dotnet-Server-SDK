@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"NetworkTransactionReference : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is NetworkTransactionReference other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Date == null && other.Date == null) || (this.Date?.Equals(other.Date) == true)) &&
-                ((this.Network == null && other.Network == null) || (this.Network?.Equals(other.Network) == true)) &&
-                ((this.AcquirerReferenceNumber == null && other.AcquirerReferenceNumber == null) || (this.AcquirerReferenceNumber?.Equals(other.AcquirerReferenceNumber) == true));
+            return obj is NetworkTransactionReference other &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Date == null && other.Date == null ||
+                 this.Date?.Equals(other.Date) == true) &&
+                (this.Network == null && other.Network == null ||
+                 this.Network?.Equals(other.Network) == true) &&
+                (this.AcquirerReferenceNumber == null && other.AcquirerReferenceNumber == null ||
+                 this.AcquirerReferenceNumber?.Equals(other.AcquirerReferenceNumber) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Date = {(this.Date == null ? "null" : this.Date)}");
-            toStringOutput.Add($"this.Network = {(this.Network == null ? "null" : this.Network.ToString())}");
-            toStringOutput.Add($"this.AcquirerReferenceNumber = {(this.AcquirerReferenceNumber == null ? "null" : this.AcquirerReferenceNumber)}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Date = {this.Date ?? "null"}");
+            toStringOutput.Add($"Network = {(this.Network == null ? "null" : this.Network.ToString())}");
+            toStringOutput.Add($"AcquirerReferenceNumber = {this.AcquirerReferenceNumber ?? "null"}");
         }
     }
 }

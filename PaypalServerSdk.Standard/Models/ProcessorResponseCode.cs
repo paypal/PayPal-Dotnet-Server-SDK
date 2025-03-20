@@ -20,928 +20,1082 @@ namespace PaypalServerSdk.Standard.Models
     public enum ProcessorResponseCode
     {
         /// <summary>
-        /// Enum0000.
+        ///APPROVED.
+        /// Response0000.
         /// </summary>
         [EnumMember(Value = "0000")]
-        Enum0000,
+        Response0000,
 
         /// <summary>
-        /// Enum00N7.
+        ///CVV2_FAILURE_POSSIBLE_RETRY_WITH_CVV.
+        /// Response00N7.
         /// </summary>
         [EnumMember(Value = "00N7")]
-        Enum00N7,
+        Response00N7,
 
         /// <summary>
-        /// Enum0100.
+        ///REFERRAL.
+        /// Response0100.
         /// </summary>
         [EnumMember(Value = "0100")]
-        Enum0100,
+        Response0100,
 
         /// <summary>
-        /// Enum0390.
+        ///ACCOUNT_NOT_FOUND.
+        /// Response0390.
         /// </summary>
         [EnumMember(Value = "0390")]
-        Enum0390,
+        Response0390,
 
         /// <summary>
-        /// Enum0500.
+        ///DO_NOT_HONOR.
+        /// Response0500.
         /// </summary>
         [EnumMember(Value = "0500")]
-        Enum0500,
+        Response0500,
 
         /// <summary>
-        /// Enum0580.
+        ///UNAUTHORIZED_TRANSACTION.
+        /// Response0580.
         /// </summary>
         [EnumMember(Value = "0580")]
-        Enum0580,
+        Response0580,
 
         /// <summary>
-        /// Enum0800.
+        ///BAD_RESPONSE_REVERSAL_REQUIRED.
+        /// Response0800.
         /// </summary>
         [EnumMember(Value = "0800")]
-        Enum0800,
+        Response0800,
 
         /// <summary>
-        /// Enum0880.
+        ///CRYPTOGRAPHIC_FAILURE.
+        /// Response0880.
         /// </summary>
         [EnumMember(Value = "0880")]
-        Enum0880,
+        Response0880,
 
         /// <summary>
-        /// Enum0890.
+        ///UNACCEPTABLE_PIN.
+        /// Response0890.
         /// </summary>
         [EnumMember(Value = "0890")]
-        Enum0890,
+        Response0890,
 
         /// <summary>
-        /// Enum0960.
+        ///SYSTEM_MALFUNCTION.
+        /// Response0960.
         /// </summary>
         [EnumMember(Value = "0960")]
-        Enum0960,
+        Response0960,
 
         /// <summary>
-        /// Enum0R00.
+        ///CANCELLED_PAYMENT.
+        /// Response0R00.
         /// </summary>
         [EnumMember(Value = "0R00")]
-        Enum0R00,
+        Response0R00,
 
         /// <summary>
-        /// Enum1000.
+        ///PARTIAL_AUTHORIZATION.
+        /// Response1000.
         /// </summary>
         [EnumMember(Value = "1000")]
-        Enum1000,
+        Response1000,
 
         /// <summary>
-        /// Enum10Br.
+        ///ISSUER_REJECTED.
+        /// Response10Br.
         /// </summary>
         [EnumMember(Value = "10BR")]
-        Enum10Br,
+        Response10Br,
 
         /// <summary>
-        /// Enum1300.
+        ///INVALID_DATA_FORMAT.
+        /// Response1300.
         /// </summary>
         [EnumMember(Value = "1300")]
-        Enum1300,
+        Response1300,
 
         /// <summary>
-        /// Enum1310.
+        ///INVALID_AMOUNT.
+        /// Response1310.
         /// </summary>
         [EnumMember(Value = "1310")]
-        Enum1310,
+        Response1310,
 
         /// <summary>
-        /// Enum1312.
+        ///INVALID_TRANSACTION_CARD_ISSUER_ACQUIRER.
+        /// Response1312.
         /// </summary>
         [EnumMember(Value = "1312")]
-        Enum1312,
+        Response1312,
 
         /// <summary>
-        /// Enum1317.
+        ///INVALID_CAPTURE_DATE.
+        /// Response1317.
         /// </summary>
         [EnumMember(Value = "1317")]
-        Enum1317,
+        Response1317,
 
         /// <summary>
-        /// Enum1320.
+        ///INVALID_CURRENCY_CODE.
+        /// Response1320.
         /// </summary>
         [EnumMember(Value = "1320")]
-        Enum1320,
+        Response1320,
 
         /// <summary>
-        /// Enum1330.
+        ///INVALID_ACCOUNT.
+        /// Response1330.
         /// </summary>
         [EnumMember(Value = "1330")]
-        Enum1330,
+        Response1330,
 
         /// <summary>
-        /// Enum1335.
+        ///INVALID_ACCOUNT_RECURRING.
+        /// Response1335.
         /// </summary>
         [EnumMember(Value = "1335")]
-        Enum1335,
+        Response1335,
 
         /// <summary>
-        /// Enum1340.
+        ///INVALID_TERMINAL.
+        /// Response1340.
         /// </summary>
         [EnumMember(Value = "1340")]
-        Enum1340,
+        Response1340,
 
         /// <summary>
-        /// Enum1350.
+        ///INVALID_MERCHANT.
+        /// Response1350.
         /// </summary>
         [EnumMember(Value = "1350")]
-        Enum1350,
+        Response1350,
 
         /// <summary>
-        /// Enum1352.
+        ///RESTRICTED_OR_INACTIVE_ACCOUNT.
+        /// Response1352.
         /// </summary>
         [EnumMember(Value = "1352")]
-        Enum1352,
+        Response1352,
 
         /// <summary>
-        /// Enum1360.
+        ///BAD_PROCESSING_CODE.
+        /// Response1360.
         /// </summary>
         [EnumMember(Value = "1360")]
-        Enum1360,
+        Response1360,
 
         /// <summary>
-        /// Enum1370.
+        ///INVALID_MCC.
+        /// Response1370.
         /// </summary>
         [EnumMember(Value = "1370")]
-        Enum1370,
+        Response1370,
 
         /// <summary>
-        /// Enum1380.
+        ///INVALID_EXPIRATION.
+        /// Response1380.
         /// </summary>
         [EnumMember(Value = "1380")]
-        Enum1380,
+        Response1380,
 
         /// <summary>
-        /// Enum1382.
+        ///INVALID_CARD_VERIFICATION_VALUE.
+        /// Response1382.
         /// </summary>
         [EnumMember(Value = "1382")]
-        Enum1382,
+        Response1382,
 
         /// <summary>
-        /// Enum1384.
+        ///INVALID_LIFE_CYCLE_OF_TRANSACTION.
+        /// Response1384.
         /// </summary>
         [EnumMember(Value = "1384")]
-        Enum1384,
+        Response1384,
 
         /// <summary>
-        /// Enum1390.
+        ///INVALID_ORDER.
+        /// Response1390.
         /// </summary>
         [EnumMember(Value = "1390")]
-        Enum1390,
+        Response1390,
 
         /// <summary>
-        /// Enum1393.
+        ///TRANSACTION_CANNOT_BE_COMPLETED.
+        /// Response1393.
         /// </summary>
         [EnumMember(Value = "1393")]
-        Enum1393,
+        Response1393,
 
         /// <summary>
-        /// Enum5100.
+        ///GENERIC_DECLINE.
+        /// Response5100.
         /// </summary>
         [EnumMember(Value = "5100")]
-        Enum5100,
+        Response5100,
 
         /// <summary>
-        /// Enum5110.
+        ///CVV2_FAILURE.
+        /// Response5110.
         /// </summary>
         [EnumMember(Value = "5110")]
-        Enum5110,
+        Response5110,
 
         /// <summary>
-        /// Enum5120.
+        ///INSUFFICIENT_FUNDS.
+        /// Response5120.
         /// </summary>
         [EnumMember(Value = "5120")]
-        Enum5120,
+        Response5120,
 
         /// <summary>
-        /// Enum5130.
+        ///INVALID_PIN.
+        /// Response5130.
         /// </summary>
         [EnumMember(Value = "5130")]
-        Enum5130,
+        Response5130,
 
         /// <summary>
-        /// Enum5135.
+        ///DECLINED_PIN_TRY_EXCEEDED.
+        /// Response5135.
         /// </summary>
         [EnumMember(Value = "5135")]
-        Enum5135,
+        Response5135,
 
         /// <summary>
-        /// Enum5140.
+        ///CARD_CLOSED.
+        /// Response5140.
         /// </summary>
         [EnumMember(Value = "5140")]
-        Enum5140,
+        Response5140,
 
         /// <summary>
-        /// Enum5150.
+        ///PICKUP_CARD_SPECIAL_CONDITIONS. Try using another card. Do not retry the same card.
+        /// Response5150.
         /// </summary>
         [EnumMember(Value = "5150")]
-        Enum5150,
+        Response5150,
 
         /// <summary>
-        /// Enum5160.
+        ///UNAUTHORIZED_USER.
+        /// Response5160.
         /// </summary>
         [EnumMember(Value = "5160")]
-        Enum5160,
+        Response5160,
 
         /// <summary>
-        /// Enum5170.
+        ///AVS_FAILURE.
+        /// Response5170.
         /// </summary>
         [EnumMember(Value = "5170")]
-        Enum5170,
+        Response5170,
 
         /// <summary>
-        /// Enum5180.
+        ///INVALID_OR_RESTRICTED_CARD. Try using another card. Do not retry the same card.
+        /// Response5180.
         /// </summary>
         [EnumMember(Value = "5180")]
-        Enum5180,
+        Response5180,
 
         /// <summary>
-        /// Enum5190.
+        ///SOFT_AVS.
+        /// Response5190.
         /// </summary>
         [EnumMember(Value = "5190")]
-        Enum5190,
+        Response5190,
 
         /// <summary>
-        /// Enum5200.
+        ///DUPLICATE_TRANSACTION.
+        /// Response5200.
         /// </summary>
         [EnumMember(Value = "5200")]
-        Enum5200,
+        Response5200,
 
         /// <summary>
-        /// Enum5210.
+        ///INVALID_TRANSACTION.
+        /// Response5210.
         /// </summary>
         [EnumMember(Value = "5210")]
-        Enum5210,
+        Response5210,
 
         /// <summary>
-        /// Enum5400.
+        ///EXPIRED_CARD.
+        /// Response5400.
         /// </summary>
         [EnumMember(Value = "5400")]
-        Enum5400,
+        Response5400,
 
         /// <summary>
-        /// Enum5500.
+        ///INCORRECT_PIN_REENTER.
+        /// Response5500.
         /// </summary>
         [EnumMember(Value = "5500")]
-        Enum5500,
+        Response5500,
 
         /// <summary>
-        /// Enum5650.
+        ///DECLINED_SCA_REQUIRED.
+        /// Response5650.
         /// </summary>
         [EnumMember(Value = "5650")]
-        Enum5650,
+        Response5650,
 
         /// <summary>
-        /// Enum5700.
+        ///TRANSACTION_NOT_PERMITTED. Outside of scope of accepted business.
+        /// Response5700.
         /// </summary>
         [EnumMember(Value = "5700")]
-        Enum5700,
+        Response5700,
 
         /// <summary>
-        /// Enum5710.
+        ///TX_ATTEMPTS_EXCEED_LIMIT.
+        /// Response5710.
         /// </summary>
         [EnumMember(Value = "5710")]
-        Enum5710,
+        Response5710,
 
         /// <summary>
-        /// Enum5800.
+        ///REVERSAL_REJECTED.
+        /// Response5800.
         /// </summary>
         [EnumMember(Value = "5800")]
-        Enum5800,
+        Response5800,
 
         /// <summary>
-        /// Enum5900.
+        ///INVALID_ISSUE.
+        /// Response5900.
         /// </summary>
         [EnumMember(Value = "5900")]
-        Enum5900,
+        Response5900,
 
         /// <summary>
-        /// Enum5910.
+        ///ISSUER_NOT_AVAILABLE_NOT_RETRIABLE.
+        /// Response5910.
         /// </summary>
         [EnumMember(Value = "5910")]
-        Enum5910,
+        Response5910,
 
         /// <summary>
-        /// Enum5920.
+        ///ISSUER_NOT_AVAILABLE_RETRIABLE.
+        /// Response5920.
         /// </summary>
         [EnumMember(Value = "5920")]
-        Enum5920,
+        Response5920,
 
         /// <summary>
-        /// Enum5930.
+        ///CARD_NOT_ACTIVATED.
+        /// Response5930.
         /// </summary>
         [EnumMember(Value = "5930")]
-        Enum5930,
+        Response5930,
 
         /// <summary>
-        /// Enum5950.
+        ///DECLINED_DUE_TO_UPDATED_ACCOUNT. External decline as an updated card has been issued.
+        /// Response5950.
         /// </summary>
         [EnumMember(Value = "5950")]
-        Enum5950,
+        Response5950,
 
         /// <summary>
-        /// Enum6300.
+        ///ACCOUNT_NOT_ON_FILE.
+        /// Response6300.
         /// </summary>
         [EnumMember(Value = "6300")]
-        Enum6300,
+        Response6300,
 
         /// <summary>
-        /// Enum7600.
+        ///APPROVED_NON_CAPTURE.
+        /// Response7600.
         /// </summary>
         [EnumMember(Value = "7600")]
-        Enum7600,
+        Response7600,
 
         /// <summary>
-        /// Enum7700.
+        ///ERROR_3DS.
+        /// Response7700.
         /// </summary>
         [EnumMember(Value = "7700")]
-        Enum7700,
+        Response7700,
 
         /// <summary>
-        /// Enum7710.
+        ///AUTHENTICATION_FAILED.
+        /// Response7710.
         /// </summary>
         [EnumMember(Value = "7710")]
-        Enum7710,
+        Response7710,
 
         /// <summary>
-        /// Enum7800.
+        ///BIN_ERROR.
+        /// Response7800.
         /// </summary>
         [EnumMember(Value = "7800")]
-        Enum7800,
+        Response7800,
 
         /// <summary>
-        /// Enum7900.
+        ///PIN_ERROR.
+        /// Response7900.
         /// </summary>
         [EnumMember(Value = "7900")]
-        Enum7900,
+        Response7900,
 
         /// <summary>
-        /// Enum8000.
+        ///PROCESSOR_SYSTEM_ERROR.
+        /// Response8000.
         /// </summary>
         [EnumMember(Value = "8000")]
-        Enum8000,
+        Response8000,
 
         /// <summary>
-        /// Enum8010.
+        ///HOST_KEY_ERROR.
+        /// Response8010.
         /// </summary>
         [EnumMember(Value = "8010")]
-        Enum8010,
+        Response8010,
 
         /// <summary>
-        /// Enum8020.
+        ///CONFIGURATION_ERROR.
+        /// Response8020.
         /// </summary>
         [EnumMember(Value = "8020")]
-        Enum8020,
+        Response8020,
 
         /// <summary>
-        /// Enum8030.
+        ///UNSUPPORTED_OPERATION.
+        /// Response8030.
         /// </summary>
         [EnumMember(Value = "8030")]
-        Enum8030,
+        Response8030,
 
         /// <summary>
-        /// Enum8100.
+        ///FATAL_COMMUNICATION_ERROR.
+        /// Response8100.
         /// </summary>
         [EnumMember(Value = "8100")]
-        Enum8100,
+        Response8100,
 
         /// <summary>
-        /// Enum8110.
+        ///RETRIABLE_COMMUNICATION_ERROR.
+        /// Response8110.
         /// </summary>
         [EnumMember(Value = "8110")]
-        Enum8110,
+        Response8110,
 
         /// <summary>
-        /// Enum8220.
+        ///SYSTEM_UNAVAILABLE.
+        /// Response8220.
         /// </summary>
         [EnumMember(Value = "8220")]
-        Enum8220,
+        Response8220,
 
         /// <summary>
-        /// Enum9100.
+        ///DECLINED_PLEASE_RETRY. Retry.
+        /// Response9100.
         /// </summary>
         [EnumMember(Value = "9100")]
-        Enum9100,
+        Response9100,
 
         /// <summary>
-        /// Enum9500.
+        ///SUSPECTED_FRAUD. Try using another card. Do not retry the same card.
+        /// Response9500.
         /// </summary>
         [EnumMember(Value = "9500")]
-        Enum9500,
+        Response9500,
 
         /// <summary>
-        /// Enum9510.
+        ///SECURITY_VIOLATION.
+        /// Response9510.
         /// </summary>
         [EnumMember(Value = "9510")]
-        Enum9510,
+        Response9510,
 
         /// <summary>
-        /// Enum9520.
+        ///LOST_OR_STOLEN. Try using another card. Do not retry the same card.
+        /// Response9520.
         /// </summary>
         [EnumMember(Value = "9520")]
-        Enum9520,
+        Response9520,
 
         /// <summary>
-        /// Enum9530.
+        ///HOLD_CALL_CENTER. The merchant must call the number on the back of the card. POS scenario.
+        /// Response9530.
         /// </summary>
         [EnumMember(Value = "9530")]
-        Enum9530,
+        Response9530,
 
         /// <summary>
-        /// Enum9540.
+        ///REFUSED_CARD.
+        /// Response9540.
         /// </summary>
         [EnumMember(Value = "9540")]
-        Enum9540,
+        Response9540,
 
         /// <summary>
-        /// Enum9600.
+        ///UNRECOGNIZED_RESPONSE_CODE.
+        /// Response9600.
         /// </summary>
         [EnumMember(Value = "9600")]
-        Enum9600,
+        Response9600,
 
         /// <summary>
-        /// Pcnr.
+        ///CONTINGENCIES_NOT_RESOLVED.
+        /// ResponsePcnr.
         /// </summary>
         [EnumMember(Value = "PCNR")]
-        Pcnr,
+        ResponsePcnr,
 
         /// <summary>
-        /// Pcvv.
+        ///CVV_FAILURE.
+        /// ResponsePcvv.
         /// </summary>
         [EnumMember(Value = "PCVV")]
-        Pcvv,
+        ResponsePcvv,
 
         /// <summary>
-        /// Pp06.
+        ///ACCOUNT_CLOSED. A previously open account is now closed
+        /// ResponsePp06.
         /// </summary>
         [EnumMember(Value = "PP06")]
-        Pp06,
+        ResponsePp06,
 
         /// <summary>
-        /// Pprn.
+        ///REATTEMPT_NOT_PERMITTED.
+        /// ResponsePprn.
         /// </summary>
         [EnumMember(Value = "PPRN")]
-        Pprn,
+        ResponsePprn,
 
         /// <summary>
-        /// Ppad.
+        ///BILLING_ADDRESS.
+        /// ResponsePpad.
         /// </summary>
         [EnumMember(Value = "PPAD")]
-        Ppad,
+        ResponsePpad,
 
         /// <summary>
-        /// Ppab.
+        ///ACCOUNT_BLOCKED_BY_ISSUER.
+        /// ResponsePpab.
         /// </summary>
         [EnumMember(Value = "PPAB")]
-        Ppab,
+        ResponsePpab,
 
         /// <summary>
-        /// Ppae.
+        ///AMEX_DISABLED.
+        /// ResponsePpae.
         /// </summary>
         [EnumMember(Value = "PPAE")]
-        Ppae,
+        ResponsePpae,
 
         /// <summary>
-        /// Ppag.
+        ///ADULT_GAMING_UNSUPPORTED.
+        /// ResponsePpag.
         /// </summary>
         [EnumMember(Value = "PPAG")]
-        Ppag,
+        ResponsePpag,
 
         /// <summary>
-        /// Ppai.
+        ///AMOUNT_INCOMPATIBLE.
+        /// ResponsePpai.
         /// </summary>
         [EnumMember(Value = "PPAI")]
-        Ppai,
+        ResponsePpai,
 
         /// <summary>
-        /// Ppar.
+        ///AUTH_RESULT.
+        /// ResponsePpar.
         /// </summary>
         [EnumMember(Value = "PPAR")]
-        Ppar,
+        ResponsePpar,
 
         /// <summary>
-        /// Ppau.
+        ///MCC_CODE.
+        /// ResponsePpau.
         /// </summary>
         [EnumMember(Value = "PPAU")]
-        Ppau,
+        ResponsePpau,
 
         /// <summary>
-        /// Ppav.
+        ///ARC_AVS.
+        /// ResponsePpav.
         /// </summary>
         [EnumMember(Value = "PPAV")]
-        Ppav,
+        ResponsePpav,
 
         /// <summary>
-        /// Ppax.
+        ///AMOUNT_EXCEEDED.
+        /// ResponsePpax.
         /// </summary>
         [EnumMember(Value = "PPAX")]
-        Ppax,
+        ResponsePpax,
 
         /// <summary>
-        /// Ppbg.
+        ///BAD_GAMING.
+        /// ResponsePpbg.
         /// </summary>
         [EnumMember(Value = "PPBG")]
-        Ppbg,
+        ResponsePpbg,
 
         /// <summary>
-        /// Ppc2.
+        ///ARC_CVV.
+        /// ResponsePpc2.
         /// </summary>
         [EnumMember(Value = "PPC2")]
-        Ppc2,
+        ResponsePpc2,
 
         /// <summary>
-        /// Ppce.
+        ///CE_REGISTRATION_INCOMPLETE.
+        /// ResponsePpce.
         /// </summary>
         [EnumMember(Value = "PPCE")]
-        Ppce,
+        ResponsePpce,
 
         /// <summary>
-        /// Ppco.
+        ///COUNTRY.
+        /// ResponsePpco.
         /// </summary>
         [EnumMember(Value = "PPCO")]
-        Ppco,
+        ResponsePpco,
 
         /// <summary>
-        /// Ppcr.
+        ///CREDIT_ERROR.
+        /// ResponsePpcr.
         /// </summary>
         [EnumMember(Value = "PPCR")]
-        Ppcr,
+        ResponsePpcr,
 
         /// <summary>
-        /// Ppct.
+        ///CARD_TYPE_UNSUPPORTED.
+        /// ResponsePpct.
         /// </summary>
         [EnumMember(Value = "PPCT")]
-        Ppct,
+        ResponsePpct,
 
         /// <summary>
-        /// Ppcu.
+        ///CURRENCY_USED_INVALID.
+        /// ResponsePpcu.
         /// </summary>
         [EnumMember(Value = "PPCU")]
-        Ppcu,
+        ResponsePpcu,
 
         /// <summary>
-        /// Ppd3.
+        ///SECURE_ERROR_3DS.
+        /// ResponsePpd3.
         /// </summary>
         [EnumMember(Value = "PPD3")]
-        Ppd3,
+        ResponsePpd3,
 
         /// <summary>
-        /// Ppdc.
+        ///DCC_UNSUPPORTED.
+        /// ResponsePpdc.
         /// </summary>
         [EnumMember(Value = "PPDC")]
-        Ppdc,
+        ResponsePpdc,
 
         /// <summary>
-        /// Ppdi.
+        ///DINERS_REJECT.
+        /// ResponsePpdi.
         /// </summary>
         [EnumMember(Value = "PPDI")]
-        Ppdi,
+        ResponsePpdi,
 
         /// <summary>
-        /// Ppdv.
+        ///AUTH_MESSAGE.
+        /// ResponsePpdv.
         /// </summary>
         [EnumMember(Value = "PPDV")]
-        Ppdv,
+        ResponsePpdv,
 
         /// <summary>
-        /// Ppdt.
+        ///DECLINE_THRESHOLD_BREACH.
+        /// ResponsePpdt.
         /// </summary>
         [EnumMember(Value = "PPDT")]
-        Ppdt,
+        ResponsePpdt,
 
         /// <summary>
-        /// Ppef.
+        ///EXPIRED_FUNDING_INSTRUMENT.
+        /// ResponsePpef.
         /// </summary>
         [EnumMember(Value = "PPEF")]
-        Ppef,
+        ResponsePpef,
 
         /// <summary>
-        /// Ppel.
+        ///EXCEEDS_FREQUENCY_LIMIT.
+        /// ResponsePpel.
         /// </summary>
         [EnumMember(Value = "PPEL")]
-        Ppel,
+        ResponsePpel,
 
         /// <summary>
-        /// Pper.
+        ///INTERNAL_SYSTEM_ERROR.
+        /// ResponsePper.
         /// </summary>
         [EnumMember(Value = "PPER")]
-        Pper,
+        ResponsePper,
 
         /// <summary>
-        /// Ppex.
+        ///EXPIRY_DATE.
+        /// ResponsePpex.
         /// </summary>
         [EnumMember(Value = "PPEX")]
-        Ppex,
+        ResponsePpex,
 
         /// <summary>
-        /// Ppfe.
+        ///FUNDING_SOURCE_ALREADY_EXISTS.
+        /// ResponsePpfe.
         /// </summary>
         [EnumMember(Value = "PPFE")]
-        Ppfe,
+        ResponsePpfe,
 
         /// <summary>
-        /// Ppfi.
+        ///INVALID_FUNDING_INSTRUMENT.
+        /// ResponsePpfi.
         /// </summary>
         [EnumMember(Value = "PPFI")]
-        Ppfi,
+        ResponsePpfi,
 
         /// <summary>
-        /// Ppfr.
+        ///RESTRICTED_FUNDING_INSTRUMENT.
+        /// ResponsePpfr.
         /// </summary>
         [EnumMember(Value = "PPFR")]
-        Ppfr,
+        ResponsePpfr,
 
         /// <summary>
-        /// Ppfv.
+        ///FIELD_VALIDATION_FAILED.
+        /// ResponsePpfv.
         /// </summary>
         [EnumMember(Value = "PPFV")]
-        Ppfv,
+        ResponsePpfv,
 
         /// <summary>
-        /// Ppgr.
+        ///GAMING_REFUND_ERROR.
+        /// ResponsePpgr.
         /// </summary>
         [EnumMember(Value = "PPGR")]
-        Ppgr,
+        ResponsePpgr,
 
         /// <summary>
-        /// Pph1.
+        ///H1_ERROR.
+        /// ResponsePph1.
         /// </summary>
         [EnumMember(Value = "PPH1")]
-        Pph1,
+        ResponsePph1,
 
         /// <summary>
-        /// Ppif.
+        ///IDEMPOTENCY_FAILURE.
+        /// ResponsePpif.
         /// </summary>
         [EnumMember(Value = "PPIF")]
-        Ppif,
+        ResponsePpif,
 
         /// <summary>
-        /// Ppii.
+        ///INVALID_INPUT_FAILURE.
+        /// ResponsePpii.
         /// </summary>
         [EnumMember(Value = "PPII")]
-        Ppii,
+        ResponsePpii,
 
         /// <summary>
-        /// Ppim.
+        ///ID_MISMATCH.
+        /// ResponsePpim.
         /// </summary>
         [EnumMember(Value = "PPIM")]
-        Ppim,
+        ResponsePpim,
 
         /// <summary>
-        /// Ppit.
+        ///INVALID_TRACE_ID.
+        /// ResponsePpit.
         /// </summary>
         [EnumMember(Value = "PPIT")]
-        Ppit,
+        ResponsePpit,
 
         /// <summary>
-        /// Pplr.
+        ///LATE_REVERSAL.
+        /// ResponsePplr.
         /// </summary>
         [EnumMember(Value = "PPLR")]
-        Pplr,
+        ResponsePplr,
 
         /// <summary>
-        /// Ppls.
+        ///LARGE_STATUS_CODE.
+        /// ResponsePpls.
         /// </summary>
         [EnumMember(Value = "PPLS")]
-        Ppls,
+        ResponsePpls,
 
         /// <summary>
-        /// Ppmb.
+        ///MISSING_BUSINESS_RULE_OR_DATA.
+        /// ResponsePpmb.
         /// </summary>
         [EnumMember(Value = "PPMB")]
-        Ppmb,
+        ResponsePpmb,
 
         /// <summary>
-        /// Ppmc.
+        ///BLOCKED_Mastercard.
+        /// ResponsePpmc.
         /// </summary>
         [EnumMember(Value = "PPMC")]
-        Ppmc,
+        ResponsePpmc,
 
         /// <summary>
-        /// Ppmd.
+        ///DEPRECATED The PPMD value has been deprecated.
+        /// ResponsePpmd.
         /// </summary>
         [EnumMember(Value = "PPMD")]
-        Ppmd,
+        ResponsePpmd,
 
         /// <summary>
-        /// Ppnc.
+        ///NOT_SUPPORTED_NRC.
+        /// ResponsePpnc.
         /// </summary>
         [EnumMember(Value = "PPNC")]
-        Ppnc,
+        ResponsePpnc,
 
         /// <summary>
-        /// Ppnl.
+        ///EXCEEDS_NETWORK_FREQUENCY_LIMIT.
+        /// ResponsePpnl.
         /// </summary>
         [EnumMember(Value = "PPNL")]
-        Ppnl,
+        ResponsePpnl,
 
         /// <summary>
-        /// Ppnm.
+        ///NO_MID_FOUND.
+        /// ResponsePpnm.
         /// </summary>
         [EnumMember(Value = "PPNM")]
-        Ppnm,
+        ResponsePpnm,
 
         /// <summary>
-        /// Ppnt.
+        ///NETWORK_ERROR.
+        /// ResponsePpnt.
         /// </summary>
         [EnumMember(Value = "PPNT")]
-        Ppnt,
+        ResponsePpnt,
 
         /// <summary>
-        /// Ppph.
+        ///NO_PHONE_FOR_DCC_TRANSACTION.
+        /// ResponsePpph.
         /// </summary>
         [EnumMember(Value = "PPPH")]
-        Ppph,
+        ResponsePpph,
 
         /// <summary>
-        /// Pppi.
+        ///INVALID_PRODUCT.
+        /// ResponsePppi.
         /// </summary>
         [EnumMember(Value = "PPPI")]
-        Pppi,
+        ResponsePppi,
 
         /// <summary>
-        /// Pppm.
+        ///INVALID_PAYMENT_METHOD.
+        /// ResponsePppm.
         /// </summary>
         [EnumMember(Value = "PPPM")]
-        Pppm,
+        ResponsePppm,
 
         /// <summary>
-        /// Ppqc.
+        ///QUASI_CASH_UNSUPPORTED.
+        /// ResponsePpqc.
         /// </summary>
         [EnumMember(Value = "PPQC")]
-        Ppqc,
+        ResponsePpqc,
 
         /// <summary>
-        /// Ppre.
+        ///UNSUPPORT_REFUND_ON_PENDING_BC.
+        /// ResponsePpre.
         /// </summary>
         [EnumMember(Value = "PPRE")]
-        Ppre,
+        ResponsePpre,
 
         /// <summary>
-        /// Pprf.
+        ///INVALID_PARENT_TRANSACTION_STATUS.
+        /// ResponsePprf.
         /// </summary>
         [EnumMember(Value = "PPRF")]
-        Pprf,
+        ResponsePprf,
 
         /// <summary>
-        /// Pprr.
+        ///MERCHANT_NOT_REGISTERED.
+        /// ResponsePprr.
         /// </summary>
         [EnumMember(Value = "PPRR")]
-        Pprr,
+        ResponsePprr,
 
         /// <summary>
-        /// Pps0.
+        ///BANKAUTH_ROW_MISMATCH.
+        /// ResponsePps0.
         /// </summary>
         [EnumMember(Value = "PPS0")]
-        Pps0,
+        ResponsePps0,
 
         /// <summary>
-        /// Pps1.
+        ///BANKAUTH_ROW_SETTLED.
+        /// ResponsePps1.
         /// </summary>
         [EnumMember(Value = "PPS1")]
-        Pps1,
+        ResponsePps1,
 
         /// <summary>
-        /// Pps2.
+        ///BANKAUTH_ROW_VOIDED.
+        /// ResponsePps2.
         /// </summary>
         [EnumMember(Value = "PPS2")]
-        Pps2,
+        ResponsePps2,
 
         /// <summary>
-        /// Pps3.
+        ///BANKAUTH_EXPIRED.
+        /// ResponsePps3.
         /// </summary>
         [EnumMember(Value = "PPS3")]
-        Pps3,
+        ResponsePps3,
 
         /// <summary>
-        /// Pps4.
+        ///CURRENCY_MISMATCH.
+        /// ResponsePps4.
         /// </summary>
         [EnumMember(Value = "PPS4")]
-        Pps4,
+        ResponsePps4,
 
         /// <summary>
-        /// Pps5.
+        ///CREDITCARD_MISMATCH.
+        /// ResponsePps5.
         /// </summary>
         [EnumMember(Value = "PPS5")]
-        Pps5,
+        ResponsePps5,
 
         /// <summary>
-        /// Pps6.
+        ///AMOUNT_MISMATCH.
+        /// ResponsePps6.
         /// </summary>
         [EnumMember(Value = "PPS6")]
-        Pps6,
+        ResponsePps6,
 
         /// <summary>
-        /// Ppsc.
+        ///ARC_SCORE.
+        /// ResponsePpsc.
         /// </summary>
         [EnumMember(Value = "PPSC")]
-        Ppsc,
+        ResponsePpsc,
 
         /// <summary>
-        /// Ppsd.
+        ///STATUS_DESCRIPTION.
+        /// ResponsePpsd.
         /// </summary>
         [EnumMember(Value = "PPSD")]
-        Ppsd,
+        ResponsePpsd,
 
         /// <summary>
-        /// Ppse.
+        ///AMEX_DENIED.
+        /// ResponsePpse.
         /// </summary>
         [EnumMember(Value = "PPSE")]
-        Ppse,
+        ResponsePpse,
 
         /// <summary>
-        /// Ppte.
+        ///VERIFICATION_TOKEN_EXPIRED.
+        /// ResponsePpte.
         /// </summary>
         [EnumMember(Value = "PPTE")]
-        Ppte,
+        ResponsePpte,
 
         /// <summary>
-        /// Pptf.
+        ///INVALID_TRACE_REFERENCE.
+        /// ResponsePptf.
         /// </summary>
         [EnumMember(Value = "PPTF")]
-        Pptf,
+        ResponsePptf,
 
         /// <summary>
-        /// Ppti.
+        ///INVALID_TRANSACTION_ID.
+        /// ResponsePpti.
         /// </summary>
         [EnumMember(Value = "PPTI")]
-        Ppti,
+        ResponsePpti,
 
         /// <summary>
-        /// Pptr.
+        ///VERIFICATION_TOKEN_REVOKED.
+        /// ResponsePptr.
         /// </summary>
         [EnumMember(Value = "PPTR")]
-        Pptr,
+        ResponsePptr,
 
         /// <summary>
-        /// Pptt.
+        ///TRANSACTION_TYPE_UNSUPPORTED.
+        /// ResponsePptt.
         /// </summary>
         [EnumMember(Value = "PPTT")]
-        Pptt,
+        ResponsePptt,
 
         /// <summary>
-        /// Pptv.
+        ///INVALID_VERIFICATION_TOKEN.
+        /// ResponsePptv.
         /// </summary>
         [EnumMember(Value = "PPTV")]
-        Pptv,
+        ResponsePptv,
 
         /// <summary>
-        /// Ppua.
+        ///USER_NOT_AUTHORIZED.
+        /// ResponsePpua.
         /// </summary>
         [EnumMember(Value = "PPUA")]
-        Ppua,
+        ResponsePpua,
 
         /// <summary>
-        /// Ppuc.
+        ///CURRENCY_CODE_UNSUPPORTED.
+        /// ResponsePpuc.
         /// </summary>
         [EnumMember(Value = "PPUC")]
-        Ppuc,
+        ResponsePpuc,
 
         /// <summary>
-        /// Ppue.
+        ///UNSUPPORT_ENTITY.
+        /// ResponsePpue.
         /// </summary>
         [EnumMember(Value = "PPUE")]
-        Ppue,
+        ResponsePpue,
 
         /// <summary>
-        /// Ppui.
+        ///UNSUPPORT_INSTALLMENT.
+        /// ResponsePpui.
         /// </summary>
         [EnumMember(Value = "PPUI")]
-        Ppui,
+        ResponsePpui,
 
         /// <summary>
-        /// Ppup.
+        ///UNSUPPORT_POS_FLAG.
+        /// ResponsePpup.
         /// </summary>
         [EnumMember(Value = "PPUP")]
-        Ppup,
+        ResponsePpup,
 
         /// <summary>
-        /// Ppur.
+        ///UNSUPPORTED_REVERSAL.
+        /// ResponsePpur.
         /// </summary>
         [EnumMember(Value = "PPUR")]
-        Ppur,
+        ResponsePpur,
 
         /// <summary>
-        /// Ppvc.
+        ///VALIDATE_CURRENCY.
+        /// ResponsePpvc.
         /// </summary>
         [EnumMember(Value = "PPVC")]
-        Ppvc,
+        ResponsePpvc,
 
         /// <summary>
-        /// Ppve.
+        ///VALIDATION_ERROR.
+        /// ResponsePpve.
         /// </summary>
         [EnumMember(Value = "PPVE")]
-        Ppve,
+        ResponsePpve,
 
         /// <summary>
-        /// Ppvt.
+        ///VIRTUAL_TERMINAL_UNSUPPORTED.
+        /// ResponsePpvt.
         /// </summary>
         [EnumMember(Value = "PPVT")]
-        Ppvt,
+        ResponsePpvt,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

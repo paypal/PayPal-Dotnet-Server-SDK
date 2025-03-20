@@ -20,12 +20,14 @@ namespace PaypalServerSdk.Standard.Models
     public enum PaypalPaymentTokenCustomerType
     {
         /// <summary>
+        ///The customer vaulting the PayPal payment token is a consumer on the merchant / platform.
         /// Consumer.
         /// </summary>
         [EnumMember(Value = "CONSUMER")]
         Consumer,
 
         /// <summary>
+        ///The customer vaulting the PayPal payment token is a business on merchant / platform.
         /// Business.
         /// </summary>
         [EnumMember(Value = "BUSINESS")]

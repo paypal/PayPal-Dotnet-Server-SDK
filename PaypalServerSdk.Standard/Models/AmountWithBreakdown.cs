@@ -51,7 +51,7 @@ namespace PaypalServerSdk.Standard.Models
         public string CurrencyCode { get; set; }
 
         /// <summary>
-        /// The value, which might be:<ul><li>An integer for currencies like `JPY` that are not typically fractional.</li><li>A decimal fraction for currencies like `TND` that are subdivided into thousandths.</li></ul>For the required number of decimal places for a currency code, see [Currency Codes](/api/rest/reference/currency-codes/).
+        /// The value, which might be: An integer for currencies like `JPY` that are not typically fractional. A decimal fraction for currencies like `TND` that are subdivided into thousandths. For the required number of decimal places for a currency code, see [Currency Codes](/api/rest/reference/currency-codes/).
         /// </summary>
         [JsonProperty("value")]
         public string MValue { get; set; }
@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"AmountWithBreakdown : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is AmountWithBreakdown other &&                ((this.CurrencyCode == null && other.CurrencyCode == null) || (this.CurrencyCode?.Equals(other.CurrencyCode) == true)) &&
-                ((this.MValue == null && other.MValue == null) || (this.MValue?.Equals(other.MValue) == true)) &&
-                ((this.Breakdown == null && other.Breakdown == null) || (this.Breakdown?.Equals(other.Breakdown) == true));
+            return obj is AmountWithBreakdown other &&
+                (this.CurrencyCode == null && other.CurrencyCode == null ||
+                 this.CurrencyCode?.Equals(other.CurrencyCode) == true) &&
+                (this.MValue == null && other.MValue == null ||
+                 this.MValue?.Equals(other.MValue) == true) &&
+                (this.Breakdown == null && other.Breakdown == null ||
+                 this.Breakdown?.Equals(other.Breakdown) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.CurrencyCode = {(this.CurrencyCode == null ? "null" : this.CurrencyCode)}");
-            toStringOutput.Add($"this.MValue = {(this.MValue == null ? "null" : this.MValue)}");
-            toStringOutput.Add($"this.Breakdown = {(this.Breakdown == null ? "null" : this.Breakdown.ToString())}");
+            toStringOutput.Add($"CurrencyCode = {this.CurrencyCode ?? "null"}");
+            toStringOutput.Add($"MValue = {this.MValue ?? "null"}");
+            toStringOutput.Add($"Breakdown = {(this.Breakdown == null ? "null" : this.Breakdown.ToString())}");
         }
     }
 }

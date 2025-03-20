@@ -20,52 +20,60 @@ namespace PaypalServerSdk.Standard.Models
     public enum PaResStatus
     {
         /// <summary>
-        /// Y.
+        ///Successful authentication.
+        /// SuccessfulAuthentication.
         /// </summary>
         [EnumMember(Value = "Y")]
-        Y,
+        SuccessfulAuthentication,
 
         /// <summary>
-        /// N.
+        ///Failed authentication / account not verified / transaction denied.
+        /// FailedAuthentication.
         /// </summary>
         [EnumMember(Value = "N")]
-        N,
+        FailedAuthentication,
 
         /// <summary>
-        /// U.
+        ///Unable to complete authentication.
+        /// UnableToCompleteAuthentication.
         /// </summary>
         [EnumMember(Value = "U")]
-        U,
+        UnableToCompleteAuthentication,
 
         /// <summary>
-        /// A.
+        ///Successful attempts transaction.
+        /// SuccessfulAttemptsTransaction.
         /// </summary>
         [EnumMember(Value = "A")]
-        A,
+        SuccessfulAttemptsTransaction,
 
         /// <summary>
-        /// C.
+        ///Challenge required for authentication.
+        /// ChallengeRequired.
         /// </summary>
         [EnumMember(Value = "C")]
-        C,
+        ChallengeRequired,
 
         /// <summary>
-        /// R.
+        ///Authentication rejected (merchant must not submit for authorization).
+        /// AuthenticationRejected.
         /// </summary>
         [EnumMember(Value = "R")]
-        R,
+        AuthenticationRejected,
 
         /// <summary>
-        /// D.
+        ///Challenge required; decoupled authentication confirmed.
+        /// DecoupledAuthentication.
         /// </summary>
         [EnumMember(Value = "D")]
-        D,
+        DecoupledAuthentication,
 
         /// <summary>
-        /// I.
+        ///Informational only; 3DS requestor challenge preference acknowledged.
+        /// InformationalOnly.
         /// </summary>
         [EnumMember(Value = "I")]
-        I,
+        InformationalOnly,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

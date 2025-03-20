@@ -141,13 +141,13 @@ namespace PaypalServerSdk.Standard.Models
         public List<Models.LinkDescription> Links { get; set; }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("create_time", NullValueHandling = NullValueHandling.Ignore)]
         public string CreateTime { get; set; }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("update_time", NullValueHandling = NullValueHandling.Ignore)]
         public string UpdateTime { get; set; }
@@ -156,58 +156,64 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Refund : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Refund other &&                ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
-                ((this.StatusDetails == null && other.StatusDetails == null) || (this.StatusDetails?.Equals(other.StatusDetails) == true)) &&
-                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true)) &&
-                ((this.InvoiceId == null && other.InvoiceId == null) || (this.InvoiceId?.Equals(other.InvoiceId) == true)) &&
-                ((this.CustomId == null && other.CustomId == null) || (this.CustomId?.Equals(other.CustomId) == true)) &&
-                ((this.AcquirerReferenceNumber == null && other.AcquirerReferenceNumber == null) || (this.AcquirerReferenceNumber?.Equals(other.AcquirerReferenceNumber) == true)) &&
-                ((this.NoteToPayer == null && other.NoteToPayer == null) || (this.NoteToPayer?.Equals(other.NoteToPayer) == true)) &&
-                ((this.SellerPayableBreakdown == null && other.SellerPayableBreakdown == null) || (this.SellerPayableBreakdown?.Equals(other.SellerPayableBreakdown) == true)) &&
-                ((this.Payer == null && other.Payer == null) || (this.Payer?.Equals(other.Payer) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true)) &&
-                ((this.CreateTime == null && other.CreateTime == null) || (this.CreateTime?.Equals(other.CreateTime) == true)) &&
-                ((this.UpdateTime == null && other.UpdateTime == null) || (this.UpdateTime?.Equals(other.UpdateTime) == true));
+            return obj is Refund other &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.StatusDetails == null && other.StatusDetails == null ||
+                 this.StatusDetails?.Equals(other.StatusDetails) == true) &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true) &&
+                (this.InvoiceId == null && other.InvoiceId == null ||
+                 this.InvoiceId?.Equals(other.InvoiceId) == true) &&
+                (this.CustomId == null && other.CustomId == null ||
+                 this.CustomId?.Equals(other.CustomId) == true) &&
+                (this.AcquirerReferenceNumber == null && other.AcquirerReferenceNumber == null ||
+                 this.AcquirerReferenceNumber?.Equals(other.AcquirerReferenceNumber) == true) &&
+                (this.NoteToPayer == null && other.NoteToPayer == null ||
+                 this.NoteToPayer?.Equals(other.NoteToPayer) == true) &&
+                (this.SellerPayableBreakdown == null && other.SellerPayableBreakdown == null ||
+                 this.SellerPayableBreakdown?.Equals(other.SellerPayableBreakdown) == true) &&
+                (this.Payer == null && other.Payer == null ||
+                 this.Payer?.Equals(other.Payer) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true) &&
+                (this.CreateTime == null && other.CreateTime == null ||
+                 this.CreateTime?.Equals(other.CreateTime) == true) &&
+                (this.UpdateTime == null && other.UpdateTime == null ||
+                 this.UpdateTime?.Equals(other.UpdateTime) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status.ToString())}");
-            toStringOutput.Add($"this.StatusDetails = {(this.StatusDetails == null ? "null" : this.StatusDetails.ToString())}");
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
-            toStringOutput.Add($"this.InvoiceId = {(this.InvoiceId == null ? "null" : this.InvoiceId)}");
-            toStringOutput.Add($"this.CustomId = {(this.CustomId == null ? "null" : this.CustomId)}");
-            toStringOutput.Add($"this.AcquirerReferenceNumber = {(this.AcquirerReferenceNumber == null ? "null" : this.AcquirerReferenceNumber)}");
-            toStringOutput.Add($"this.NoteToPayer = {(this.NoteToPayer == null ? "null" : this.NoteToPayer)}");
-            toStringOutput.Add($"this.SellerPayableBreakdown = {(this.SellerPayableBreakdown == null ? "null" : this.SellerPayableBreakdown.ToString())}");
-            toStringOutput.Add($"this.Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
-            toStringOutput.Add($"this.CreateTime = {(this.CreateTime == null ? "null" : this.CreateTime)}");
-            toStringOutput.Add($"this.UpdateTime = {(this.UpdateTime == null ? "null" : this.UpdateTime)}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"StatusDetails = {(this.StatusDetails == null ? "null" : this.StatusDetails.ToString())}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"InvoiceId = {this.InvoiceId ?? "null"}");
+            toStringOutput.Add($"CustomId = {this.CustomId ?? "null"}");
+            toStringOutput.Add($"AcquirerReferenceNumber = {this.AcquirerReferenceNumber ?? "null"}");
+            toStringOutput.Add($"NoteToPayer = {this.NoteToPayer ?? "null"}");
+            toStringOutput.Add($"SellerPayableBreakdown = {(this.SellerPayableBreakdown == null ? "null" : this.SellerPayableBreakdown.ToString())}");
+            toStringOutput.Add($"Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"CreateTime = {this.CreateTime ?? "null"}");
+            toStringOutput.Add($"UpdateTime = {this.UpdateTime ?? "null"}");
         }
     }
 }

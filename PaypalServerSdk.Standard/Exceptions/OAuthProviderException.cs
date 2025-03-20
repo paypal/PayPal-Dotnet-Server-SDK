@@ -51,5 +51,25 @@ namespace PaypalServerSdk.Standard.Exceptions
         /// </summary>
         [JsonProperty("error_uri", NullValueHandling = NullValueHandling.Ignore)]
         public string ErrorUri { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            var toStringOutput = new List<string>();
+            this.ToString(toStringOutput);
+            return $"OAuthProviderException : ({string.Join(", ", toStringOutput)})";
+        }
+
+        /// <summary>
+        /// ToString overload.
+        /// </summary>
+        /// <param name="toStringOutput">List of strings.</param>
+        protected void ToString(List<string> toStringOutput)
+        {
+            base.ToString(toStringOutput);
+            toStringOutput.Add($"Error = {this.Error}");
+            toStringOutput.Add($"ErrorDescription = {this.ErrorDescription ?? "null"}");
+            toStringOutput.Add($"ErrorUri = {this.ErrorUri ?? "null"}");
+        }
     }
 }

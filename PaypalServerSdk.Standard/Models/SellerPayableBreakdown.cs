@@ -111,48 +111,49 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SellerPayableBreakdown : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SellerPayableBreakdown other &&                ((this.GrossAmount == null && other.GrossAmount == null) || (this.GrossAmount?.Equals(other.GrossAmount) == true)) &&
-                ((this.PaypalFee == null && other.PaypalFee == null) || (this.PaypalFee?.Equals(other.PaypalFee) == true)) &&
-                ((this.PaypalFeeInReceivableCurrency == null && other.PaypalFeeInReceivableCurrency == null) || (this.PaypalFeeInReceivableCurrency?.Equals(other.PaypalFeeInReceivableCurrency) == true)) &&
-                ((this.NetAmount == null && other.NetAmount == null) || (this.NetAmount?.Equals(other.NetAmount) == true)) &&
-                ((this.NetAmountInReceivableCurrency == null && other.NetAmountInReceivableCurrency == null) || (this.NetAmountInReceivableCurrency?.Equals(other.NetAmountInReceivableCurrency) == true)) &&
-                ((this.PlatformFees == null && other.PlatformFees == null) || (this.PlatformFees?.Equals(other.PlatformFees) == true)) &&
-                ((this.NetAmountBreakdown == null && other.NetAmountBreakdown == null) || (this.NetAmountBreakdown?.Equals(other.NetAmountBreakdown) == true)) &&
-                ((this.TotalRefundedAmount == null && other.TotalRefundedAmount == null) || (this.TotalRefundedAmount?.Equals(other.TotalRefundedAmount) == true));
+            return obj is SellerPayableBreakdown other &&
+                (this.GrossAmount == null && other.GrossAmount == null ||
+                 this.GrossAmount?.Equals(other.GrossAmount) == true) &&
+                (this.PaypalFee == null && other.PaypalFee == null ||
+                 this.PaypalFee?.Equals(other.PaypalFee) == true) &&
+                (this.PaypalFeeInReceivableCurrency == null && other.PaypalFeeInReceivableCurrency == null ||
+                 this.PaypalFeeInReceivableCurrency?.Equals(other.PaypalFeeInReceivableCurrency) == true) &&
+                (this.NetAmount == null && other.NetAmount == null ||
+                 this.NetAmount?.Equals(other.NetAmount) == true) &&
+                (this.NetAmountInReceivableCurrency == null && other.NetAmountInReceivableCurrency == null ||
+                 this.NetAmountInReceivableCurrency?.Equals(other.NetAmountInReceivableCurrency) == true) &&
+                (this.PlatformFees == null && other.PlatformFees == null ||
+                 this.PlatformFees?.Equals(other.PlatformFees) == true) &&
+                (this.NetAmountBreakdown == null && other.NetAmountBreakdown == null ||
+                 this.NetAmountBreakdown?.Equals(other.NetAmountBreakdown) == true) &&
+                (this.TotalRefundedAmount == null && other.TotalRefundedAmount == null ||
+                 this.TotalRefundedAmount?.Equals(other.TotalRefundedAmount) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.GrossAmount = {(this.GrossAmount == null ? "null" : this.GrossAmount.ToString())}");
-            toStringOutput.Add($"this.PaypalFee = {(this.PaypalFee == null ? "null" : this.PaypalFee.ToString())}");
-            toStringOutput.Add($"this.PaypalFeeInReceivableCurrency = {(this.PaypalFeeInReceivableCurrency == null ? "null" : this.PaypalFeeInReceivableCurrency.ToString())}");
-            toStringOutput.Add($"this.NetAmount = {(this.NetAmount == null ? "null" : this.NetAmount.ToString())}");
-            toStringOutput.Add($"this.NetAmountInReceivableCurrency = {(this.NetAmountInReceivableCurrency == null ? "null" : this.NetAmountInReceivableCurrency.ToString())}");
-            toStringOutput.Add($"this.PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
-            toStringOutput.Add($"this.NetAmountBreakdown = {(this.NetAmountBreakdown == null ? "null" : $"[{string.Join(", ", this.NetAmountBreakdown)} ]")}");
-            toStringOutput.Add($"this.TotalRefundedAmount = {(this.TotalRefundedAmount == null ? "null" : this.TotalRefundedAmount.ToString())}");
+            toStringOutput.Add($"GrossAmount = {(this.GrossAmount == null ? "null" : this.GrossAmount.ToString())}");
+            toStringOutput.Add($"PaypalFee = {(this.PaypalFee == null ? "null" : this.PaypalFee.ToString())}");
+            toStringOutput.Add($"PaypalFeeInReceivableCurrency = {(this.PaypalFeeInReceivableCurrency == null ? "null" : this.PaypalFeeInReceivableCurrency.ToString())}");
+            toStringOutput.Add($"NetAmount = {(this.NetAmount == null ? "null" : this.NetAmount.ToString())}");
+            toStringOutput.Add($"NetAmountInReceivableCurrency = {(this.NetAmountInReceivableCurrency == null ? "null" : this.NetAmountInReceivableCurrency.ToString())}");
+            toStringOutput.Add($"PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
+            toStringOutput.Add($"NetAmountBreakdown = {(this.NetAmountBreakdown == null ? "null" : $"[{string.Join(", ", this.NetAmountBreakdown)} ]")}");
+            toStringOutput.Add($"TotalRefundedAmount = {(this.TotalRefundedAmount == null ? "null" : this.TotalRefundedAmount.ToString())}");
         }
     }
 }

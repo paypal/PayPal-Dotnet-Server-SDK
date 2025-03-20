@@ -117,7 +117,7 @@ namespace PaypalServerSdk.Standard.Models
         public string SingleUseToken { get; set; }
 
         /// <summary>
-        /// Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file).<br/>Parameter compatibility:<br/><ul><li>`payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`.</li><li>`usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`.</li><li>`previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`.</li><li>Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.</li></ul>
+        /// Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.
         /// </summary>
         [JsonProperty("stored_credential", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CardStoredCredential StoredCredential { get; set; }
@@ -138,54 +138,58 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardRequest other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.Number == null && other.Number == null) || (this.Number?.Equals(other.Number) == true)) &&
-                ((this.Expiry == null && other.Expiry == null) || (this.Expiry?.Equals(other.Expiry) == true)) &&
-                ((this.SecurityCode == null && other.SecurityCode == null) || (this.SecurityCode?.Equals(other.SecurityCode) == true)) &&
-                ((this.BillingAddress == null && other.BillingAddress == null) || (this.BillingAddress?.Equals(other.BillingAddress) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true)) &&
-                ((this.VaultId == null && other.VaultId == null) || (this.VaultId?.Equals(other.VaultId) == true)) &&
-                ((this.SingleUseToken == null && other.SingleUseToken == null) || (this.SingleUseToken?.Equals(other.SingleUseToken) == true)) &&
-                ((this.StoredCredential == null && other.StoredCredential == null) || (this.StoredCredential?.Equals(other.StoredCredential) == true)) &&
-                ((this.NetworkToken == null && other.NetworkToken == null) || (this.NetworkToken?.Equals(other.NetworkToken) == true)) &&
-                ((this.ExperienceContext == null && other.ExperienceContext == null) || (this.ExperienceContext?.Equals(other.ExperienceContext) == true));
+            return obj is CardRequest other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.Number == null && other.Number == null ||
+                 this.Number?.Equals(other.Number) == true) &&
+                (this.Expiry == null && other.Expiry == null ||
+                 this.Expiry?.Equals(other.Expiry) == true) &&
+                (this.SecurityCode == null && other.SecurityCode == null ||
+                 this.SecurityCode?.Equals(other.SecurityCode) == true) &&
+                (this.BillingAddress == null && other.BillingAddress == null ||
+                 this.BillingAddress?.Equals(other.BillingAddress) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true) &&
+                (this.VaultId == null && other.VaultId == null ||
+                 this.VaultId?.Equals(other.VaultId) == true) &&
+                (this.SingleUseToken == null && other.SingleUseToken == null ||
+                 this.SingleUseToken?.Equals(other.SingleUseToken) == true) &&
+                (this.StoredCredential == null && other.StoredCredential == null ||
+                 this.StoredCredential?.Equals(other.StoredCredential) == true) &&
+                (this.NetworkToken == null && other.NetworkToken == null ||
+                 this.NetworkToken?.Equals(other.NetworkToken) == true) &&
+                (this.ExperienceContext == null && other.ExperienceContext == null ||
+                 this.ExperienceContext?.Equals(other.ExperienceContext) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.Number = {(this.Number == null ? "null" : this.Number)}");
-            toStringOutput.Add($"this.Expiry = {(this.Expiry == null ? "null" : this.Expiry)}");
-            toStringOutput.Add($"this.SecurityCode = {(this.SecurityCode == null ? "null" : this.SecurityCode)}");
-            toStringOutput.Add($"this.BillingAddress = {(this.BillingAddress == null ? "null" : this.BillingAddress.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
-            toStringOutput.Add($"this.VaultId = {(this.VaultId == null ? "null" : this.VaultId)}");
-            toStringOutput.Add($"this.SingleUseToken = {(this.SingleUseToken == null ? "null" : this.SingleUseToken)}");
-            toStringOutput.Add($"this.StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
-            toStringOutput.Add($"this.NetworkToken = {(this.NetworkToken == null ? "null" : this.NetworkToken.ToString())}");
-            toStringOutput.Add($"this.ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"Number = {this.Number ?? "null"}");
+            toStringOutput.Add($"Expiry = {this.Expiry ?? "null"}");
+            toStringOutput.Add($"SecurityCode = {this.SecurityCode ?? "null"}");
+            toStringOutput.Add($"BillingAddress = {(this.BillingAddress == null ? "null" : this.BillingAddress.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"VaultId = {this.VaultId ?? "null"}");
+            toStringOutput.Add($"SingleUseToken = {this.SingleUseToken ?? "null"}");
+            toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
+            toStringOutput.Add($"NetworkToken = {(this.NetworkToken == null ? "null" : this.NetworkToken.ToString())}");
+            toStringOutput.Add($"ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
         }
     }
 }

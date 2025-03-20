@@ -20,12 +20,14 @@ namespace PaypalServerSdk.Standard.Models
     public enum TaxIdType
     {
         /// <summary>
+        ///The individual tax ID type, typically is 11 characters long.
         /// BrCpf.
         /// </summary>
         [EnumMember(Value = "BR_CPF")]
         BrCpf,
 
         /// <summary>
+        ///The business tax ID type, typically is 14 characters long.
         /// BrCnpj.
         /// </summary>
         [EnumMember(Value = "BR_CNPJ")]

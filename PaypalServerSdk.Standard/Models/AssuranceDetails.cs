@@ -59,36 +59,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"AssuranceDetails : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is AssuranceDetails other &&                ((this.AccountVerified == null && other.AccountVerified == null) || (this.AccountVerified?.Equals(other.AccountVerified) == true)) &&
-                ((this.CardHolderAuthenticated == null && other.CardHolderAuthenticated == null) || (this.CardHolderAuthenticated?.Equals(other.CardHolderAuthenticated) == true));
+            return obj is AssuranceDetails other &&
+                (this.AccountVerified == null && other.AccountVerified == null ||
+                 this.AccountVerified?.Equals(other.AccountVerified) == true) &&
+                (this.CardHolderAuthenticated == null && other.CardHolderAuthenticated == null ||
+                 this.CardHolderAuthenticated?.Equals(other.CardHolderAuthenticated) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.AccountVerified = {(this.AccountVerified == null ? "null" : this.AccountVerified.ToString())}");
-            toStringOutput.Add($"this.CardHolderAuthenticated = {(this.CardHolderAuthenticated == null ? "null" : this.CardHolderAuthenticated.ToString())}");
+            toStringOutput.Add($"AccountVerified = {(this.AccountVerified == null ? "null" : this.AccountVerified.ToString())}");
+            toStringOutput.Add($"CardHolderAuthenticated = {(this.CardHolderAuthenticated == null ? "null" : this.CardHolderAuthenticated.ToString())}");
         }
     }
 }

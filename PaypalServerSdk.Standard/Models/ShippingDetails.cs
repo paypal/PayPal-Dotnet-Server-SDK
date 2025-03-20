@@ -32,18 +32,21 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="ShippingDetails"/> class.
         /// </summary>
         /// <param name="name">name.</param>
+        /// <param name="emailAddress">email_address.</param>
         /// <param name="phoneNumber">phone_number.</param>
         /// <param name="type">type.</param>
         /// <param name="options">options.</param>
         /// <param name="address">address.</param>
         public ShippingDetails(
             Models.ShippingName name = null,
+            string emailAddress = null,
             Models.PhoneNumberWithCountryCode phoneNumber = null,
             Models.FulfillmentType? type = null,
             List<Models.ShippingOption> options = null,
             Models.Address address = null)
         {
             this.Name = name;
+            this.EmailAddress = emailAddress;
             this.PhoneNumber = phoneNumber;
             this.Type = type;
             this.Options = options;
@@ -55,6 +58,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ShippingName Name { get; set; }
+
+        /// <summary>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
+        /// </summary>
+        [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
 
         /// <summary>
         /// The phone number in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
@@ -84,42 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ShippingDetails : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ShippingDetails other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.PhoneNumber == null && other.PhoneNumber == null) || (this.PhoneNumber?.Equals(other.PhoneNumber) == true)) &&
-                ((this.Type == null && other.Type == null) || (this.Type?.Equals(other.Type) == true)) &&
-                ((this.Options == null && other.Options == null) || (this.Options?.Equals(other.Options) == true)) &&
-                ((this.Address == null && other.Address == null) || (this.Address?.Equals(other.Address) == true));
+            return obj is ShippingDetails other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.PhoneNumber == null && other.PhoneNumber == null ||
+                 this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
+                (this.Type == null && other.Type == null ||
+                 this.Type?.Equals(other.Type) == true) &&
+                (this.Options == null && other.Options == null ||
+                 this.Options?.Equals(other.Options) == true) &&
+                (this.Address == null && other.Address == null ||
+                 this.Address?.Equals(other.Address) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name.ToString())}");
-            toStringOutput.Add($"this.PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
-            toStringOutput.Add($"this.Type = {(this.Type == null ? "null" : this.Type.ToString())}");
-            toStringOutput.Add($"this.Options = {(this.Options == null ? "null" : $"[{string.Join(", ", this.Options)} ]")}");
-            toStringOutput.Add($"this.Address = {(this.Address == null ? "null" : this.Address.ToString())}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
+            toStringOutput.Add($"Type = {(this.Type == null ? "null" : this.Type.ToString())}");
+            toStringOutput.Add($"Options = {(this.Options == null ? "null" : $"[{string.Join(", ", this.Options)} ]")}");
+            toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");
         }
     }
 }

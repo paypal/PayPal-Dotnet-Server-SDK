@@ -33,7 +33,7 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="method">method.</param>
         public CardVerification(
-            Models.CardVerificationMethod? method = Models.CardVerificationMethod.ScaWhenRequired)
+            Models.OrdersCardVerificationMethod? method = Models.OrdersCardVerificationMethod.ScaWhenRequired)
         {
             this.Method = method;
         }
@@ -42,40 +42,34 @@ namespace PaypalServerSdk.Standard.Models
         /// The method used for card verification.
         /// </summary>
         [JsonProperty("method", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CardVerificationMethod? Method { get; set; }
+        public Models.OrdersCardVerificationMethod? Method { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardVerification : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardVerification other &&                ((this.Method == null && other.Method == null) || (this.Method?.Equals(other.Method) == true));
+            return obj is CardVerification other &&
+                (this.Method == null && other.Method == null ||
+                 this.Method?.Equals(other.Method) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Method = {(this.Method == null ? "null" : this.Method.ToString())}");
+            toStringOutput.Add($"Method = {(this.Method == null ? "null" : this.Method.ToString())}");
         }
     }
 }

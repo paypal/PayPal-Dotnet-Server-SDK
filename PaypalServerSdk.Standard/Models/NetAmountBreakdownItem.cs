@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"NetAmountBreakdownItem : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is NetAmountBreakdownItem other &&                ((this.PayableAmount == null && other.PayableAmount == null) || (this.PayableAmount?.Equals(other.PayableAmount) == true)) &&
-                ((this.ConvertedAmount == null && other.ConvertedAmount == null) || (this.ConvertedAmount?.Equals(other.ConvertedAmount) == true)) &&
-                ((this.ExchangeRate == null && other.ExchangeRate == null) || (this.ExchangeRate?.Equals(other.ExchangeRate) == true));
+            return obj is NetAmountBreakdownItem other &&
+                (this.PayableAmount == null && other.PayableAmount == null ||
+                 this.PayableAmount?.Equals(other.PayableAmount) == true) &&
+                (this.ConvertedAmount == null && other.ConvertedAmount == null ||
+                 this.ConvertedAmount?.Equals(other.ConvertedAmount) == true) &&
+                (this.ExchangeRate == null && other.ExchangeRate == null ||
+                 this.ExchangeRate?.Equals(other.ExchangeRate) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PayableAmount = {(this.PayableAmount == null ? "null" : this.PayableAmount.ToString())}");
-            toStringOutput.Add($"this.ConvertedAmount = {(this.ConvertedAmount == null ? "null" : this.ConvertedAmount.ToString())}");
-            toStringOutput.Add($"this.ExchangeRate = {(this.ExchangeRate == null ? "null" : this.ExchangeRate.ToString())}");
+            toStringOutput.Add($"PayableAmount = {(this.PayableAmount == null ? "null" : this.PayableAmount.ToString())}");
+            toStringOutput.Add($"ConvertedAmount = {(this.ConvertedAmount == null ? "null" : this.ConvertedAmount.ToString())}");
+            toStringOutput.Add($"ExchangeRate = {(this.ExchangeRate == null ? "null" : this.ExchangeRate.ToString())}");
         }
     }
 }

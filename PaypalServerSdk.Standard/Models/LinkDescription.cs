@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"LinkDescription : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is LinkDescription other &&                ((this.Href == null && other.Href == null) || (this.Href?.Equals(other.Href) == true)) &&
-                ((this.Rel == null && other.Rel == null) || (this.Rel?.Equals(other.Rel) == true)) &&
-                ((this.Method == null && other.Method == null) || (this.Method?.Equals(other.Method) == true));
+            return obj is LinkDescription other &&
+                (this.Href == null && other.Href == null ||
+                 this.Href?.Equals(other.Href) == true) &&
+                (this.Rel == null && other.Rel == null ||
+                 this.Rel?.Equals(other.Rel) == true) &&
+                (this.Method == null && other.Method == null ||
+                 this.Method?.Equals(other.Method) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Href = {(this.Href == null ? "null" : this.Href)}");
-            toStringOutput.Add($"this.Rel = {(this.Rel == null ? "null" : this.Rel)}");
-            toStringOutput.Add($"this.Method = {(this.Method == null ? "null" : this.Method.ToString())}");
+            toStringOutput.Add($"Href = {this.Href ?? "null"}");
+            toStringOutput.Add($"Rel = {this.Rel ?? "null"}");
+            toStringOutput.Add($"Method = {(this.Method == null ? "null" : this.Method.ToString())}");
         }
     }
 }

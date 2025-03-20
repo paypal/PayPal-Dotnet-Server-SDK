@@ -20,34 +20,34 @@ namespace PaypalServerSdk.Standard.Models
     public enum UpcType
     {
         /// <summary>
-        /// Upca.
+        /// UpcA.
         /// </summary>
         [EnumMember(Value = "UPC-A")]
-        Upca,
+        UpcA,
 
         /// <summary>
-        /// Upcb.
+        /// UpcB.
         /// </summary>
         [EnumMember(Value = "UPC-B")]
-        Upcb,
+        UpcB,
 
         /// <summary>
-        /// Upcc.
+        /// UpcC.
         /// </summary>
         [EnumMember(Value = "UPC-C")]
-        Upcc,
+        UpcC,
 
         /// <summary>
-        /// Upcd.
+        /// UpcD.
         /// </summary>
         [EnumMember(Value = "UPC-D")]
-        Upcd,
+        UpcD,
 
         /// <summary>
-        /// Upce.
+        /// UpcE.
         /// </summary>
         [EnumMember(Value = "UPC-E")]
-        Upce,
+        UpcE,
 
         /// <summary>
         /// Upc2.

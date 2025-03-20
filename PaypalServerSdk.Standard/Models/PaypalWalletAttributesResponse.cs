@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaypalWalletAttributesResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaypalWalletAttributesResponse other &&                ((this.Vault == null && other.Vault == null) || (this.Vault?.Equals(other.Vault) == true)) &&
-                ((this.CobrandedCards == null && other.CobrandedCards == null) || (this.CobrandedCards?.Equals(other.CobrandedCards) == true));
+            return obj is PaypalWalletAttributesResponse other &&
+                (this.Vault == null && other.Vault == null ||
+                 this.Vault?.Equals(other.Vault) == true) &&
+                (this.CobrandedCards == null && other.CobrandedCards == null ||
+                 this.CobrandedCards?.Equals(other.CobrandedCards) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Vault = {(this.Vault == null ? "null" : this.Vault.ToString())}");
-            toStringOutput.Add($"this.CobrandedCards = {(this.CobrandedCards == null ? "null" : $"[{string.Join(", ", this.CobrandedCards)} ]")}");
+            toStringOutput.Add($"Vault = {(this.Vault == null ? "null" : this.Vault.ToString())}");
+            toStringOutput.Add($"CobrandedCards = {(this.CobrandedCards == null ? "null" : $"[{string.Join(", ", this.CobrandedCards)} ]")}");
         }
     }
 }

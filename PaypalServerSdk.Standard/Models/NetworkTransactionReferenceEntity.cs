@@ -66,7 +66,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.CardBrand? Network { get; set; }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("time", NullValueHandling = NullValueHandling.Ignore)]
         public string Time { get; set; }
@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"NetworkTransactionReferenceEntity : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is NetworkTransactionReferenceEntity other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Date == null && other.Date == null) || (this.Date?.Equals(other.Date) == true)) &&
-                ((this.Network == null && other.Network == null) || (this.Network?.Equals(other.Network) == true)) &&
-                ((this.Time == null && other.Time == null) || (this.Time?.Equals(other.Time) == true));
+            return obj is NetworkTransactionReferenceEntity other &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Date == null && other.Date == null ||
+                 this.Date?.Equals(other.Date) == true) &&
+                (this.Network == null && other.Network == null ||
+                 this.Network?.Equals(other.Network) == true) &&
+                (this.Time == null && other.Time == null ||
+                 this.Time?.Equals(other.Time) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Date = {(this.Date == null ? "null" : this.Date)}");
-            toStringOutput.Add($"this.Network = {(this.Network == null ? "null" : this.Network.ToString())}");
-            toStringOutput.Add($"this.Time = {(this.Time == null ? "null" : this.Time)}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Date = {this.Date ?? "null"}");
+            toStringOutput.Add($"Network = {(this.Network == null ? "null" : this.Network.ToString())}");
+            toStringOutput.Add($"Time = {this.Time ?? "null"}");
         }
     }
 }

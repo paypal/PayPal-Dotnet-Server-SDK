@@ -12,8 +12,8 @@ Customizes the Vault creation flow experience for your customers.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `BrandName` | `string` | Optional | The label that overrides the business name in the PayPal account on the PayPal site. The pattern is defined by an external party and supports Unicode.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `300`, *Pattern*: `^.*$` |
-| `ShippingPreference` | `string` | Optional | The shipping preference. This only applies to PayPal payment source.<br>**Default**: `"GET_FROM_FILE"`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
-| `VaultInstruction` | `string` | Optional | Vault Instruction on action to be performed after a successful payer approval.<br>**Default**: `"ON_CREATE_PAYMENT_TOKENS"`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
+| `ShippingPreference` | [`OrderApplicationContextShippingPreference?`](../../doc/models/order-application-context-shipping-preference.md) | Optional | The shipping preference. This only applies to PayPal payment source.<br>**Default**: `OrderApplicationContextShippingPreference.GET_FROM_FILE`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
+| `VaultInstruction` | [`VaultInstructionAction?`](../../doc/models/vault-instruction-action.md) | Optional | Vault Instruction on action to be performed after a successful payer approval.<br>**Default**: `VaultInstructionAction.ON_CREATE_PAYMENT_TOKENS`<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 
 ## Example (as JSON)
 

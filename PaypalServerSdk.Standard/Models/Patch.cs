@@ -54,19 +54,19 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PatchOp Op { get; set; }
 
         /// <summary>
-        /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location at which to complete the operation.
+        /// The JSON Pointer to the target document location at which to complete the operation.
         /// </summary>
         [JsonProperty("path", NullValueHandling = NullValueHandling.Ignore)]
         public string Path { get; set; }
 
         /// <summary>
-        /// The value to apply. The <code>remove</code>, <code>copy</code>, and <code>move</code> operations do not require a value. Since <a href="https://www.rfc-editor.org/rfc/rfc69021">JSON Patch</a> allows any type for <code>value</code>, the <code>type</code> property is not specified.
+        /// The value to apply. The remove, copy, and move operations do not require a value. Since JSON Patch allows any type for value, the type property is not specified.
         /// </summary>
         [JsonProperty("value", NullValueHandling = NullValueHandling.Ignore)]
         public JsonValue MValue { get; set; }
 
         /// <summary>
-        /// The <a href="https://tools.ietf.org/html/rfc6901">JSON Pointer</a> to the target document location from which to move the value. Required for the <code>move</code> operation.
+        /// The JSON Pointer to the target document location from which to move the value. Required for the move operation.
         /// </summary>
         [JsonProperty("from", NullValueHandling = NullValueHandling.Ignore)]
         public string From { get; set; }
@@ -75,40 +75,36 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Patch : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Patch other &&                this.Op.Equals(other.Op) &&
-                ((this.Path == null && other.Path == null) || (this.Path?.Equals(other.Path) == true)) &&
-                ((this.MValue == null && other.MValue == null) || (this.MValue?.Equals(other.MValue) == true)) &&
-                ((this.From == null && other.From == null) || (this.From?.Equals(other.From) == true));
+            return obj is Patch other &&
+                (this.Op.Equals(other.Op)) &&
+                (this.Path == null && other.Path == null ||
+                 this.Path?.Equals(other.Path) == true) &&
+                (this.MValue == null && other.MValue == null ||
+                 this.MValue?.Equals(other.MValue) == true) &&
+                (this.From == null && other.From == null ||
+                 this.From?.Equals(other.From) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Op = {this.Op}");
-            toStringOutput.Add($"this.Path = {(this.Path == null ? "null" : this.Path)}");
+            toStringOutput.Add($"Op = {this.Op}");
+            toStringOutput.Add($"Path = {this.Path ?? "null"}");
             toStringOutput.Add($"MValue = {(this.MValue == null ? "null" : this.MValue.ToString())}");
-            toStringOutput.Add($"this.From = {(this.From == null ? "null" : this.From)}");
+            toStringOutput.Add($"From = {this.From ?? "null"}");
         }
     }
 }

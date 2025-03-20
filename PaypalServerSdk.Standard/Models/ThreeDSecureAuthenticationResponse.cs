@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ThreeDSecureAuthenticationResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ThreeDSecureAuthenticationResponse other &&                ((this.AuthenticationStatus == null && other.AuthenticationStatus == null) || (this.AuthenticationStatus?.Equals(other.AuthenticationStatus) == true)) &&
-                ((this.EnrollmentStatus == null && other.EnrollmentStatus == null) || (this.EnrollmentStatus?.Equals(other.EnrollmentStatus) == true));
+            return obj is ThreeDSecureAuthenticationResponse other &&
+                (this.AuthenticationStatus == null && other.AuthenticationStatus == null ||
+                 this.AuthenticationStatus?.Equals(other.AuthenticationStatus) == true) &&
+                (this.EnrollmentStatus == null && other.EnrollmentStatus == null ||
+                 this.EnrollmentStatus?.Equals(other.EnrollmentStatus) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.AuthenticationStatus = {(this.AuthenticationStatus == null ? "null" : this.AuthenticationStatus.ToString())}");
-            toStringOutput.Add($"this.EnrollmentStatus = {(this.EnrollmentStatus == null ? "null" : this.EnrollmentStatus.ToString())}");
+            toStringOutput.Add($"AuthenticationStatus = {(this.AuthenticationStatus == null ? "null" : this.AuthenticationStatus.ToString())}");
+            toStringOutput.Add($"EnrollmentStatus = {(this.EnrollmentStatus == null ? "null" : this.EnrollmentStatus.ToString())}");
         }
     }
 }

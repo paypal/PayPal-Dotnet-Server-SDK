@@ -93,44 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CaptureRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CaptureRequest other &&                ((this.InvoiceId == null && other.InvoiceId == null) || (this.InvoiceId?.Equals(other.InvoiceId) == true)) &&
-                ((this.NoteToPayer == null && other.NoteToPayer == null) || (this.NoteToPayer?.Equals(other.NoteToPayer) == true)) &&
-                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true)) &&
-                ((this.FinalCapture == null && other.FinalCapture == null) || (this.FinalCapture?.Equals(other.FinalCapture) == true)) &&
-                ((this.PaymentInstruction == null && other.PaymentInstruction == null) || (this.PaymentInstruction?.Equals(other.PaymentInstruction) == true)) &&
-                ((this.SoftDescriptor == null && other.SoftDescriptor == null) || (this.SoftDescriptor?.Equals(other.SoftDescriptor) == true));
+            return obj is CaptureRequest other &&
+                (this.InvoiceId == null && other.InvoiceId == null ||
+                 this.InvoiceId?.Equals(other.InvoiceId) == true) &&
+                (this.NoteToPayer == null && other.NoteToPayer == null ||
+                 this.NoteToPayer?.Equals(other.NoteToPayer) == true) &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true) &&
+                (this.FinalCapture == null && other.FinalCapture == null ||
+                 this.FinalCapture?.Equals(other.FinalCapture) == true) &&
+                (this.PaymentInstruction == null && other.PaymentInstruction == null ||
+                 this.PaymentInstruction?.Equals(other.PaymentInstruction) == true) &&
+                (this.SoftDescriptor == null && other.SoftDescriptor == null ||
+                 this.SoftDescriptor?.Equals(other.SoftDescriptor) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.InvoiceId = {(this.InvoiceId == null ? "null" : this.InvoiceId)}");
-            toStringOutput.Add($"this.NoteToPayer = {(this.NoteToPayer == null ? "null" : this.NoteToPayer)}");
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
-            toStringOutput.Add($"this.FinalCapture = {(this.FinalCapture == null ? "null" : this.FinalCapture.ToString())}");
-            toStringOutput.Add($"this.PaymentInstruction = {(this.PaymentInstruction == null ? "null" : this.PaymentInstruction.ToString())}");
-            toStringOutput.Add($"this.SoftDescriptor = {(this.SoftDescriptor == null ? "null" : this.SoftDescriptor)}");
+            toStringOutput.Add($"InvoiceId = {this.InvoiceId ?? "null"}");
+            toStringOutput.Add($"NoteToPayer = {this.NoteToPayer ?? "null"}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"FinalCapture = {(this.FinalCapture == null ? "null" : this.FinalCapture.ToString())}");
+            toStringOutput.Add($"PaymentInstruction = {(this.PaymentInstruction == null ? "null" : this.PaymentInstruction.ToString())}");
+            toStringOutput.Add($"SoftDescriptor = {this.SoftDescriptor ?? "null"}");
         }
     }
 }

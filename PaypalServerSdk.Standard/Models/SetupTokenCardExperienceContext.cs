@@ -41,7 +41,7 @@ namespace PaypalServerSdk.Standard.Models
             string locale = null,
             string returnUrl = null,
             string cancelUrl = null,
-            string vaultInstruction = "ON_CREATE_PAYMENT_TOKENS")
+            Models.VaultInstructionAction? vaultInstruction = Models.VaultInstructionAction.OnCreatePaymentTokens)
         {
             this.BrandName = brandName;
             this.Locale = locale;
@@ -78,48 +78,46 @@ namespace PaypalServerSdk.Standard.Models
         /// Vault Instruction on action to be performed after a successful payer approval.
         /// </summary>
         [JsonProperty("vault_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public string VaultInstruction { get; set; }
+        public Models.VaultInstructionAction? VaultInstruction { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SetupTokenCardExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SetupTokenCardExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.Locale == null && other.Locale == null) || (this.Locale?.Equals(other.Locale) == true)) &&
-                ((this.ReturnUrl == null && other.ReturnUrl == null) || (this.ReturnUrl?.Equals(other.ReturnUrl) == true)) &&
-                ((this.CancelUrl == null && other.CancelUrl == null) || (this.CancelUrl?.Equals(other.CancelUrl) == true)) &&
-                ((this.VaultInstruction == null && other.VaultInstruction == null) || (this.VaultInstruction?.Equals(other.VaultInstruction) == true));
+            return obj is SetupTokenCardExperienceContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.Locale == null && other.Locale == null ||
+                 this.Locale?.Equals(other.Locale) == true) &&
+                (this.ReturnUrl == null && other.ReturnUrl == null ||
+                 this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
+                (this.CancelUrl == null && other.CancelUrl == null ||
+                 this.CancelUrl?.Equals(other.CancelUrl) == true) &&
+                (this.VaultInstruction == null && other.VaultInstruction == null ||
+                 this.VaultInstruction?.Equals(other.VaultInstruction) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.Locale = {(this.Locale == null ? "null" : this.Locale)}");
-            toStringOutput.Add($"this.ReturnUrl = {(this.ReturnUrl == null ? "null" : this.ReturnUrl)}");
-            toStringOutput.Add($"this.CancelUrl = {(this.CancelUrl == null ? "null" : this.CancelUrl)}");
-            toStringOutput.Add($"this.VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction)}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"Locale = {this.Locale ?? "null"}");
+            toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
+            toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+            toStringOutput.Add($"VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction.ToString())}");
         }
     }
 }

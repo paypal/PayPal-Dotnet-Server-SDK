@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardSupplementaryData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardSupplementaryData other &&                ((this.Level2 == null && other.Level2 == null) || (this.Level2?.Equals(other.Level2) == true)) &&
-                ((this.Level3 == null && other.Level3 == null) || (this.Level3?.Equals(other.Level3) == true));
+            return obj is CardSupplementaryData other &&
+                (this.Level2 == null && other.Level2 == null ||
+                 this.Level2?.Equals(other.Level2) == true) &&
+                (this.Level3 == null && other.Level3 == null ||
+                 this.Level3?.Equals(other.Level3) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Level2 = {(this.Level2 == null ? "null" : this.Level2.ToString())}");
-            toStringOutput.Add($"this.Level3 = {(this.Level3 == null ? "null" : this.Level3.ToString())}");
+            toStringOutput.Add($"Level2 = {(this.Level2 == null ? "null" : this.Level2.ToString())}");
+            toStringOutput.Add($"Level3 = {(this.Level3 == null ? "null" : this.Level3.ToString())}");
         }
     }
 }
