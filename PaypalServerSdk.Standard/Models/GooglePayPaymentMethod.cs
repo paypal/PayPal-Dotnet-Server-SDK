@@ -20,6 +20,7 @@ namespace PaypalServerSdk.Standard.Models
     public enum GooglePayPaymentMethod
     {
         /// <summary>
+        ///CARD is the only value that Google Pay accepts.
         /// Card.
         /// </summary>
         [EnumMember(Value = "CARD")]

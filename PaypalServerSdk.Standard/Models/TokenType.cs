@@ -20,6 +20,7 @@ namespace PaypalServerSdk.Standard.Models
     public enum TokenType
     {
         /// <summary>
+        ///The PayPal billing agreement ID. References an approved recurring payment for goods or services.
         /// BillingAgreement.
         /// </summary>
         [EnumMember(Value = "BILLING_AGREEMENT")]

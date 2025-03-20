@@ -48,34 +48,28 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"RefundPlatformFee : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is RefundPlatformFee other &&                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true));
+            return obj is RefundPlatformFee other &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
         }
     }
 }

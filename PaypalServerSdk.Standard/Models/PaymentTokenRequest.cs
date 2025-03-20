@@ -35,17 +35,17 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="customer">customer.</param>
         public PaymentTokenRequest(
             Models.PaymentTokenRequestPaymentSource paymentSource,
-            Models.CustomerRequest customer = null)
+            Models.Customer customer = null)
         {
             this.Customer = customer;
             this.PaymentSource = paymentSource;
         }
 
         /// <summary>
-        /// Customer in merchant's or partner's system of records.
+        /// This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CustomerRequest Customer { get; set; }
+        public Models.Customer Customer { get; set; }
 
         /// <summary>
         /// The payment method to vault with the instrument details.
@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentTokenRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentTokenRequest other &&                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
-                ((this.PaymentSource == null && other.PaymentSource == null) || (this.PaymentSource?.Equals(other.PaymentSource) == true));
+            return obj is PaymentTokenRequest other &&
+                (this.Customer == null && other.Customer == null ||
+                 this.Customer?.Equals(other.Customer) == true) &&
+                (this.PaymentSource == null && other.PaymentSource == null ||
+                 this.PaymentSource?.Equals(other.PaymentSource) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
-            toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
+            toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
         }
     }
 }

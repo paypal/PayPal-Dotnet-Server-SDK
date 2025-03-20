@@ -102,46 +102,46 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SellerReceivableBreakdown : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SellerReceivableBreakdown other &&                ((this.GrossAmount == null && other.GrossAmount == null) || (this.GrossAmount?.Equals(other.GrossAmount) == true)) &&
-                ((this.PaypalFee == null && other.PaypalFee == null) || (this.PaypalFee?.Equals(other.PaypalFee) == true)) &&
-                ((this.PaypalFeeInReceivableCurrency == null && other.PaypalFeeInReceivableCurrency == null) || (this.PaypalFeeInReceivableCurrency?.Equals(other.PaypalFeeInReceivableCurrency) == true)) &&
-                ((this.NetAmount == null && other.NetAmount == null) || (this.NetAmount?.Equals(other.NetAmount) == true)) &&
-                ((this.ReceivableAmount == null && other.ReceivableAmount == null) || (this.ReceivableAmount?.Equals(other.ReceivableAmount) == true)) &&
-                ((this.ExchangeRate == null && other.ExchangeRate == null) || (this.ExchangeRate?.Equals(other.ExchangeRate) == true)) &&
-                ((this.PlatformFees == null && other.PlatformFees == null) || (this.PlatformFees?.Equals(other.PlatformFees) == true));
+            return obj is SellerReceivableBreakdown other &&
+                (this.GrossAmount == null && other.GrossAmount == null ||
+                 this.GrossAmount?.Equals(other.GrossAmount) == true) &&
+                (this.PaypalFee == null && other.PaypalFee == null ||
+                 this.PaypalFee?.Equals(other.PaypalFee) == true) &&
+                (this.PaypalFeeInReceivableCurrency == null && other.PaypalFeeInReceivableCurrency == null ||
+                 this.PaypalFeeInReceivableCurrency?.Equals(other.PaypalFeeInReceivableCurrency) == true) &&
+                (this.NetAmount == null && other.NetAmount == null ||
+                 this.NetAmount?.Equals(other.NetAmount) == true) &&
+                (this.ReceivableAmount == null && other.ReceivableAmount == null ||
+                 this.ReceivableAmount?.Equals(other.ReceivableAmount) == true) &&
+                (this.ExchangeRate == null && other.ExchangeRate == null ||
+                 this.ExchangeRate?.Equals(other.ExchangeRate) == true) &&
+                (this.PlatformFees == null && other.PlatformFees == null ||
+                 this.PlatformFees?.Equals(other.PlatformFees) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.GrossAmount = {(this.GrossAmount == null ? "null" : this.GrossAmount.ToString())}");
-            toStringOutput.Add($"this.PaypalFee = {(this.PaypalFee == null ? "null" : this.PaypalFee.ToString())}");
-            toStringOutput.Add($"this.PaypalFeeInReceivableCurrency = {(this.PaypalFeeInReceivableCurrency == null ? "null" : this.PaypalFeeInReceivableCurrency.ToString())}");
-            toStringOutput.Add($"this.NetAmount = {(this.NetAmount == null ? "null" : this.NetAmount.ToString())}");
-            toStringOutput.Add($"this.ReceivableAmount = {(this.ReceivableAmount == null ? "null" : this.ReceivableAmount.ToString())}");
-            toStringOutput.Add($"this.ExchangeRate = {(this.ExchangeRate == null ? "null" : this.ExchangeRate.ToString())}");
-            toStringOutput.Add($"this.PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
+            toStringOutput.Add($"GrossAmount = {(this.GrossAmount == null ? "null" : this.GrossAmount.ToString())}");
+            toStringOutput.Add($"PaypalFee = {(this.PaypalFee == null ? "null" : this.PaypalFee.ToString())}");
+            toStringOutput.Add($"PaypalFeeInReceivableCurrency = {(this.PaypalFeeInReceivableCurrency == null ? "null" : this.PaypalFeeInReceivableCurrency.ToString())}");
+            toStringOutput.Add($"NetAmount = {(this.NetAmount == null ? "null" : this.NetAmount.ToString())}");
+            toStringOutput.Add($"ReceivableAmount = {(this.ReceivableAmount == null ? "null" : this.ReceivableAmount.ToString())}");
+            toStringOutput.Add($"ExchangeRate = {(this.ExchangeRate == null ? "null" : this.ExchangeRate.ToString())}");
+            toStringOutput.Add($"PlatformFees = {(this.PlatformFees == null ? "null" : $"[{string.Join(", ", this.PlatformFees)} ]")}");
         }
     }
 }

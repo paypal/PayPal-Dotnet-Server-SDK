@@ -54,13 +54,13 @@ namespace PaypalServerSdk.Standard.Models
         public string VaultId { get; set; }
 
         /// <summary>
-        /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
         /// </summary>
         [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
 
         /// <summary>
-        /// Customizes the buyer experience during the approval process for payment with Venmo.<blockquote><strong>Note:</strong> Partners and Marketplaces might configure <code>shipping_preference</code> during partner account setup, which overrides the request values.</blockquote>
+        /// Customizes the buyer experience during the approval process for payment with Venmo. Note: Partners and Marketplaces might configure shipping_preference during partner account setup, which overrides the request values.
         /// </summary>
         [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VenmoWalletExperienceContext ExperienceContext { get; set; }
@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VenmoWalletRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VenmoWalletRequest other &&                ((this.VaultId == null && other.VaultId == null) || (this.VaultId?.Equals(other.VaultId) == true)) &&
-                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
-                ((this.ExperienceContext == null && other.ExperienceContext == null) || (this.ExperienceContext?.Equals(other.ExperienceContext) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true));
+            return obj is VenmoWalletRequest other &&
+                (this.VaultId == null && other.VaultId == null ||
+                 this.VaultId?.Equals(other.VaultId) == true) &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.ExperienceContext == null && other.ExperienceContext == null ||
+                 this.ExperienceContext?.Equals(other.ExperienceContext) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.VaultId = {(this.VaultId == null ? "null" : this.VaultId)}");
-            toStringOutput.Add($"this.EmailAddress = {(this.EmailAddress == null ? "null" : this.EmailAddress)}");
-            toStringOutput.Add($"this.ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"VaultId = {this.VaultId ?? "null"}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
         }
     }
 }

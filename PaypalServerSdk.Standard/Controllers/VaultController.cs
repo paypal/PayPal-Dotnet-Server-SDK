@@ -39,9 +39,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
         /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentTokenResponse> PaymentTokensCreate(
-                Models.PaymentTokensCreateInput input)
-            => CoreHelper.RunTask(PaymentTokensCreateAsync(input));
+        public ApiResponse<Models.PaymentTokenResponse> CreatePaymentToken(
+                Models.CreatePaymentTokenInput input)
+            => CoreHelper.RunTask(CreatePaymentTokenAsync(input));
 
         /// <summary>
         /// Creates a Payment Token from the given payment source and adds it to the Vault of the associated customer.
@@ -49,8 +49,8 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="input">Object containing request parameters.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentTokenResponse>> PaymentTokensCreateAsync(
-                Models.PaymentTokensCreateInput input,
+        public async Task<ApiResponse<Models.PaymentTokenResponse>> CreatePaymentTokenAsync(
+                Models.CreatePaymentTokenInput input,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.PaymentTokenResponse>()
               .RequestBuilder(_requestBuilder => _requestBuilder
@@ -58,8 +58,8 @@ namespace PaypalServerSdk.Standard.Controllers
                   .WithAuth("Oauth2")
                   .Parameters(_parameters => _parameters
                       .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
-                      .Header(_header => _header.Setup("Content-Type", "application/json"))))
+                      .Header(_header => _header.Setup("Content-Type", "application/json"))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
@@ -73,9 +73,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
         /// <returns>Returns the ApiResponse of Models.CustomerVaultPaymentTokensResponse response from the API call.</returns>
-        public ApiResponse<Models.CustomerVaultPaymentTokensResponse> CustomerPaymentTokensGet(
-                Models.CustomerPaymentTokensGetInput input)
-            => CoreHelper.RunTask(CustomerPaymentTokensGetAsync(input));
+        public ApiResponse<Models.CustomerVaultPaymentTokensResponse> ListCustomerPaymentTokens(
+                Models.ListCustomerPaymentTokensInput input)
+            => CoreHelper.RunTask(ListCustomerPaymentTokensAsync(input));
 
         /// <summary>
         /// Returns all payment tokens for a customer.
@@ -83,8 +83,8 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="input">Object containing request parameters.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.CustomerVaultPaymentTokensResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.CustomerVaultPaymentTokensResponse>> CustomerPaymentTokensGetAsync(
-                Models.CustomerPaymentTokensGetInput input,
+        public async Task<ApiResponse<Models.CustomerVaultPaymentTokensResponse>> ListCustomerPaymentTokensAsync(
+                Models.ListCustomerPaymentTokensInput input,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.CustomerVaultPaymentTokensResponse>()
               .RequestBuilder(_requestBuilder => _requestBuilder
@@ -106,9 +106,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// </summary>
         /// <param name="id">Required parameter: ID of the payment token..</param>
         /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public ApiResponse<Models.PaymentTokenResponse> PaymentTokensGet(
+        public ApiResponse<Models.PaymentTokenResponse> GetPaymentToken(
                 string id)
-            => CoreHelper.RunTask(PaymentTokensGetAsync(id));
+            => CoreHelper.RunTask(GetPaymentTokenAsync(id));
 
         /// <summary>
         /// Returns a readable representation of vaulted payment source associated with the payment token id.
@@ -116,7 +116,7 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="id">Required parameter: ID of the payment token..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.PaymentTokenResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentTokenResponse>> PaymentTokensGetAsync(
+        public async Task<ApiResponse<Models.PaymentTokenResponse>> GetPaymentTokenAsync(
                 string id,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.PaymentTokenResponse>()
@@ -136,9 +136,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// Delete the payment token associated with the payment token id.
         /// </summary>
         /// <param name="id">Required parameter: ID of the payment token..</param>
-        public void PaymentTokensDelete(
+        public void DeletePaymentToken(
                 string id)
-            => CoreHelper.RunVoidTask(PaymentTokensDeleteAsync(id));
+            => CoreHelper.RunVoidTask(DeletePaymentTokenAsync(id));
 
         /// <summary>
         /// Delete the payment token associated with the payment token id.
@@ -146,7 +146,7 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="id">Required parameter: ID of the payment token..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the void response from the API call.</returns>
-        public async Task PaymentTokensDeleteAsync(
+        public async Task DeletePaymentTokenAsync(
                 string id,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<VoidType>()
@@ -166,9 +166,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
         /// <returns>Returns the ApiResponse of Models.SetupTokenResponse response from the API call.</returns>
-        public ApiResponse<Models.SetupTokenResponse> SetupTokensCreate(
-                Models.SetupTokensCreateInput input)
-            => CoreHelper.RunTask(SetupTokensCreateAsync(input));
+        public ApiResponse<Models.SetupTokenResponse> CreateSetupToken(
+                Models.CreateSetupTokenInput input)
+            => CoreHelper.RunTask(CreateSetupTokenAsync(input));
 
         /// <summary>
         /// Creates a Setup Token from the given payment source and adds it to the Vault of the associated customer.
@@ -176,8 +176,8 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="input">Object containing request parameters.</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SetupTokenResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.SetupTokenResponse>> SetupTokensCreateAsync(
-                Models.SetupTokensCreateInput input,
+        public async Task<ApiResponse<Models.SetupTokenResponse>> CreateSetupTokenAsync(
+                Models.CreateSetupTokenInput input,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.SetupTokenResponse>()
               .RequestBuilder(_requestBuilder => _requestBuilder
@@ -185,8 +185,8 @@ namespace PaypalServerSdk.Standard.Controllers
                   .WithAuth("Oauth2")
                   .Parameters(_parameters => _parameters
                       .Body(_bodyParameter => _bodyParameter.Setup(input.Body))
-                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))
-                      .Header(_header => _header.Setup("Content-Type", "application/json"))))
+                      .Header(_header => _header.Setup("Content-Type", "application/json"))
+                      .Header(_header => _header.Setup("PayPal-Request-Id", input.PaypalRequestId))))
               .ResponseHandler(_responseHandler => _responseHandler
                   .ErrorCase("400", CreateErrorCase("Request is not well-formed, syntactically incorrect, or violates schema.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("403", CreateErrorCase("Authorization failed due to insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
@@ -199,9 +199,9 @@ namespace PaypalServerSdk.Standard.Controllers
         /// </summary>
         /// <param name="id">Required parameter: ID of the setup token..</param>
         /// <returns>Returns the ApiResponse of Models.SetupTokenResponse response from the API call.</returns>
-        public ApiResponse<Models.SetupTokenResponse> SetupTokensGet(
+        public ApiResponse<Models.SetupTokenResponse> GetSetupToken(
                 string id)
-            => CoreHelper.RunTask(SetupTokensGetAsync(id));
+            => CoreHelper.RunTask(GetSetupTokenAsync(id));
 
         /// <summary>
         /// Returns a readable representation of temporarily vaulted payment source associated with the setup token id.
@@ -209,7 +209,7 @@ namespace PaypalServerSdk.Standard.Controllers
         /// <param name="id">Required parameter: ID of the setup token..</param>
         /// <param name="cancellationToken"> cancellationToken. </param>
         /// <returns>Returns the ApiResponse of Models.SetupTokenResponse response from the API call.</returns>
-        public async Task<ApiResponse<Models.SetupTokenResponse>> SetupTokensGetAsync(
+        public async Task<ApiResponse<Models.SetupTokenResponse>> GetSetupTokenAsync(
                 string id,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.SetupTokenResponse>()

@@ -20,18 +20,21 @@ namespace PaypalServerSdk.Standard.Models
     public enum OrderApplicationContextShippingPreference
     {
         /// <summary>
+        ///Use the customer-provided shipping address on the PayPal site.
         /// GetFromFile.
         /// </summary>
         [EnumMember(Value = "GET_FROM_FILE")]
         GetFromFile,
 
         /// <summary>
+        ///Redact the shipping address from the PayPal site. Recommended for digital goods.
         /// NoShipping.
         /// </summary>
         [EnumMember(Value = "NO_SHIPPING")]
         NoShipping,
 
         /// <summary>
+        ///Use the merchant-provided address. The customer cannot change this address on the PayPal site.
         /// SetProvidedAddress.
         /// </summary>
         [EnumMember(Value = "SET_PROVIDED_ADDRESS")]

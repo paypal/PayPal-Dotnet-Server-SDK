@@ -29,14 +29,6 @@ PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .Build();
 ```
 
-API calls return an `ApiResponse` object that includes the following fields:
-
-| Field | Description |
-|  --- | --- |
-| `StatusCode` | Status code of the HTTP response |
-| `Headers` | Headers of the HTTP response as a Hash |
-| `Data` | The deserialized body of the HTTP response as a String |
-
 ## PayPal Server SDKClient Class
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.

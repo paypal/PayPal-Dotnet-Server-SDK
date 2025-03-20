@@ -47,8 +47,8 @@ namespace PaypalServerSdk.Standard.Models
             string lastDigits = null,
             Models.CardBrand? brand = null,
             string expiry = null,
-            Models.AddressDetails billingAddress = null,
-            string verificationStatus = null,
+            Models.CardResponseAddress billingAddress = null,
+            Models.CardVerificationStatus? verificationStatus = null,
             Models.CardVerificationDetails verification = null,
             Models.NetworkTransactionReferenceEntity networkTransactionReference = null,
             Models.CardAuthenticationResponse authenticationResult = null,
@@ -96,13 +96,13 @@ namespace PaypalServerSdk.Standard.Models
         /// Address request details.
         /// </summary>
         [JsonProperty("billing_address", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.AddressDetails BillingAddress { get; set; }
+        public Models.CardResponseAddress BillingAddress { get; set; }
 
         /// <summary>
         /// Verification status of Card.
         /// </summary>
         [JsonProperty("verification_status", NullValueHandling = NullValueHandling.Ignore)]
-        public string VerificationStatus { get; set; }
+        public Models.CardVerificationStatus? VerificationStatus { get; set; }
 
         /// <summary>
         /// Card Verification details including the authorization details and 3D SECURE details.
@@ -138,54 +138,58 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"SetupTokenResponseCard : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is SetupTokenResponseCard other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.LastDigits == null && other.LastDigits == null) || (this.LastDigits?.Equals(other.LastDigits) == true)) &&
-                ((this.Brand == null && other.Brand == null) || (this.Brand?.Equals(other.Brand) == true)) &&
-                ((this.Expiry == null && other.Expiry == null) || (this.Expiry?.Equals(other.Expiry) == true)) &&
-                ((this.BillingAddress == null && other.BillingAddress == null) || (this.BillingAddress?.Equals(other.BillingAddress) == true)) &&
-                ((this.VerificationStatus == null && other.VerificationStatus == null) || (this.VerificationStatus?.Equals(other.VerificationStatus) == true)) &&
-                ((this.Verification == null && other.Verification == null) || (this.Verification?.Equals(other.Verification) == true)) &&
-                ((this.NetworkTransactionReference == null && other.NetworkTransactionReference == null) || (this.NetworkTransactionReference?.Equals(other.NetworkTransactionReference) == true)) &&
-                ((this.AuthenticationResult == null && other.AuthenticationResult == null) || (this.AuthenticationResult?.Equals(other.AuthenticationResult) == true)) &&
-                ((this.BinDetails == null && other.BinDetails == null) || (this.BinDetails?.Equals(other.BinDetails) == true)) &&
-                ((this.Type == null && other.Type == null) || (this.Type?.Equals(other.Type) == true));
+            return obj is SetupTokenResponseCard other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.LastDigits == null && other.LastDigits == null ||
+                 this.LastDigits?.Equals(other.LastDigits) == true) &&
+                (this.Brand == null && other.Brand == null ||
+                 this.Brand?.Equals(other.Brand) == true) &&
+                (this.Expiry == null && other.Expiry == null ||
+                 this.Expiry?.Equals(other.Expiry) == true) &&
+                (this.BillingAddress == null && other.BillingAddress == null ||
+                 this.BillingAddress?.Equals(other.BillingAddress) == true) &&
+                (this.VerificationStatus == null && other.VerificationStatus == null ||
+                 this.VerificationStatus?.Equals(other.VerificationStatus) == true) &&
+                (this.Verification == null && other.Verification == null ||
+                 this.Verification?.Equals(other.Verification) == true) &&
+                (this.NetworkTransactionReference == null && other.NetworkTransactionReference == null ||
+                 this.NetworkTransactionReference?.Equals(other.NetworkTransactionReference) == true) &&
+                (this.AuthenticationResult == null && other.AuthenticationResult == null ||
+                 this.AuthenticationResult?.Equals(other.AuthenticationResult) == true) &&
+                (this.BinDetails == null && other.BinDetails == null ||
+                 this.BinDetails?.Equals(other.BinDetails) == true) &&
+                (this.Type == null && other.Type == null ||
+                 this.Type?.Equals(other.Type) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.LastDigits = {(this.LastDigits == null ? "null" : this.LastDigits)}");
-            toStringOutput.Add($"this.Brand = {(this.Brand == null ? "null" : this.Brand.ToString())}");
-            toStringOutput.Add($"this.Expiry = {(this.Expiry == null ? "null" : this.Expiry)}");
-            toStringOutput.Add($"this.BillingAddress = {(this.BillingAddress == null ? "null" : this.BillingAddress.ToString())}");
-            toStringOutput.Add($"this.VerificationStatus = {(this.VerificationStatus == null ? "null" : this.VerificationStatus)}");
-            toStringOutput.Add($"this.Verification = {(this.Verification == null ? "null" : this.Verification.ToString())}");
-            toStringOutput.Add($"this.NetworkTransactionReference = {(this.NetworkTransactionReference == null ? "null" : this.NetworkTransactionReference.ToString())}");
-            toStringOutput.Add($"this.AuthenticationResult = {(this.AuthenticationResult == null ? "null" : this.AuthenticationResult.ToString())}");
-            toStringOutput.Add($"this.BinDetails = {(this.BinDetails == null ? "null" : this.BinDetails.ToString())}");
-            toStringOutput.Add($"this.Type = {(this.Type == null ? "null" : this.Type.ToString())}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"LastDigits = {this.LastDigits ?? "null"}");
+            toStringOutput.Add($"Brand = {(this.Brand == null ? "null" : this.Brand.ToString())}");
+            toStringOutput.Add($"Expiry = {this.Expiry ?? "null"}");
+            toStringOutput.Add($"BillingAddress = {(this.BillingAddress == null ? "null" : this.BillingAddress.ToString())}");
+            toStringOutput.Add($"VerificationStatus = {(this.VerificationStatus == null ? "null" : this.VerificationStatus.ToString())}");
+            toStringOutput.Add($"Verification = {(this.Verification == null ? "null" : this.Verification.ToString())}");
+            toStringOutput.Add($"NetworkTransactionReference = {(this.NetworkTransactionReference == null ? "null" : this.NetworkTransactionReference.ToString())}");
+            toStringOutput.Add($"AuthenticationResult = {(this.AuthenticationResult == null ? "null" : this.AuthenticationResult.ToString())}");
+            toStringOutput.Add($"BinDetails = {(this.BinDetails == null ? "null" : this.BinDetails.ToString())}");
+            toStringOutput.Add($"Type = {(this.Type == null ? "null" : this.Type.ToString())}");
         }
     }
 }

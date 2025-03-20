@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardFromRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardFromRequest other &&                ((this.Expiry == null && other.Expiry == null) || (this.Expiry?.Equals(other.Expiry) == true)) &&
-                ((this.LastDigits == null && other.LastDigits == null) || (this.LastDigits?.Equals(other.LastDigits) == true));
+            return obj is CardFromRequest other &&
+                (this.Expiry == null && other.Expiry == null ||
+                 this.Expiry?.Equals(other.Expiry) == true) &&
+                (this.LastDigits == null && other.LastDigits == null ||
+                 this.LastDigits?.Equals(other.LastDigits) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Expiry = {(this.Expiry == null ? "null" : this.Expiry)}");
-            toStringOutput.Add($"this.LastDigits = {(this.LastDigits == null ? "null" : this.LastDigits)}");
+            toStringOutput.Add($"Expiry = {this.Expiry ?? "null"}");
+            toStringOutput.Add($"LastDigits = {this.LastDigits ?? "null"}");
         }
     }
 }

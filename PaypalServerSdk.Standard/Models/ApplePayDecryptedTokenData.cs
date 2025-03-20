@@ -84,42 +84,40 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ApplePayDecryptedTokenData : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ApplePayDecryptedTokenData other &&                ((this.TransactionAmount == null && other.TransactionAmount == null) || (this.TransactionAmount?.Equals(other.TransactionAmount) == true)) &&
-                ((this.TokenizedCard == null && other.TokenizedCard == null) || (this.TokenizedCard?.Equals(other.TokenizedCard) == true)) &&
-                ((this.DeviceManufacturerId == null && other.DeviceManufacturerId == null) || (this.DeviceManufacturerId?.Equals(other.DeviceManufacturerId) == true)) &&
-                ((this.PaymentDataType == null && other.PaymentDataType == null) || (this.PaymentDataType?.Equals(other.PaymentDataType) == true)) &&
-                ((this.PaymentData == null && other.PaymentData == null) || (this.PaymentData?.Equals(other.PaymentData) == true));
+            return obj is ApplePayDecryptedTokenData other &&
+                (this.TransactionAmount == null && other.TransactionAmount == null ||
+                 this.TransactionAmount?.Equals(other.TransactionAmount) == true) &&
+                (this.TokenizedCard == null && other.TokenizedCard == null ||
+                 this.TokenizedCard?.Equals(other.TokenizedCard) == true) &&
+                (this.DeviceManufacturerId == null && other.DeviceManufacturerId == null ||
+                 this.DeviceManufacturerId?.Equals(other.DeviceManufacturerId) == true) &&
+                (this.PaymentDataType == null && other.PaymentDataType == null ||
+                 this.PaymentDataType?.Equals(other.PaymentDataType) == true) &&
+                (this.PaymentData == null && other.PaymentData == null ||
+                 this.PaymentData?.Equals(other.PaymentData) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.TransactionAmount = {(this.TransactionAmount == null ? "null" : this.TransactionAmount.ToString())}");
-            toStringOutput.Add($"this.TokenizedCard = {(this.TokenizedCard == null ? "null" : this.TokenizedCard.ToString())}");
-            toStringOutput.Add($"this.DeviceManufacturerId = {(this.DeviceManufacturerId == null ? "null" : this.DeviceManufacturerId)}");
-            toStringOutput.Add($"this.PaymentDataType = {(this.PaymentDataType == null ? "null" : this.PaymentDataType.ToString())}");
-            toStringOutput.Add($"this.PaymentData = {(this.PaymentData == null ? "null" : this.PaymentData.ToString())}");
+            toStringOutput.Add($"TransactionAmount = {(this.TransactionAmount == null ? "null" : this.TransactionAmount.ToString())}");
+            toStringOutput.Add($"TokenizedCard = {(this.TokenizedCard == null ? "null" : this.TokenizedCard.ToString())}");
+            toStringOutput.Add($"DeviceManufacturerId = {this.DeviceManufacturerId ?? "null"}");
+            toStringOutput.Add($"PaymentDataType = {(this.PaymentDataType == null ? "null" : this.PaymentDataType.ToString())}");
+            toStringOutput.Add($"PaymentData = {(this.PaymentData == null ? "null" : this.PaymentData.ToString())}");
         }
     }
 }

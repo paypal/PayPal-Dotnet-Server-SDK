@@ -57,36 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"AuthenticationResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is AuthenticationResponse other &&                ((this.LiabilityShift == null && other.LiabilityShift == null) || (this.LiabilityShift?.Equals(other.LiabilityShift) == true)) &&
-                ((this.ThreeDSecure == null && other.ThreeDSecure == null) || (this.ThreeDSecure?.Equals(other.ThreeDSecure) == true));
+            return obj is AuthenticationResponse other &&
+                (this.LiabilityShift == null && other.LiabilityShift == null ||
+                 this.LiabilityShift?.Equals(other.LiabilityShift) == true) &&
+                (this.ThreeDSecure == null && other.ThreeDSecure == null ||
+                 this.ThreeDSecure?.Equals(other.ThreeDSecure) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.LiabilityShift = {(this.LiabilityShift == null ? "null" : this.LiabilityShift.ToString())}");
-            toStringOutput.Add($"this.ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
+            toStringOutput.Add($"LiabilityShift = {(this.LiabilityShift == null ? "null" : this.LiabilityShift.ToString())}");
+            toStringOutput.Add($"ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
         }
     }
 }

@@ -60,7 +60,7 @@ namespace PaypalServerSdk.Standard.Models
         public string TrackingNumber { get; set; }
 
         /// <summary>
-        /// The carrier for the shipment. Some carriers have a global version as well as local subsidiaries. The subsidiaries are repeated over many countries and might also have an entry in the global list. Choose the carrier for your country. If the carrier is not available for your country, choose the global version of the carrier. If your carrier name is not in the list, set `carrier` to `OTHER` and set carrier name in `carrier_name_other`. For allowed values, see <a href="/docs/tracking/reference/carriers/">Carriers</a>.
+        /// The carrier for the shipment. Some carriers have a global version as well as local subsidiaries. The subsidiaries are repeated over many countries and might also have an entry in the global list. Choose the carrier for your country. If the carrier is not available for your country, choose the global version of the carrier. If your carrier name is not in the list, set `carrier` to `OTHER` and set carrier name in `carrier_name_other`. For allowed values, see Carriers.
         /// </summary>
         [JsonProperty("carrier", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ShipmentCarrier? Carrier { get; set; }
@@ -78,7 +78,7 @@ namespace PaypalServerSdk.Standard.Models
         public string CaptureId { get; set; }
 
         /// <summary>
-        /// If true, sends an email notification to the payer of the PayPal transaction. The email contains the tracking information that was uploaded through the API.
+        /// If true, PayPal will send an email notification to the payer of the PayPal transaction. The email contains the tracking details provided through the Orders tracking API request. Independent of any value passed for `notify_payer`, the payer may receive tracking notifications within the PayPal app, based on the user's notification preferences.
         /// </summary>
         [JsonProperty("notify_payer", NullValueHandling = NullValueHandling.Ignore)]
         public bool? NotifyPayer { get; set; }
@@ -93,44 +93,43 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"OrderTrackerRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is OrderTrackerRequest other &&                ((this.TrackingNumber == null && other.TrackingNumber == null) || (this.TrackingNumber?.Equals(other.TrackingNumber) == true)) &&
-                ((this.Carrier == null && other.Carrier == null) || (this.Carrier?.Equals(other.Carrier) == true)) &&
-                ((this.CarrierNameOther == null && other.CarrierNameOther == null) || (this.CarrierNameOther?.Equals(other.CarrierNameOther) == true)) &&
-                ((this.CaptureId == null && other.CaptureId == null) || (this.CaptureId?.Equals(other.CaptureId) == true)) &&
-                ((this.NotifyPayer == null && other.NotifyPayer == null) || (this.NotifyPayer?.Equals(other.NotifyPayer) == true)) &&
-                ((this.Items == null && other.Items == null) || (this.Items?.Equals(other.Items) == true));
+            return obj is OrderTrackerRequest other &&
+                (this.TrackingNumber == null && other.TrackingNumber == null ||
+                 this.TrackingNumber?.Equals(other.TrackingNumber) == true) &&
+                (this.Carrier == null && other.Carrier == null ||
+                 this.Carrier?.Equals(other.Carrier) == true) &&
+                (this.CarrierNameOther == null && other.CarrierNameOther == null ||
+                 this.CarrierNameOther?.Equals(other.CarrierNameOther) == true) &&
+                (this.CaptureId == null && other.CaptureId == null ||
+                 this.CaptureId?.Equals(other.CaptureId) == true) &&
+                (this.NotifyPayer == null && other.NotifyPayer == null ||
+                 this.NotifyPayer?.Equals(other.NotifyPayer) == true) &&
+                (this.Items == null && other.Items == null ||
+                 this.Items?.Equals(other.Items) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.TrackingNumber = {(this.TrackingNumber == null ? "null" : this.TrackingNumber)}");
-            toStringOutput.Add($"this.Carrier = {(this.Carrier == null ? "null" : this.Carrier.ToString())}");
-            toStringOutput.Add($"this.CarrierNameOther = {(this.CarrierNameOther == null ? "null" : this.CarrierNameOther)}");
-            toStringOutput.Add($"this.CaptureId = {(this.CaptureId == null ? "null" : this.CaptureId)}");
-            toStringOutput.Add($"this.NotifyPayer = {(this.NotifyPayer == null ? "null" : this.NotifyPayer.ToString())}");
-            toStringOutput.Add($"this.Items = {(this.Items == null ? "null" : $"[{string.Join(", ", this.Items)} ]")}");
+            toStringOutput.Add($"TrackingNumber = {this.TrackingNumber ?? "null"}");
+            toStringOutput.Add($"Carrier = {(this.Carrier == null ? "null" : this.Carrier.ToString())}");
+            toStringOutput.Add($"CarrierNameOther = {this.CarrierNameOther ?? "null"}");
+            toStringOutput.Add($"CaptureId = {this.CaptureId ?? "null"}");
+            toStringOutput.Add($"NotifyPayer = {(this.NotifyPayer == null ? "null" : this.NotifyPayer.ToString())}");
+            toStringOutput.Add($"Items = {(this.Items == null ? "null" : $"[{string.Join(", ", this.Items)} ]")}");
         }
     }
 }

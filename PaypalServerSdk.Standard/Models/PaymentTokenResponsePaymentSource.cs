@@ -35,26 +35,23 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="paypal">paypal.</param>
         /// <param name="venmo">venmo.</param>
         /// <param name="applePay">apple_pay.</param>
-        /// <param name="bank">bank.</param>
         public PaymentTokenResponsePaymentSource(
-            Models.CardPaymentToken card = null,
+            Models.CardPaymentTokenEntity card = null,
             Models.PaypalPaymentToken paypal = null,
             Models.VenmoPaymentToken venmo = null,
-            Models.ApplePayPaymentToken applePay = null,
-            JsonObject bank = null)
+            Models.ApplePayPaymentToken applePay = null)
         {
             this.Card = card;
             this.Paypal = paypal;
             this.Venmo = venmo;
             this.ApplePay = applePay;
-            this.Bank = bank;
         }
 
         /// <summary>
         /// Full representation of a Card Payment Token including network token.
         /// </summary>
         [JsonProperty("card", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CardPaymentToken Card { get; set; }
+        public Models.CardPaymentTokenEntity Card { get; set; }
 
         /// <summary>
         /// Gets or sets Paypal.
@@ -74,52 +71,41 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("apple_pay", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ApplePayPaymentToken ApplePay { get; set; }
 
-        /// <summary>
-        /// Full representation of a Bank Payment Token.
-        /// </summary>
-        [JsonProperty("bank", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonObject Bank { get; set; }
-
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentTokenResponsePaymentSource : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentTokenResponsePaymentSource other &&                ((this.Card == null && other.Card == null) || (this.Card?.Equals(other.Card) == true)) &&
-                ((this.Paypal == null && other.Paypal == null) || (this.Paypal?.Equals(other.Paypal) == true)) &&
-                ((this.Venmo == null && other.Venmo == null) || (this.Venmo?.Equals(other.Venmo) == true)) &&
-                ((this.ApplePay == null && other.ApplePay == null) || (this.ApplePay?.Equals(other.ApplePay) == true)) &&
-                ((this.Bank == null && other.Bank == null) || (this.Bank?.Equals(other.Bank) == true));
+            return obj is PaymentTokenResponsePaymentSource other &&
+                (this.Card == null && other.Card == null ||
+                 this.Card?.Equals(other.Card) == true) &&
+                (this.Paypal == null && other.Paypal == null ||
+                 this.Paypal?.Equals(other.Paypal) == true) &&
+                (this.Venmo == null && other.Venmo == null ||
+                 this.Venmo?.Equals(other.Venmo) == true) &&
+                (this.ApplePay == null && other.ApplePay == null ||
+                 this.ApplePay?.Equals(other.ApplePay) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Card = {(this.Card == null ? "null" : this.Card.ToString())}");
-            toStringOutput.Add($"this.Paypal = {(this.Paypal == null ? "null" : this.Paypal.ToString())}");
-            toStringOutput.Add($"this.Venmo = {(this.Venmo == null ? "null" : this.Venmo.ToString())}");
-            toStringOutput.Add($"this.ApplePay = {(this.ApplePay == null ? "null" : this.ApplePay.ToString())}");
-            toStringOutput.Add($"Bank = {(this.Bank == null ? "null" : this.Bank.ToString())}");
+            toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
+            toStringOutput.Add($"Paypal = {(this.Paypal == null ? "null" : this.Paypal.ToString())}");
+            toStringOutput.Add($"Venmo = {(this.Venmo == null ? "null" : this.Venmo.ToString())}");
+            toStringOutput.Add($"ApplePay = {(this.ApplePay == null ? "null" : this.ApplePay.ToString())}");
         }
     }
 }

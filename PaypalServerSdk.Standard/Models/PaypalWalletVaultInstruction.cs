@@ -41,7 +41,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.PaypalPaymentTokenUsageType usageType,
             Models.StoreInVaultInstruction? storeInVault = null,
             string description = null,
-            Models.PaypalPaymentTokenUsagePattern? usagePattern = null,
+            Models.UsagePattern? usagePattern = null,
             Models.PaypalPaymentTokenCustomerType? customerType = Models.PaypalPaymentTokenCustomerType.Consumer,
             bool? permitMultiplePaymentTokens = false)
         {
@@ -69,7 +69,7 @@ namespace PaypalServerSdk.Standard.Models
         /// Expected business/pricing model for the billing agreement.
         /// </summary>
         [JsonProperty("usage_pattern", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PaypalPaymentTokenUsagePattern? UsagePattern { get; set; }
+        public Models.UsagePattern? UsagePattern { get; set; }
 
         /// <summary>
         /// The usage type associated with the PayPal payment token.
@@ -93,44 +93,42 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaypalWalletVaultInstruction : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaypalWalletVaultInstruction other &&                ((this.StoreInVault == null && other.StoreInVault == null) || (this.StoreInVault?.Equals(other.StoreInVault) == true)) &&
-                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
-                ((this.UsagePattern == null && other.UsagePattern == null) || (this.UsagePattern?.Equals(other.UsagePattern) == true)) &&
-                this.UsageType.Equals(other.UsageType) &&
-                ((this.CustomerType == null && other.CustomerType == null) || (this.CustomerType?.Equals(other.CustomerType) == true)) &&
-                ((this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null) || (this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true));
+            return obj is PaypalWalletVaultInstruction other &&
+                (this.StoreInVault == null && other.StoreInVault == null ||
+                 this.StoreInVault?.Equals(other.StoreInVault) == true) &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true) &&
+                (this.UsagePattern == null && other.UsagePattern == null ||
+                 this.UsagePattern?.Equals(other.UsagePattern) == true) &&
+                (this.UsageType.Equals(other.UsageType)) &&
+                (this.CustomerType == null && other.CustomerType == null ||
+                 this.CustomerType?.Equals(other.CustomerType) == true) &&
+                (this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null ||
+                 this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.StoreInVault = {(this.StoreInVault == null ? "null" : this.StoreInVault.ToString())}");
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
-            toStringOutput.Add($"this.UsagePattern = {(this.UsagePattern == null ? "null" : this.UsagePattern.ToString())}");
-            toStringOutput.Add($"this.UsageType = {this.UsageType}");
-            toStringOutput.Add($"this.CustomerType = {(this.CustomerType == null ? "null" : this.CustomerType.ToString())}");
-            toStringOutput.Add($"this.PermitMultiplePaymentTokens = {(this.PermitMultiplePaymentTokens == null ? "null" : this.PermitMultiplePaymentTokens.ToString())}");
+            toStringOutput.Add($"StoreInVault = {(this.StoreInVault == null ? "null" : this.StoreInVault.ToString())}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
+            toStringOutput.Add($"UsagePattern = {(this.UsagePattern == null ? "null" : this.UsagePattern.ToString())}");
+            toStringOutput.Add($"UsageType = {this.UsageType}");
+            toStringOutput.Add($"CustomerType = {(this.CustomerType == null ? "null" : this.CustomerType.ToString())}");
+            toStringOutput.Add($"PermitMultiplePaymentTokens = {(this.PermitMultiplePaymentTokens == null ? "null" : this.PermitMultiplePaymentTokens.ToString())}");
         }
     }
 }

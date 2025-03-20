@@ -38,6 +38,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="phoneNumber">phone_number.</param>
         /// <param name="card">card.</param>
         /// <param name="attributes">attributes.</param>
+        /// <param name="storedCredential">stored_credential.</param>
         public ApplePayPaymentObject(
             string id = null,
             string token = null,
@@ -45,7 +46,8 @@ namespace PaypalServerSdk.Standard.Models
             string emailAddress = null,
             Models.PhoneNumber phoneNumber = null,
             Models.ApplePayCardResponse card = null,
-            Models.ApplePayAttributesResponse attributes = null)
+            Models.ApplePayAttributesResponse attributes = null,
+            Models.CardStoredCredential storedCredential = null)
         {
             this.Id = id;
             this.Token = token;
@@ -54,6 +56,7 @@ namespace PaypalServerSdk.Standard.Models
             this.PhoneNumber = phoneNumber;
             this.Card = card;
             this.Attributes = attributes;
+            this.StoredCredential = storedCredential;
         }
 
         /// <summary>
@@ -75,7 +78,7 @@ namespace PaypalServerSdk.Standard.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
         /// </summary>
         [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
@@ -98,50 +101,59 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ApplePayAttributesResponse Attributes { get; set; }
 
+        /// <summary>
+        /// Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.
+        /// </summary>
+        [JsonProperty("stored_credential", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.CardStoredCredential StoredCredential { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ApplePayPaymentObject : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ApplePayPaymentObject other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Token == null && other.Token == null) || (this.Token?.Equals(other.Token) == true)) &&
-                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
-                ((this.PhoneNumber == null && other.PhoneNumber == null) || (this.PhoneNumber?.Equals(other.PhoneNumber) == true)) &&
-                ((this.Card == null && other.Card == null) || (this.Card?.Equals(other.Card) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true));
+            return obj is ApplePayPaymentObject other &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Token == null && other.Token == null ||
+                 this.Token?.Equals(other.Token) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.PhoneNumber == null && other.PhoneNumber == null ||
+                 this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
+                (this.Card == null && other.Card == null ||
+                 this.Card?.Equals(other.Card) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true) &&
+                (this.StoredCredential == null && other.StoredCredential == null ||
+                 this.StoredCredential?.Equals(other.StoredCredential) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Token = {(this.Token == null ? "null" : this.Token)}");
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.EmailAddress = {(this.EmailAddress == null ? "null" : this.EmailAddress)}");
-            toStringOutput.Add($"this.PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
-            toStringOutput.Add($"this.Card = {(this.Card == null ? "null" : this.Card.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Token = {this.Token ?? "null"}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
+            toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
         }
     }
 }

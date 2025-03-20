@@ -20,5 +20,11 @@ namespace PaypalServerSdk.Standard.Http.Client
         /// <param name="contentType">Optional file content type associated with the stream.</param>
         public FileStreamInfo(Stream stream, string fileName = null, string contentType = null)
             : base(stream, fileName, contentType) { }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return $"FileStreamInfo : (FileName = {FileName ?? "null"}, ContentType = {ContentType ?? "null"})";
+        }
     }
 }

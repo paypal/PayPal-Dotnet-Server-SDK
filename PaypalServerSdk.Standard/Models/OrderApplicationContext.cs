@@ -81,13 +81,13 @@ namespace PaypalServerSdk.Standard.Models
         public Models.OrderApplicationContextLandingPage? LandingPage { get; set; }
 
         /// <summary>
-        /// DEPRECATED. DEPRECATED. The shipping preference:<ul><li>Displays the shipping address to the customer.</li><li>Enables the customer to choose an address on the PayPal site.</li><li>Restricts the customer from changing the address during the payment-approval process.</li></ul>.  The fields in `application_context` are now available in the `experience_context` object under the `payment_source` which supports them (eg. `payment_source.paypal.experience_context.shipping_preference`). Please specify this field in the `experience_context` object instead of the `application_context` object.
+        /// DEPRECATED. DEPRECATED. The shipping preference: Displays the shipping address to the customer. Enables the customer to choose an address on the PayPal site. Restricts the customer from changing the address during the payment-approval process. .  The fields in `application_context` are now available in the `experience_context` object under the `payment_source` which supports them (eg. `payment_source.paypal.experience_context.shipping_preference`). Please specify this field in the `experience_context` object instead of the `application_context` object.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
         public Models.OrderApplicationContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
-        /// DEPRECATED. Configures a <strong>Continue</strong> or <strong>Pay Now</strong> checkout flow.  The fields in `application_context` are now available in the `experience_context` object under the `payment_source` which supports them (eg. `payment_source.paypal.experience_context.user_action`). Please specify this field in the `experience_context` object instead of the `application_context` object.
+        /// DEPRECATED. Configures a Continue or Pay Now checkout flow.  The fields in `application_context` are now available in the `experience_context` object under the `payment_source` which supports them (eg. `payment_source.paypal.experience_context.user_action`). Please specify this field in the `experience_context` object instead of the `application_context` object.
         /// </summary>
         [JsonProperty("user_action", NullValueHandling = NullValueHandling.Ignore)]
         public Models.OrderApplicationContextUserAction? UserAction { get; set; }
@@ -111,7 +111,7 @@ namespace PaypalServerSdk.Standard.Models
         public string CancelUrl { get; set; }
 
         /// <summary>
-        /// Provides additional details to process a payment using a `payment_source` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file).<br/>Parameter compatibility:<br/><ul><li>`payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`.</li><li>`usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`.</li><li>`previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`.</li><li>Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.</li></ul>
+        /// Provides additional details to process a payment using a `payment_source` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.
         /// </summary>
         [JsonProperty("stored_payment_source", NullValueHandling = NullValueHandling.Ignore)]
         public Models.StoredPaymentSource StoredPaymentSource { get; set; }
@@ -120,50 +120,52 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"OrderApplicationContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is OrderApplicationContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.Locale == null && other.Locale == null) || (this.Locale?.Equals(other.Locale) == true)) &&
-                ((this.LandingPage == null && other.LandingPage == null) || (this.LandingPage?.Equals(other.LandingPage) == true)) &&
-                ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true)) &&
-                ((this.UserAction == null && other.UserAction == null) || (this.UserAction?.Equals(other.UserAction) == true)) &&
-                ((this.PaymentMethod == null && other.PaymentMethod == null) || (this.PaymentMethod?.Equals(other.PaymentMethod) == true)) &&
-                ((this.ReturnUrl == null && other.ReturnUrl == null) || (this.ReturnUrl?.Equals(other.ReturnUrl) == true)) &&
-                ((this.CancelUrl == null && other.CancelUrl == null) || (this.CancelUrl?.Equals(other.CancelUrl) == true)) &&
-                ((this.StoredPaymentSource == null && other.StoredPaymentSource == null) || (this.StoredPaymentSource?.Equals(other.StoredPaymentSource) == true));
+            return obj is OrderApplicationContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.Locale == null && other.Locale == null ||
+                 this.Locale?.Equals(other.Locale) == true) &&
+                (this.LandingPage == null && other.LandingPage == null ||
+                 this.LandingPage?.Equals(other.LandingPage) == true) &&
+                (this.ShippingPreference == null && other.ShippingPreference == null ||
+                 this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.UserAction == null && other.UserAction == null ||
+                 this.UserAction?.Equals(other.UserAction) == true) &&
+                (this.PaymentMethod == null && other.PaymentMethod == null ||
+                 this.PaymentMethod?.Equals(other.PaymentMethod) == true) &&
+                (this.ReturnUrl == null && other.ReturnUrl == null ||
+                 this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
+                (this.CancelUrl == null && other.CancelUrl == null ||
+                 this.CancelUrl?.Equals(other.CancelUrl) == true) &&
+                (this.StoredPaymentSource == null && other.StoredPaymentSource == null ||
+                 this.StoredPaymentSource?.Equals(other.StoredPaymentSource) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.Locale = {(this.Locale == null ? "null" : this.Locale)}");
-            toStringOutput.Add($"this.LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");
-            toStringOutput.Add($"this.ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
-            toStringOutput.Add($"this.UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
-            toStringOutput.Add($"this.PaymentMethod = {(this.PaymentMethod == null ? "null" : this.PaymentMethod.ToString())}");
-            toStringOutput.Add($"this.ReturnUrl = {(this.ReturnUrl == null ? "null" : this.ReturnUrl)}");
-            toStringOutput.Add($"this.CancelUrl = {(this.CancelUrl == null ? "null" : this.CancelUrl)}");
-            toStringOutput.Add($"this.StoredPaymentSource = {(this.StoredPaymentSource == null ? "null" : this.StoredPaymentSource.ToString())}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"Locale = {this.Locale ?? "null"}");
+            toStringOutput.Add($"LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");
+            toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
+            toStringOutput.Add($"PaymentMethod = {(this.PaymentMethod == null ? "null" : this.PaymentMethod.ToString())}");
+            toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
+            toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+            toStringOutput.Add($"StoredPaymentSource = {(this.StoredPaymentSource == null ? "null" : this.StoredPaymentSource.ToString())}");
         }
     }
 }

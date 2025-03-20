@@ -48,7 +48,7 @@ namespace PaypalServerSdk.Standard.Models
         public PurchaseUnit(
             string referenceId = null,
             Models.AmountWithBreakdown amount = null,
-            Models.Payee payee = null,
+            Models.PayeeBase payee = null,
             Models.PaymentInstruction paymentInstruction = null,
             string description = null,
             string customId = null,
@@ -78,13 +78,13 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// The API caller-provided external ID for the purchase unit. Required for multiple purchase units when you must update the order through `PATCH`. If you omit this value and the order contains only one purchase unit, PayPal sets this value to `default`. <blockquote><strong>Note:</strong> If there are multiple purchase units, <code>reference_id</code> is required for each purchase unit.</blockquote>
+        /// The API caller-provided external ID for the purchase unit. Required for multiple purchase units when you must update the order through `PATCH`. If you omit this value and the order contains only one purchase unit, PayPal sets this value to `default`. Note: If there are multiple purchase units, reference_id is required for each purchase unit.
         /// </summary>
         [JsonProperty("reference_id", NullValueHandling = NullValueHandling.Ignore)]
         public string ReferenceId { get; set; }
 
         /// <summary>
-        /// The total order amount with an optional breakdown that provides details, such as the total item amount, total tax amount, shipping, handling, insurance, and discounts, if any.<br/>If you specify `amount.breakdown`, the amount equals `item_total` plus `tax_total` plus `shipping` plus `handling` plus `insurance` minus `shipping_discount` minus discount.<br/>The amount must be a positive number. For listed of supported currencies and decimal precision, see the PayPal REST APIs <a href="/docs/integration/direct/rest/currency-codes/">Currency Codes</a>.
+        /// The total order amount with an optional breakdown that provides details, such as the total item amount, total tax amount, shipping, handling, insurance, and discounts, if any. If you specify `amount.breakdown`, the amount equals `item_total` plus `tax_total` plus `shipping` plus `handling` plus `insurance` minus `shipping_discount` minus discount. The amount must be a positive number. For listed of supported currencies and decimal precision, see the PayPal REST APIs Currency Codes.
         /// </summary>
         [JsonProperty("amount", NullValueHandling = NullValueHandling.Ignore)]
         public Models.AmountWithBreakdown Amount { get; set; }
@@ -93,7 +93,7 @@ namespace PaypalServerSdk.Standard.Models
         /// The merchant who receives the funds and fulfills the order. The merchant is also known as the payee.
         /// </summary>
         [JsonProperty("payee", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.Payee Payee { get; set; }
+        public Models.PayeeBase Payee { get; set; }
 
         /// <summary>
         /// Any additional payment instructions to be consider during payment processing. This processing instruction is applicable for Capturing an order or Authorizing an Order.
@@ -120,13 +120,13 @@ namespace PaypalServerSdk.Standard.Models
         public string InvoiceId { get; set; }
 
         /// <summary>
-        /// The PayPal-generated ID for the purchase unit. This ID appears in both the payer's transaction history and the emails that the payer receives. In addition, this ID is available in transaction and settlement reports that merchants and API callers can use to reconcile transactions. This ID is only available when an order is saved by calling <code>v2/checkout/orders/id/save</code>.
+        /// The PayPal-generated ID for the purchase unit. This ID appears in both the payer's transaction history and the emails that the payer receives. In addition, this ID is available in transaction and settlement reports that merchants and API callers can use to reconcile transactions. This ID is only available when an order is saved by calling v2/checkout/orders/id/save.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         /// <summary>
-        /// The payment descriptor on account transactions on the customer's credit card statement, that PayPal sends to processors. The maximum length of the soft descriptor information that you can pass in the API field is 22 characters, in the following format:<code>22 - len(PAYPAL * (8)) - len(<var>Descriptor in Payment Receiving Preferences of Merchant account</var> + 1)</code>The PAYPAL prefix uses 8 characters.<br/><br/>The soft descriptor supports the following ASCII characters:<ul><li>Alphanumeric characters</li><li>Dashes</li><li>Asterisks</li><li>Periods (.)</li><li>Spaces</li></ul>For Wallet payments marketplace integrations:<ul><li>The merchant descriptor in the Payment Receiving Preferences must be the marketplace name.</li><li>You can't use the remaining space to show the customer service number.</li><li>The remaining spaces can be a combination of seller name and country.</li></ul><br/>For unbranded payments (Direct Card) marketplace integrations, use a combination of the seller name and phone number.
+        /// The payment descriptor on account transactions on the customer's credit card statement, that PayPal sends to processors. The maximum length of the soft descriptor information that you can pass in the API field is 22 characters, in the following format:22 - len(PAYPAL * (8)) - len(Descriptor in Payment Receiving Preferences of Merchant account + 1)The PAYPAL prefix uses 8 characters. The soft descriptor supports the following ASCII characters: Alphanumeric characters Dashes Asterisks Periods (.) Spaces For Wallet payments marketplace integrations: The merchant descriptor in the Payment Receiving Preferences must be the marketplace name. You can't use the remaining space to show the customer service number. The remaining spaces can be a combination of seller name and country. For unbranded payments (Direct Card) marketplace integrations, use a combination of the seller name and phone number.
         /// </summary>
         [JsonProperty("soft_descriptor", NullValueHandling = NullValueHandling.Ignore)]
         public string SoftDescriptor { get; set; }
@@ -165,59 +165,66 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PurchaseUnit : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PurchaseUnit other &&                ((this.ReferenceId == null && other.ReferenceId == null) || (this.ReferenceId?.Equals(other.ReferenceId) == true)) &&
-                ((this.Amount == null && other.Amount == null) || (this.Amount?.Equals(other.Amount) == true)) &&
-                ((this.Payee == null && other.Payee == null) || (this.Payee?.Equals(other.Payee) == true)) &&
-                ((this.PaymentInstruction == null && other.PaymentInstruction == null) || (this.PaymentInstruction?.Equals(other.PaymentInstruction) == true)) &&
-                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
-                ((this.CustomId == null && other.CustomId == null) || (this.CustomId?.Equals(other.CustomId) == true)) &&
-                ((this.InvoiceId == null && other.InvoiceId == null) || (this.InvoiceId?.Equals(other.InvoiceId) == true)) &&
-                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.SoftDescriptor == null && other.SoftDescriptor == null) || (this.SoftDescriptor?.Equals(other.SoftDescriptor) == true)) &&
-                ((this.Items == null && other.Items == null) || (this.Items?.Equals(other.Items) == true)) &&
-                ((this.Shipping == null && other.Shipping == null) || (this.Shipping?.Equals(other.Shipping) == true)) &&
-                ((this.SupplementaryData == null && other.SupplementaryData == null) || (this.SupplementaryData?.Equals(other.SupplementaryData) == true)) &&
-                ((this.Payments == null && other.Payments == null) || (this.Payments?.Equals(other.Payments) == true)) &&
-                ((this.MostRecentErrors == null && other.MostRecentErrors == null) || (this.MostRecentErrors?.Equals(other.MostRecentErrors) == true));
+            return obj is PurchaseUnit other &&
+                (this.ReferenceId == null && other.ReferenceId == null ||
+                 this.ReferenceId?.Equals(other.ReferenceId) == true) &&
+                (this.Amount == null && other.Amount == null ||
+                 this.Amount?.Equals(other.Amount) == true) &&
+                (this.Payee == null && other.Payee == null ||
+                 this.Payee?.Equals(other.Payee) == true) &&
+                (this.PaymentInstruction == null && other.PaymentInstruction == null ||
+                 this.PaymentInstruction?.Equals(other.PaymentInstruction) == true) &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true) &&
+                (this.CustomId == null && other.CustomId == null ||
+                 this.CustomId?.Equals(other.CustomId) == true) &&
+                (this.InvoiceId == null && other.InvoiceId == null ||
+                 this.InvoiceId?.Equals(other.InvoiceId) == true) &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.SoftDescriptor == null && other.SoftDescriptor == null ||
+                 this.SoftDescriptor?.Equals(other.SoftDescriptor) == true) &&
+                (this.Items == null && other.Items == null ||
+                 this.Items?.Equals(other.Items) == true) &&
+                (this.Shipping == null && other.Shipping == null ||
+                 this.Shipping?.Equals(other.Shipping) == true) &&
+                (this.SupplementaryData == null && other.SupplementaryData == null ||
+                 this.SupplementaryData?.Equals(other.SupplementaryData) == true) &&
+                (this.Payments == null && other.Payments == null ||
+                 this.Payments?.Equals(other.Payments) == true) &&
+                (this.MostRecentErrors == null && other.MostRecentErrors == null ||
+                 this.MostRecentErrors?.Equals(other.MostRecentErrors) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.ReferenceId = {(this.ReferenceId == null ? "null" : this.ReferenceId)}");
-            toStringOutput.Add($"this.Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
-            toStringOutput.Add($"this.Payee = {(this.Payee == null ? "null" : this.Payee.ToString())}");
-            toStringOutput.Add($"this.PaymentInstruction = {(this.PaymentInstruction == null ? "null" : this.PaymentInstruction.ToString())}");
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
-            toStringOutput.Add($"this.CustomId = {(this.CustomId == null ? "null" : this.CustomId)}");
-            toStringOutput.Add($"this.InvoiceId = {(this.InvoiceId == null ? "null" : this.InvoiceId)}");
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.SoftDescriptor = {(this.SoftDescriptor == null ? "null" : this.SoftDescriptor)}");
-            toStringOutput.Add($"this.Items = {(this.Items == null ? "null" : $"[{string.Join(", ", this.Items)} ]")}");
-            toStringOutput.Add($"this.Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
-            toStringOutput.Add($"this.SupplementaryData = {(this.SupplementaryData == null ? "null" : this.SupplementaryData.ToString())}");
-            toStringOutput.Add($"this.Payments = {(this.Payments == null ? "null" : this.Payments.ToString())}");
+            toStringOutput.Add($"ReferenceId = {this.ReferenceId ?? "null"}");
+            toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"Payee = {(this.Payee == null ? "null" : this.Payee.ToString())}");
+            toStringOutput.Add($"PaymentInstruction = {(this.PaymentInstruction == null ? "null" : this.PaymentInstruction.ToString())}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
+            toStringOutput.Add($"CustomId = {this.CustomId ?? "null"}");
+            toStringOutput.Add($"InvoiceId = {this.InvoiceId ?? "null"}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"SoftDescriptor = {this.SoftDescriptor ?? "null"}");
+            toStringOutput.Add($"Items = {(this.Items == null ? "null" : $"[{string.Join(", ", this.Items)} ]")}");
+            toStringOutput.Add($"Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
+            toStringOutput.Add($"SupplementaryData = {(this.SupplementaryData == null ? "null" : this.SupplementaryData.ToString())}");
+            toStringOutput.Add($"Payments = {(this.Payments == null ? "null" : this.Payments.ToString())}");
             toStringOutput.Add($"MostRecentErrors = {(this.MostRecentErrors == null ? "null" : this.MostRecentErrors.ToString())}");
         }
     }

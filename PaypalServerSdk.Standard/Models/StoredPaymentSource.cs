@@ -75,40 +75,35 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"StoredPaymentSource : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is StoredPaymentSource other &&                this.PaymentInitiator.Equals(other.PaymentInitiator) &&
-                this.PaymentType.Equals(other.PaymentType) &&
-                ((this.Usage == null && other.Usage == null) || (this.Usage?.Equals(other.Usage) == true)) &&
-                ((this.PreviousNetworkTransactionReference == null && other.PreviousNetworkTransactionReference == null) || (this.PreviousNetworkTransactionReference?.Equals(other.PreviousNetworkTransactionReference) == true));
+            return obj is StoredPaymentSource other &&
+                (this.PaymentInitiator.Equals(other.PaymentInitiator)) &&
+                (this.PaymentType.Equals(other.PaymentType)) &&
+                (this.Usage == null && other.Usage == null ||
+                 this.Usage?.Equals(other.Usage) == true) &&
+                (this.PreviousNetworkTransactionReference == null && other.PreviousNetworkTransactionReference == null ||
+                 this.PreviousNetworkTransactionReference?.Equals(other.PreviousNetworkTransactionReference) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PaymentInitiator = {this.PaymentInitiator}");
-            toStringOutput.Add($"this.PaymentType = {this.PaymentType}");
-            toStringOutput.Add($"this.Usage = {(this.Usage == null ? "null" : this.Usage.ToString())}");
-            toStringOutput.Add($"this.PreviousNetworkTransactionReference = {(this.PreviousNetworkTransactionReference == null ? "null" : this.PreviousNetworkTransactionReference.ToString())}");
+            toStringOutput.Add($"PaymentInitiator = {this.PaymentInitiator}");
+            toStringOutput.Add($"PaymentType = {this.PaymentType}");
+            toStringOutput.Add($"Usage = {(this.Usage == null ? "null" : this.Usage.ToString())}");
+            toStringOutput.Add($"PreviousNetworkTransactionReference = {(this.PreviousNetworkTransactionReference == null ? "null" : this.PreviousNetworkTransactionReference.ToString())}");
         }
     }
 }

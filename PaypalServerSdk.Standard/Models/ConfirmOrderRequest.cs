@@ -32,15 +32,12 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="ConfirmOrderRequest"/> class.
         /// </summary>
         /// <param name="paymentSource">payment_source.</param>
-        /// <param name="processingInstruction">processing_instruction.</param>
         /// <param name="applicationContext">application_context.</param>
         public ConfirmOrderRequest(
             Models.PaymentSource paymentSource,
-            JsonValue processingInstruction = null,
             Models.OrderConfirmApplicationContext applicationContext = null)
         {
             this.PaymentSource = paymentSource;
-            this.ProcessingInstruction = processingInstruction;
             this.ApplicationContext = applicationContext;
         }
 
@@ -49,12 +46,6 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("payment_source")]
         public Models.PaymentSource PaymentSource { get; set; }
-
-        /// <summary>
-        /// Gets or sets ProcessingInstruction.
-        /// </summary>
-        [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonValue ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Customizes the payer confirmation experience.
@@ -66,38 +57,31 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"ConfirmOrderRequest : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is ConfirmOrderRequest other &&                ((this.PaymentSource == null && other.PaymentSource == null) || (this.PaymentSource?.Equals(other.PaymentSource) == true)) &&
-                ((this.ProcessingInstruction == null && other.ProcessingInstruction == null) || (this.ProcessingInstruction?.Equals(other.ProcessingInstruction) == true)) &&
-                ((this.ApplicationContext == null && other.ApplicationContext == null) || (this.ApplicationContext?.Equals(other.ApplicationContext) == true));
+            return obj is ConfirmOrderRequest other &&
+                (this.PaymentSource == null && other.PaymentSource == null ||
+                 this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.ApplicationContext == null && other.ApplicationContext == null ||
+                 this.ApplicationContext?.Equals(other.ApplicationContext) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
-            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
-            toStringOutput.Add($"this.ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
+            toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
         }
     }
 }

@@ -57,36 +57,30 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"TaxInfo : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is TaxInfo other &&                ((this.TaxId == null && other.TaxId == null) || (this.TaxId?.Equals(other.TaxId) == true)) &&
-                this.TaxIdType.Equals(other.TaxIdType);
+            return obj is TaxInfo other &&
+                (this.TaxId == null && other.TaxId == null ||
+                 this.TaxId?.Equals(other.TaxId) == true) &&
+                (this.TaxIdType.Equals(other.TaxIdType));
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.TaxId = {(this.TaxId == null ? "null" : this.TaxId)}");
-            toStringOutput.Add($"this.TaxIdType = {this.TaxIdType}");
+            toStringOutput.Add($"TaxId = {this.TaxId ?? "null"}");
+            toStringOutput.Add($"TaxIdType = {this.TaxIdType}");
         }
     }
 }

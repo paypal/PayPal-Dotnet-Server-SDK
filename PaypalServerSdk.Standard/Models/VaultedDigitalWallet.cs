@@ -32,18 +32,21 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="VaultedDigitalWallet"/> class.
         /// </summary>
         /// <param name="description">description.</param>
+        /// <param name="usagePattern">usage_pattern.</param>
         /// <param name="shipping">shipping.</param>
         /// <param name="permitMultiplePaymentTokens">permit_multiple_payment_tokens.</param>
         /// <param name="usageType">usage_type.</param>
         /// <param name="customerType">customer_type.</param>
         public VaultedDigitalWallet(
             string description = null,
+            Models.UsagePattern? usagePattern = null,
             Models.VaultedDigitalWalletShippingDetails shipping = null,
             bool? permitMultiplePaymentTokens = false,
-            string usageType = null,
-            string customerType = null)
+            Models.PaypalPaymentTokenUsageType? usageType = null,
+            Models.PaypalPaymentTokenCustomerType? customerType = null)
         {
             this.Description = description;
+            this.UsagePattern = usagePattern;
             this.Shipping = shipping;
             this.PermitMultiplePaymentTokens = permitMultiplePaymentTokens;
             this.UsageType = usageType;
@@ -55,6 +58,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Expected business/charge model for the billing agreement.
+        /// </summary>
+        [JsonProperty("usage_pattern", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.UsagePattern? UsagePattern { get; set; }
 
         /// <summary>
         /// The shipping details.
@@ -72,54 +81,55 @@ namespace PaypalServerSdk.Standard.Models
         /// The usage type associated with a digital wallet payment token.
         /// </summary>
         [JsonProperty("usage_type", NullValueHandling = NullValueHandling.Ignore)]
-        public string UsageType { get; set; }
+        public Models.PaypalPaymentTokenUsageType? UsageType { get; set; }
 
         /// <summary>
         /// The customer type associated with a digital wallet payment token. This is to indicate whether the customer acting on the merchant / platform is either a business or a consumer.
         /// </summary>
         [JsonProperty("customer_type", NullValueHandling = NullValueHandling.Ignore)]
-        public string CustomerType { get; set; }
+        public Models.PaypalPaymentTokenCustomerType? CustomerType { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VaultedDigitalWallet : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VaultedDigitalWallet other &&                ((this.Description == null && other.Description == null) || (this.Description?.Equals(other.Description) == true)) &&
-                ((this.Shipping == null && other.Shipping == null) || (this.Shipping?.Equals(other.Shipping) == true)) &&
-                ((this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null) || (this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true)) &&
-                ((this.UsageType == null && other.UsageType == null) || (this.UsageType?.Equals(other.UsageType) == true)) &&
-                ((this.CustomerType == null && other.CustomerType == null) || (this.CustomerType?.Equals(other.CustomerType) == true));
+            return obj is VaultedDigitalWallet other &&
+                (this.Description == null && other.Description == null ||
+                 this.Description?.Equals(other.Description) == true) &&
+                (this.UsagePattern == null && other.UsagePattern == null ||
+                 this.UsagePattern?.Equals(other.UsagePattern) == true) &&
+                (this.Shipping == null && other.Shipping == null ||
+                 this.Shipping?.Equals(other.Shipping) == true) &&
+                (this.PermitMultiplePaymentTokens == null && other.PermitMultiplePaymentTokens == null ||
+                 this.PermitMultiplePaymentTokens?.Equals(other.PermitMultiplePaymentTokens) == true) &&
+                (this.UsageType == null && other.UsageType == null ||
+                 this.UsageType?.Equals(other.UsageType) == true) &&
+                (this.CustomerType == null && other.CustomerType == null ||
+                 this.CustomerType?.Equals(other.CustomerType) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Description = {(this.Description == null ? "null" : this.Description)}");
-            toStringOutput.Add($"this.Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
-            toStringOutput.Add($"this.PermitMultiplePaymentTokens = {(this.PermitMultiplePaymentTokens == null ? "null" : this.PermitMultiplePaymentTokens.ToString())}");
-            toStringOutput.Add($"this.UsageType = {(this.UsageType == null ? "null" : this.UsageType)}");
-            toStringOutput.Add($"this.CustomerType = {(this.CustomerType == null ? "null" : this.CustomerType)}");
+            toStringOutput.Add($"Description = {this.Description ?? "null"}");
+            toStringOutput.Add($"UsagePattern = {(this.UsagePattern == null ? "null" : this.UsagePattern.ToString())}");
+            toStringOutput.Add($"Shipping = {(this.Shipping == null ? "null" : this.Shipping.ToString())}");
+            toStringOutput.Add($"PermitMultiplePaymentTokens = {(this.PermitMultiplePaymentTokens == null ? "null" : this.PermitMultiplePaymentTokens.ToString())}");
+            toStringOutput.Add($"UsageType = {(this.UsageType == null ? "null" : this.UsageType.ToString())}");
+            toStringOutput.Add($"CustomerType = {(this.CustomerType == null ? "null" : this.CustomerType.ToString())}");
         }
     }
 }

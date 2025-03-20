@@ -57,36 +57,30 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"UniversalProductCode : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is UniversalProductCode other &&                this.Type.Equals(other.Type) &&
-                ((this.Code == null && other.Code == null) || (this.Code?.Equals(other.Code) == true));
+            return obj is UniversalProductCode other &&
+                (this.Type.Equals(other.Type)) &&
+                (this.Code == null && other.Code == null ||
+                 this.Code?.Equals(other.Code) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Type = {this.Type}");
-            toStringOutput.Add($"this.Code = {(this.Code == null ? "null" : this.Code)}");
+            toStringOutput.Add($"Type = {this.Type}");
+            toStringOutput.Add($"Code = {this.Code ?? "null"}");
         }
     }
 }

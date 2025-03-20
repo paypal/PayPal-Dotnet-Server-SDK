@@ -41,6 +41,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="fromRequest">from_request.</param>
         /// <param name="expiry">expiry.</param>
         /// <param name="binDetails">bin_details.</param>
+        /// <param name="storedCredential">stored_credential.</param>
         public CardResponse(
             string name = null,
             string lastDigits = null,
@@ -51,7 +52,8 @@ namespace PaypalServerSdk.Standard.Models
             Models.CardAttributesResponse attributes = null,
             Models.CardFromRequest fromRequest = null,
             string expiry = null,
-            Models.BinDetails binDetails = null)
+            Models.BinDetails binDetails = null,
+            Models.CardStoredCredential storedCredential = null)
         {
             this.Name = name;
             this.LastDigits = lastDigits;
@@ -63,6 +65,7 @@ namespace PaypalServerSdk.Standard.Models
             this.FromRequest = fromRequest;
             this.Expiry = expiry;
             this.BinDetails = binDetails;
+            this.StoredCredential = storedCredential;
         }
 
         /// <summary>
@@ -125,56 +128,68 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("bin_details", NullValueHandling = NullValueHandling.Ignore)]
         public Models.BinDetails BinDetails { get; set; }
 
+        /// <summary>
+        /// Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request.
+        /// </summary>
+        [JsonProperty("stored_credential", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.CardStoredCredential StoredCredential { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardResponse other &&                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.LastDigits == null && other.LastDigits == null) || (this.LastDigits?.Equals(other.LastDigits) == true)) &&
-                ((this.Brand == null && other.Brand == null) || (this.Brand?.Equals(other.Brand) == true)) &&
-                ((this.AvailableNetworks == null && other.AvailableNetworks == null) || (this.AvailableNetworks?.Equals(other.AvailableNetworks) == true)) &&
-                ((this.Type == null && other.Type == null) || (this.Type?.Equals(other.Type) == true)) &&
-                ((this.AuthenticationResult == null && other.AuthenticationResult == null) || (this.AuthenticationResult?.Equals(other.AuthenticationResult) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true)) &&
-                ((this.FromRequest == null && other.FromRequest == null) || (this.FromRequest?.Equals(other.FromRequest) == true)) &&
-                ((this.Expiry == null && other.Expiry == null) || (this.Expiry?.Equals(other.Expiry) == true)) &&
-                ((this.BinDetails == null && other.BinDetails == null) || (this.BinDetails?.Equals(other.BinDetails) == true));
+            return obj is CardResponse other &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.LastDigits == null && other.LastDigits == null ||
+                 this.LastDigits?.Equals(other.LastDigits) == true) &&
+                (this.Brand == null && other.Brand == null ||
+                 this.Brand?.Equals(other.Brand) == true) &&
+                (this.AvailableNetworks == null && other.AvailableNetworks == null ||
+                 this.AvailableNetworks?.Equals(other.AvailableNetworks) == true) &&
+                (this.Type == null && other.Type == null ||
+                 this.Type?.Equals(other.Type) == true) &&
+                (this.AuthenticationResult == null && other.AuthenticationResult == null ||
+                 this.AuthenticationResult?.Equals(other.AuthenticationResult) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true) &&
+                (this.FromRequest == null && other.FromRequest == null ||
+                 this.FromRequest?.Equals(other.FromRequest) == true) &&
+                (this.Expiry == null && other.Expiry == null ||
+                 this.Expiry?.Equals(other.Expiry) == true) &&
+                (this.BinDetails == null && other.BinDetails == null ||
+                 this.BinDetails?.Equals(other.BinDetails) == true) &&
+                (this.StoredCredential == null && other.StoredCredential == null ||
+                 this.StoredCredential?.Equals(other.StoredCredential) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name)}");
-            toStringOutput.Add($"this.LastDigits = {(this.LastDigits == null ? "null" : this.LastDigits)}");
-            toStringOutput.Add($"this.Brand = {(this.Brand == null ? "null" : this.Brand.ToString())}");
-            toStringOutput.Add($"this.AvailableNetworks = {(this.AvailableNetworks == null ? "null" : $"[{string.Join(", ", this.AvailableNetworks)} ]")}");
-            toStringOutput.Add($"this.Type = {(this.Type == null ? "null" : this.Type.ToString())}");
-            toStringOutput.Add($"this.AuthenticationResult = {(this.AuthenticationResult == null ? "null" : this.AuthenticationResult.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
-            toStringOutput.Add($"this.FromRequest = {(this.FromRequest == null ? "null" : this.FromRequest.ToString())}");
-            toStringOutput.Add($"this.Expiry = {(this.Expiry == null ? "null" : this.Expiry)}");
-            toStringOutput.Add($"this.BinDetails = {(this.BinDetails == null ? "null" : this.BinDetails.ToString())}");
+            toStringOutput.Add($"Name = {this.Name ?? "null"}");
+            toStringOutput.Add($"LastDigits = {this.LastDigits ?? "null"}");
+            toStringOutput.Add($"Brand = {(this.Brand == null ? "null" : this.Brand.ToString())}");
+            toStringOutput.Add($"AvailableNetworks = {(this.AvailableNetworks == null ? "null" : $"[{string.Join(", ", this.AvailableNetworks)} ]")}");
+            toStringOutput.Add($"Type = {(this.Type == null ? "null" : this.Type.ToString())}");
+            toStringOutput.Add($"AuthenticationResult = {(this.AuthenticationResult == null ? "null" : this.AuthenticationResult.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"FromRequest = {(this.FromRequest == null ? "null" : this.FromRequest.ToString())}");
+            toStringOutput.Add($"Expiry = {this.Expiry ?? "null"}");
+            toStringOutput.Add($"BinDetails = {(this.BinDetails == null ? "null" : this.BinDetails.ToString())}");
+            toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
         }
     }
 }

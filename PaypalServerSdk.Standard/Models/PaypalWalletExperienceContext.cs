@@ -39,15 +39,17 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="landingPage">landing_page.</param>
         /// <param name="userAction">user_action.</param>
         /// <param name="paymentMethodPreference">payment_method_preference.</param>
+        /// <param name="orderUpdateCallbackConfig">order_update_callback_config.</param>
         public PaypalWalletExperienceContext(
             string brandName = null,
             string locale = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile,
+            Models.PaypalWalletContextShippingPreference? shippingPreference = Models.PaypalWalletContextShippingPreference.GetFromFile,
             string returnUrl = null,
             string cancelUrl = null,
             Models.PaypalExperienceLandingPage? landingPage = Models.PaypalExperienceLandingPage.NoPreference,
             Models.PaypalExperienceUserAction? userAction = Models.PaypalExperienceUserAction.Continue,
-            Models.PayeePaymentMethodPreference? paymentMethodPreference = Models.PayeePaymentMethodPreference.Unrestricted)
+            Models.PayeePaymentMethodPreference? paymentMethodPreference = Models.PayeePaymentMethodPreference.Unrestricted,
+            Models.CallbackConfiguration orderUpdateCallbackConfig = null)
         {
             this.BrandName = brandName;
             this.Locale = locale;
@@ -57,6 +59,7 @@ namespace PaypalServerSdk.Standard.Models
             this.LandingPage = landingPage;
             this.UserAction = userAction;
             this.PaymentMethodPreference = paymentMethodPreference;
+            this.OrderUpdateCallbackConfig = orderUpdateCallbackConfig;
         }
 
         /// <summary>
@@ -75,7 +78,7 @@ namespace PaypalServerSdk.Standard.Models
         /// The location from which the shipping address is derived.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ShippingPreference? ShippingPreference { get; set; }
+        public Models.PaypalWalletContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
         /// Describes the URL.
@@ -96,7 +99,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaypalExperienceLandingPage? LandingPage { get; set; }
 
         /// <summary>
-        /// Configures a <strong>Continue</strong> or <strong>Pay Now</strong> checkout flow.
+        /// Configures a Continue or Pay Now checkout flow.
         /// </summary>
         [JsonProperty("user_action", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalExperienceUserAction? UserAction { get; set; }
@@ -107,52 +110,62 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("payment_method_preference", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PayeePaymentMethodPreference? PaymentMethodPreference { get; set; }
 
+        /// <summary>
+        /// CallBack Configuration that the merchant can provide to PayPal/Venmo.
+        /// </summary>
+        [JsonProperty("order_update_callback_config", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.CallbackConfiguration OrderUpdateCallbackConfig { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaypalWalletExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaypalWalletExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.Locale == null && other.Locale == null) || (this.Locale?.Equals(other.Locale) == true)) &&
-                ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true)) &&
-                ((this.ReturnUrl == null && other.ReturnUrl == null) || (this.ReturnUrl?.Equals(other.ReturnUrl) == true)) &&
-                ((this.CancelUrl == null && other.CancelUrl == null) || (this.CancelUrl?.Equals(other.CancelUrl) == true)) &&
-                ((this.LandingPage == null && other.LandingPage == null) || (this.LandingPage?.Equals(other.LandingPage) == true)) &&
-                ((this.UserAction == null && other.UserAction == null) || (this.UserAction?.Equals(other.UserAction) == true)) &&
-                ((this.PaymentMethodPreference == null && other.PaymentMethodPreference == null) || (this.PaymentMethodPreference?.Equals(other.PaymentMethodPreference) == true));
+            return obj is PaypalWalletExperienceContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.Locale == null && other.Locale == null ||
+                 this.Locale?.Equals(other.Locale) == true) &&
+                (this.ShippingPreference == null && other.ShippingPreference == null ||
+                 this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.ReturnUrl == null && other.ReturnUrl == null ||
+                 this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
+                (this.CancelUrl == null && other.CancelUrl == null ||
+                 this.CancelUrl?.Equals(other.CancelUrl) == true) &&
+                (this.LandingPage == null && other.LandingPage == null ||
+                 this.LandingPage?.Equals(other.LandingPage) == true) &&
+                (this.UserAction == null && other.UserAction == null ||
+                 this.UserAction?.Equals(other.UserAction) == true) &&
+                (this.PaymentMethodPreference == null && other.PaymentMethodPreference == null ||
+                 this.PaymentMethodPreference?.Equals(other.PaymentMethodPreference) == true) &&
+                (this.OrderUpdateCallbackConfig == null && other.OrderUpdateCallbackConfig == null ||
+                 this.OrderUpdateCallbackConfig?.Equals(other.OrderUpdateCallbackConfig) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.Locale = {(this.Locale == null ? "null" : this.Locale)}");
-            toStringOutput.Add($"this.ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
-            toStringOutput.Add($"this.ReturnUrl = {(this.ReturnUrl == null ? "null" : this.ReturnUrl)}");
-            toStringOutput.Add($"this.CancelUrl = {(this.CancelUrl == null ? "null" : this.CancelUrl)}");
-            toStringOutput.Add($"this.LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");
-            toStringOutput.Add($"this.UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
-            toStringOutput.Add($"this.PaymentMethodPreference = {(this.PaymentMethodPreference == null ? "null" : this.PaymentMethodPreference.ToString())}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"Locale = {this.Locale ?? "null"}");
+            toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
+            toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+            toStringOutput.Add($"LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");
+            toStringOutput.Add($"UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
+            toStringOutput.Add($"PaymentMethodPreference = {(this.PaymentMethodPreference == null ? "null" : this.PaymentMethodPreference.ToString())}");
+            toStringOutput.Add($"OrderUpdateCallbackConfig = {(this.OrderUpdateCallbackConfig == null ? "null" : this.OrderUpdateCallbackConfig.ToString())}");
         }
     }
 }

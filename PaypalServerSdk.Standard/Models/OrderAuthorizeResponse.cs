@@ -36,7 +36,6 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="id">id.</param>
         /// <param name="paymentSource">payment_source.</param>
         /// <param name="intent">intent.</param>
-        /// <param name="processingInstruction">processing_instruction.</param>
         /// <param name="payer">payer.</param>
         /// <param name="purchaseUnits">purchase_units.</param>
         /// <param name="status">status.</param>
@@ -47,7 +46,6 @@ namespace PaypalServerSdk.Standard.Models
             string id = null,
             Models.OrderAuthorizeResponsePaymentSource paymentSource = null,
             Models.CheckoutPaymentIntent? intent = null,
-            JsonValue processingInstruction = null,
             Models.Payer payer = null,
             List<Models.PurchaseUnit> purchaseUnits = null,
             Models.OrderStatus? status = null,
@@ -58,7 +56,6 @@ namespace PaypalServerSdk.Standard.Models
             this.Id = id;
             this.PaymentSource = paymentSource;
             this.Intent = intent;
-            this.ProcessingInstruction = processingInstruction;
             this.Payer = payer;
             this.PurchaseUnits = purchaseUnits;
             this.Status = status;
@@ -66,13 +63,13 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("create_time", NullValueHandling = NullValueHandling.Ignore)]
         public string CreateTime { get; set; }
 
         /// <summary>
-        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional.<blockquote><strong>Note:</strong> The regular expression provides guidance but does not reject all invalid dates.</blockquote>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
         /// </summary>
         [JsonProperty("update_time", NullValueHandling = NullValueHandling.Ignore)]
         public string UpdateTime { get; set; }
@@ -94,12 +91,6 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("intent", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CheckoutPaymentIntent? Intent { get; set; }
-
-        /// <summary>
-        /// Gets or sets ProcessingInstruction.
-        /// </summary>
-        [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonValue ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Gets or sets Payer.
@@ -129,52 +120,52 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"OrderAuthorizeResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is OrderAuthorizeResponse other &&                ((this.CreateTime == null && other.CreateTime == null) || (this.CreateTime?.Equals(other.CreateTime) == true)) &&
-                ((this.UpdateTime == null && other.UpdateTime == null) || (this.UpdateTime?.Equals(other.UpdateTime) == true)) &&
-                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.PaymentSource == null && other.PaymentSource == null) || (this.PaymentSource?.Equals(other.PaymentSource) == true)) &&
-                ((this.Intent == null && other.Intent == null) || (this.Intent?.Equals(other.Intent) == true)) &&
-                ((this.ProcessingInstruction == null && other.ProcessingInstruction == null) || (this.ProcessingInstruction?.Equals(other.ProcessingInstruction) == true)) &&
-                ((this.Payer == null && other.Payer == null) || (this.Payer?.Equals(other.Payer) == true)) &&
-                ((this.PurchaseUnits == null && other.PurchaseUnits == null) || (this.PurchaseUnits?.Equals(other.PurchaseUnits) == true)) &&
-                ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true));
+            return obj is OrderAuthorizeResponse other &&
+                (this.CreateTime == null && other.CreateTime == null ||
+                 this.CreateTime?.Equals(other.CreateTime) == true) &&
+                (this.UpdateTime == null && other.UpdateTime == null ||
+                 this.UpdateTime?.Equals(other.UpdateTime) == true) &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.PaymentSource == null && other.PaymentSource == null ||
+                 this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.Intent == null && other.Intent == null ||
+                 this.Intent?.Equals(other.Intent) == true) &&
+                (this.Payer == null && other.Payer == null ||
+                 this.Payer?.Equals(other.Payer) == true) &&
+                (this.PurchaseUnits == null && other.PurchaseUnits == null ||
+                 this.PurchaseUnits?.Equals(other.PurchaseUnits) == true) &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.CreateTime = {(this.CreateTime == null ? "null" : this.CreateTime)}");
-            toStringOutput.Add($"this.UpdateTime = {(this.UpdateTime == null ? "null" : this.UpdateTime)}");
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
-            toStringOutput.Add($"this.Intent = {(this.Intent == null ? "null" : this.Intent.ToString())}");
-            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
-            toStringOutput.Add($"this.Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
-            toStringOutput.Add($"this.PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
-            toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status.ToString())}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"CreateTime = {this.CreateTime ?? "null"}");
+            toStringOutput.Add($"UpdateTime = {this.UpdateTime ?? "null"}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"Intent = {(this.Intent == null ? "null" : this.Intent.ToString())}");
+            toStringOutput.Add($"Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
+            toStringOutput.Add($"PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
         }
     }
 }

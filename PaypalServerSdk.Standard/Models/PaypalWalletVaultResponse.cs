@@ -75,40 +75,37 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaypalWalletVaultResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaypalWalletVaultResponse other &&                ((this.Id == null && other.Id == null) || (this.Id?.Equals(other.Id) == true)) &&
-                ((this.Status == null && other.Status == null) || (this.Status?.Equals(other.Status) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true)) &&
-                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true));
+            return obj is PaypalWalletVaultResponse other &&
+                (this.Id == null && other.Id == null ||
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true) &&
+                (this.Customer == null && other.Customer == null ||
+                 this.Customer?.Equals(other.Customer) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Id = {(this.Id == null ? "null" : this.Id)}");
-            toStringOutput.Add($"this.Status = {(this.Status == null ? "null" : this.Status.ToString())}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
-            toStringOutput.Add($"this.Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
+            toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
         }
     }
 }

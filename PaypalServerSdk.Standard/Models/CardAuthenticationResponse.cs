@@ -33,7 +33,7 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="threeDSecure">three_d_secure.</param>
         public CardAuthenticationResponse(
-            Models.ThreeDSecureAuthenticationResponse threeDSecure = null)
+            Models.ThreeDSecureCardAuthenticationResponse threeDSecure = null)
         {
             this.ThreeDSecure = threeDSecure;
         }
@@ -42,40 +42,34 @@ namespace PaypalServerSdk.Standard.Models
         /// Results of 3D Secure Authentication.
         /// </summary>
         [JsonProperty("three_d_secure", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ThreeDSecureAuthenticationResponse ThreeDSecure { get; set; }
+        public Models.ThreeDSecureCardAuthenticationResponse ThreeDSecure { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CardAuthenticationResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CardAuthenticationResponse other &&                ((this.ThreeDSecure == null && other.ThreeDSecure == null) || (this.ThreeDSecure?.Equals(other.ThreeDSecure) == true));
+            return obj is CardAuthenticationResponse other &&
+                (this.ThreeDSecure == null && other.ThreeDSecure == null ||
+                 this.ThreeDSecure?.Equals(other.ThreeDSecure) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
+            toStringOutput.Add($"ThreeDSecure = {(this.ThreeDSecure == null ? "null" : this.ThreeDSecure.ToString())}");
         }
     }
 }

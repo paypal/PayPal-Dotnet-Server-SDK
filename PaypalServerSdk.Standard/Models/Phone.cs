@@ -66,38 +66,34 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"Phone : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is Phone other &&                ((this.CountryCode == null && other.CountryCode == null) || (this.CountryCode?.Equals(other.CountryCode) == true)) &&
-                ((this.NationalNumber == null && other.NationalNumber == null) || (this.NationalNumber?.Equals(other.NationalNumber) == true)) &&
-                ((this.ExtensionNumber == null && other.ExtensionNumber == null) || (this.ExtensionNumber?.Equals(other.ExtensionNumber) == true));
+            return obj is Phone other &&
+                (this.CountryCode == null && other.CountryCode == null ||
+                 this.CountryCode?.Equals(other.CountryCode) == true) &&
+                (this.NationalNumber == null && other.NationalNumber == null ||
+                 this.NationalNumber?.Equals(other.NationalNumber) == true) &&
+                (this.ExtensionNumber == null && other.ExtensionNumber == null ||
+                 this.ExtensionNumber?.Equals(other.ExtensionNumber) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.CountryCode = {(this.CountryCode == null ? "null" : this.CountryCode)}");
-            toStringOutput.Add($"this.NationalNumber = {(this.NationalNumber == null ? "null" : this.NationalNumber)}");
-            toStringOutput.Add($"this.ExtensionNumber = {(this.ExtensionNumber == null ? "null" : this.ExtensionNumber)}");
+            toStringOutput.Add($"CountryCode = {this.CountryCode ?? "null"}");
+            toStringOutput.Add($"NationalNumber = {this.NationalNumber ?? "null"}");
+            toStringOutput.Add($"ExtensionNumber = {this.ExtensionNumber ?? "null"}");
         }
     }
 }

@@ -11,7 +11,7 @@ Payment Token Request where the `source` defines the type of instrument to be st
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Customer` | [`CustomerRequest`](../../doc/models/customer-request.md) | Optional | Customer in merchant's or partner's system of records. |
+| `Customer` | [`Customer`](../../doc/models/customer.md) | Optional | This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details. |
 | `PaymentSource` | [`PaymentTokenRequestPaymentSource`](../../doc/models/payment-token-request-payment-source.md) | Required | The payment method to vault with the instrument details. |
 
 ## Example (as JSON)

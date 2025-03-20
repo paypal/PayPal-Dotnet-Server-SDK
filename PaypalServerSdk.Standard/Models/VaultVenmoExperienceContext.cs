@@ -36,8 +36,8 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="vaultInstruction">vault_instruction.</param>
         public VaultVenmoExperienceContext(
             string brandName = null,
-            string shippingPreference = "GET_FROM_FILE",
-            string vaultInstruction = "ON_CREATE_PAYMENT_TOKENS")
+            Models.OrderApplicationContextShippingPreference? shippingPreference = Models.OrderApplicationContextShippingPreference.GetFromFile,
+            Models.VaultInstructionAction? vaultInstruction = Models.VaultInstructionAction.OnCreatePaymentTokens)
         {
             this.BrandName = brandName;
             this.ShippingPreference = shippingPreference;
@@ -54,50 +54,46 @@ namespace PaypalServerSdk.Standard.Models
         /// The shipping preference. This only applies to PayPal payment source.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public string ShippingPreference { get; set; }
+        public Models.OrderApplicationContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
         /// Vault Instruction on action to be performed after a successful payer approval.
         /// </summary>
         [JsonProperty("vault_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public string VaultInstruction { get; set; }
+        public Models.VaultInstructionAction? VaultInstruction { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VaultVenmoExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VaultVenmoExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true)) &&
-                ((this.VaultInstruction == null && other.VaultInstruction == null) || (this.VaultInstruction?.Equals(other.VaultInstruction) == true));
+            return obj is VaultVenmoExperienceContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.ShippingPreference == null && other.ShippingPreference == null ||
+                 this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.VaultInstruction == null && other.VaultInstruction == null ||
+                 this.VaultInstruction?.Equals(other.VaultInstruction) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference)}");
-            toStringOutput.Add($"this.VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction)}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction.ToString())}");
         }
     }
 }

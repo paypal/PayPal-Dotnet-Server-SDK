@@ -20,148 +20,172 @@ namespace PaypalServerSdk.Standard.Models
     public enum AvsCode
     {
         /// <summary>
-        /// A.
+        ///For Visa, Mastercard, or Discover transactions, the address matches but the zip code does not match. For American Express transactions, the card holder address is correct.
+        /// AvsA.
         /// </summary>
         [EnumMember(Value = "A")]
-        A,
+        AvsA,
 
         /// <summary>
-        /// B.
+        ///For Visa, Mastercard, or Discover transactions, the address matches. International A.
+        /// AvsB.
         /// </summary>
         [EnumMember(Value = "B")]
-        B,
+        AvsB,
 
         /// <summary>
-        /// C.
+        ///For Visa, Mastercard, or Discover transactions, no values match. International N.
+        /// AvsC.
         /// </summary>
         [EnumMember(Value = "C")]
-        C,
+        AvsC,
 
         /// <summary>
-        /// D.
+        ///For Visa, Mastercard, or Discover transactions, the address and postal code match. International X.
+        /// AvsD.
         /// </summary>
         [EnumMember(Value = "D")]
-        D,
+        AvsD,
 
         /// <summary>
-        /// E.
+        ///For Visa, Mastercard, or Discover transactions, not allowed for Internet or phone transactions. For American Express card holder, the name is incorrect but the address and postal code match.
+        /// AvsE.
         /// </summary>
         [EnumMember(Value = "E")]
-        E,
+        AvsE,
 
         /// <summary>
-        /// F.
+        ///For Visa, Mastercard, or Discover transactions, the address and postal code match. UK-specific X. For American Express card holder, the name is incorrect but the address matches.
+        /// AvsF.
         /// </summary>
         [EnumMember(Value = "F")]
-        F,
+        AvsF,
 
         /// <summary>
-        /// G.
+        ///For Visa, Mastercard, or Discover transactions, global is unavailable. Nothing matches.
+        /// AvsG.
         /// </summary>
         [EnumMember(Value = "G")]
-        G,
+        AvsG,
 
         /// <summary>
-        /// I.
+        ///For Visa, Mastercard, or Discover transactions, international is unavailable. Not applicable.
+        /// AvsI.
         /// </summary>
         [EnumMember(Value = "I")]
-        I,
+        AvsI,
 
         /// <summary>
-        /// M.
+        ///For Visa, Mastercard, or Discover transactions, the address and postal code match. For American Express card holder, the name, address, and postal code match.
+        /// AvsM.
         /// </summary>
         [EnumMember(Value = "M")]
-        M,
+        AvsM,
 
         /// <summary>
-        /// N.
+        ///For Visa, Mastercard, or Discover transactions, nothing matches. For American Express card holder, the address and postal code are both incorrect.
+        /// AvsN.
         /// </summary>
         [EnumMember(Value = "N")]
-        N,
+        AvsN,
 
         /// <summary>
-        /// P.
+        ///For Visa, Mastercard, or Discover transactions, postal international Z. Postal code only.
+        /// AvsP.
         /// </summary>
         [EnumMember(Value = "P")]
-        P,
+        AvsP,
 
         /// <summary>
-        /// R.
+        ///For Visa, Mastercard, or Discover transactions, re-try the request. For American Express, the system is unavailable.
+        /// AvsR.
         /// </summary>
         [EnumMember(Value = "R")]
-        R,
+        AvsR,
 
         /// <summary>
-        /// S.
+        ///For Visa, Mastercard, Discover, or American Express, the service is not supported.
+        /// AvsS.
         /// </summary>
         [EnumMember(Value = "S")]
-        S,
+        AvsS,
 
         /// <summary>
-        /// U.
+        ///For Visa, Mastercard, or Discover transactions, the service is unavailable. For American Express, information is not available. For Maestro, the address is not checked or the acquirer had no response. The service is not available.
+        /// AvsU.
         /// </summary>
         [EnumMember(Value = "U")]
-        U,
+        AvsU,
 
         /// <summary>
-        /// W.
+        ///For Visa, Mastercard, or Discover transactions, whole ZIP code. For American Express, the card holder name, address, and postal code are all incorrect.
+        /// AvsW.
         /// </summary>
         [EnumMember(Value = "W")]
-        W,
+        AvsW,
 
         /// <summary>
-        /// X.
+        ///For Visa, Mastercard, or Discover transactions, exact match of the address and the nine-digit ZIP code. For American Express, the card holder name, address, and postal code are all incorrect.
+        /// AvsX.
         /// </summary>
         [EnumMember(Value = "X")]
-        X,
+        AvsX,
 
         /// <summary>
-        /// Y.
+        ///For Visa, Mastercard, or Discover transactions, the address and five-digit ZIP code match. For American Express, the card holder address and postal code are both correct.
+        /// AvsY.
         /// </summary>
         [EnumMember(Value = "Y")]
-        Y,
+        AvsY,
 
         /// <summary>
-        /// Z.
+        ///For Visa, Mastercard, or Discover transactions, the five-digit ZIP code matches but no address. For American Express, only the card holder postal code is correct.
+        /// AvsZ.
         /// </summary>
         [EnumMember(Value = "Z")]
-        Z,
+        AvsZ,
 
         /// <summary>
-        /// Null.
+        ///For Maestro, no AVS response was obtained.
+        /// AvsNull.
         /// </summary>
         [EnumMember(Value = "Null")]
-        Null,
+        AvsNull,
 
         /// <summary>
-        /// Enum0.
+        ///For Maestro, all address information matches.
+        /// Avs0.
         /// </summary>
         [EnumMember(Value = "0")]
-        Enum0,
+        Avs0,
 
         /// <summary>
-        /// Enum1.
+        ///For Maestro, none of the address information matches.
+        /// Avs1.
         /// </summary>
         [EnumMember(Value = "1")]
-        Enum1,
+        Avs1,
 
         /// <summary>
-        /// Enum2.
+        ///For Maestro, part of the address information matches.
+        /// Avs2.
         /// </summary>
         [EnumMember(Value = "2")]
-        Enum2,
+        Avs2,
 
         /// <summary>
-        /// Enum3.
+        ///For Maestro, the merchant did not provide AVS information. It was not processed.
+        /// Avs3.
         /// </summary>
         [EnumMember(Value = "3")]
-        Enum3,
+        Avs3,
 
         /// <summary>
-        /// Enum4.
+        ///For Maestro, the address was not checked or the acquirer had no response. The service is not available.
+        /// Avs4.
         /// </summary>
         [EnumMember(Value = "4")]
-        Enum4,
+        Avs4,
 
         /// <summary>
         /// Unknown values will be mapped by this enum member.

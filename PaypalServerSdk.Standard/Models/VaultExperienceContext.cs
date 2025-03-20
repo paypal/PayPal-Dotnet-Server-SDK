@@ -42,8 +42,8 @@ namespace PaypalServerSdk.Standard.Models
             string locale = null,
             string returnUrl = null,
             string cancelUrl = null,
-            string shippingPreference = "GET_FROM_FILE",
-            string vaultInstruction = "ON_CREATE_PAYMENT_TOKENS")
+            Models.OrderApplicationContextShippingPreference? shippingPreference = Models.OrderApplicationContextShippingPreference.GetFromFile,
+            Models.VaultInstructionAction? vaultInstruction = Models.VaultInstructionAction.OnCreatePaymentTokens)
         {
             this.BrandName = brandName;
             this.Locale = locale;
@@ -81,56 +81,55 @@ namespace PaypalServerSdk.Standard.Models
         /// The shipping preference. This only applies to PayPal payment source.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public string ShippingPreference { get; set; }
+        public Models.OrderApplicationContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
         /// Vault Instruction on action to be performed after a successful payer approval.
         /// </summary>
         [JsonProperty("vault_instruction", NullValueHandling = NullValueHandling.Ignore)]
-        public string VaultInstruction { get; set; }
+        public Models.VaultInstructionAction? VaultInstruction { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VaultExperienceContext : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VaultExperienceContext other &&                ((this.BrandName == null && other.BrandName == null) || (this.BrandName?.Equals(other.BrandName) == true)) &&
-                ((this.Locale == null && other.Locale == null) || (this.Locale?.Equals(other.Locale) == true)) &&
-                ((this.ReturnUrl == null && other.ReturnUrl == null) || (this.ReturnUrl?.Equals(other.ReturnUrl) == true)) &&
-                ((this.CancelUrl == null && other.CancelUrl == null) || (this.CancelUrl?.Equals(other.CancelUrl) == true)) &&
-                ((this.ShippingPreference == null && other.ShippingPreference == null) || (this.ShippingPreference?.Equals(other.ShippingPreference) == true)) &&
-                ((this.VaultInstruction == null && other.VaultInstruction == null) || (this.VaultInstruction?.Equals(other.VaultInstruction) == true));
+            return obj is VaultExperienceContext other &&
+                (this.BrandName == null && other.BrandName == null ||
+                 this.BrandName?.Equals(other.BrandName) == true) &&
+                (this.Locale == null && other.Locale == null ||
+                 this.Locale?.Equals(other.Locale) == true) &&
+                (this.ReturnUrl == null && other.ReturnUrl == null ||
+                 this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
+                (this.CancelUrl == null && other.CancelUrl == null ||
+                 this.CancelUrl?.Equals(other.CancelUrl) == true) &&
+                (this.ShippingPreference == null && other.ShippingPreference == null ||
+                 this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.VaultInstruction == null && other.VaultInstruction == null ||
+                 this.VaultInstruction?.Equals(other.VaultInstruction) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.BrandName = {(this.BrandName == null ? "null" : this.BrandName)}");
-            toStringOutput.Add($"this.Locale = {(this.Locale == null ? "null" : this.Locale)}");
-            toStringOutput.Add($"this.ReturnUrl = {(this.ReturnUrl == null ? "null" : this.ReturnUrl)}");
-            toStringOutput.Add($"this.CancelUrl = {(this.CancelUrl == null ? "null" : this.CancelUrl)}");
-            toStringOutput.Add($"this.ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference)}");
-            toStringOutput.Add($"this.VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction)}");
+            toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
+            toStringOutput.Add($"Locale = {this.Locale ?? "null"}");
+            toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
+            toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+            toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction.ToString())}");
         }
     }
 }

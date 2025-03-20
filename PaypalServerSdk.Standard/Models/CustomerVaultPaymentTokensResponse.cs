@@ -39,7 +39,7 @@ namespace PaypalServerSdk.Standard.Models
         public CustomerVaultPaymentTokensResponse(
             int? totalItems = null,
             int? totalPages = null,
-            Models.CustomerRequest customer = null,
+            Models.VaultResponseCustomer customer = null,
             List<Models.PaymentTokenResponse> paymentTokens = null,
             List<Models.LinkDescription> links = null)
         {
@@ -63,10 +63,10 @@ namespace PaypalServerSdk.Standard.Models
         public int? TotalPages { get; set; }
 
         /// <summary>
-        /// Customer in merchant's or partner's system of records.
+        /// This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.CustomerRequest Customer { get; set; }
+        public Models.VaultResponseCustomer Customer { get; set; }
 
         /// <summary>
         /// Gets or sets PaymentTokens.
@@ -84,42 +84,40 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"CustomerVaultPaymentTokensResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is CustomerVaultPaymentTokensResponse other &&                ((this.TotalItems == null && other.TotalItems == null) || (this.TotalItems?.Equals(other.TotalItems) == true)) &&
-                ((this.TotalPages == null && other.TotalPages == null) || (this.TotalPages?.Equals(other.TotalPages) == true)) &&
-                ((this.Customer == null && other.Customer == null) || (this.Customer?.Equals(other.Customer) == true)) &&
-                ((this.PaymentTokens == null && other.PaymentTokens == null) || (this.PaymentTokens?.Equals(other.PaymentTokens) == true)) &&
-                ((this.Links == null && other.Links == null) || (this.Links?.Equals(other.Links) == true));
+            return obj is CustomerVaultPaymentTokensResponse other &&
+                (this.TotalItems == null && other.TotalItems == null ||
+                 this.TotalItems?.Equals(other.TotalItems) == true) &&
+                (this.TotalPages == null && other.TotalPages == null ||
+                 this.TotalPages?.Equals(other.TotalPages) == true) &&
+                (this.Customer == null && other.Customer == null ||
+                 this.Customer?.Equals(other.Customer) == true) &&
+                (this.PaymentTokens == null && other.PaymentTokens == null ||
+                 this.PaymentTokens?.Equals(other.PaymentTokens) == true) &&
+                (this.Links == null && other.Links == null ||
+                 this.Links?.Equals(other.Links) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.TotalItems = {(this.TotalItems == null ? "null" : this.TotalItems.ToString())}");
-            toStringOutput.Add($"this.TotalPages = {(this.TotalPages == null ? "null" : this.TotalPages.ToString())}");
-            toStringOutput.Add($"this.Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
-            toStringOutput.Add($"this.PaymentTokens = {(this.PaymentTokens == null ? "null" : $"[{string.Join(", ", this.PaymentTokens)} ]")}");
-            toStringOutput.Add($"this.Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"TotalItems = {(this.TotalItems == null ? "null" : this.TotalItems.ToString())}");
+            toStringOutput.Add($"TotalPages = {(this.TotalPages == null ? "null" : this.TotalPages.ToString())}");
+            toStringOutput.Add($"Customer = {(this.Customer == null ? "null" : this.Customer.ToString())}");
+            toStringOutput.Add($"PaymentTokens = {(this.PaymentTokens == null ? "null" : $"[{string.Join(", ", this.PaymentTokens)} ]")}");
+            toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
         }
     }
 }

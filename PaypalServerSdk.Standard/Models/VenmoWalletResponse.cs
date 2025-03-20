@@ -57,7 +57,7 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// The internationalized email address.<blockquote><strong>Note:</strong> Up to 64 characters are allowed before and 255 characters are allowed after the <code>@</code> sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted <code>@</code> sign exists.</blockquote>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
         /// </summary>
         [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
@@ -102,46 +102,46 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"VenmoWalletResponse : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is VenmoWalletResponse other &&                ((this.EmailAddress == null && other.EmailAddress == null) || (this.EmailAddress?.Equals(other.EmailAddress) == true)) &&
-                ((this.AccountId == null && other.AccountId == null) || (this.AccountId?.Equals(other.AccountId) == true)) &&
-                ((this.UserName == null && other.UserName == null) || (this.UserName?.Equals(other.UserName) == true)) &&
-                ((this.Name == null && other.Name == null) || (this.Name?.Equals(other.Name) == true)) &&
-                ((this.PhoneNumber == null && other.PhoneNumber == null) || (this.PhoneNumber?.Equals(other.PhoneNumber) == true)) &&
-                ((this.Address == null && other.Address == null) || (this.Address?.Equals(other.Address) == true)) &&
-                ((this.Attributes == null && other.Attributes == null) || (this.Attributes?.Equals(other.Attributes) == true));
+            return obj is VenmoWalletResponse other &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.AccountId == null && other.AccountId == null ||
+                 this.AccountId?.Equals(other.AccountId) == true) &&
+                (this.UserName == null && other.UserName == null ||
+                 this.UserName?.Equals(other.UserName) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
+                (this.PhoneNumber == null && other.PhoneNumber == null ||
+                 this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
+                (this.Address == null && other.Address == null ||
+                 this.Address?.Equals(other.Address) == true) &&
+                (this.Attributes == null && other.Attributes == null ||
+                 this.Attributes?.Equals(other.Attributes) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.EmailAddress = {(this.EmailAddress == null ? "null" : this.EmailAddress)}");
-            toStringOutput.Add($"this.AccountId = {(this.AccountId == null ? "null" : this.AccountId)}");
-            toStringOutput.Add($"this.UserName = {(this.UserName == null ? "null" : this.UserName)}");
-            toStringOutput.Add($"this.Name = {(this.Name == null ? "null" : this.Name.ToString())}");
-            toStringOutput.Add($"this.PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
-            toStringOutput.Add($"this.Address = {(this.Address == null ? "null" : this.Address.ToString())}");
-            toStringOutput.Add($"this.Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"AccountId = {this.AccountId ?? "null"}");
+            toStringOutput.Add($"UserName = {this.UserName ?? "null"}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
+            toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
+            toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");
+            toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
         }
     }
 }

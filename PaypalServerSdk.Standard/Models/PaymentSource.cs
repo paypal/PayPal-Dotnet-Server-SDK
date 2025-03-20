@@ -81,9 +81,7 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// <![CDATA[
-        /// The payment card to use to fund a payment. Can be a credit or debit card.<blockquote><strong>Note:</strong> Passing card number, cvv and expiry directly via the API requires <a href="https://www.pcisecuritystandards.org/pci_security/completing_self_assessment"> PCI SAQ D compliance</a>. <br>*PayPal offers a mechanism by which you do not have to take on the <strong>PCI SAQ D</strong> burden by using hosted fields - refer to <a href="https://developer.paypal.com/docs/checkout/advanced/integrate/">this Integration Guide</a>*.</blockquote>
-        /// ]]>
+        /// The payment card to use to fund a payment. Can be a credit or debit card. Note: Passing card number, cvv and expiry directly via the API requires PCI SAQ D compliance. *PayPal offers a mechanism by which you do not have to take on the PCI SAQ D burden by using hosted fields - refer to this Integration Guide*.
         /// </summary>
         [JsonProperty("card", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CardRequest Card { get; set; }
@@ -176,62 +174,70 @@ namespace PaypalServerSdk.Standard.Models
         public override string ToString()
         {
             var toStringOutput = new List<string>();
-
             this.ToString(toStringOutput);
-
             return $"PaymentSource : ({string.Join(", ", toStringOutput)})";
         }
 
         /// <inheritdoc/>
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
 
-            if (obj == this)
-            {
-                return true;
-            }
-            return obj is PaymentSource other &&                ((this.Card == null && other.Card == null) || (this.Card?.Equals(other.Card) == true)) &&
-                ((this.Token == null && other.Token == null) || (this.Token?.Equals(other.Token) == true)) &&
-                ((this.Paypal == null && other.Paypal == null) || (this.Paypal?.Equals(other.Paypal) == true)) &&
-                ((this.Bancontact == null && other.Bancontact == null) || (this.Bancontact?.Equals(other.Bancontact) == true)) &&
-                ((this.Blik == null && other.Blik == null) || (this.Blik?.Equals(other.Blik) == true)) &&
-                ((this.Eps == null && other.Eps == null) || (this.Eps?.Equals(other.Eps) == true)) &&
-                ((this.Giropay == null && other.Giropay == null) || (this.Giropay?.Equals(other.Giropay) == true)) &&
-                ((this.Ideal == null && other.Ideal == null) || (this.Ideal?.Equals(other.Ideal) == true)) &&
-                ((this.Mybank == null && other.Mybank == null) || (this.Mybank?.Equals(other.Mybank) == true)) &&
-                ((this.P24 == null && other.P24 == null) || (this.P24?.Equals(other.P24) == true)) &&
-                ((this.Sofort == null && other.Sofort == null) || (this.Sofort?.Equals(other.Sofort) == true)) &&
-                ((this.Trustly == null && other.Trustly == null) || (this.Trustly?.Equals(other.Trustly) == true)) &&
-                ((this.ApplePay == null && other.ApplePay == null) || (this.ApplePay?.Equals(other.ApplePay) == true)) &&
-                ((this.GooglePay == null && other.GooglePay == null) || (this.GooglePay?.Equals(other.GooglePay) == true)) &&
-                ((this.Venmo == null && other.Venmo == null) || (this.Venmo?.Equals(other.Venmo) == true));
+            return obj is PaymentSource other &&
+                (this.Card == null && other.Card == null ||
+                 this.Card?.Equals(other.Card) == true) &&
+                (this.Token == null && other.Token == null ||
+                 this.Token?.Equals(other.Token) == true) &&
+                (this.Paypal == null && other.Paypal == null ||
+                 this.Paypal?.Equals(other.Paypal) == true) &&
+                (this.Bancontact == null && other.Bancontact == null ||
+                 this.Bancontact?.Equals(other.Bancontact) == true) &&
+                (this.Blik == null && other.Blik == null ||
+                 this.Blik?.Equals(other.Blik) == true) &&
+                (this.Eps == null && other.Eps == null ||
+                 this.Eps?.Equals(other.Eps) == true) &&
+                (this.Giropay == null && other.Giropay == null ||
+                 this.Giropay?.Equals(other.Giropay) == true) &&
+                (this.Ideal == null && other.Ideal == null ||
+                 this.Ideal?.Equals(other.Ideal) == true) &&
+                (this.Mybank == null && other.Mybank == null ||
+                 this.Mybank?.Equals(other.Mybank) == true) &&
+                (this.P24 == null && other.P24 == null ||
+                 this.P24?.Equals(other.P24) == true) &&
+                (this.Sofort == null && other.Sofort == null ||
+                 this.Sofort?.Equals(other.Sofort) == true) &&
+                (this.Trustly == null && other.Trustly == null ||
+                 this.Trustly?.Equals(other.Trustly) == true) &&
+                (this.ApplePay == null && other.ApplePay == null ||
+                 this.ApplePay?.Equals(other.ApplePay) == true) &&
+                (this.GooglePay == null && other.GooglePay == null ||
+                 this.GooglePay?.Equals(other.GooglePay) == true) &&
+                (this.Venmo == null && other.Venmo == null ||
+                 this.Venmo?.Equals(other.Venmo) == true);
         }
-        
+
         /// <summary>
         /// ToString overload.
         /// </summary>
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"this.Card = {(this.Card == null ? "null" : this.Card.ToString())}");
-            toStringOutput.Add($"this.Token = {(this.Token == null ? "null" : this.Token.ToString())}");
-            toStringOutput.Add($"this.Paypal = {(this.Paypal == null ? "null" : this.Paypal.ToString())}");
-            toStringOutput.Add($"this.Bancontact = {(this.Bancontact == null ? "null" : this.Bancontact.ToString())}");
-            toStringOutput.Add($"this.Blik = {(this.Blik == null ? "null" : this.Blik.ToString())}");
-            toStringOutput.Add($"this.Eps = {(this.Eps == null ? "null" : this.Eps.ToString())}");
-            toStringOutput.Add($"this.Giropay = {(this.Giropay == null ? "null" : this.Giropay.ToString())}");
-            toStringOutput.Add($"this.Ideal = {(this.Ideal == null ? "null" : this.Ideal.ToString())}");
-            toStringOutput.Add($"this.Mybank = {(this.Mybank == null ? "null" : this.Mybank.ToString())}");
-            toStringOutput.Add($"this.P24 = {(this.P24 == null ? "null" : this.P24.ToString())}");
-            toStringOutput.Add($"this.Sofort = {(this.Sofort == null ? "null" : this.Sofort.ToString())}");
-            toStringOutput.Add($"this.Trustly = {(this.Trustly == null ? "null" : this.Trustly.ToString())}");
-            toStringOutput.Add($"this.ApplePay = {(this.ApplePay == null ? "null" : this.ApplePay.ToString())}");
-            toStringOutput.Add($"this.GooglePay = {(this.GooglePay == null ? "null" : this.GooglePay.ToString())}");
-            toStringOutput.Add($"this.Venmo = {(this.Venmo == null ? "null" : this.Venmo.ToString())}");
+            toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
+            toStringOutput.Add($"Token = {(this.Token == null ? "null" : this.Token.ToString())}");
+            toStringOutput.Add($"Paypal = {(this.Paypal == null ? "null" : this.Paypal.ToString())}");
+            toStringOutput.Add($"Bancontact = {(this.Bancontact == null ? "null" : this.Bancontact.ToString())}");
+            toStringOutput.Add($"Blik = {(this.Blik == null ? "null" : this.Blik.ToString())}");
+            toStringOutput.Add($"Eps = {(this.Eps == null ? "null" : this.Eps.ToString())}");
+            toStringOutput.Add($"Giropay = {(this.Giropay == null ? "null" : this.Giropay.ToString())}");
+            toStringOutput.Add($"Ideal = {(this.Ideal == null ? "null" : this.Ideal.ToString())}");
+            toStringOutput.Add($"Mybank = {(this.Mybank == null ? "null" : this.Mybank.ToString())}");
+            toStringOutput.Add($"P24 = {(this.P24 == null ? "null" : this.P24.ToString())}");
+            toStringOutput.Add($"Sofort = {(this.Sofort == null ? "null" : this.Sofort.ToString())}");
+            toStringOutput.Add($"Trustly = {(this.Trustly == null ? "null" : this.Trustly.ToString())}");
+            toStringOutput.Add($"ApplePay = {(this.ApplePay == null ? "null" : this.ApplePay.ToString())}");
+            toStringOutput.Add($"GooglePay = {(this.GooglePay == null ? "null" : this.GooglePay.ToString())}");
+            toStringOutput.Add($"Venmo = {(this.Venmo == null ? "null" : this.Venmo.ToString())}");
         }
     }
 }

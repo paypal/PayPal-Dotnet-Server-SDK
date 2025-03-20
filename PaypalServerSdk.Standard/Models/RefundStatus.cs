@@ -20,24 +20,28 @@ namespace PaypalServerSdk.Standard.Models
     public enum RefundStatus
     {
         /// <summary>
+        ///The refund was cancelled.
         /// Cancelled.
         /// </summary>
         [EnumMember(Value = "CANCELLED")]
         Cancelled,
 
         /// <summary>
+        ///The refund could not be processed.
         /// Failed.
         /// </summary>
         [EnumMember(Value = "FAILED")]
         Failed,
 
         /// <summary>
+        ///The refund is pending. For more information, see status_details.reason.
         /// Pending.
         /// </summary>
         [EnumMember(Value = "PENDING")]
         Pending,
 
         /// <summary>
+        ///The funds for this transaction were debited to the customer's account.
         /// Completed.
         /// </summary>
         [EnumMember(Value = "COMPLETED")]
