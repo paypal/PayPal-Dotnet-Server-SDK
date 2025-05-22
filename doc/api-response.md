@@ -5,13 +5,13 @@ Represents the result of an API call, including response metadata and the return
 
 ## Properties
 
-| Name | Type | Description |
+| Name | Description | Type |
 |  --- | --- | --- |
-| `StatusCode` | `int` | Returns the response status code. |
-| `Headers` | `Dictionary<string, string>` | Returns the response headers. |
-| `Data` | `T` | Returns the response data. |
+| `StatusCode` | Returns the response status code. | `int` |
+| `Data` | Returns the response data. | `T` |
+| `Headers` | Returns the response headers. | `Dictionary<string, string>` |
 
-## Example Usage
+## Usage Example
 
 ```csharp
 try

@@ -60,7 +60,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.VaultStatus? Status { get; set; }
 
         /// <summary>
-        /// The details about a customer in PayPal's system of record.
+        /// This object represents a merchant’s customer, allowing them to store contact details, and track all payments associated with the same customer.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VaultCustomer Customer { get; set; }

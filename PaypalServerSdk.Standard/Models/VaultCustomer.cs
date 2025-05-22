@@ -32,10 +32,13 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="VaultCustomer"/> class.
         /// </summary>
         /// <param name="id">id.</param>
+        /// <param name="name">name.</param>
         public VaultCustomer(
-            string id = null)
+            string id = null,
+            Models.Name name = null)
         {
             this.Id = id;
+            this.Name = name;
         }
 
         /// <summary>
@@ -43,6 +46,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
+
+        /// <summary>
+        /// The name of the party.
+        /// </summary>
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.Name Name { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -60,7 +69,9 @@ namespace PaypalServerSdk.Standard.Models
 
             return obj is VaultCustomer other &&
                 (this.Id == null && other.Id == null ||
-                 this.Id?.Equals(other.Id) == true);
+                 this.Id?.Equals(other.Id) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true);
         }
 
         /// <summary>
@@ -70,6 +81,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"Id = {this.Id ?? "null"}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
         }
     }
 }

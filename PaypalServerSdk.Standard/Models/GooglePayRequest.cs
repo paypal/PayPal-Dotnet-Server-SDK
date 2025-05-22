@@ -37,13 +37,15 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="card">card.</param>
         /// <param name="decryptedToken">decrypted_token.</param>
         /// <param name="assuranceDetails">assurance_details.</param>
+        /// <param name="experienceContext">experience_context.</param>
         public GooglePayRequest(
             string name = null,
             string emailAddress = null,
             Models.PhoneNumberWithCountryCode phoneNumber = null,
             Models.GooglePayRequestCard card = null,
             Models.GooglePayDecryptedTokenData decryptedToken = null,
-            Models.AssuranceDetails assuranceDetails = null)
+            Models.AssuranceDetails assuranceDetails = null,
+            Models.GooglePayExperienceContext experienceContext = null)
         {
             this.Name = name;
             this.EmailAddress = emailAddress;
@@ -51,6 +53,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Card = card;
             this.DecryptedToken = decryptedToken;
             this.AssuranceDetails = assuranceDetails;
+            this.ExperienceContext = experienceContext;
         }
 
         /// <summary>
@@ -91,6 +94,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("assurance_details", NullValueHandling = NullValueHandling.Ignore)]
         public Models.AssuranceDetails AssuranceDetails { get; set; }
 
+        /// <summary>
+        /// Customizes the payer experience during the approval process for the payment.
+        /// </summary>
+        [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.GooglePayExperienceContext ExperienceContext { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -117,7 +126,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.DecryptedToken == null && other.DecryptedToken == null ||
                  this.DecryptedToken?.Equals(other.DecryptedToken) == true) &&
                 (this.AssuranceDetails == null && other.AssuranceDetails == null ||
-                 this.AssuranceDetails?.Equals(other.AssuranceDetails) == true);
+                 this.AssuranceDetails?.Equals(other.AssuranceDetails) == true) &&
+                (this.ExperienceContext == null && other.ExperienceContext == null ||
+                 this.ExperienceContext?.Equals(other.ExperienceContext) == true);
         }
 
         /// <summary>
@@ -132,6 +143,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
             toStringOutput.Add($"DecryptedToken = {(this.DecryptedToken == null ? "null" : this.DecryptedToken.ToString())}");
             toStringOutput.Add($"AssuranceDetails = {(this.AssuranceDetails == null ? "null" : this.AssuranceDetails.ToString())}");
+            toStringOutput.Add($"ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
         }
     }
 }

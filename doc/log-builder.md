@@ -1,5 +1,5 @@
 
-# LogBuilder Class
+# LogBuilder
 
 The builder for logging configuration. Create instance using `LogBuilder.Build()`
 
@@ -7,11 +7,11 @@ The builder for logging configuration. Create instance using `LogBuilder.Build()
 
 | Name | Description |
 |  --- | --- |
-| Logger(ILogger logger) | Sets the implementation of Microsoft.Extensions.Logging.ILogger for logging. **The default implementation is ConsoleLogger.** |
-| LogLevel(LogLevel? logLevel) | Sets the Microsoft.Extensions.Logging.LogLevel, which defines logging severity levels. **The default value is LogLevel.Information.** |
-| MaskSensitiveHeaders(bool maskSensitiveHeaders) | Sets the global setting to mask sensitive HTTP headers in both requests and responses before logging, safeguarding confidential data. **The default value is True.** |
-| RequestConfig(Action<[LogRequestBuilder](log-request-builder.md)> action) | Sets the request logging configuration with the provided builder action. **By default, request logging is enabled, excluding both the body and headers.** |
-| ResponseConfig(Action<[LogResponseBuilder](log-response-builder.md)> action) | Sets the response logging configuration with the provided builder action. **By default, response logging is enabled, excluding both the body and headers.** |
+| <code>Logger(ILogger logger)</code> | Sets the implementation of Microsoft.Extensions.Logging.ILogger for logging. **The default implementation is ConsoleLogger.** |
+| <code>LogLevel(LogLevel? logLevel)</code> | Sets the Microsoft.Extensions.Logging.LogLevel, which defines logging severity levels. **The default value is LogLevel.Information.** |
+| <code>MaskSensitiveHeaders(bool maskSensitiveHeaders)</code> | Sets the global setting to mask sensitive HTTP headers in both requests and responses before logging, safeguarding confidential data. **The default value is True.** |
+| <code>RequestConfig(Action<[`LogRequestBuilder`](../doc/log-request-builder.md)> action)</code> | Sets the request logging configuration with the provided builder action. **By default, request logging is enabled, excluding both the body and headers.** |
+| <code>ResponseConfig(Action<[`LogResponseBuilder`](../doc/log-response-builder.md)> action)</code> | Sets the response logging configuration with the provided builder action. **By default, response logging is enabled, excluding both the body and headers.** |
 
 ## Usage Example
 

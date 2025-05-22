@@ -11,8 +11,8 @@ The tax ID of the customer. The customer is also known as the payer. Both `tax_i
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `TaxId` | `string` | Required | The customer's tax ID value.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `14`, *Pattern*: `([a-zA-Z0-9])` |
-| `TaxIdType` | [`TaxIdType`](../../doc/models/tax-id-type.md) | Required | The customer's tax ID type.<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `14`, *Pattern*: `^[A-Z0-9_]+$` |
+| `TaxId` | `string` | Required | The customer's tax ID value.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `14`, *Pattern*: `([a-zA-Z0-9])` |
+| `TaxIdType` | [`TaxIdType`](../../doc/models/tax-id-type.md) | Required | The customer's tax ID type.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `14`, *Pattern*: `^[A-Z0-9_]+$` |
 
 ## Example (as JSON)
 

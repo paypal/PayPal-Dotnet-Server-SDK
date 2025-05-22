@@ -39,6 +39,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="storedCredential">stored_credential.</param>
         /// <param name="vaultId">vault_id.</param>
         /// <param name="attributes">attributes.</param>
+        /// <param name="experienceContext">experience_context.</param>
         public ApplePayRequest(
             string id = null,
             string name = null,
@@ -47,7 +48,8 @@ namespace PaypalServerSdk.Standard.Models
             Models.ApplePayDecryptedTokenData decryptedToken = null,
             Models.CardStoredCredential storedCredential = null,
             string vaultId = null,
-            Models.ApplePayAttributes attributes = null)
+            Models.ApplePayAttributes attributes = null,
+            Models.ApplePayExperienceContext experienceContext = null)
         {
             this.Id = id;
             this.Name = name;
@@ -57,6 +59,7 @@ namespace PaypalServerSdk.Standard.Models
             this.StoredCredential = storedCredential;
             this.VaultId = vaultId;
             this.Attributes = attributes;
+            this.ExperienceContext = experienceContext;
         }
 
         /// <summary>
@@ -107,6 +110,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ApplePayAttributes Attributes { get; set; }
 
+        /// <summary>
+        /// Customizes the payer experience during the approval process for the payment.
+        /// </summary>
+        [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ApplePayExperienceContext ExperienceContext { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -137,7 +146,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.VaultId == null && other.VaultId == null ||
                  this.VaultId?.Equals(other.VaultId) == true) &&
                 (this.Attributes == null && other.Attributes == null ||
-                 this.Attributes?.Equals(other.Attributes) == true);
+                 this.Attributes?.Equals(other.Attributes) == true) &&
+                (this.ExperienceContext == null && other.ExperienceContext == null ||
+                 this.ExperienceContext?.Equals(other.ExperienceContext) == true);
         }
 
         /// <summary>
@@ -154,6 +165,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
             toStringOutput.Add($"VaultId = {this.VaultId ?? "null"}");
             toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
+            toStringOutput.Add($"ExperienceContext = {(this.ExperienceContext == null ? "null" : this.ExperienceContext.ToString())}");
         }
     }
 }

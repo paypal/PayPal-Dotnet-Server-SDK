@@ -11,8 +11,8 @@ The options that the payee or merchant offers to the payer to ship or pick up th
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Id` | `string` | Required | A unique ID that identifies a payer-selected shipping option.<br>**Constraints**: *Maximum Length*: `127` |
-| `Label` | `string` | Required | A description that the payer sees, which helps them choose an appropriate shipping option. For example, `Free Shipping`, `USPS Priority Shipping`, `Expédition prioritaire USPS`, or `USPS yōuxiān fā huò`. Localize this description to the payer's locale.<br>**Constraints**: *Maximum Length*: `127` |
+| `Id` | `string` | Required | A unique ID that identifies a payer-selected shipping option.<br><br>**Constraints**: *Maximum Length*: `127` |
+| `Label` | `string` | Required | A description that the payer sees, which helps them choose an appropriate shipping option. For example, `Free Shipping`, `USPS Priority Shipping`, `Expédition prioritaire USPS`, or `USPS yōuxiān fā huò`. Localize this description to the payer's locale.<br><br>**Constraints**: *Maximum Length*: `127` |
 | `Type` | [`ShippingType?`](../../doc/models/shipping-type.md) | Optional | A classification for the method of purchase fulfillment. |
 | `Amount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 

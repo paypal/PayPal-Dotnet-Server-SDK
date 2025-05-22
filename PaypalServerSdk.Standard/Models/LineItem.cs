@@ -38,6 +38,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="url">url.</param>
         /// <param name="imageUrl">image_url.</param>
         /// <param name="upc">upc.</param>
+        /// <param name="billingPlan">billing_plan.</param>
         /// <param name="unitAmount">unit_amount.</param>
         /// <param name="tax">tax.</param>
         /// <param name="commodityCode">commodity_code.</param>
@@ -52,6 +53,7 @@ namespace PaypalServerSdk.Standard.Models
             string url = null,
             string imageUrl = null,
             Models.UniversalProductCode upc = null,
+            Models.OrderBillingPlan billingPlan = null,
             Models.Money unitAmount = null,
             Models.Money tax = null,
             string commodityCode = null,
@@ -66,6 +68,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Url = url;
             this.ImageUrl = imageUrl;
             this.Upc = upc;
+            this.BillingPlan = billingPlan;
             this.UnitAmount = unitAmount;
             this.Tax = tax;
             this.CommodityCode = commodityCode;
@@ -115,6 +118,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("upc", NullValueHandling = NullValueHandling.Ignore)]
         public Models.UniversalProductCode Upc { get; set; }
+
+        /// <summary>
+        /// Metadata for merchant-managed recurring billing plans. Valid only during the saved payment method token or billing agreement creation.
+        /// </summary>
+        [JsonProperty("billing_plan", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.OrderBillingPlan BillingPlan { get; set; }
 
         /// <summary>
         /// The currency and amount for a financial transaction, such as a balance or payment due.
@@ -181,6 +190,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.ImageUrl?.Equals(other.ImageUrl) == true) &&
                 (this.Upc == null && other.Upc == null ||
                  this.Upc?.Equals(other.Upc) == true) &&
+                (this.BillingPlan == null && other.BillingPlan == null ||
+                 this.BillingPlan?.Equals(other.BillingPlan) == true) &&
                 (this.UnitAmount == null && other.UnitAmount == null ||
                  this.UnitAmount?.Equals(other.UnitAmount) == true) &&
                 (this.Tax == null && other.Tax == null ||
@@ -208,6 +219,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Url = {this.Url ?? "null"}");
             toStringOutput.Add($"ImageUrl = {this.ImageUrl ?? "null"}");
             toStringOutput.Add($"Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
+            toStringOutput.Add($"BillingPlan = {(this.BillingPlan == null ? "null" : this.BillingPlan.ToString())}");
             toStringOutput.Add($"UnitAmount = {(this.UnitAmount == null ? "null" : this.UnitAmount.ToString())}");
             toStringOutput.Add($"Tax = {(this.Tax == null ? "null" : this.Tax.ToString())}");
             toStringOutput.Add($"CommodityCode = {this.CommodityCode ?? "null"}");

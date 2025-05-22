@@ -1,5 +1,5 @@
 
-# LogResponseBuilder Class
+# LogResponseBuilder
 
 The builder for response logging configuration. Create instance using `LogResponseBuilder.Build()`
 
@@ -7,9 +7,9 @@ The builder for response logging configuration. Create instance using `LogRespon
 
 | Name | Description |
 |  --- | --- |
-| Body(bool includeBody) | Sets the logging of the response body. **By default, the body is not logged.** |
-| Headers(bool includeHeaders) | Sets the logging of the response headers. **By default, the headers are not logged.** |
-| IncludeHeaders(params string[] headersToInclude) | Sets the headers that will exclusively be included in the log output of the response headers. **By default, all headers are included.** |
-| ExcludeHeaders(params string[] headersToExclude) | Sets the headers that will be excluded in the log output of the response headers. **By default, no headers are excluded.** |
-| UnmaskHeaders(params string[] headersToUnmask) | Sets the headers that will be unmasked in the log output of the response headers. **By default, no headers are unmasked.** |
+| <code>Body(bool includeBody)</code> | Sets the logging of the response body. **By default, the body is not logged.** |
+| <code>Headers(bool includeHeaders)</code> | Sets the logging of the response headers. **By default, the headers are not logged.** |
+| <code>IncludeHeaders(params string[] headersToInclude)</code> | Sets the headers that will exclusively be included in the log output of the response headers. **By default, all headers are included.** |
+| <code>ExcludeHeaders(params string[] headersToExclude)</code> | Sets the headers that will be excluded in the log output of the response headers. **By default, no headers are excluded.** |
+| <code>UnmaskHeaders(params string[] headersToUnmask)</code> | Sets the headers that will be unmasked in the log output of the response headers. **By default, no headers are unmasked.** |
 

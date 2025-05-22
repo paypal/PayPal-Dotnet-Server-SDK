@@ -11,7 +11,7 @@ Information used to pay using BLIK level_0 flow.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `AuthCode` | `string` | Required | The 6-digit code used to authenticate a consumer within BLIK.<br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6`, *Pattern*: `^[0-9]{6}$` |
+| `AuthCode` | `string` | Required | The 6-digit code used to authenticate a consumer within BLIK.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6`, *Pattern*: `^[0-9]{6}$` |
 
 ## Example (as JSON)
 

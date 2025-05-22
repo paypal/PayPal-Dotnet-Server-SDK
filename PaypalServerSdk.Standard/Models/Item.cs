@@ -41,6 +41,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="category">category.</param>
         /// <param name="imageUrl">image_url.</param>
         /// <param name="upc">upc.</param>
+        /// <param name="billingPlan">billing_plan.</param>
         public Item(
             string name,
             Models.Money unitAmount,
@@ -51,7 +52,8 @@ namespace PaypalServerSdk.Standard.Models
             string url = null,
             Models.ItemCategory? category = null,
             string imageUrl = null,
-            Models.UniversalProductCode upc = null)
+            Models.UniversalProductCode upc = null,
+            Models.OrderBillingPlan billingPlan = null)
         {
             this.Name = name;
             this.UnitAmount = unitAmount;
@@ -63,6 +65,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Category = category;
             this.ImageUrl = imageUrl;
             this.Upc = upc;
+            this.BillingPlan = billingPlan;
         }
 
         /// <summary>
@@ -125,6 +128,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("upc", NullValueHandling = NullValueHandling.Ignore)]
         public Models.UniversalProductCode Upc { get; set; }
 
+        /// <summary>
+        /// Metadata for merchant-managed recurring billing plans. Valid only during the saved payment method token or billing agreement creation.
+        /// </summary>
+        [JsonProperty("billing_plan", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.OrderBillingPlan BillingPlan { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -159,7 +168,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.ImageUrl == null && other.ImageUrl == null ||
                  this.ImageUrl?.Equals(other.ImageUrl) == true) &&
                 (this.Upc == null && other.Upc == null ||
-                 this.Upc?.Equals(other.Upc) == true);
+                 this.Upc?.Equals(other.Upc) == true) &&
+                (this.BillingPlan == null && other.BillingPlan == null ||
+                 this.BillingPlan?.Equals(other.BillingPlan) == true);
         }
 
         /// <summary>
@@ -178,6 +189,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Category = {(this.Category == null ? "null" : this.Category.ToString())}");
             toStringOutput.Add($"ImageUrl = {this.ImageUrl ?? "null"}");
             toStringOutput.Add($"Upc = {(this.Upc == null ? "null" : this.Upc.ToString())}");
+            toStringOutput.Add($"BillingPlan = {(this.BillingPlan == null ? "null" : this.BillingPlan.ToString())}");
         }
     }
 }
