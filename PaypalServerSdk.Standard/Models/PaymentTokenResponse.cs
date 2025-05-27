@@ -54,7 +54,7 @@ namespace PaypalServerSdk.Standard.Models
         public string Id { get; set; }
 
         /// <summary>
-        /// This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details.
+        /// Customer in merchant's or partner's system of records.
         /// </summary>
         [JsonProperty("customer", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CustomerResponse Customer { get; set; }

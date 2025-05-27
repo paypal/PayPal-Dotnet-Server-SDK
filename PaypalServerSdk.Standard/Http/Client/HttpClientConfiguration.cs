@@ -3,10 +3,10 @@
 // </copyright>
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
 using System.Net.Http;
 using APIMatic.Core.Http.Configuration;
+using APIMatic.Core.Proxy;
+using PaypalServerSdk.Standard.Http.Client.Proxy;
 
 namespace PaypalServerSdk.Standard.Http.Client
 {
@@ -15,15 +15,18 @@ namespace PaypalServerSdk.Standard.Http.Client
     /// </summary>
     public class HttpClientConfiguration : IHttpClientConfiguration
     {
-        private CoreHttpClientConfiguration coreHttpClientConfiguration;
+        private readonly CoreHttpClientConfiguration coreHttpClientConfiguration;
         /// <summary>
         /// Initializes a new instance of the <see cref="HttpClientConfiguration"/>
         /// class.
         /// </summary>
+        private readonly CoreProxyConfiguration coreProxyConfiguration;
         private HttpClientConfiguration(
-            CoreHttpClientConfiguration.Builder coreHttpClientConfigurationBuilder)
+            CoreHttpClientConfiguration.Builder coreHttpClientConfigurationBuilder,
+            CoreProxyConfiguration coreProxyConfiguration)
         {
             coreHttpClientConfiguration = coreHttpClientConfigurationBuilder.Build();
+            this.coreProxyConfiguration = coreProxyConfiguration;
         }
 
         /// <summary>
@@ -93,7 +96,8 @@ namespace PaypalServerSdk.Standard.Http.Client
         public Builder ToBuilder()
           => new Builder()
           {
-              CoreHttpClientConfigurationBuilder = coreHttpClientConfiguration.ToBuilder()
+              CoreHttpClientConfigurationBuilder = coreHttpClientConfiguration.ToBuilder(),
+              CoreProxyConfiguration = this.coreProxyConfiguration
           };
 
         /// <summary>
@@ -102,6 +106,7 @@ namespace PaypalServerSdk.Standard.Http.Client
         public class Builder
         {
             internal CoreHttpClientConfiguration.Builder CoreHttpClientConfigurationBuilder { private get; set; } = new CoreHttpClientConfiguration.Builder();
+            internal CoreProxyConfiguration CoreProxyConfiguration { private get; set; }
 
             /// <summary>
             /// Sets the Timeout.
@@ -193,12 +198,25 @@ namespace PaypalServerSdk.Standard.Http.Client
             }
 
             /// <summary>
+            /// Sets the Proxy.
+            /// </summary>
+            /// <param name="proxyConfigurationBuilder"> ProxyConfigurationBuilder. </param>
+            /// <returns>Builder.</returns>
+            public Builder Proxy(ProxyConfigurationBuilder proxyConfigurationBuilder)
+            {
+                var proxyConfiguration = proxyConfigurationBuilder?.Build();
+                CoreProxyConfiguration = proxyConfiguration;
+                CoreHttpClientConfigurationBuilder.ProxyConfiguration(proxyConfiguration);
+                return this;
+            }
+
+            /// <summary>
             /// Creates an object of the HttpClientConfiguration using the values provided for the builder.
             /// </summary>
             /// <returns>HttpClientConfiguration.</returns>
             public HttpClientConfiguration Build()
             {
-                return new HttpClientConfiguration(CoreHttpClientConfigurationBuilder);
+                return new HttpClientConfiguration(CoreHttpClientConfigurationBuilder, CoreProxyConfiguration);
             }
         }
     }

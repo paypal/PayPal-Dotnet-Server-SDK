@@ -57,7 +57,7 @@ namespace PaypalServerSdk.Standard.Models
         public string MerchantCustomerId { get; set; }
 
         /// <summary>
-        /// An array of request-related HATEOAS links.
+        /// DEPRECATED. This field is DEPRECATED.
         /// </summary>
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<JsonValue> Links { get; set; }

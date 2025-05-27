@@ -5,10 +5,11 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `Environment` | `Environment` | The API environment. <br> **Default: `Environment.Sandbox`** |
-| `Timeout` | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
-| `LogBuilder` | [`LogBuilder`](log-builder.md) | Represents the logging configuration builder for API calls |
-| `ClientCredentialsAuth` | [`ClientCredentialsAuth`](auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| Environment | `Environment` | The API environment. <br> **Default: `Environment.Sandbox`** |
+| Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
+| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](../doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
+| LogBuilder | [`LogBuilder`](../doc/log-builder.md) | Represents the logging configuration builder for API calls |
+| ClientCredentialsAuth | [`ClientCredentialsAuth`](auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
@@ -46,7 +47,7 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description | Type |
 |  --- | --- | --- |
-| HttpClientConfiguration | Gets the configuration of the Http Client associated with this client. | [`IHttpClientConfiguration`](http-client-configuration.md) |
+| HttpClientConfiguration | Gets the configuration of the Http Client associated with this client. | [`IHttpClientConfiguration`](../doc/http-client-configuration.md) |
 | Timeout | Http client timeout. | `TimeSpan` |
 | Environment | Current API environment. | `Environment` |
 | ClientCredentialsAuth | Gets the credentials to use with ClientCredentialsAuth. | [`IClientCredentialsAuth`](auth/oauth-2-client-credentials-grant.md) |
@@ -66,7 +67,7 @@ Class to build instances of PayPal Server SDKClient.
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `HttpClientConfiguration(Action<`[`HttpClientConfiguration.Builder`](http-client-configuration-builder.md)`> action)` | Gets the configuration of the Http Client associated with this client. | `Builder` |
+| `HttpClientConfiguration(Action<`[`HttpClientConfiguration.Builder`](../doc/http-client-configuration-builder.md)`> action)` | Gets the configuration of the Http Client associated with this client. | `Builder` |
 | `Timeout(TimeSpan timeout)` | Http client timeout. | `Builder` |
 | `Environment(Environment environment)` | Current API environment. | `Builder` |
 | `ClientCredentialsAuth(Action<ClientCredentialsAuthModel.Builder> action)` | Sets credentials for ClientCredentialsAuth. | `Builder` |

@@ -11,7 +11,7 @@ namespace PaypalServerSdk.Standard.Exceptions
 {
     /// <summary>
     /// This is the base class for all exceptions that represent an error response
-    /// from the server.
+    /// from the server. It inherits from [`System.Exception`](https://learn.microsoft.com/en-us/dotnet/api/system.exception).
     /// </summary>
     public class ApiException : CoreApiException<HttpRequest, HttpResponse, HttpContext>
     {

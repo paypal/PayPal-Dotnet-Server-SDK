@@ -1,18 +1,18 @@
 
-# ApiException Class
+# ApiException
 
-This is the base class for all exceptions that represent an error response from the server.
+This is the base class for all exceptions that represent an error response from the server. It inherits from [`System.Exception`](https://learn.microsoft.com/en-us/dotnet/api/system.exception).
 
 ## Properties
 
 | Name | Description | Type |
 |  --- | --- | --- |
-| ResponseCode | Gets the HTTP response code from the API request. | `int` |
-| HttpContext | Gets or sets the HttpContext for the request and response. | [`HttpContext`](http-context.md) |
+| <code>ResponseCode</code> | Gets the HTTP response code from the API request. | `int` |
+| <code>HttpContext</code> | Gets or sets the HttpContext for the request and response. | [`HttpContext`](../doc/http-context.md) |
 
-## Constructors
+## Methods
 
-| Name | Description |
-|  --- | --- |
-| ApiException`(string reason,` [`HttpContext`](http-context.md) `context = null)` | Initializes a new instance of the <see cref="ApiException"/> class. |
+| Name | Description | Return Type |
+|  --- | --- | --- |
+| `ToString()` | Returns a human-readable string representation of the `ApiException`, including the error message and status code. | `string` |
 

@@ -34,6 +34,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="brandName">brand_name.</param>
         /// <param name="locale">locale.</param>
         /// <param name="shippingPreference">shipping_preference.</param>
+        /// <param name="contactPreference">contact_preference.</param>
         /// <param name="returnUrl">return_url.</param>
         /// <param name="cancelUrl">cancel_url.</param>
         /// <param name="landingPage">landing_page.</param>
@@ -44,6 +45,7 @@ namespace PaypalServerSdk.Standard.Models
             string brandName = null,
             string locale = null,
             Models.PaypalWalletContextShippingPreference? shippingPreference = Models.PaypalWalletContextShippingPreference.GetFromFile,
+            Models.PaypalWalletContactPreference? contactPreference = Models.PaypalWalletContactPreference.NoContactInfo,
             string returnUrl = null,
             string cancelUrl = null,
             Models.PaypalExperienceLandingPage? landingPage = Models.PaypalExperienceLandingPage.NoPreference,
@@ -54,6 +56,7 @@ namespace PaypalServerSdk.Standard.Models
             this.BrandName = brandName;
             this.Locale = locale;
             this.ShippingPreference = shippingPreference;
+            this.ContactPreference = contactPreference;
             this.ReturnUrl = returnUrl;
             this.CancelUrl = cancelUrl;
             this.LandingPage = landingPage;
@@ -79,6 +82,14 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalWalletContextShippingPreference? ShippingPreference { get; set; }
+
+        /// <summary>
+        /// <![CDATA[
+        /// The preference to display the contact information (buyer’s shipping email & phone number) on PayPal's checkout for easy merchant-buyer communication.
+        /// ]]>
+        /// </summary>
+        [JsonProperty("contact_preference", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.PaypalWalletContactPreference? ContactPreference { get; set; }
 
         /// <summary>
         /// Describes the URL.
@@ -137,6 +148,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.Locale?.Equals(other.Locale) == true) &&
                 (this.ShippingPreference == null && other.ShippingPreference == null ||
                  this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
+                (this.ContactPreference == null && other.ContactPreference == null ||
+                 this.ContactPreference?.Equals(other.ContactPreference) == true) &&
                 (this.ReturnUrl == null && other.ReturnUrl == null ||
                  this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
                 (this.CancelUrl == null && other.CancelUrl == null ||
@@ -160,6 +173,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
             toStringOutput.Add($"Locale = {this.Locale ?? "null"}");
             toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
+            toStringOutput.Add($"ContactPreference = {(this.ContactPreference == null ? "null" : this.ContactPreference.ToString())}");
             toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
             toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
             toStringOutput.Add($"LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");

@@ -1,0 +1,87 @@
+// <copyright file="GooglePayExperienceContext.cs" company="APIMatic">
+// Copyright (c) APIMatic. All rights reserved.
+// </copyright>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using APIMatic.Core.Utilities.Converters;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Utilities;
+
+namespace PaypalServerSdk.Standard.Models
+{
+    /// <summary>
+    /// GooglePayExperienceContext.
+    /// </summary>
+    public class GooglePayExperienceContext
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GooglePayExperienceContext"/> class.
+        /// </summary>
+        public GooglePayExperienceContext()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GooglePayExperienceContext"/> class.
+        /// </summary>
+        /// <param name="returnUrl">return_url.</param>
+        /// <param name="cancelUrl">cancel_url.</param>
+        public GooglePayExperienceContext(
+            string returnUrl,
+            string cancelUrl)
+        {
+            this.ReturnUrl = returnUrl;
+            this.CancelUrl = cancelUrl;
+        }
+
+        /// <summary>
+        /// Describes the URL.
+        /// </summary>
+        [JsonProperty("return_url")]
+        public string ReturnUrl { get; set; }
+
+        /// <summary>
+        /// Describes the URL.
+        /// </summary>
+        [JsonProperty("cancel_url")]
+        public string CancelUrl { get; set; }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            var toStringOutput = new List<string>();
+            this.ToString(toStringOutput);
+            return $"GooglePayExperienceContext : ({string.Join(", ", toStringOutput)})";
+        }
+
+        /// <inheritdoc/>
+        public override bool Equals(object obj)
+        {
+            if (obj is null) return false;
+            if (ReferenceEquals(this, obj)) return true;
+
+            return obj is GooglePayExperienceContext other &&
+                (this.ReturnUrl == null && other.ReturnUrl == null ||
+                 this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
+                (this.CancelUrl == null && other.CancelUrl == null ||
+                 this.CancelUrl?.Equals(other.CancelUrl) == true);
+        }
+
+        /// <summary>
+        /// ToString overload.
+        /// </summary>
+        /// <param name="toStringOutput">List of strings.</param>
+        protected void ToString(List<string> toStringOutput)
+        {
+            toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
+            toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+        }
+    }
+}

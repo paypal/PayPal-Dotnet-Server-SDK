@@ -34,16 +34,19 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="id">id.</param>
         /// <param name="emailAddress">email_address.</param>
         /// <param name="phone">phone.</param>
+        /// <param name="name">name.</param>
         /// <param name="merchantCustomerId">merchant_customer_id.</param>
         public CardCustomerInformation(
             string id = null,
             string emailAddress = null,
             Models.PhoneWithType phone = null,
+            Models.Name name = null,
             string merchantCustomerId = null)
         {
             this.Id = id;
             this.EmailAddress = emailAddress;
             this.Phone = phone;
+            this.Name = name;
             this.MerchantCustomerId = merchantCustomerId;
         }
 
@@ -64,6 +67,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("phone", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PhoneWithType Phone { get; set; }
+
+        /// <summary>
+        /// The name of the party.
+        /// </summary>
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.Name Name { get; set; }
 
         /// <summary>
         /// Merchants and partners may already have a data-store where their customer information is persisted. Use merchant_customer_id to associate the PayPal-generated customer.id to your representation of a customer.
@@ -92,6 +101,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.EmailAddress?.Equals(other.EmailAddress) == true) &&
                 (this.Phone == null && other.Phone == null ||
                  this.Phone?.Equals(other.Phone) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true) &&
                 (this.MerchantCustomerId == null && other.MerchantCustomerId == null ||
                  this.MerchantCustomerId?.Equals(other.MerchantCustomerId) == true);
         }
@@ -105,6 +116,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Id = {this.Id ?? "null"}");
             toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
             toStringOutput.Add($"Phone = {(this.Phone == null ? "null" : this.Phone.ToString())}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
             toStringOutput.Add($"MerchantCustomerId = {this.MerchantCustomerId ?? "null"}");
         }
     }

@@ -252,7 +252,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 return this;
             }
 
-
             /// <summary>
             /// Sets OAuthClientSecret.
             /// </summary>
@@ -263,7 +262,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 this.oAuthClientSecret = oAuthClientSecret ?? throw new ArgumentNullException(nameof(oAuthClientSecret));
                 return this;
             }
-
 
             /// <summary>
             /// Sets OAuthToken.
@@ -276,7 +274,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 return this;
             }
 
-
             /// <summary>
             /// Sets OAuthClockSkew.
             /// </summary>
@@ -287,7 +284,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 this.oAuthClockSkew = oAuthClockSkew;
                 return this;
             }
-
 
             /// <summary>
             /// Sets OAuthTokenProvider.
@@ -300,7 +296,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 return this;
             }
 
-
             /// <summary>
             /// Sets OAuthOnTokenUpdate.
             /// </summary>
@@ -311,7 +306,6 @@ namespace PaypalServerSdk.Standard.Authentication
                 this.oAuthOnTokenUpdate = oAuthOnTokenUpdate;
                 return this;
             }
-
 
             /// <summary>
             /// Creates an object of the ClientCredentialsAuthModel using the values provided for the builder.
