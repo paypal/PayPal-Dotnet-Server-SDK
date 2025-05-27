@@ -35,39 +35,6 @@ namespace PaypalServerSdk.Standard.Controllers
         internal PaymentsController(GlobalConfiguration globalConfiguration) : base(globalConfiguration) { }
 
         /// <summary>
-        /// Shows details for an authorized payment, by ID.
-        /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
-        /// <returns>Returns the ApiResponse of Models.PaymentAuthorization response from the API call.</returns>
-        public ApiResponse<Models.PaymentAuthorization> GetAuthorizedPayment(
-                Models.GetAuthorizedPaymentInput input)
-            => CoreHelper.RunTask(GetAuthorizedPaymentAsync(input));
-
-        /// <summary>
-        /// Shows details for an authorized payment, by ID.
-        /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
-        /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.PaymentAuthorization response from the API call.</returns>
-        public async Task<ApiResponse<Models.PaymentAuthorization>> GetAuthorizedPaymentAsync(
-                Models.GetAuthorizedPaymentInput input,
-                CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.PaymentAuthorization>()
-              .RequestBuilder(_requestBuilder => _requestBuilder
-                  .Setup(HttpMethod.Get, "/v2/payments/authorizations/{authorization_id}")
-                  .WithAuth("Oauth2")
-                  .Parameters(_parameters => _parameters
-                      .Template(_template => _template.Setup("authorization_id", input.AuthorizationId))
-                      .Header(_header => _header.Setup("PayPal-Mock-Response", input.PaypalMockResponse))
-                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PaypalAuthAssertion))))
-              .ResponseHandler(_responseHandler => _responseHandler
-                  .ErrorCase("401", CreateErrorCase("Authentication failed due to missing authorization header, or invalid authentication credentials.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
-                  .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
-              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
-
-        /// <summary>
         /// Captures an authorized payment, by ID.
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
@@ -104,6 +71,39 @@ namespace PaypalServerSdk.Standard.Controllers
                   .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("409", CreateErrorCase("The server has detected a conflict while processing this request.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("422", CreateErrorCase("The request failed because it is semantically incorrect or failed business validation.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
+                  .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
+              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
+
+        /// <summary>
+        /// Shows details for a captured payment, by ID.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <returns>Returns the ApiResponse of Models.CapturedPayment response from the API call.</returns>
+        public ApiResponse<Models.CapturedPayment> GetCapturedPayment(
+                Models.GetCapturedPaymentInput input)
+            => CoreHelper.RunTask(GetCapturedPaymentAsync(input));
+
+        /// <summary>
+        /// Shows details for a captured payment, by ID.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <param name="cancellationToken"> cancellationToken. </param>
+        /// <returns>Returns the ApiResponse of Models.CapturedPayment response from the API call.</returns>
+        public async Task<ApiResponse<Models.CapturedPayment>> GetCapturedPaymentAsync(
+                Models.GetCapturedPaymentInput input,
+                CancellationToken cancellationToken = default)
+            => await CreateApiCall<Models.CapturedPayment>()
+              .RequestBuilder(_requestBuilder => _requestBuilder
+                  .Setup(HttpMethod.Get, "/v2/payments/captures/{capture_id}")
+                  .WithAuth("Oauth2")
+                  .Parameters(_parameters => _parameters
+                      .Template(_template => _template.Setup("capture_id", input.CaptureId))
+                      .Header(_header => _header.Setup("PayPal-Mock-Response", input.PaypalMockResponse))))
+              .ResponseHandler(_responseHandler => _responseHandler
+                  .ErrorCase("401", CreateErrorCase("Authentication failed due to missing authorization header, or invalid authentication credentials.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("403", CreateErrorCase("The request failed because the caller has insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
                   .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
@@ -185,39 +185,6 @@ namespace PaypalServerSdk.Standard.Controllers
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);
 
         /// <summary>
-        /// Shows details for a captured payment, by ID.
-        /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
-        /// <returns>Returns the ApiResponse of Models.CapturedPayment response from the API call.</returns>
-        public ApiResponse<Models.CapturedPayment> GetCapturedPayment(
-                Models.GetCapturedPaymentInput input)
-            => CoreHelper.RunTask(GetCapturedPaymentAsync(input));
-
-        /// <summary>
-        /// Shows details for a captured payment, by ID.
-        /// </summary>
-        /// <param name="input">Object containing request parameters.</param>
-        /// <param name="cancellationToken"> cancellationToken. </param>
-        /// <returns>Returns the ApiResponse of Models.CapturedPayment response from the API call.</returns>
-        public async Task<ApiResponse<Models.CapturedPayment>> GetCapturedPaymentAsync(
-                Models.GetCapturedPaymentInput input,
-                CancellationToken cancellationToken = default)
-            => await CreateApiCall<Models.CapturedPayment>()
-              .RequestBuilder(_requestBuilder => _requestBuilder
-                  .Setup(HttpMethod.Get, "/v2/payments/captures/{capture_id}")
-                  .WithAuth("Oauth2")
-                  .Parameters(_parameters => _parameters
-                      .Template(_template => _template.Setup("capture_id", input.CaptureId))
-                      .Header(_header => _header.Setup("PayPal-Mock-Response", input.PaypalMockResponse))))
-              .ResponseHandler(_responseHandler => _responseHandler
-                  .ErrorCase("401", CreateErrorCase("Authentication failed due to missing authorization header, or invalid authentication credentials.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("403", CreateErrorCase("The request failed because the caller has insufficient permissions.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
-                  .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
-                  .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
-              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
-
-        /// <summary>
         /// Refunds a captured payment, by ID. For a full refund, include an empty payload in the JSON request body. For a partial refund, include an amount object in the JSON request body.
         /// </summary>
         /// <param name="input">Object containing request parameters.</param>
@@ -254,6 +221,39 @@ namespace PaypalServerSdk.Standard.Controllers
                   .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("409", CreateErrorCase("The request failed because a previous call for the given resource is in progress.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("422", CreateErrorCase("The request failed because it either is semantically incorrect or failed business validation.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
+                  .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
+              .ExecuteAsync(cancellationToken).ConfigureAwait(false);
+
+        /// <summary>
+        /// Shows details for an authorized payment, by ID.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <returns>Returns the ApiResponse of Models.PaymentAuthorization response from the API call.</returns>
+        public ApiResponse<Models.PaymentAuthorization> GetAuthorizedPayment(
+                Models.GetAuthorizedPaymentInput input)
+            => CoreHelper.RunTask(GetAuthorizedPaymentAsync(input));
+
+        /// <summary>
+        /// Shows details for an authorized payment, by ID.
+        /// </summary>
+        /// <param name="input">Object containing request parameters.</param>
+        /// <param name="cancellationToken"> cancellationToken. </param>
+        /// <returns>Returns the ApiResponse of Models.PaymentAuthorization response from the API call.</returns>
+        public async Task<ApiResponse<Models.PaymentAuthorization>> GetAuthorizedPaymentAsync(
+                Models.GetAuthorizedPaymentInput input,
+                CancellationToken cancellationToken = default)
+            => await CreateApiCall<Models.PaymentAuthorization>()
+              .RequestBuilder(_requestBuilder => _requestBuilder
+                  .Setup(HttpMethod.Get, "/v2/payments/authorizations/{authorization_id}")
+                  .WithAuth("Oauth2")
+                  .Parameters(_parameters => _parameters
+                      .Template(_template => _template.Setup("authorization_id", input.AuthorizationId))
+                      .Header(_header => _header.Setup("PayPal-Mock-Response", input.PaypalMockResponse))
+                      .Header(_header => _header.Setup("PayPal-Auth-Assertion", input.PaypalAuthAssertion))))
+              .ResponseHandler(_responseHandler => _responseHandler
+                  .ErrorCase("401", CreateErrorCase("Authentication failed due to missing authorization header, or invalid authentication credentials.", (_reason, _context) => new ErrorException(_reason, _context)))
+                  .ErrorCase("404", CreateErrorCase("The request failed because the resource does not exist.", (_reason, _context) => new ErrorException(_reason, _context)))
                   .ErrorCase("500", CreateErrorCase("The request failed because an internal server error occurred.", (_reason, _context) => new ApiException(_reason, _context)))
                   .ErrorCase("0", CreateErrorCase("The error response.", (_reason, _context) => new ErrorException(_reason, _context))))
               .ExecuteAsync(cancellationToken).ConfigureAwait(false);

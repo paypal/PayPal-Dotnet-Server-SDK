@@ -27,7 +27,7 @@ namespace PaypalServerSdk.Standard.Models
         Visa,
 
         /// <summary>
-        ///Mastecard card.
+        ///Mastercard card.
         /// Mastercard.
         /// </summary>
         [EnumMember(Value = "MASTERCARD")]

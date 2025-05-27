@@ -34,14 +34,17 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="id">id.</param>
         /// <param name="emailAddress">email_address.</param>
         /// <param name="phone">phone.</param>
+        /// <param name="name">name.</param>
         public CustomerInformation(
             string id = null,
             string emailAddress = null,
-            Models.PhoneWithType phone = null)
+            Models.PhoneWithType phone = null,
+            Models.Name name = null)
         {
             this.Id = id;
             this.EmailAddress = emailAddress;
             this.Phone = phone;
+            this.Name = name;
         }
 
         /// <summary>
@@ -61,6 +64,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("phone", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PhoneWithType Phone { get; set; }
+
+        /// <summary>
+        /// The name of the party.
+        /// </summary>
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.Name Name { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -82,7 +91,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.EmailAddress == null && other.EmailAddress == null ||
                  this.EmailAddress?.Equals(other.EmailAddress) == true) &&
                 (this.Phone == null && other.Phone == null ||
-                 this.Phone?.Equals(other.Phone) == true);
+                 this.Phone?.Equals(other.Phone) == true) &&
+                (this.Name == null && other.Name == null ||
+                 this.Name?.Equals(other.Name) == true);
         }
 
         /// <summary>
@@ -94,6 +105,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Id = {this.Id ?? "null"}");
             toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
             toStringOutput.Add($"Phone = {(this.Phone == null ? "null" : this.Phone.ToString())}");
+            toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
         }
     }
 }

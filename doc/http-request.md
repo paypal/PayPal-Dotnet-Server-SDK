@@ -1,29 +1,25 @@
 
-# HttpRequest Class
+# HttpRequest
 
-HttpResponse stores necessary information about the http response.
+HttpRequest stores necessary information about the http request.
 
 ## Properties
 
 | Name | Description | Type |
 |  --- | --- | --- |
-| StatusCode | Gets the HTTP Status code of the http response. | `int` |
-| Headers | Gets the headers of the http response. | `Dictionary<string, string>` |
-| RawBody | Gets the stream of the body. | `Stream` |
-
-## Constructors
-
-| Name | Description |
-|  --- | --- |
-| `HttpRequest(HttpMethod method, string queryUrl)` | Constructor to initialize the http request object. |
-| `HttpRequest(HttpMethod method, string queryUrl, Dictionary<string, string> headers, string username, string password, Dictionary<string, object> queryParameters = null)` | Constructor to initialize the http request with headers and optional Basic auth params. |
-| `HttpRequest(HttpMethod method, string queryUrl, Dictionary<string, string> headers, object body, string username, string password, Dictionary<string, object> queryParameters = null)` | Constructor to initialize the http request with headers, body and optional Basic auth params. |
-| `HttpRequest(HttpMethod method, string queryUrl, Dictionary<string, string> headers, List<KeyValuePair<string, Object>> formParameters, string username, string password, Dictionary<string, object> queryParameters = null)` | Constructor to initialize the http request with headers, form parameters and optional Basic auth params. |
+| <code>HttpMethod</code> | The HTTP verb to use for this request. | `HttpMethod` |
+| <code>QueryUrl</code> | The query url for the http request. | `string` |
+| <code>QueryParameters</code> | Query parameters collection for the current http request. | `Dictionary<string, object>` |
+| <code>Headers</code> | Headers collection for the current http request. | `Dictionary<string, string>` |
+| <code>FormParameters</code> | Form parameters for the current http request. | `List<KeyValuePair<string, object>>` |
+| <code>Body</code> | Optional raw string to send as request body. | `object` |
+| <code>Username</code> | Optional username for Basic Auth. | `string` |
+| <code>Password</code> | Optional password for Basic Auth. | `string` |
 
 ## Methods
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
 | `AddHeaders(Dictionary<string, string> HeadersToAdd)` | Concatenate values from a Dictionary to this object. | `Dictionary<string, string>` |
-| `AddQueryParameters(Dictionary<string, object> queryParamaters)` | Concatenate values from a Dictionary to query parameters dictionary. | `void` |
+| `AddQueryParameters(Dictionary<string, object> queryParameters)` | Concatenate values from a Dictionary to query parameters dictionary. | `void` |
 

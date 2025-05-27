@@ -33,14 +33,17 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="referenceId">reference_id.</param>
         /// <param name="amount">amount.</param>
+        /// <param name="items">items.</param>
         /// <param name="shippingOptions">shipping_options.</param>
         public ShippingOptionsPurchaseUnit(
             string referenceId = null,
             Models.AmountWithBreakdown amount = null,
+            List<Models.Item> items = null,
             List<Models.ShippingOption> shippingOptions = null)
         {
             this.ReferenceId = referenceId;
             this.Amount = amount;
+            this.Items = items;
             this.ShippingOptions = shippingOptions;
         }
 
@@ -55,6 +58,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("amount", NullValueHandling = NullValueHandling.Ignore)]
         public Models.AmountWithBreakdown Amount { get; set; }
+
+        /// <summary>
+        /// An array of items that the customer purchases from the merchant.
+        /// </summary>
+        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
+        public List<Models.Item> Items { get; set; }
 
         /// <summary>
         /// An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items.
@@ -81,6 +90,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.ReferenceId?.Equals(other.ReferenceId) == true) &&
                 (this.Amount == null && other.Amount == null ||
                  this.Amount?.Equals(other.Amount) == true) &&
+                (this.Items == null && other.Items == null ||
+                 this.Items?.Equals(other.Items) == true) &&
                 (this.ShippingOptions == null && other.ShippingOptions == null ||
                  this.ShippingOptions?.Equals(other.ShippingOptions) == true);
         }
@@ -93,6 +104,7 @@ namespace PaypalServerSdk.Standard.Models
         {
             toStringOutput.Add($"ReferenceId = {this.ReferenceId ?? "null"}");
             toStringOutput.Add($"Amount = {(this.Amount == null ? "null" : this.Amount.ToString())}");
+            toStringOutput.Add($"Items = {(this.Items == null ? "null" : $"[{string.Join(", ", this.Items)} ]")}");
             toStringOutput.Add($"ShippingOptions = {(this.ShippingOptions == null ? "null" : $"[{string.Join(", ", this.ShippingOptions)} ]")}");
         }
     }
