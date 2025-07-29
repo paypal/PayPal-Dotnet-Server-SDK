@@ -12,13 +12,63 @@ PaymentsController paymentsController = client.PaymentsController;
 
 ## Methods
 
+* [Get Authorized Payment](../../doc/controllers/payments.md#get-authorized-payment)
 * [Capture Authorized Payment](../../doc/controllers/payments.md#capture-authorized-payment)
-* [Get Captured Payment](../../doc/controllers/payments.md#get-captured-payment)
 * [Reauthorize Payment](../../doc/controllers/payments.md#reauthorize-payment)
 * [Void Payment](../../doc/controllers/payments.md#void-payment)
+* [Get Captured Payment](../../doc/controllers/payments.md#get-captured-payment)
 * [Refund Captured Payment](../../doc/controllers/payments.md#refund-captured-payment)
-* [Get Authorized Payment](../../doc/controllers/payments.md#get-authorized-payment)
 * [Get Refund](../../doc/controllers/payments.md#get-refund)
+
+
+# Get Authorized Payment
+
+Shows details for an authorized payment, by ID.
+
+```csharp
+GetAuthorizedPaymentAsync(
+    Models.GetAuthorizedPaymentInput input)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `authorizationId` | `string` | Template, Required | The ID of the authorized payment for which to show details. |
+| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
+| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see [PayPal-Auth-Assertion](/docs/api/reference/api-requests/#paypal-auth-assertion). Note:For three party transactions in which a partner is managing the API calls on behalf of a merchant, the partner must identify the merchant using either a PayPal-Auth-Assertion header or an access token with target_subject. |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentAuthorization](../../doc/models/payment-authorization.md).
+
+## Example Usage
+
+```csharp
+GetAuthorizedPaymentInput getAuthorizedPaymentInput = new GetAuthorizedPaymentInput
+{
+    AuthorizationId = "authorization_id8",
+};
+
+try
+{
+    ApiResponse<PaymentAuthorization> result = await paymentsController.GetAuthorizedPaymentAsync(getAuthorizedPaymentInput);
+}
+catch (ApiException e)
+{
+    // TODO: Handle exception here
+    Console.WriteLine(e.Message);
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Authentication failed due to missing authorization header, or invalid authentication credentials. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 500 | The request failed because an internal server error occurred. | `ApiException` |
+| Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
 # Capture Authorized Payment
@@ -79,56 +129,6 @@ catch (ApiException e)
 | 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 409 | The server has detected a conflict while processing this request. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 422 | The request failed because it is semantically incorrect or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 500 | The request failed because an internal server error occurred. | `ApiException` |
-| Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
-
-
-# Get Captured Payment
-
-Shows details for a captured payment, by ID.
-
-```csharp
-GetCapturedPaymentAsync(
-    Models.GetCapturedPaymentInput input)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `captureId` | `string` | Template, Required | The PayPal-generated ID for the captured payment for which to show details. |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-
-## Response Type
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.CapturedPayment](../../doc/models/captured-payment.md).
-
-## Example Usage
-
-```csharp
-GetCapturedPaymentInput getCapturedPaymentInput = new GetCapturedPaymentInput
-{
-    CaptureId = "capture_id2",
-};
-
-try
-{
-    ApiResponse<CapturedPayment> result = await paymentsController.GetCapturedPaymentAsync(getCapturedPaymentInput);
-}
-catch (ApiException e)
-{
-    // TODO: Handle exception here
-    Console.WriteLine(e.Message);
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 401 | Authentication failed due to missing authorization header, or invalid authentication credentials. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 403 | The request failed because the caller has insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 500 | The request failed because an internal server error occurred. | `ApiException` |
 | Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
 
@@ -244,6 +244,56 @@ catch (ApiException e)
 | Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
 
 
+# Get Captured Payment
+
+Shows details for a captured payment, by ID.
+
+```csharp
+GetCapturedPaymentAsync(
+    Models.GetCapturedPaymentInput input)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `captureId` | `string` | Template, Required | The PayPal-generated ID for the captured payment for which to show details. |
+| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
+
+## Response Type
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.CapturedPayment](../../doc/models/captured-payment.md).
+
+## Example Usage
+
+```csharp
+GetCapturedPaymentInput getCapturedPaymentInput = new GetCapturedPaymentInput
+{
+    CaptureId = "capture_id2",
+};
+
+try
+{
+    ApiResponse<CapturedPayment> result = await paymentsController.GetCapturedPaymentAsync(getCapturedPaymentInput);
+}
+catch (ApiException e)
+{
+    // TODO: Handle exception here
+    Console.WriteLine(e.Message);
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 401 | Authentication failed due to missing authorization header, or invalid authentication credentials. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 403 | The request failed because the caller has insufficient permissions. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
+| 500 | The request failed because an internal server error occurred. | `ApiException` |
+| Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
+
+
 # Refund Captured Payment
 
 Refunds a captured payment, by ID. For a full refund, include an empty payload in the JSON request body. For a partial refund, include an amount object in the JSON request body.
@@ -298,56 +348,6 @@ catch (ApiException e)
 | 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 409 | The request failed because a previous call for the given resource is in progress. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 422 | The request failed because it either is semantically incorrect or failed business validation. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 500 | The request failed because an internal server error occurred. | `ApiException` |
-| Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
-
-
-# Get Authorized Payment
-
-Shows details for an authorized payment, by ID.
-
-```csharp
-GetAuthorizedPaymentAsync(
-    Models.GetAuthorizedPaymentInput input)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `authorizationId` | `string` | Template, Required | The ID of the authorized payment for which to show details. |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see [PayPal-Auth-Assertion](/docs/api/reference/api-requests/#paypal-auth-assertion). Note:For three party transactions in which a partner is managing the API calls on behalf of a merchant, the partner must identify the merchant using either a PayPal-Auth-Assertion header or an access token with target_subject. |
-
-## Response Type
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentAuthorization](../../doc/models/payment-authorization.md).
-
-## Example Usage
-
-```csharp
-GetAuthorizedPaymentInput getAuthorizedPaymentInput = new GetAuthorizedPaymentInput
-{
-    AuthorizationId = "authorization_id8",
-};
-
-try
-{
-    ApiResponse<PaymentAuthorization> result = await paymentsController.GetAuthorizedPaymentAsync(getAuthorizedPaymentInput);
-}
-catch (ApiException e)
-{
-    // TODO: Handle exception here
-    Console.WriteLine(e.Message);
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 401 | Authentication failed due to missing authorization header, or invalid authentication credentials. | [`ErrorException`](../../doc/models/error-exception.md) |
-| 404 | The request failed because the resource does not exist. | [`ErrorException`](../../doc/models/error-exception.md) |
 | 500 | The request failed because an internal server error occurred. | `ApiException` |
 | Default | The error response. | [`ErrorException`](../../doc/models/error-exception.md) |
 

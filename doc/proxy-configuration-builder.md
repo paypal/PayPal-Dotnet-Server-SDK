@@ -18,10 +18,12 @@ To configure the SDK to use a proxy server, initialize the proxy configuration d
 ## Usage Example
 
 ```csharp
-var client = new PaypalServerSdkClient.Builder()
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Http.Client.Proxy;
+
+    var client = new PaypalServerSdkClient.Builder()
     .HttpClientConfig(config => config
-        .Proxy(
-            new ProxyConfigurationBuilder("http://localhost")
+        .Proxy(new ProxyConfigurationBuilder("http://localhost")
                 .Port(8080)
                 .Tunnel(false)
                 .Auth("user", "pass")

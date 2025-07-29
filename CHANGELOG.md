@@ -1,3 +1,6 @@
+## 1.1.1
+- Update core dependencies to resolve ordering issue with header construction
+
 ## 1.1.0
 - Added new models to support Apple Pay, Google Pay
 - Expanded models to support additional optional fields
