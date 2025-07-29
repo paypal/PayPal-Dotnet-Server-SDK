@@ -14,6 +14,10 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```csharp
+using Microsoft.Extensions.Logging;
+using PaypalServerSdk.Standard;
+using PaypalServerSdk.Standard.Authentication;
+
 PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .ClientCredentialsAuth(
         new ClientCredentialsAuthModel.Builder(

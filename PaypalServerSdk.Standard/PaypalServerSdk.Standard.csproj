@@ -9,13 +9,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>PayPalServerSDK</AssemblyName>
-    <Version>1.1.0.0</Version>
+    <Version>1.1.1.0</Version>
 
     <Owners></Owners>
     <Product>PaypalServerSdk.Standard</Product>
     <Copyright>Copyright ©  2019</Copyright>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <FileVersion>1.1.1.0</FileVersion>
     <Description>PayPal's SDK for interacting with the REST APIs</Description>
     <LangVersion>7.3</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <None Include="..\README.md" Link="README.md" />
-    <PackageReference Include="APIMatic.Core" Version= "[0.4.9, 0.5.0)" />
+    <PackageReference Include="APIMatic.Core" Version= "[0.4.10, 0.5.0)" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <None Include="..\README.md" Pack="true" PackagePath="\"/>
     <None Include="..\LICENSE" Pack="true" PackagePath="\"/>
