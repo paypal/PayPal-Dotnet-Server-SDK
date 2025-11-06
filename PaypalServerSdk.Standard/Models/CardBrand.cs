@@ -190,6 +190,41 @@ namespace PaypalServerSdk.Standard.Models
         Eftpos,
 
         /// <summary>
+        ///The Carte Bancaire payment network.
+        /// CarteBancaire.
+        /// </summary>
+        [EnumMember(Value = "CARTE_BANCAIRE")]
+        CarteBancaire,
+
+        /// <summary>
+        ///The Star Access payment network.
+        /// StarAccess.
+        /// </summary>
+        [EnumMember(Value = "STAR_ACCESS")]
+        StarAccess,
+
+        /// <summary>
+        ///The Pulse payment network.
+        /// Pulse.
+        /// </summary>
+        [EnumMember(Value = "PULSE")]
+        Pulse,
+
+        /// <summary>
+        ///The NYCE payment network.
+        /// Nyce.
+        /// </summary>
+        [EnumMember(Value = "NYCE")]
+        Nyce,
+
+        /// <summary>
+        ///The Accel payment network.
+        /// Accel.
+        /// </summary>
+        [EnumMember(Value = "ACCEL")]
+        Accel,
+
+        /// <summary>
         ///UNKNOWN payment network.
         /// Unknown.
         /// </summary>

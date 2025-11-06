@@ -95,7 +95,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.Money ShippingDiscount { get; set; }
 
         /// <summary>
-        /// The currency and amount for a financial transaction, such as a balance or payment due.
+        /// The discount amount and currency code. For list of supported currencies and decimal precision, see the PayPal REST APIs Currency Codes.
         /// </summary>
         [JsonProperty("discount", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Money Discount { get; set; }

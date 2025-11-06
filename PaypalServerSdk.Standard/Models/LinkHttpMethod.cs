@@ -22,48 +22,56 @@ namespace PaypalServerSdk.Standard.Models
     public enum LinkHttpMethod
     {
         /// <summary>
+        ///The HTTP GET method.
         /// Get.
         /// </summary>
         [EnumMember(Value = "GET")]
         Get,
 
         /// <summary>
+        ///The HTTP POST method.
         /// Post.
         /// </summary>
         [EnumMember(Value = "POST")]
         Post,
 
         /// <summary>
+        ///The HTTP PUT method.
         /// Put.
         /// </summary>
         [EnumMember(Value = "PUT")]
         Put,
 
         /// <summary>
+        ///The HTTP DELETE method.
         /// Delete.
         /// </summary>
         [EnumMember(Value = "DELETE")]
         Delete,
 
         /// <summary>
+        ///The HTTP HEAD method.
         /// Head.
         /// </summary>
         [EnumMember(Value = "HEAD")]
         Head,
 
         /// <summary>
+        ///The HTTP CONNECT method.
         /// Connect.
         /// </summary>
         [EnumMember(Value = "CONNECT")]
         Connect,
 
         /// <summary>
+        ///The HTTP OPTIONS method.
         /// Options.
         /// </summary>
         [EnumMember(Value = "OPTIONS")]
         Options,
 
         /// <summary>
+        ///The HTTP PATCH method.
         /// Patch.
         /// </summary>
         [EnumMember(Value = "PATCH")]

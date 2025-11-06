@@ -49,7 +49,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.CardBrand? brand = null,
             Models.Address billingAddress = null,
             Models.VaultCardVerificationMethod? verificationMethod = null,
-            Models.SetupTokenCardExperienceContext experienceContext = null)
+            Models.VaultCardExperienceContext experienceContext = null)
         {
             this.Name = name;
             this.Number = number;
@@ -104,10 +104,10 @@ namespace PaypalServerSdk.Standard.Models
         public Models.VaultCardVerificationMethod? VerificationMethod { get; set; }
 
         /// <summary>
-        /// Customizes the Vault creation flow experience for your customers.
+        /// A resource representing an experience context of vault a card.
         /// </summary>
         [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.SetupTokenCardExperienceContext ExperienceContext { get; set; }
+        public Models.VaultCardExperienceContext ExperienceContext { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

@@ -18,6 +18,8 @@ using Microsoft.Extensions.Logging;
 using PaypalServerSdk.Standard;
 using PaypalServerSdk.Standard.Authentication;
 
+namespace ConsoleApp;
+
 PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .ClientCredentialsAuth(
         new ClientCredentialsAuthModel.Builder(
@@ -45,6 +47,8 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | OrdersController | Gets OrdersController controller. |
 | PaymentsController | Gets PaymentsController controller. |
 | VaultController | Gets VaultController controller. |
+| TransactionSearchController | Gets TransactionSearchController controller. |
+| SubscriptionsController | Gets SubscriptionsController controller. |
 | OAuthAuthorizationController | Gets OAuthAuthorizationController controller. |
 
 ### Properties

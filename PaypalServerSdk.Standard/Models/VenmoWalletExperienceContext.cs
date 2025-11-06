@@ -36,14 +36,17 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="brandName">brand_name.</param>
         /// <param name="shippingPreference">shipping_preference.</param>
         /// <param name="orderUpdateCallbackConfig">order_update_callback_config.</param>
+        /// <param name="userAction">user_action.</param>
         public VenmoWalletExperienceContext(
             string brandName = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile,
-            Models.CallbackConfiguration orderUpdateCallbackConfig = null)
+            Models.VenmoWalletExperienceContextShippingPreference? shippingPreference = Models.VenmoWalletExperienceContextShippingPreference.GetFromFile,
+            Models.CallbackConfiguration orderUpdateCallbackConfig = null,
+            Models.VenmoWalletExperienceContextUserAction? userAction = Models.VenmoWalletExperienceContextUserAction.Continue)
         {
             this.BrandName = brandName;
             this.ShippingPreference = shippingPreference;
             this.OrderUpdateCallbackConfig = orderUpdateCallbackConfig;
+            this.UserAction = userAction;
         }
 
         /// <summary>
@@ -56,13 +59,19 @@ namespace PaypalServerSdk.Standard.Models
         /// The location from which the shipping address is derived.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ShippingPreference? ShippingPreference { get; set; }
+        public Models.VenmoWalletExperienceContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
         /// CallBack Configuration that the merchant can provide to PayPal/Venmo.
         /// </summary>
         [JsonProperty("order_update_callback_config", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CallbackConfiguration OrderUpdateCallbackConfig { get; set; }
+
+        /// <summary>
+        /// Configures a Continue or Pay Now checkout flow.
+        /// </summary>
+        [JsonProperty("user_action", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.VenmoWalletExperienceContextUserAction? UserAction { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -84,7 +93,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.ShippingPreference == null && other.ShippingPreference == null ||
                  this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
                 (this.OrderUpdateCallbackConfig == null && other.OrderUpdateCallbackConfig == null ||
-                 this.OrderUpdateCallbackConfig?.Equals(other.OrderUpdateCallbackConfig) == true);
+                 this.OrderUpdateCallbackConfig?.Equals(other.OrderUpdateCallbackConfig) == true) &&
+                (this.UserAction == null && other.UserAction == null ||
+                 this.UserAction?.Equals(other.UserAction) == true);
         }
 
         /// <summary>
@@ -96,6 +107,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"BrandName = {this.BrandName ?? "null"}");
             toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
             toStringOutput.Add($"OrderUpdateCallbackConfig = {(this.OrderUpdateCallbackConfig == null ? "null" : this.OrderUpdateCallbackConfig.ToString())}");
+            toStringOutput.Add($"UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
         }
     }
 }

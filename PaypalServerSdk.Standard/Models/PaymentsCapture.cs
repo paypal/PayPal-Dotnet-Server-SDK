@@ -55,13 +55,13 @@ namespace PaypalServerSdk.Standard.Models
             Models.Money amount = null,
             string invoiceId = null,
             string customId = null,
-            Models.NetworkTransactionReference networkTransactionReference = null,
+            Models.NetworkTransaction networkTransactionReference = null,
             Models.SellerProtection sellerProtection = null,
             bool? finalCapture = false,
             Models.SellerReceivableBreakdown sellerReceivableBreakdown = null,
             Models.DisbursementMode? disbursementMode = Models.DisbursementMode.Instant,
             List<Models.LinkDescription> links = null,
-            Models.PaymentsProcessorResponse processorResponse = null,
+            Models.ProcessorResponse processorResponse = null,
             string createTime = null,
             string updateTime = null)
         {
@@ -122,7 +122,7 @@ namespace PaypalServerSdk.Standard.Models
         /// Reference values used by the card network to identify a transaction.
         /// </summary>
         [JsonProperty("network_transaction_reference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.NetworkTransactionReference NetworkTransactionReference { get; set; }
+        public Models.NetworkTransaction NetworkTransactionReference { get; set; }
 
         /// <summary>
         /// The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).
@@ -158,7 +158,7 @@ namespace PaypalServerSdk.Standard.Models
         /// The processor response information for payment requests, such as direct credit card transactions.
         /// </summary>
         [JsonProperty("processor_response", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PaymentsProcessorResponse ProcessorResponse { get; set; }
+        public Models.ProcessorResponse ProcessorResponse { get; set; }
 
         /// <summary>
         /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.

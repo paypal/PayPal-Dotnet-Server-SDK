@@ -35,21 +35,18 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="tenureType">tenure_type.</param>
         /// <param name="pricingScheme">pricing_scheme.</param>
-        /// <param name="frequency">frequency.</param>
         /// <param name="totalCycles">total_cycles.</param>
         /// <param name="sequence">sequence.</param>
         /// <param name="startDate">start_date.</param>
         public BillingCycle(
             Models.TenureType tenureType,
             Models.PricingScheme pricingScheme = null,
-            JsonValue frequency = null,
             int? totalCycles = 1,
             int? sequence = 1,
             string startDate = null)
         {
             this.TenureType = tenureType;
             this.PricingScheme = pricingScheme;
-            this.Frequency = frequency;
             this.TotalCycles = totalCycles;
             this.Sequence = sequence;
             this.StartDate = startDate;
@@ -66,12 +63,6 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("pricing_scheme", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PricingScheme PricingScheme { get; set; }
-
-        /// <summary>
-        /// The frequency details for this billing cycle.
-        /// </summary>
-        [JsonProperty("frequency", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonValue Frequency { get; set; }
 
         /// <summary>
         /// The number of times this billing cycle gets executed. Trial billing cycles can only be executed a finite number of times (value between 1 and 999 for total_cycles). Regular billing cycles can be executed infinite times (value of 0 for total_cycles) or a finite number of times (value between 1 and 999 for total_cycles).
@@ -109,8 +100,6 @@ namespace PaypalServerSdk.Standard.Models
                 (this.TenureType.Equals(other.TenureType)) &&
                 (this.PricingScheme == null && other.PricingScheme == null ||
                  this.PricingScheme?.Equals(other.PricingScheme) == true) &&
-                (this.Frequency == null && other.Frequency == null ||
-                 this.Frequency?.Equals(other.Frequency) == true) &&
                 (this.TotalCycles == null && other.TotalCycles == null ||
                  this.TotalCycles?.Equals(other.TotalCycles) == true) &&
                 (this.Sequence == null && other.Sequence == null ||
@@ -127,7 +116,6 @@ namespace PaypalServerSdk.Standard.Models
         {
             toStringOutput.Add($"TenureType = {this.TenureType}");
             toStringOutput.Add($"PricingScheme = {(this.PricingScheme == null ? "null" : this.PricingScheme.ToString())}");
-            toStringOutput.Add($"Frequency = {(this.Frequency == null ? "null" : this.Frequency.ToString())}");
             toStringOutput.Add($"TotalCycles = {(this.TotalCycles == null ? "null" : this.TotalCycles.ToString())}");
             toStringOutput.Add($"Sequence = {(this.Sequence == null ? "null" : this.Sequence.ToString())}");
             toStringOutput.Add($"StartDate = {this.StartDate ?? "null"}");

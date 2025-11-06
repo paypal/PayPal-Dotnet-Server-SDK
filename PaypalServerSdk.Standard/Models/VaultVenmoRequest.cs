@@ -47,7 +47,7 @@ namespace PaypalServerSdk.Standard.Models
             bool? permitMultiplePaymentTokens = false,
             Models.PaypalPaymentTokenUsageType? usageType = null,
             Models.PaypalPaymentTokenCustomerType? customerType = null,
-            Models.VaultVenmoExperienceContext experienceContext = null)
+            Models.VenmoExperienceContext experienceContext = null)
         {
             this.Description = description;
             this.UsagePattern = usagePattern;
@@ -95,10 +95,10 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaypalPaymentTokenCustomerType? CustomerType { get; set; }
 
         /// <summary>
-        /// Customizes the Vault creation flow experience for your customers.
+        /// A resource representing an experience context of vault a venmo account.
         /// </summary>
         [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.VaultVenmoExperienceContext ExperienceContext { get; set; }
+        public Models.VenmoExperienceContext ExperienceContext { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

@@ -157,7 +157,7 @@ PatchOrderAsync(
 | `id` | `string` | Template, Required | The ID of the order to update.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
 | `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
 | `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | - |
+| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | **Constraints**: *Minimum Items*: `0`, *Maximum Items*: `32767` |
 
 ## Response Type
 
@@ -443,7 +443,7 @@ UpdateOrderTrackingAsync(
 | `id` | `string` | Template, Required | The ID of the order that the tracking information is associated with.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
 | `trackerId` | `string` | Template, Required | The order tracking ID.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
 | `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | - |
+| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | **Constraints**: *Minimum Items*: `0`, *Maximum Items*: `32767` |
 
 ## Response Type
 

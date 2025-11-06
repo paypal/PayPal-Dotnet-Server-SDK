@@ -34,32 +34,23 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="PaypalWalletVaultInstruction"/> class.
         /// </summary>
         /// <param name="usageType">usage_type.</param>
-        /// <param name="storeInVault">store_in_vault.</param>
         /// <param name="description">description.</param>
         /// <param name="usagePattern">usage_pattern.</param>
         /// <param name="customerType">customer_type.</param>
         /// <param name="permitMultiplePaymentTokens">permit_multiple_payment_tokens.</param>
         public PaypalWalletVaultInstruction(
             Models.PaypalPaymentTokenUsageType usageType,
-            Models.StoreInVaultInstruction? storeInVault = null,
             string description = null,
             Models.UsagePattern? usagePattern = null,
             Models.PaypalPaymentTokenCustomerType? customerType = Models.PaypalPaymentTokenCustomerType.Consumer,
             bool? permitMultiplePaymentTokens = false)
         {
-            this.StoreInVault = storeInVault;
             this.Description = description;
             this.UsagePattern = usagePattern;
             this.UsageType = usageType;
             this.CustomerType = customerType;
             this.PermitMultiplePaymentTokens = permitMultiplePaymentTokens;
         }
-
-        /// <summary>
-        /// Defines how and when the payment source gets vaulted.
-        /// </summary>
-        [JsonProperty("store_in_vault", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.StoreInVaultInstruction? StoreInVault { get; set; }
 
         /// <summary>
         /// The description displayed to PayPal consumer on the approval flow for PayPal, as well as on the PayPal payment token management experience on PayPal.com.
@@ -106,8 +97,6 @@ namespace PaypalServerSdk.Standard.Models
             if (ReferenceEquals(this, obj)) return true;
 
             return obj is PaypalWalletVaultInstruction other &&
-                (this.StoreInVault == null && other.StoreInVault == null ||
-                 this.StoreInVault?.Equals(other.StoreInVault) == true) &&
                 (this.Description == null && other.Description == null ||
                  this.Description?.Equals(other.Description) == true) &&
                 (this.UsagePattern == null && other.UsagePattern == null ||
@@ -125,7 +114,6 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
-            toStringOutput.Add($"StoreInVault = {(this.StoreInVault == null ? "null" : this.StoreInVault.ToString())}");
             toStringOutput.Add($"Description = {this.Description ?? "null"}");
             toStringOutput.Add($"UsagePattern = {(this.UsagePattern == null ? "null" : this.UsagePattern.ToString())}");
             toStringOutput.Add($"UsageType = {this.UsageType}");

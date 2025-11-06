@@ -41,7 +41,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.PaymentInitiator paymentInitiator,
             Models.StoredPaymentSourcePaymentType paymentType,
             Models.StoredPaymentSourceUsageType? usage = Models.StoredPaymentSourceUsageType.Derived,
-            Models.NetworkTransactionReference previousNetworkTransactionReference = null)
+            Models.NetworkTransaction previousNetworkTransactionReference = null)
         {
             this.PaymentInitiator = paymentInitiator;
             this.PaymentType = paymentType;
@@ -71,7 +71,7 @@ namespace PaypalServerSdk.Standard.Models
         /// Reference values used by the card network to identify a transaction.
         /// </summary>
         [JsonProperty("previous_network_transaction_reference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.NetworkTransactionReference PreviousNetworkTransactionReference { get; set; }
+        public Models.NetworkTransaction PreviousNetworkTransactionReference { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

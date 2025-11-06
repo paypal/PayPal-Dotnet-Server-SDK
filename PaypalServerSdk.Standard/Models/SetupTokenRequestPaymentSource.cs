@@ -36,17 +36,23 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="card">card.</param>
         /// <param name="paypal">paypal.</param>
         /// <param name="venmo">venmo.</param>
+        /// <param name="applePay">apple_pay.</param>
         /// <param name="token">token.</param>
+        /// <param name="bank">bank.</param>
         public SetupTokenRequestPaymentSource(
             Models.SetupTokenRequestCard card = null,
             Models.VaultPaypalWalletRequest paypal = null,
             Models.VaultVenmoRequest venmo = null,
-            Models.VaultTokenRequest token = null)
+            Models.VaultApplePayRequest applePay = null,
+            Models.VaultTokenRequest token = null,
+            Models.BankRequest bank = null)
         {
             this.Card = card;
             this.Paypal = paypal;
             this.Venmo = venmo;
+            this.ApplePay = applePay;
             this.Token = token;
+            this.Bank = bank;
         }
 
         /// <summary>
@@ -62,16 +68,28 @@ namespace PaypalServerSdk.Standard.Models
         public Models.VaultPaypalWalletRequest Paypal { get; set; }
 
         /// <summary>
-        /// Gets or sets Venmo.
+        /// A resource representing a request to vault Venmo.
         /// </summary>
         [JsonProperty("venmo", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VaultVenmoRequest Venmo { get; set; }
+
+        /// <summary>
+        /// A resource representing a request to vault Apple Pay.
+        /// </summary>
+        [JsonProperty("apple_pay", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.VaultApplePayRequest ApplePay { get; set; }
 
         /// <summary>
         /// The Tokenized Payment Source representing a Request to Vault a Token.
         /// </summary>
         [JsonProperty("token", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VaultTokenRequest Token { get; set; }
+
+        /// <summary>
+        /// A Resource representing a request to vault a Bank used for ACH Debit.
+        /// </summary>
+        [JsonProperty("bank", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.BankRequest Bank { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -94,8 +112,12 @@ namespace PaypalServerSdk.Standard.Models
                  this.Paypal?.Equals(other.Paypal) == true) &&
                 (this.Venmo == null && other.Venmo == null ||
                  this.Venmo?.Equals(other.Venmo) == true) &&
+                (this.ApplePay == null && other.ApplePay == null ||
+                 this.ApplePay?.Equals(other.ApplePay) == true) &&
                 (this.Token == null && other.Token == null ||
-                 this.Token?.Equals(other.Token) == true);
+                 this.Token?.Equals(other.Token) == true) &&
+                (this.Bank == null && other.Bank == null ||
+                 this.Bank?.Equals(other.Bank) == true);
         }
 
         /// <summary>
@@ -107,7 +129,9 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Card = {(this.Card == null ? "null" : this.Card.ToString())}");
             toStringOutput.Add($"Paypal = {(this.Paypal == null ? "null" : this.Paypal.ToString())}");
             toStringOutput.Add($"Venmo = {(this.Venmo == null ? "null" : this.Venmo.ToString())}");
+            toStringOutput.Add($"ApplePay = {(this.ApplePay == null ? "null" : this.ApplePay.ToString())}");
             toStringOutput.Add($"Token = {(this.Token == null ? "null" : this.Token.ToString())}");
+            toStringOutput.Add($"Bank = {(this.Bank == null ? "null" : this.Bank.ToString())}");
         }
     }
 }

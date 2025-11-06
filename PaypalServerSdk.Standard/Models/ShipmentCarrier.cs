@@ -9654,6 +9654,258 @@ namespace PaypalServerSdk.Standard.Models
         Spedisci,
 
         /// <summary>
+        ///Fourkites.
+        /// Fourkites.
+        /// </summary>
+        [EnumMember(Value = "FOURKITES")]
+        Fourkites,
+
+        /// <summary>
+        ///Etonas.
+        /// Etonas.
+        /// </summary>
+        [EnumMember(Value = "ETONAS")]
+        Etonas,
+
+        /// <summary>
+        ///Fin Mile.
+        /// Finmile.
+        /// </summary>
+        [EnumMember(Value = "FINMILE")]
+        Finmile,
+
+        /// <summary>
+        ///Uniuni.
+        /// Uniuni.
+        /// </summary>
+        [EnumMember(Value = "UNIUNI")]
+        Uniuni,
+
+        /// <summary>
+        ///Rodonaves.
+        /// Rodonaves.
+        /// </summary>
+        [EnumMember(Value = "RODONAVES")]
+        Rodonaves,
+
+        /// <summary>
+        ///Inpost Italy.
+        /// InpostIt.
+        /// </summary>
+        [EnumMember(Value = "INPOST_IT")]
+        InpostIt,
+
+        /// <summary>
+        ///Tforce Freight.
+        /// TforceFreight.
+        /// </summary>
+        [EnumMember(Value = "TFORCE_FREIGHT")]
+        TforceFreight,
+
+        /// <summary>
+        ///Rich Mom.
+        /// Richmom.
+        /// </summary>
+        [EnumMember(Value = "RICHMOM")]
+        Richmom,
+
+        /// <summary>
+        ///Corriere Franco.
+        /// Franco.
+        /// </summary>
+        [EnumMember(Value = "FRANCO")]
+        Franco,
+
+        /// <summary>
+        ///Ecparcel.
+        /// Ecparcel.
+        /// </summary>
+        [EnumMember(Value = "ECPARCEL")]
+        Ecparcel,
+
+        /// <summary>
+        ///Fedex China.
+        /// FedexChina.
+        /// </summary>
+        [EnumMember(Value = "FEDEX_CHINA")]
+        FedexChina,
+
+        /// <summary>
+        ///Gofo Express.
+        /// GofoExpress.
+        /// </summary>
+        [EnumMember(Value = "GOFO_EXPRESS")]
+        GofoExpress,
+
+        /// <summary>
+        ///Shipbob.
+        /// Shipbob.
+        /// </summary>
+        [EnumMember(Value = "SHIPBOB")]
+        Shipbob,
+
+        /// <summary>
+        ///Jersey Post Group.
+        /// JerseypostAtlas.
+        /// </summary>
+        [EnumMember(Value = "JERSEYPOST_ATLAS")]
+        JerseypostAtlas,
+
+        /// <summary>
+        ///Coretrails.
+        /// Coretrails.
+        /// </summary>
+        [EnumMember(Value = "CORETRAILS")]
+        Coretrails,
+
+        /// <summary>
+        ///Rhenus Logistics Italy.
+        /// RhenusItaly.
+        /// </summary>
+        [EnumMember(Value = "RHENUS_ITALY")]
+        RhenusItaly,
+
+        /// <summary>
+        ///Jadlog.
+        /// Jadlog.
+        /// </summary>
+        [EnumMember(Value = "JADLOG")]
+        Jadlog,
+
+        /// <summary>
+        ///Jitsu.
+        /// Jitsu.
+        /// </summary>
+        [EnumMember(Value = "JITSU")]
+        Jitsu,
+
+        /// <summary>
+        ///Yanwen Express.
+        /// YanwenExpress.
+        /// </summary>
+        [EnumMember(Value = "YANWEN_EXPRESS")]
+        YanwenExpress,
+
+        /// <summary>
+        ///Dashlink.
+        /// Dashlink.
+        /// </summary>
+        [EnumMember(Value = "DASHLINK")]
+        Dashlink,
+
+        /// <summary>
+        ///Seino Super Express.
+        /// SeinoSuperExpress.
+        /// </summary>
+        [EnumMember(Value = "SEINO_SUPER_EXPRESS")]
+        SeinoSuperExpress,
+
+        /// <summary>
+        ///Floship.
+        /// Floship.
+        /// </summary>
+        [EnumMember(Value = "FLOSHIP")]
+        Floship,
+
+        /// <summary>
+        ///Metro Supply Chain.
+        /// Metroscg.
+        /// </summary>
+        [EnumMember(Value = "METROSCG")]
+        Metroscg,
+
+        /// <summary>
+        ///Sendparcel.
+        /// Sendparcel.
+        /// </summary>
+        [EnumMember(Value = "SENDPARCEL")]
+        Sendparcel,
+
+        /// <summary>
+        ///P2p.
+        /// P2P.
+        /// </summary>
+        [EnumMember(Value = "P2P")]
+        P2P,
+
+        /// <summary>
+        ///Cn Express.
+        /// CnExpress.
+        /// </summary>
+        [EnumMember(Value = "CN_EXPRESS")]
+        CnExpress,
+
+        /// <summary>
+        ///Cirro Track.
+        /// Cirrotrack.
+        /// </summary>
+        [EnumMember(Value = "CIRROTRACK")]
+        Cirrotrack,
+
+        /// <summary>
+        ///Land Logistics.
+        /// LandLogistics.
+        /// </summary>
+        [EnumMember(Value = "LAND_LOGISTICS")]
+        LandLogistics,
+
+        /// <summary>
+        ///Veho.
+        /// Veho.
+        /// </summary>
+        [EnumMember(Value = "VEHO")]
+        Veho,
+
+        /// <summary>
+        ///Medline.
+        /// Medline.
+        /// </summary>
+        [EnumMember(Value = "MEDLINE")]
+        Medline,
+
+        /// <summary>
+        ///Vdtrack.
+        /// Vdtrack.
+        /// </summary>
+        [EnumMember(Value = "VDTRACK")]
+        Vdtrack,
+
+        /// <summary>
+        ///Sino Scm.
+        /// SinoScm.
+        /// </summary>
+        [EnumMember(Value = "SINO_SCM")]
+        SinoScm,
+
+        /// <summary>
+        ///3pe Express.
+        /// Enum3PeExpress.
+        /// </summary>
+        [EnumMember(Value = "3PE_EXPRESS")]
+        Enum3PeExpress,
+
+        /// <summary>
+        ///Swiftx.
+        /// Swiftx.
+        /// </summary>
+        [EnumMember(Value = "SWIFTX")]
+        Swiftx,
+
+        /// <summary>
+        ///Sfyd Express.
+        /// Sfydexpress.
+        /// </summary>
+        [EnumMember(Value = "SFYDEXPRESS")]
+        Sfydexpress,
+
+        /// <summary>
+        ///Toptrans.
+        /// Toptrans.
+        /// </summary>
+        [EnumMember(Value = "TOPTRANS")]
+        Toptrans,
+
+        /// <summary>
         /// Unknown values will be mapped by this enum member.
         /// </summary>
         _Unknown

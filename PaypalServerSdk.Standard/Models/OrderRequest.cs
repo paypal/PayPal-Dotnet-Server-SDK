@@ -59,7 +59,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.CheckoutPaymentIntent Intent { get; set; }
 
         /// <summary>
-        /// Gets or sets Payer.
+        /// DEPRECATED. The customer is also known as the payer. The Payer object was intended to only be used with the `payment_source.paypal` object. In order to make this design more clear, the details in the `payer` object are now available under `payment_source.paypal`. Please use `payment_source.paypal`.
         /// </summary>
         [JsonProperty("payer", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Payer Payer { get; set; }

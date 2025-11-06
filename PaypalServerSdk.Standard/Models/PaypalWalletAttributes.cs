@@ -50,7 +50,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaypalWalletCustomerRequest Customer { get; set; }
 
         /// <summary>
-        /// Gets or sets Vault.
+        /// Resource consolidating common request and response attributes for vaulting PayPal Wallet.
         /// </summary>
         [JsonProperty("vault", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalWalletVaultInstruction Vault { get; set; }
