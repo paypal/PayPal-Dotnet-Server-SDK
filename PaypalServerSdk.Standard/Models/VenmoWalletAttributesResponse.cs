@@ -35,16 +35,16 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="vault">vault.</param>
         public VenmoWalletAttributesResponse(
-            Models.VaultResponse vault = null)
+            Models.VenmoVaultResponse vault = null)
         {
             this.Vault = vault;
         }
 
         /// <summary>
-        /// The details about a saved payment source.
+        /// The details about a saved venmo payment source.
         /// </summary>
         [JsonProperty("vault", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.VaultResponse Vault { get; set; }
+        public Models.VenmoVaultResponse Vault { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()

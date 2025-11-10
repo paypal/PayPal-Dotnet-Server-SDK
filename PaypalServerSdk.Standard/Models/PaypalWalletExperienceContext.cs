@@ -39,6 +39,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="contactPreference">contact_preference.</param>
         /// <param name="returnUrl">return_url.</param>
         /// <param name="cancelUrl">cancel_url.</param>
+        /// <param name="appSwitchContext">app_switch_context.</param>
         /// <param name="landingPage">landing_page.</param>
         /// <param name="userAction">user_action.</param>
         /// <param name="paymentMethodPreference">payment_method_preference.</param>
@@ -50,6 +51,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.PaypalWalletContactPreference? contactPreference = Models.PaypalWalletContactPreference.NoContactInfo,
             string returnUrl = null,
             string cancelUrl = null,
+            Models.AppSwitchContext appSwitchContext = null,
             Models.PaypalExperienceLandingPage? landingPage = Models.PaypalExperienceLandingPage.NoPreference,
             Models.PaypalExperienceUserAction? userAction = Models.PaypalExperienceUserAction.Continue,
             Models.PayeePaymentMethodPreference? paymentMethodPreference = Models.PayeePaymentMethodPreference.Unrestricted,
@@ -61,6 +63,7 @@ namespace PaypalServerSdk.Standard.Models
             this.ContactPreference = contactPreference;
             this.ReturnUrl = returnUrl;
             this.CancelUrl = cancelUrl;
+            this.AppSwitchContext = appSwitchContext;
             this.LandingPage = landingPage;
             this.UserAction = userAction;
             this.PaymentMethodPreference = paymentMethodPreference;
@@ -104,6 +107,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("cancel_url", NullValueHandling = NullValueHandling.Ignore)]
         public string CancelUrl { get; set; }
+
+        /// <summary>
+        /// Merchant provided details of the native app or mobile web browser to facilitate buyer's app switch to the PayPal consumer app.
+        /// </summary>
+        [JsonProperty("app_switch_context", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.AppSwitchContext AppSwitchContext { get; set; }
 
         /// <summary>
         /// The type of landing page to show on the PayPal site for customer checkout.
@@ -156,6 +165,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.ReturnUrl?.Equals(other.ReturnUrl) == true) &&
                 (this.CancelUrl == null && other.CancelUrl == null ||
                  this.CancelUrl?.Equals(other.CancelUrl) == true) &&
+                (this.AppSwitchContext == null && other.AppSwitchContext == null ||
+                 this.AppSwitchContext?.Equals(other.AppSwitchContext) == true) &&
                 (this.LandingPage == null && other.LandingPage == null ||
                  this.LandingPage?.Equals(other.LandingPage) == true) &&
                 (this.UserAction == null && other.UserAction == null ||
@@ -178,6 +189,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"ContactPreference = {(this.ContactPreference == null ? "null" : this.ContactPreference.ToString())}");
             toStringOutput.Add($"ReturnUrl = {this.ReturnUrl ?? "null"}");
             toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
+            toStringOutput.Add($"AppSwitchContext = {(this.AppSwitchContext == null ? "null" : this.AppSwitchContext.ToString())}");
             toStringOutput.Add($"LandingPage = {(this.LandingPage == null ? "null" : this.LandingPage.ToString())}");
             toStringOutput.Add($"UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
             toStringOutput.Add($"PaymentMethodPreference = {(this.PaymentMethodPreference == null ? "null" : this.PaymentMethodPreference.ToString())}");

@@ -29,6 +29,7 @@ namespace PaypalServerSdk.Standard.Exceptions
         {
             var toStringOutput = new List<string>();
             ToString(toStringOutput);
+            toStringOutput.Add($"StackTrace = {(StackTrace != null ? $"\n{StackTrace}" : "null")}");
             return $"ApiException : ({string.Join(", ", toStringOutput)})";
         }
 

@@ -29,7 +29,7 @@ namespace PaypalServerSdk.Standard.Models
         Created,
 
         /// <summary>
-        ///A contingecy on payer approval is required before the payment method can be saved.
+        ///A contingency on payer approval is required before the payment method can be saved.
         /// PayerActionRequired.
         /// </summary>
         [EnumMember(Value = "PAYER_ACTION_REQUIRED")]

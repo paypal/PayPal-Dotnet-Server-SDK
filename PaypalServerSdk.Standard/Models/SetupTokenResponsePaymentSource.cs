@@ -53,13 +53,13 @@ namespace PaypalServerSdk.Standard.Models
         public Models.SetupTokenResponseCard Card { get; set; }
 
         /// <summary>
-        /// Gets or sets Paypal.
+        /// Full representation of a PayPal Payment Token.
         /// </summary>
         [JsonProperty("paypal", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalPaymentToken Paypal { get; set; }
 
         /// <summary>
-        /// Gets or sets Venmo.
+        /// Full representation of a Venmo Payment Token.
         /// </summary>
         [JsonProperty("venmo", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VenmoPaymentToken Venmo { get; set; }

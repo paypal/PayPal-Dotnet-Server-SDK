@@ -39,6 +39,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="name">name.</param>
         /// <param name="phoneNumber">phone_number.</param>
         /// <param name="address">address.</param>
+        /// <param name="returnFlow">return_flow.</param>
         /// <param name="attributes">attributes.</param>
         public VenmoWalletResponse(
             string emailAddress = null,
@@ -47,6 +48,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.Name name = null,
             Models.PhoneNumber phoneNumber = null,
             Models.Address address = null,
+            Models.ReturnFlow? returnFlow = Models.ReturnFlow.Auto,
             Models.VenmoWalletAttributesResponse attributes = null)
         {
             this.EmailAddress = emailAddress;
@@ -55,6 +57,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.Address = address;
+            this.ReturnFlow = returnFlow;
             this.Attributes = attributes;
         }
 
@@ -95,6 +98,12 @@ namespace PaypalServerSdk.Standard.Models
         public Models.Address Address { get; set; }
 
         /// <summary>
+        /// Merchant preference on how the buyer can navigate back to merchant website post approving the transaction on the Venmo App.
+        /// </summary>
+        [JsonProperty("return_flow", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ReturnFlow? ReturnFlow { get; set; }
+
+        /// <summary>
         /// Additional attributes associated with the use of a Venmo Wallet.
         /// </summary>
         [JsonProperty("attributes", NullValueHandling = NullValueHandling.Ignore)]
@@ -127,6 +136,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
                 (this.Address == null && other.Address == null ||
                  this.Address?.Equals(other.Address) == true) &&
+                (this.ReturnFlow == null && other.ReturnFlow == null ||
+                 this.ReturnFlow?.Equals(other.ReturnFlow) == true) &&
                 (this.Attributes == null && other.Attributes == null ||
                  this.Attributes?.Equals(other.Attributes) == true);
         }
@@ -143,6 +154,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
             toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
             toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");
+            toStringOutput.Add($"ReturnFlow = {(this.ReturnFlow == null ? "null" : this.ReturnFlow.ToString())}");
             toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
         }
     }

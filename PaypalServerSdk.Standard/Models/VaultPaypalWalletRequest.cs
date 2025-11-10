@@ -104,7 +104,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.Plan BillingPlan { get; set; }
 
         /// <summary>
-        /// Customizes the Vault creation flow experience for your customers.
+        /// A resource representing an experience context of vault PayPal Wallet.
         /// </summary>
         [JsonProperty("experience_context", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VaultExperienceContext ExperienceContext { get; set; }

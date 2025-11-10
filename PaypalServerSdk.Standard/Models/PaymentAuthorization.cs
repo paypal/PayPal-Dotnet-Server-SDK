@@ -54,7 +54,7 @@ namespace PaypalServerSdk.Standard.Models
             Models.Money amount = null,
             string invoiceId = null,
             string customId = null,
-            Models.NetworkTransactionReference networkTransactionReference = null,
+            Models.NetworkTransaction networkTransactionReference = null,
             Models.SellerProtection sellerProtection = null,
             string expirationTime = null,
             List<Models.LinkDescription> links = null,
@@ -119,7 +119,7 @@ namespace PaypalServerSdk.Standard.Models
         /// Reference values used by the card network to identify a transaction.
         /// </summary>
         [JsonProperty("network_transaction_reference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.NetworkTransactionReference NetworkTransactionReference { get; set; }
+        public Models.NetworkTransaction NetworkTransactionReference { get; set; }
 
         /// <summary>
         /// The level of protection offered as defined by [PayPal Seller Protection for Merchants](https://www.paypal.com/us/webapps/mpp/security/seller-protection).

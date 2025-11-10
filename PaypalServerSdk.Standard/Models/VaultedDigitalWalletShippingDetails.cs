@@ -34,16 +34,19 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="VaultedDigitalWalletShippingDetails"/> class.
         /// </summary>
         /// <param name="name">name.</param>
+        /// <param name="emailAddress">email_address.</param>
         /// <param name="phoneNumber">phone_number.</param>
         /// <param name="type">type.</param>
         /// <param name="address">address.</param>
         public VaultedDigitalWalletShippingDetails(
             Models.ShippingName name = null,
+            string emailAddress = null,
             Models.PhoneNumberWithCountryCode phoneNumber = null,
             Models.FulfillmentType? type = null,
             Models.Address address = null)
         {
             this.Name = name;
+            this.EmailAddress = emailAddress;
             this.PhoneNumber = phoneNumber;
             this.Type = type;
             this.Address = address;
@@ -54,6 +57,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public Models.ShippingName Name { get; set; }
+
+        /// <summary>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
+        /// </summary>
+        [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
 
         /// <summary>
         /// The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en).
@@ -90,6 +99,8 @@ namespace PaypalServerSdk.Standard.Models
             return obj is VaultedDigitalWalletShippingDetails other &&
                 (this.Name == null && other.Name == null ||
                  this.Name?.Equals(other.Name) == true) &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
                 (this.PhoneNumber == null && other.PhoneNumber == null ||
                  this.PhoneNumber?.Equals(other.PhoneNumber) == true) &&
                 (this.Type == null && other.Type == null ||
@@ -105,6 +116,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
             toStringOutput.Add($"PhoneNumber = {(this.PhoneNumber == null ? "null" : this.PhoneNumber.ToString())}");
             toStringOutput.Add($"Type = {(this.Type == null ? "null" : this.Type.ToString())}");
             toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");

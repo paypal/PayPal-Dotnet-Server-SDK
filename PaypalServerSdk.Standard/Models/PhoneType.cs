@@ -22,30 +22,35 @@ namespace PaypalServerSdk.Standard.Models
     public enum PhoneType
     {
         /// <summary>
+        ///Fax number.
         /// Fax.
         /// </summary>
         [EnumMember(Value = "FAX")]
         Fax,
 
         /// <summary>
+        ///Home phone number.
         /// Home.
         /// </summary>
         [EnumMember(Value = "HOME")]
         Home,
 
         /// <summary>
+        ///Mobile phone number.
         /// Mobile.
         /// </summary>
         [EnumMember(Value = "MOBILE")]
         Mobile,
 
         /// <summary>
+        ///Other phone number.
         /// Other.
         /// </summary>
         [EnumMember(Value = "OTHER")]
         Other,
 
         /// <summary>
+        ///Pager number.
         /// Pager.
         /// </summary>
         [EnumMember(Value = "PAGER")]

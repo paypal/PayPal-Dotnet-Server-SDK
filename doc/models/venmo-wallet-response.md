@@ -17,12 +17,14 @@ Venmo wallet response.
 | `Name` | [`Name`](../../doc/models/name.md) | Optional | The name of the party. |
 | `PhoneNumber` | [`PhoneNumber`](../../doc/models/phone-number.md) | Optional | The phone number in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en). |
 | `Address` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
+| `ReturnFlow` | [`ReturnFlow?`](../../doc/models/return-flow.md) | Optional | Merchant preference on how the buyer can navigate back to merchant website post approving the transaction on the Venmo App.<br><br>**Default**: `ReturnFlow.AUTO`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `6`, *Pattern*: `^[A-Z_]+$` |
 | `Attributes` | [`VenmoWalletAttributesResponse`](../../doc/models/venmo-wallet-attributes-response.md) | Optional | Additional attributes associated with the use of a Venmo Wallet. |
 
 ## Example (as JSON)
 
 ```json
 {
+  "return_flow": "AUTO",
   "email_address": "email_address6",
   "account_id": "account_id8",
   "user_name": "user_name2",

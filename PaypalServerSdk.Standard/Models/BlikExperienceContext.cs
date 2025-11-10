@@ -43,7 +43,7 @@ namespace PaypalServerSdk.Standard.Models
         public BlikExperienceContext(
             string brandName = null,
             string locale = null,
-            Models.ShippingPreference? shippingPreference = Models.ShippingPreference.GetFromFile,
+            Models.ExperienceContextShippingPreference? shippingPreference = Models.ExperienceContextShippingPreference.GetFromFile,
             string returnUrl = null,
             string cancelUrl = null,
             string consumerIp = null,
@@ -74,7 +74,7 @@ namespace PaypalServerSdk.Standard.Models
         /// The location from which the shipping address is derived.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.ShippingPreference? ShippingPreference { get; set; }
+        public Models.ExperienceContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
         /// Describes the URL.

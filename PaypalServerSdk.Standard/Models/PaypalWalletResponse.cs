@@ -45,6 +45,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="address">address.</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="storedCredential">stored_credential.</param>
+        /// <param name="experienceStatus">experience_status.</param>
         public PaypalWalletResponse(
             string emailAddress = null,
             string accountId = null,
@@ -57,7 +58,8 @@ namespace PaypalServerSdk.Standard.Models
             Models.TaxInfo taxInfo = null,
             Models.Address address = null,
             Models.PaypalWalletAttributesResponse attributes = null,
-            Models.PaypalWalletStoredCredential storedCredential = null)
+            Models.PaypalWalletStoredCredential storedCredential = null,
+            Models.ExperienceStatus? experienceStatus = null)
         {
             this.EmailAddress = emailAddress;
             this.AccountId = accountId;
@@ -71,6 +73,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Address = address;
             this.Attributes = attributes;
             this.StoredCredential = storedCredential;
+            this.ExperienceStatus = experienceStatus;
         }
 
         /// <summary>
@@ -145,6 +148,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("stored_credential", NullValueHandling = NullValueHandling.Ignore)]
         public Models.PaypalWalletStoredCredential StoredCredential { get; set; }
 
+        /// <summary>
+        /// This field indicates the status of PayPal's Checkout experience throughout the order lifecycle. The values reflect the current stage of the checkout process.
+        /// </summary>
+        [JsonProperty("experience_status", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ExperienceStatus? ExperienceStatus { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -183,7 +192,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.Attributes == null && other.Attributes == null ||
                  this.Attributes?.Equals(other.Attributes) == true) &&
                 (this.StoredCredential == null && other.StoredCredential == null ||
-                 this.StoredCredential?.Equals(other.StoredCredential) == true);
+                 this.StoredCredential?.Equals(other.StoredCredential) == true) &&
+                (this.ExperienceStatus == null && other.ExperienceStatus == null ||
+                 this.ExperienceStatus?.Equals(other.ExperienceStatus) == true);
         }
 
         /// <summary>
@@ -204,6 +215,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Address = {(this.Address == null ? "null" : this.Address.ToString())}");
             toStringOutput.Add($"Attributes = {(this.Attributes == null ? "null" : this.Attributes.ToString())}");
             toStringOutput.Add($"StoredCredential = {(this.StoredCredential == null ? "null" : this.StoredCredential.ToString())}");
+            toStringOutput.Add($"ExperienceStatus = {(this.ExperienceStatus == null ? "null" : this.ExperienceStatus.ToString())}");
         }
     }
 }
