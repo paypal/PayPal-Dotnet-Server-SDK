@@ -30,6 +30,8 @@ You must initialize the client with *OAuth 2.0 Client Credentials Grant* credent
 using PaypalServerSdk.Standard;
 using PaypalServerSdk.Standard.Authentication;
 
+namespace ConsoleApp;
+
 PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .ClientCredentialsAuth(
         new ClientCredentialsAuthModel.Builder(
@@ -51,6 +53,8 @@ Whenever the OAuth Token gets updated, the provided callback implementation will
 ```csharp
 using PaypalServerSdk.Standard;
 using PaypalServerSdk.Standard.Authentication;
+
+namespace ConsoleApp;
 
 PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .ClientCredentialsAuth(
@@ -74,6 +78,8 @@ To authorize a client using a stored access token, set up the `oAuthTokenProvide
 ```csharp
 using PaypalServerSdk.Standard;
 using PaypalServerSdk.Standard.Authentication;
+
+namespace ConsoleApp;
 
 PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .ClientCredentialsAuth(

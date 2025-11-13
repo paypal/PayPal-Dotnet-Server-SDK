@@ -72,6 +72,7 @@ namespace PaypalServerSdk.Standard.Exceptions
             toStringOutput.Add($"Error = {this.Error}");
             toStringOutput.Add($"ErrorDescription = {this.ErrorDescription ?? "null"}");
             toStringOutput.Add($"ErrorUri = {this.ErrorUri ?? "null"}");
+            toStringOutput.Add($"StackTrace = {(StackTrace != null ? $"\n{StackTrace}" : "null")}");
         }
     }
 }

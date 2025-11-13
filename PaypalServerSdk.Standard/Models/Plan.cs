@@ -35,16 +35,13 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="billingCycles">billing_cycles.</param>
         /// <param name="oneTimeCharges">one_time_charges.</param>
-        /// <param name="product">product.</param>
         /// <param name="name">name.</param>
         public Plan(
             List<Models.BillingCycle> billingCycles,
             Models.OneTimeCharge oneTimeCharges,
-            JsonValue product = null,
             string name = null)
         {
             this.BillingCycles = billingCycles;
-            this.Product = product;
             this.OneTimeCharges = oneTimeCharges;
             this.Name = name;
         }
@@ -54,12 +51,6 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("billing_cycles")]
         public List<Models.BillingCycle> BillingCycles { get; set; }
-
-        /// <summary>
-        /// Product details associated with any one-time product purchase.
-        /// </summary>
-        [JsonProperty("product", NullValueHandling = NullValueHandling.Ignore)]
-        public JsonValue Product { get; set; }
 
         /// <summary>
         /// The one-time charge info at the time of checkout.
@@ -90,8 +81,6 @@ namespace PaypalServerSdk.Standard.Models
             return obj is Plan other &&
                 (this.BillingCycles == null && other.BillingCycles == null ||
                  this.BillingCycles?.Equals(other.BillingCycles) == true) &&
-                (this.Product == null && other.Product == null ||
-                 this.Product?.Equals(other.Product) == true) &&
                 (this.OneTimeCharges == null && other.OneTimeCharges == null ||
                  this.OneTimeCharges?.Equals(other.OneTimeCharges) == true) &&
                 (this.Name == null && other.Name == null ||
@@ -105,7 +94,6 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"BillingCycles = {(this.BillingCycles == null ? "null" : $"[{string.Join(", ", this.BillingCycles)} ]")}");
-            toStringOutput.Add($"Product = {(this.Product == null ? "null" : this.Product.ToString())}");
             toStringOutput.Add($"OneTimeCharges = {(this.OneTimeCharges == null ? "null" : this.OneTimeCharges.ToString())}");
             toStringOutput.Add($"Name = {this.Name ?? "null"}");
         }

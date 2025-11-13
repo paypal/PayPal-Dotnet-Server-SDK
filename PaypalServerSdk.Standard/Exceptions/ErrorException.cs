@@ -85,6 +85,7 @@ namespace PaypalServerSdk.Standard.Exceptions
             toStringOutput.Add($"DebugId = {this.DebugId ?? "null"}");
             toStringOutput.Add($"Details = {(this.Details == null ? "null" : $"[{string.Join(", ", this.Details)} ]")}");
             toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"StackTrace = {(StackTrace != null ? $"\n{StackTrace}" : "null")}");
         }
     }
 }

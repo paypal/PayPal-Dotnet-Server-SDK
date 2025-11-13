@@ -39,13 +39,17 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="cancelUrl">cancel_url.</param>
         /// <param name="shippingPreference">shipping_preference.</param>
         /// <param name="vaultInstruction">vault_instruction.</param>
+        /// <param name="appSwitchContext">app_switch_context.</param>
+        /// <param name="userAction">user_action.</param>
         public VaultExperienceContext(
             string brandName = null,
             string locale = null,
             string returnUrl = null,
             string cancelUrl = null,
-            Models.OrderApplicationContextShippingPreference? shippingPreference = Models.OrderApplicationContextShippingPreference.GetFromFile,
-            Models.VaultInstructionAction? vaultInstruction = Models.VaultInstructionAction.OnCreatePaymentTokens)
+            Models.ExperienceContextShippingPreference? shippingPreference = Models.ExperienceContextShippingPreference.GetFromFile,
+            Models.VaultInstructionAction? vaultInstruction = null,
+            Models.AppSwitchContext appSwitchContext = null,
+            Models.VaultUserAction? userAction = Models.VaultUserAction.Continue)
         {
             this.BrandName = brandName;
             this.Locale = locale;
@@ -53,6 +57,8 @@ namespace PaypalServerSdk.Standard.Models
             this.CancelUrl = cancelUrl;
             this.ShippingPreference = shippingPreference;
             this.VaultInstruction = vaultInstruction;
+            this.AppSwitchContext = appSwitchContext;
+            this.UserAction = userAction;
         }
 
         /// <summary>
@@ -83,13 +89,25 @@ namespace PaypalServerSdk.Standard.Models
         /// The shipping preference. This only applies to PayPal payment source.
         /// </summary>
         [JsonProperty("shipping_preference", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.OrderApplicationContextShippingPreference? ShippingPreference { get; set; }
+        public Models.ExperienceContextShippingPreference? ShippingPreference { get; set; }
 
         /// <summary>
-        /// Vault Instruction on action to be performed after a successful payer approval.
+        /// DEPRECATED. Vault Instruction on action to be performed after a successful payer approval.
         /// </summary>
         [JsonProperty("vault_instruction", NullValueHandling = NullValueHandling.Ignore)]
         public Models.VaultInstructionAction? VaultInstruction { get; set; }
+
+        /// <summary>
+        /// Merchant provided details of the native app or mobile web browser to facilitate buyer's app switch to the PayPal consumer app.
+        /// </summary>
+        [JsonProperty("app_switch_context", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.AppSwitchContext AppSwitchContext { get; set; }
+
+        /// <summary>
+        /// User Action on action to be performed after a successful payer approval.
+        /// </summary>
+        [JsonProperty("user_action", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.VaultUserAction? UserAction { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -117,7 +135,11 @@ namespace PaypalServerSdk.Standard.Models
                 (this.ShippingPreference == null && other.ShippingPreference == null ||
                  this.ShippingPreference?.Equals(other.ShippingPreference) == true) &&
                 (this.VaultInstruction == null && other.VaultInstruction == null ||
-                 this.VaultInstruction?.Equals(other.VaultInstruction) == true);
+                 this.VaultInstruction?.Equals(other.VaultInstruction) == true) &&
+                (this.AppSwitchContext == null && other.AppSwitchContext == null ||
+                 this.AppSwitchContext?.Equals(other.AppSwitchContext) == true) &&
+                (this.UserAction == null && other.UserAction == null ||
+                 this.UserAction?.Equals(other.UserAction) == true);
         }
 
         /// <summary>
@@ -132,6 +154,8 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"CancelUrl = {this.CancelUrl ?? "null"}");
             toStringOutput.Add($"ShippingPreference = {(this.ShippingPreference == null ? "null" : this.ShippingPreference.ToString())}");
             toStringOutput.Add($"VaultInstruction = {(this.VaultInstruction == null ? "null" : this.VaultInstruction.ToString())}");
+            toStringOutput.Add($"AppSwitchContext = {(this.AppSwitchContext == null ? "null" : this.AppSwitchContext.ToString())}");
+            toStringOutput.Add($"UserAction = {(this.UserAction == null ? "null" : this.UserAction.ToString())}");
         }
     }
 }

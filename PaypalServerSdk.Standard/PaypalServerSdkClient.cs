@@ -43,11 +43,13 @@ namespace PaypalServerSdk.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "PayPal REST API DotNet SDK, Version: 1.1.1, on OS {os-info}";
+        private const string userAgent = "PayPal REST API DotNet SDK, Version: 2.0.0, on OS {os-info}";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<OrdersController> orders;
         private readonly Lazy<PaymentsController> payments;
         private readonly Lazy<VaultController> vault;
+        private readonly Lazy<TransactionSearchController> transactionSearch;
+        private readonly Lazy<SubscriptionsController> subscriptions;
         private readonly Lazy<OAuthAuthorizationController> oAuthAuthorization;
 
         private PaypalServerSdkClient(
@@ -83,6 +85,10 @@ namespace PaypalServerSdk.Standard
                 () => new PaymentsController(globalConfiguration));
             this.vault = new Lazy<VaultController>(
                 () => new VaultController(globalConfiguration));
+            this.transactionSearch = new Lazy<TransactionSearchController>(
+                () => new TransactionSearchController(globalConfiguration));
+            this.subscriptions = new Lazy<SubscriptionsController>(
+                () => new SubscriptionsController(globalConfiguration));
             this.oAuthAuthorization = new Lazy<OAuthAuthorizationController>(
                 () => new OAuthAuthorizationController(globalConfiguration));
         }
@@ -101,6 +107,16 @@ namespace PaypalServerSdk.Standard
         /// Gets VaultController controller.
         /// </summary>
         public VaultController VaultController => this.vault.Value;
+
+        /// <summary>
+        /// Gets TransactionSearchController controller.
+        /// </summary>
+        public TransactionSearchController TransactionSearchController => this.transactionSearch.Value;
+
+        /// <summary>
+        /// Gets SubscriptionsController controller.
+        /// </summary>
+        public SubscriptionsController SubscriptionsController => this.subscriptions.Value;
 
         /// <summary>
         /// Gets OAuthAuthorizationController controller.

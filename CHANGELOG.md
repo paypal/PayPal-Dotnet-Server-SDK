@@ -1,3 +1,15 @@
+## 2.0.0
+- Breaking Changes:
+  - Several model renames for more precise mapping to controllers
+  - Remove shipping callback related models
+- New Features:
+  - Transaction Search API
+  - Subscriptions API
+- Bug Fixes:
+  - Fix deprecated descriptions not properly reflecting on the SDK
+  - Fixes issues related to Network Transaction Reference not parsing properly
+  - Various bug fixes
+
 ## 1.1.1
 - Update core dependencies to resolve ordering issue with header construction
 

@@ -53,7 +53,7 @@ namespace PaypalServerSdk.Standard.Models
             string customId = null,
             string invoiceId = null,
             string softDescriptor = null,
-            List<Models.Item> items = null,
+            List<Models.ItemRequest> items = null,
             Models.ShippingDetails shipping = null,
             Models.SupplementaryData supplementaryData = null)
         {
@@ -95,7 +95,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaymentInstruction PaymentInstruction { get; set; }
 
         /// <summary>
-        /// The purchase description. The maximum length of the character is dependent on the type of characters used. The character length is specified assuming a US ASCII character. Depending on type of character; (e.g. accented character, Japanese characters) the number of characters that that can be specified as input might not equal the permissible max length.
+        /// This field supports up to 3,000 characters, but any content beyond 127 characters (including spaces) will be truncated. The 127 character limit is reflected in the response representation of this field. The purchase description. The maximum length of the character is dependent on the type of characters used. The character length is specified assuming a US ASCII character. Depending on type of character; (e.g. accented character, Japanese characters) the number of characters that that can be specified as input might not equal the permissible max length.
         /// </summary>
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         public string Description { get; set; }
@@ -107,13 +107,13 @@ namespace PaypalServerSdk.Standard.Models
         public string CustomId { get; set; }
 
         /// <summary>
-        /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives.
+        /// The API caller-provided external invoice number for this order. Appears in both the payer's transaction history and the emails that the payer receives. invoice_id values are required to be unique within each merchant account by default. Although the uniqueness validation is configurable, disabling this behavior will remove the account's ability to use invoice_id in other APIs as an identifier. It is highly recommended to keep a unique invoice_id for each Order.
         /// </summary>
         [JsonProperty("invoice_id", NullValueHandling = NullValueHandling.Ignore)]
         public string InvoiceId { get; set; }
 
         /// <summary>
-        /// The soft descriptor is the dynamic text used to construct the statement descriptor that appears on a payer's card statement. If an Order is paid using the "PayPal Wallet", the statement descriptor will appear in following format on the payer's card statement: PAYPAL_prefix+(space)+merchant_descriptor+(space)+ soft_descriptor Note: The merchant descriptor is the descriptor of the merchant’s payment receiving preferences which can be seen by logging into the merchant account https://www.sandbox.paypal.com/businessprofile/settings/info/edit The PAYPAL prefix uses 8 characters. Only the first 22 characters will be displayed in the statement. For example, if: The PayPal prefix toggle is PAYPAL *. The merchant descriptor in the profile is Janes Gift. The soft descriptor is 800-123-1234. Then, the statement descriptor on the card is PAYPAL * Janes Gift 80.
+        /// This field supports up to 127 characters, but any content beyond 22 characters (including spaces) will be truncated. The 22 character limit is reflected in the response representation of this field. The soft descriptor is the dynamic text used to construct the statement descriptor that appears on a payer's card statement. If an Order is paid using the "PayPal Wallet", the statement descriptor will appear in following format on the payer's card statement: PAYPAL_prefix+(space)+merchant_descriptor+(space)+ soft_descriptor Note: The merchant descriptor is the descriptor of the merchant’s payment receiving preferences which can be seen by logging into the merchant account https://www.sandbox.paypal.com/businessprofile/settings/info/edit The PAYPAL prefix uses 8 characters. Only the first 22 characters will be displayed in the statement. For example, if: The PayPal prefix toggle is PAYPAL *. The merchant descriptor in the profile is Janes Gift. The soft descriptor is 800-123-1234. Then, the statement descriptor on the card is PAYPAL * Janes Gift 80.
         /// </summary>
         [JsonProperty("soft_descriptor", NullValueHandling = NullValueHandling.Ignore)]
         public string SoftDescriptor { get; set; }
@@ -122,7 +122,7 @@ namespace PaypalServerSdk.Standard.Models
         /// An array of items that the customer purchases from the merchant.
         /// </summary>
         [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public List<Models.Item> Items { get; set; }
+        public List<Models.ItemRequest> Items { get; set; }
 
         /// <summary>
         /// The shipping details.

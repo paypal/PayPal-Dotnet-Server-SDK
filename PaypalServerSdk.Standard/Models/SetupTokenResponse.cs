@@ -53,7 +53,7 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// The PayPal-generated ID for the vault token.
+        /// The PayPal-generated ID for the vaulted payment source. This ID should be stored on the merchant's server so the saved payment source can be used for future transactions.
         /// </summary>
         [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }

@@ -77,7 +77,7 @@ namespace PaypalServerSdk.Standard.Models
         public string Expiry { get; set; }
 
         /// <summary>
-        /// The card network or brand. Applies to credit, debit, gift, and payment cards.
+        /// The card brand or network. Typically used in the response.
         /// </summary>
         [JsonProperty("card_type", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CardBrand? CardType { get; set; }

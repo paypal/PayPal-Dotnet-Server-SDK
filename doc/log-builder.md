@@ -23,6 +23,8 @@ To use a custom logger, you can provide any implementation of Microsoft.Extensio
 using Microsoft.Extensions.Logging;
 using PaypalServerSdk.Standard;
 
+namespace ConsoleApp;
+
 var factory = LoggerFactory.Create(builder => { builder.AddConsole(); });
 var logger = factory.CreateLogger<PaypalServerSdkClient>();
 

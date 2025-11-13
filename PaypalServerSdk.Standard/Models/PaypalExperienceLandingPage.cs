@@ -43,6 +43,13 @@ namespace PaypalServerSdk.Standard.Models
         NoPreference,
 
         /// <summary>
+        ///DEPRECATED - please use GUEST_CHECKOUT. All implementations of 'BILLING' will be routed to 'GUEST_CHECKOUT'. When the customer clicks PayPal Checkout, the customer is redirected to a page to enter credit or debit card and other relevant billing information required to complete the purchase.
+        /// Billing.
+        /// </summary>
+        [EnumMember(Value = "BILLING")]
+        Billing,
+
+        /// <summary>
         /// Unknown values will be mapped by this enum member.
         /// </summary>
         _Unknown

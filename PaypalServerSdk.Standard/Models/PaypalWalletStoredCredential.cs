@@ -56,7 +56,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.PaymentInitiator PaymentInitiator { get; set; }
 
         /// <summary>
-        /// Expected business/pricing model for the billing agreement.
+        /// DEPRECATED. Expected business/pricing model for the billing agreement, Please use usage_pattern instead.
         /// </summary>
         [JsonProperty("charge_pattern", NullValueHandling = NullValueHandling.Ignore)]
         public Models.UsagePattern? ChargePattern { get; set; }
