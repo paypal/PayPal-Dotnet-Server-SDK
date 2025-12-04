@@ -13,6 +13,8 @@ The following parameters are configurable for the API Client:
 
 The API client can be initialized as follows:
 
+## Code-Based Initialization
+
 ```csharp
 using Microsoft.Extensions.Logging;
 using PaypalServerSdk.Standard;
@@ -35,6 +37,27 @@ PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     )
     .Build();
 ```
+
+## Configuration-Based Initialization
+
+```csharp
+using PaypalServerSdk.Standard;
+using Microsoft.Extensions.Configuration;
+
+namespace ConsoleApp;
+
+// Build the IConfiguration using .NET conventions (JSON, environment, etc.)
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("config.json")
+    .AddEnvironmentVariables() // [optional] read environment variables
+    .Build();
+
+// Instantiate your SDK and configure it from IConfiguration
+var client = PaypalServerSdkClient
+    .FromConfiguration(configuration.GetSection("PaypalServerSdk"));
+```
+
+See the [Configuration-Based Initialization](../doc/configuration-based-initialization.md) section for details.
 
 ## PayPal Server SDKClient Class
 

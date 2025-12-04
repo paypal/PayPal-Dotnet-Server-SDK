@@ -22,15 +22,15 @@ The PayPal Server SDK provides integration access to the PayPal REST APIs. The A
 If you are building with .NET CLI tools then you can also use the following command:
 
 ```bash
-dotnet add package PayPalServerSDK --version 2.0.0
+dotnet add package PayPalServerSDK --version 2.1.0
 ```
 
 You can also view the package at:
-https://www.nuget.org/packages/PayPalServerSDK/2.0.0
+https://www.nuget.org/packages/PayPalServerSDK/2.1.0
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
@@ -38,11 +38,13 @@ The following parameters are configurable for the API Client:
 |  --- | --- | --- |
 | Environment | `Environment` | The API environment. <br> **Default: `Environment.Sandbox`** |
 | Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
-| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
-| LogBuilder | [`LogBuilder`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/log-builder.md) | Represents the logging configuration builder for API calls |
-| ClientCredentialsAuth | [`ClientCredentialsAuth`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
+| LogBuilder | [`LogBuilder`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/log-builder.md) | Represents the logging configuration builder for API calls |
+| ClientCredentialsAuth | [`ClientCredentialsAuth`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
+
+### Code-Based Initialization
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -67,6 +69,27 @@ PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
     .Build();
 ```
 
+### Configuration-Based Initialization
+
+```csharp
+using PaypalServerSdk.Standard;
+using Microsoft.Extensions.Configuration;
+
+namespace ConsoleApp;
+
+// Build the IConfiguration using .NET conventions (JSON, environment, etc.)
+var configuration = new ConfigurationBuilder()
+    .AddJsonFile("config.json")
+    .AddEnvironmentVariables() // [optional] read environment variables
+    .Build();
+
+// Instantiate your SDK and configure it from IConfiguration
+var client = PaypalServerSdkClient
+    .FromConfiguration(configuration.GetSection("PaypalServerSdk"));
+```
+
+See the [Configuration-Based Initialization](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/configuration-based-initialization.md) section for details.
+
 ## Environments
 
 The SDK can be configured to use a different environment for making API calls. Available environments are:
@@ -82,40 +105,41 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`Oauth2 (OAuth 2 Client Credentials Grant)`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/auth/oauth-2-client-credentials-grant.md)
+* [`Oauth2 (OAuth 2 Client Credentials Grant)`](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/auth/oauth-2-client-credentials-grant.md)
 
 ## List of APIs
 
-* [Transactionsearch](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/controllers/transactionsearch.md)
-* [Orders](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/controllers/orders.md)
-* [Payments](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/controllers/payments.md)
-* [Vault](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/controllers/vault.md)
-* [Subscriptions](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/controllers/subscriptions.md)
+* [Orders](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/controllers/orders.md)
+* [Payments](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/controllers/payments.md)
+* [Vault](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/controllers/vault.md)
+* [Transaction Search](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/controllers/transaction-search.md)
+* [Subscriptions](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/controllers/subscriptions.md)
 
 ## SDK Infrastructure
 
 ### Configuration
 
-* [HttpClientConfiguration](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-client-configuration.md)
-* [HttpClientConfigurationBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-client-configuration-builder.md)
-* [LogBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/log-builder.md)
-* [LogRequestBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/log-request-builder.md)
-* [LogResponseBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/log-response-builder.md)
-* [ProxyConfigurationBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/proxy-configuration-builder.md)
+* [Configuration-Based Initialization](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/configuration-based-initialization.md)
+* [HttpClientConfiguration](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-client-configuration.md)
+* [HttpClientConfigurationBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-client-configuration-builder.md)
+* [LogBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/log-builder.md)
+* [LogRequestBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/log-request-builder.md)
+* [LogResponseBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/log-response-builder.md)
+* [ProxyConfigurationBuilder](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/proxy-configuration-builder.md)
 
 ### HTTP
 
-* [HttpCallback](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-callback.md)
-* [HttpContext](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-context.md)
-* [HttpRequest](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-request.md)
-* [HttpResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-response.md)
-* [HttpStringResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/http-string-response.md)
+* [HttpCallback](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-callback.md)
+* [HttpContext](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-context.md)
+* [HttpRequest](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-request.md)
+* [HttpResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-response.md)
+* [HttpStringResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/http-string-response.md)
 
 ### Utilities
 
-* [ApiException](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/api-exception.md)
-* [ApiResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/api-response.md)
-* [ApiHelper](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/api-helper.md)
-* [JsonObject](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/json-object.md)
-* [JsonValue](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.0.0/doc/json-value.md)
+* [ApiException](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/api-exception.md)
+* [ApiResponse](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/api-response.md)
+* [ApiHelper](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/api-helper.md)
+* [JsonObject](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/json-object.md)
+* [JsonValue](https://www.github.com/paypal/PayPal-Dotnet-Server-SDK/tree/2.1.0/doc/json-value.md)
 

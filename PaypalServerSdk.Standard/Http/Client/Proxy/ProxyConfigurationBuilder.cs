@@ -12,7 +12,7 @@ namespace PaypalServerSdk.Standard.Http.Client.Proxy
     /// </summary>
     public class ProxyConfigurationBuilder
     {
-        private string _address;
+        private readonly string _address;
         private int _port = 8080;
         private string _user;
         private string _pass;
@@ -25,6 +25,22 @@ namespace PaypalServerSdk.Standard.Http.Client.Proxy
         public ProxyConfigurationBuilder(string address)
         {
             _address = address;
+        }
+
+        internal static ProxyConfigurationBuilder FromOptions(ProxyOptions options)
+        {
+            if (options == null || string.IsNullOrEmpty(options.Address))
+                return null;
+        
+            var builder = new ProxyConfigurationBuilder(options.Address);
+            if (options.Port != null)
+                builder.Port(options.Port.Value);
+            if (!string.IsNullOrEmpty(options.User) && !string.IsNullOrEmpty(options.Pass))
+                builder.Auth(options.User, options.Pass);
+        
+            builder.Tunnel(options.Tunnel);
+        
+            return builder;
         }
 
         /// <summary>
@@ -66,5 +82,14 @@ namespace PaypalServerSdk.Standard.Http.Client.Proxy
         {
             return new CoreProxyConfiguration(_address, _port, _user, _pass, _tunnel);
         }
+    }
+    
+    public class ProxyOptions
+    {
+        public string Address { get; set; }
+        public int? Port { get; set; }
+        public bool Tunnel { get; set; }
+        public string User { get; set; }
+        public string Pass { get; set; }
     }
 }
