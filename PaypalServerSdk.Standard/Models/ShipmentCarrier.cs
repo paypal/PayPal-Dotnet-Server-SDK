@@ -9906,6 +9906,13 @@ namespace PaypalServerSdk.Standard.Models
         Toptrans,
 
         /// <summary>
+        ///Other.
+        /// Other.
+        /// </summary>
+        [EnumMember(Value = "OTHER")]
+        Other,
+
+        /// <summary>
         /// Unknown values will be mapped by this enum member.
         /// </summary>
         _Unknown

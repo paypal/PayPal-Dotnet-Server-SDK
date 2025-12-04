@@ -326,5 +326,20 @@ namespace PaypalServerSdk.Standard.Authentication
                 };
             }
         }
+
+        internal static ClientCredentialsAuthModel FromOptions(ClientCredentialsAuthModelOptions options)
+        {
+            var builder = new Builder(options.OAuthClientId, options.OAuthClientSecret);
+            if (options.OAuthClockSkew != null)
+                builder.OAuthClockSkew(options.OAuthClockSkew);
+            return builder.Build();
+        }
+    }
+
+    public class ClientCredentialsAuthModelOptions
+    {
+        public string OAuthClientId { get; set; }
+        public string OAuthClientSecret { get; set; }
+        public TimeSpan? OAuthClockSkew { get; set; }
     }
 }
