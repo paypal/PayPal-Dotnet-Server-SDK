@@ -9,6 +9,7 @@ using System.Linq;
 using APIMatic.Core;
 using APIMatic.Core.Authentication;
 using APIMatic.Core.Utilities.Logger.Configuration;
+using Microsoft.Extensions.Configuration;
 using PaypalServerSdk.Standard.Authentication;
 using PaypalServerSdk.Standard.Controllers;
 using PaypalServerSdk.Standard.Http.Client;
@@ -43,7 +44,7 @@ namespace PaypalServerSdk.Standard
 
         private readonly GlobalConfiguration globalConfiguration;
         private SdkLoggingConfiguration sdkLoggingConfiguration;
-        private const string userAgent = "PayPal REST API DotNet SDK, Version: 2.0.0, on OS {os-info}";
+        private const string userAgent = "PayPal REST API DotNet SDK, Version: 2.1.0, on OS {os-info}";
         private readonly HttpCallback httpCallback;
         private readonly Lazy<OrdersController> orders;
         private readonly Lazy<PaymentsController> payments;
@@ -216,6 +217,13 @@ namespace PaypalServerSdk.Standard
         }
 
         /// <summary>
+        /// Creates the client from configuration.
+        /// </summary>
+        /// <returns> PaypalServerSdkClient.</returns>
+        public static PaypalServerSdkClient FromConfiguration(IConfigurationSection configuration) =>
+            Builder.FromConfiguration(configuration).Build();
+
+        /// <summary>
         /// Builder class.
         /// </summary>
         public class Builder
@@ -269,6 +277,16 @@ namespace PaypalServerSdk.Standard
                 return this;
             }
 
+            private Builder HttpClientConfig(HttpClientConfiguration.Builder httpClientConfigurationBuilder)
+            {
+                if (httpClientConfigurationBuilder != null)
+                {
+                    this.httpClientConfig = httpClientConfigurationBuilder;
+                }
+            
+                return this;
+            }
+
             /// <summary>
             /// Sets the default logging configuration, using the Console logger.
             /// </summary>
@@ -301,8 +319,6 @@ namespace PaypalServerSdk.Standard
                 return this;
             }
 
-
-
             /// <summary>
             /// Sets the HttpCallback for the Builder.
             /// </summary>
@@ -331,6 +347,34 @@ namespace PaypalServerSdk.Standard
                     httpClientConfig.Build(),
                     sdkLoggingConfiguration);
             }
+
+            /// <summary>
+            /// Creates the client builder from configuration.
+            /// </summary>
+            /// <returns> Builder.</returns>
+            public static Builder FromConfiguration(IConfigurationSection config)
+            {
+                var builder = new Builder();
+                var options = config.Get<PaypalServerSdkClientOptions>();
+                if (options == null) return builder;
+                if (options.Environment != null)
+                    builder.Environment(options.Environment.Value);
+                if (options.ClientCredentialsAuth != null)
+                    builder.ClientCredentialsAuth(ClientCredentialsAuthModel.FromOptions(options.ClientCredentialsAuth));
+                if (options.HttpClientConfig != null)
+                    builder.HttpClientConfig(Http.Client.HttpClientConfiguration.FromOptions(options.HttpClientConfig));
+                if (options.LoggingConfig != null)
+                    builder.LoggingConfig(LogBuilder.FromOptions(options.LoggingConfig));
+                return builder;
+            }
+        }
+
+        public class PaypalServerSdkClientOptions
+        {
+            public Environment? Environment { get; set; }
+            public ClientCredentialsAuthModelOptions ClientCredentialsAuth { get; set; }
+            public HttpClientConfigurationOptions HttpClientConfig { get; set; }
+            public LoggingConfigOptions LoggingConfig { get; set; }
         }
     }
 }
