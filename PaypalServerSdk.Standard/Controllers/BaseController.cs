@@ -33,11 +33,11 @@ namespace PaypalServerSdk.Standard.Controllers
         protected ApiCall<HttpRequest, HttpResponse, HttpContext, ApiException, ApiResponse<T>, T> CreateApiCall<T>(ArraySerialization arraySerialization = ArraySerialization.Indexed)
             => new ApiCall<HttpRequest, HttpResponse, HttpContext, ApiException, ApiResponse<T>, T>(
                 globalConfiguration,
-                compatibilityFactory,
+                CompatibilityFactory,
                 serialization: arraySerialization,
                 returnTypeCreator: (response, result) => new ApiResponse<T>(response.StatusCode, response.Headers, result)
             );
 
-        private static readonly CompatibilityFactory compatibilityFactory = new CompatibilityFactory();
+        private static readonly CompatibilityFactory CompatibilityFactory = new CompatibilityFactory();
     }
 }
