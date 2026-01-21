@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaypalServerSdk.Standard", "PaypalServerSdk.Standard/PaypalServerSdk.Standard.csproj", "{22e96586-6344-4f5f-adcc-a91c50aeba56}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaypalServerSdk.Standard", "PaypalServerSdk.Standard/PaypalServerSdk.Standard.csproj", "{210f538a-6c8e-4770-af0f-9ef419da1c1d}"
 EndProject
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,10 +10,10 @@ Global
         Release|Any CPU = Release|Any CPU
     EndGlobalSection
     GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {22e96586-6344-4f5f-adcc-a91c50aeba56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {22e96586-6344-4f5f-adcc-a91c50aeba56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {22e96586-6344-4f5f-adcc-a91c50aeba56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {22e96586-6344-4f5f-adcc-a91c50aeba56}.Release|Any CPU.Build.0 = Release|Any CPU
+        {210f538a-6c8e-4770-af0f-9ef419da1c1d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+        {210f538a-6c8e-4770-af0f-9ef419da1c1d}.Debug|Any CPU.Build.0 = Debug|Any CPU
+        {210f538a-6c8e-4770-af0f-9ef419da1c1d}.Release|Any CPU.ActiveCfg = Release|Any CPU
+        {210f538a-6c8e-4770-af0f-9ef419da1c1d}.Release|Any CPU.Build.0 = Release|Any CPU
     EndGlobalSection
     GlobalSection(SolutionProperties) = preSolution
         HideSolutionNode = FALSE
