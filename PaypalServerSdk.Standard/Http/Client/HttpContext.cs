@@ -22,5 +22,4 @@ namespace PaypalServerSdk.Standard.Http.Client
         public HttpContext(HttpRequest request, HttpResponse response)
             : base(request, response) { }
     }
-
 }
