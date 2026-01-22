@@ -23,33 +23,45 @@ namespace PaypalServerSdk.Standard.Models
         /// <summary>
         /// Initializes a new instance of the <see cref="SubscriberRequest"/> class.
         /// </summary>
+        /// <param name="emailAddress">email_address.</param>
+        /// <param name="payerId">payer_id.</param>
         /// <param name="name">name.</param>
-        /// <param name="phone">phone.</param>
         /// <param name="shippingAddress">shipping_address.</param>
         /// <param name="paymentSource">payment_source.</param>
+        /// <param name="phone">phone.</param>
         public SubscriberRequest(
+            string emailAddress = null,
+            string payerId = null,
             Models.Name name = null,
-            Models.PhoneWithType phone = null,
             Models.ShippingDetails shippingAddress = null,
-            Models.SubscriptionPaymentSource paymentSource = null)
+            Models.SubscriptionPaymentSource paymentSource = null,
+            Models.PhoneWithType phone = null)
         {
+            this.EmailAddress = emailAddress;
+            this.PayerId = payerId;
             this.Name = name;
-            this.Phone = phone;
             this.ShippingAddress = shippingAddress;
             this.PaymentSource = paymentSource;
+            this.Phone = phone;
         }
+
+        /// <summary>
+        /// The internationalized email address. Note: Up to 64 characters are allowed before and 255 characters are allowed after the @ sign. However, the generally accepted maximum length for an email address is 254 characters. The pattern verifies that an unquoted @ sign exists.
+        /// </summary>
+        [JsonProperty("email_address", NullValueHandling = NullValueHandling.Ignore)]
+        public string EmailAddress { get; set; }
+
+        /// <summary>
+        /// The account identifier for a PayPal account.
+        /// </summary>
+        [JsonProperty("payer_id", NullValueHandling = NullValueHandling.Ignore)]
+        public string PayerId { get; set; }
 
         /// <summary>
         /// The name of the party.
         /// </summary>
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public Models.Name Name { get; set; }
-
-        /// <summary>
-        /// The phone information.
-        /// </summary>
-        [JsonProperty("phone", NullValueHandling = NullValueHandling.Ignore)]
-        public Models.PhoneWithType Phone { get; set; }
 
         /// <summary>
         /// The shipping details.
@@ -62,6 +74,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("payment_source", NullValueHandling = NullValueHandling.Ignore)]
         public Models.SubscriptionPaymentSource PaymentSource { get; set; }
+
+        /// <summary>
+        /// The phone information.
+        /// </summary>
+        [JsonProperty("phone", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.PhoneWithType Phone { get; set; }
 
         /// <inheritdoc/>
         public override string ToString()
@@ -78,14 +96,18 @@ namespace PaypalServerSdk.Standard.Models
             if (ReferenceEquals(this, obj)) return true;
 
             return obj is SubscriberRequest other &&
+                (this.EmailAddress == null && other.EmailAddress == null ||
+                 this.EmailAddress?.Equals(other.EmailAddress) == true) &&
+                (this.PayerId == null && other.PayerId == null ||
+                 this.PayerId?.Equals(other.PayerId) == true) &&
                 (this.Name == null && other.Name == null ||
                  this.Name?.Equals(other.Name) == true) &&
-                (this.Phone == null && other.Phone == null ||
-                 this.Phone?.Equals(other.Phone) == true) &&
                 (this.ShippingAddress == null && other.ShippingAddress == null ||
                  this.ShippingAddress?.Equals(other.ShippingAddress) == true) &&
                 (this.PaymentSource == null && other.PaymentSource == null ||
-                 this.PaymentSource?.Equals(other.PaymentSource) == true);
+                 this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.Phone == null && other.Phone == null ||
+                 this.Phone?.Equals(other.Phone) == true);
         }
 
         /// <summary>
@@ -94,10 +116,12 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="toStringOutput">List of strings.</param>
         protected void ToString(List<string> toStringOutput)
         {
+            toStringOutput.Add($"EmailAddress = {this.EmailAddress ?? "null"}");
+            toStringOutput.Add($"PayerId = {this.PayerId ?? "null"}");
             toStringOutput.Add($"Name = {(this.Name == null ? "null" : this.Name.ToString())}");
-            toStringOutput.Add($"Phone = {(this.Phone == null ? "null" : this.Phone.ToString())}");
             toStringOutput.Add($"ShippingAddress = {(this.ShippingAddress == null ? "null" : this.ShippingAddress.ToString())}");
             toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"Phone = {(this.Phone == null ? "null" : this.Phone.ToString())}");
         }
     }
 }

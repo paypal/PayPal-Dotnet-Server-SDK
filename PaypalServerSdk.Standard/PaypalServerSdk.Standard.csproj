@@ -9,13 +9,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>PayPalServerSDK</AssemblyName>
-    <Version>2.1.0.0</Version>
+    <Version>2.2.0.0</Version>
 
     <Owners></Owners>
      <Product>PaypalServerSdk.Standard</Product>
     <Copyright>Copyright ©  2019</Copyright>
-    <AssemblyVersion>2.1.0.0</AssemblyVersion>
-    <FileVersion>2.1.0.0</FileVersion>
+    <AssemblyVersion>2.2.0.0</AssemblyVersion>
+    <FileVersion>2.2.0.0</FileVersion>
     <Description>PayPal's SDK for interacting with the REST APIs</Description>
     <LangVersion>7.3</LangVersion>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
