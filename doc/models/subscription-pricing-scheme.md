@@ -11,7 +11,7 @@ The pricing scheme details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Version` | `int?` | Optional | The version of the pricing scheme.<br><br>**Constraints**: `>= 0`, `<= 999` |
+| `Version` | `int?` | Optional, Read-only | The version of the pricing scheme.<br><br>**Constraints**: `>= 0`, `<= 999` |
 | `FixedPrice` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `PricingModel` | [`SubscriptionPricingModel?`](../../doc/models/subscription-pricing-model.md) | Optional | The pricing model for tiered plan. The `tiers` parameter is required.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[A-Z_]+$` |
 | `Tiers` | [`List<PricingTier>`](../../doc/models/pricing-tier.md) | Optional | An array of pricing tiers which are used for billing volume/tiered plans. pricing_model field has to be specified.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `32` |

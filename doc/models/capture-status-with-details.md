@@ -1,5 +1,5 @@
 
-# Capture Status With Details
+# Capture Status with Details
 
 The status and status details of a captured payment.
 
@@ -11,7 +11,7 @@ The status and status details of a captured payment.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `Status` | [`CaptureStatus?`](../../doc/models/capture-status.md) | Optional | The status of the captured payment. |
+| `Status` | [`CaptureStatus?`](../../doc/models/capture-status.md) | Optional, Read-only | The status of the captured payment. |
 | `StatusDetails` | [`CaptureStatusDetails`](../../doc/models/capture-status-details.md) | Optional | The details of the captured payment status. |
 
 ## Example (as JSON)

@@ -31,19 +31,19 @@ CreateOrderAsync(
     Models.CreateOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`OrderRequest`](../../doc/models/order-request.md) | Body, Required | - |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `108` |
-| `paypalPartnerAttributionId` | `string` | Header, Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `paypalClientMetadataId` | `string` | Header, Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `25`, *Pattern*: `^[a-zA-Z=,-]*$` |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
+| `input` | [`Models.CreateOrderInput`](../../doc/models/create-order-input.md) | Required | Input structure for the method CreateOrder |
 
 ## Response Type
+
+**200**: A successful response to an idempotent request returns the HTTP `200 OK` status code with a JSON response body that shows order details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Order](../../doc/models/order.md).
 
@@ -76,8 +76,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -100,16 +103,19 @@ GetOrderAsync(
     Models.GetOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order for which to show details.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `fields` | `string` | Query, Optional | A comma-separated list of fields that should be returned for the order. Valid filter field is `payment_source`.<br><br>**Constraints**: *Pattern*: `^[a-z_]*$` |
+| `input` | [`Models.GetOrderInput`](../../doc/models/get-order-input.md) | Required | Input structure for the method GetOrder |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows order details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Order](../../doc/models/order.md).
 
@@ -127,8 +133,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -150,16 +159,19 @@ PatchOrderAsync(
     Models.PatchOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order to update.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | **Constraints**: *Minimum Items*: `0`, *Maximum Items*: `32767` |
+| `input` | [`Models.PatchOrderInput`](../../doc/models/patch-order-input.md) | Required | Input structure for the method PatchOrder |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with an empty object in the JSON response body.
 
 `Task`
 
@@ -184,8 +196,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -209,17 +224,19 @@ ConfirmOrderAsync(
     Models.ConfirmOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order for which the payer confirms their intent to pay.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalClientMetadataId` | `string` | Header, Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `25`, *Pattern*: `^[a-zA-Z=]*$` |
-| `body` | [`ConfirmOrderRequest`](../../doc/models/confirm-order-request.md) | Body, Optional | - |
+| `input` | [`Models.ConfirmOrderInput`](../../doc/models/confirm-order-input.md) | Required | Input structure for the method ConfirmOrder |
 
 ## Response Type
+
+**200**: A successful request indicates that the payment source was added to the Order. A successful request returns the HTTP `200 OK` status code with a JSON response body that shows order details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Order](../../doc/models/order.md).
 
@@ -238,8 +255,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -263,19 +283,19 @@ AuthorizeOrderAsync(
     Models.AuthorizeOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order for which to authorize.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `108` |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `25`, *Pattern*: `^[a-zA-Z=,-]*$` |
-| `paypalClientMetadataId` | `string` | Header, Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`OrderAuthorizeRequest`](../../doc/models/order-authorize-request.md) | Body, Optional | - |
+| `input` | [`Models.AuthorizeOrderInput`](../../doc/models/authorize-order-input.md) | Required | Input structure for the method AuthorizeOrder |
 
 ## Response Type
+
+**200**: A successful response to an idempotent request returns the HTTP `200 OK` status code with a JSON response body that shows authorized payment details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.OrderAuthorizeResponse](../../doc/models/order-authorize-response.md).
 
@@ -294,8 +314,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -321,19 +344,19 @@ CaptureOrderAsync(
     Models.CaptureOrderInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order for which to capture a payment.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalMockResponse` | `string` | Header, Optional | PayPal's REST API uses a request header to invoke negative testing in the sandbox. This header configures the sandbox into a negative testing state for transactions that include the merchant. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `108` |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `25`, *Pattern*: `^[a-zA-Z=,-]*$` |
-| `paypalClientMetadataId` | `string` | Header, Optional | **Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`OrderCaptureRequest`](../../doc/models/order-capture-request.md) | Body, Optional | - |
+| `input` | [`Models.CaptureOrderInput`](../../doc/models/capture-order-input.md) | Required | Input structure for the method CaptureOrder |
 
 ## Response Type
+
+**200**: A successful response to an idempotent request returns the HTTP `200 OK` status code with a JSON response body that shows captured payment details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Order](../../doc/models/order.md).
 
@@ -352,8 +375,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -379,15 +405,19 @@ CreateOrderTrackingAsync(
     Models.CreateOrderTrackingInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order that the tracking information is associated with.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `body` | [`OrderTrackerRequest`](../../doc/models/order-tracker-request.md) | Body, Required | - |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
+| `input` | [`Models.CreateOrderTrackingInput`](../../doc/models/create-order-tracking-input.md) | Required | Input structure for the method CreateOrderTracking |
 
 ## Response Type
+
+**200**: A successful response to an idempotent request returns the HTTP `200 OK` status code with a JSON response body that shows tracker details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Order](../../doc/models/order.md).
 
@@ -410,8 +440,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -436,16 +469,19 @@ UpdateOrderTrackingAsync(
     Models.UpdateOrderTrackingInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the order that the tracking information is associated with.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `trackerId` | `string` | Template, Required | The order tracking ID.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[A-Z0-9]+$` |
-| `paypalAuthAssertion` | `string` | Header, Optional | An API-caller-provided JSON Web Token (JWT) assertion that identifies the merchant. For details, see PayPal-Auth-Assertion. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | **Constraints**: *Minimum Items*: `0`, *Maximum Items*: `32767` |
+| `input` | [`Models.UpdateOrderTrackingInput`](../../doc/models/update-order-tracking-input.md) | Required | Input structure for the method UpdateOrderTracking |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with an empty object in the JSON response body.
 
 `Task`
 
@@ -471,8 +507,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 

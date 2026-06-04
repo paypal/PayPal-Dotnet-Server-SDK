@@ -47,6 +47,7 @@ namespace PaypalServerSdk.Standard.Controllers
                 Dictionary<string, object> fieldParameters = null,
                 CancellationToken cancellationToken = default)
             => await CreateApiCall<Models.OAuthToken>()
+              .Server(Server.Default)
               .RequestBuilder(requestBuilder => requestBuilder
                   .Setup(HttpMethod.Post, "/v1/oauth2/token")
                   .Parameters(parameters => parameters

@@ -25,17 +25,20 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         /// <param name="intent">intent.</param>
         /// <param name="purchaseUnits">purchase_units.</param>
+        /// <param name="processingInstruction">processing_instruction.</param>
         /// <param name="payer">payer.</param>
         /// <param name="paymentSource">payment_source.</param>
         /// <param name="applicationContext">application_context.</param>
         public OrderRequest(
             Models.CheckoutPaymentIntent intent,
             List<Models.PurchaseUnitRequest> purchaseUnits,
+            Models.ProcessingInstruction? processingInstruction = null,
             Models.Payer payer = null,
             Models.PaymentSource paymentSource = null,
             Models.OrderApplicationContext applicationContext = null)
         {
             this.Intent = intent;
+            this.ProcessingInstruction = processingInstruction;
             this.Payer = payer;
             this.PurchaseUnits = purchaseUnits;
             this.PaymentSource = paymentSource;
@@ -47,6 +50,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("intent")]
         public Models.CheckoutPaymentIntent Intent { get; set; }
+
+        /// <summary>
+        /// The instruction to process an order.
+        /// </summary>
+        [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ProcessingInstruction? ProcessingInstruction { get; set; }
 
         /// <summary>
         /// DEPRECATED. The customer is also known as the payer. The Payer object was intended to only be used with the `payment_source.paypal` object. In order to make this design more clear, the details in the `payer` object are now available under `payment_source.paypal`. Please use `payment_source.paypal`.
@@ -88,6 +97,8 @@ namespace PaypalServerSdk.Standard.Models
 
             return obj is OrderRequest other &&
                 (this.Intent.Equals(other.Intent)) &&
+                (this.ProcessingInstruction == null && other.ProcessingInstruction == null ||
+                 this.ProcessingInstruction?.Equals(other.ProcessingInstruction) == true) &&
                 (this.Payer == null && other.Payer == null ||
                  this.Payer?.Equals(other.Payer) == true) &&
                 (this.PurchaseUnits == null && other.PurchaseUnits == null ||
@@ -105,6 +116,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"Intent = {this.Intent}");
+            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
             toStringOutput.Add($"Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
             toStringOutput.Add($"PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
             toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
