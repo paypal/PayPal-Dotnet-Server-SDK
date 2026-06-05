@@ -5,7 +5,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| Environment | `Environment` | The API environment. <br> **Default: `Environment.Sandbox`** |
+| Environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.Sandbox`** |
 | Timeout | `TimeSpan` | Http client timeout.<br>*Default*: `TimeSpan.FromSeconds(100)` |
 | HttpClientConfiguration | [`Action<HttpClientConfiguration.Builder>`](../doc/http-client-configuration-builder.md) | Action delegate that configures the HTTP client by using the HttpClientConfiguration.Builder for customizing API call settings.<br>*Default*: `new HttpClient()` |
 | LogBuilder | [`LogBuilder`](../doc/log-builder.md) | Represents the logging configuration builder for API calls |
@@ -29,6 +29,8 @@ PaypalServerSdkClient client = new PaypalServerSdkClient.Builder()
             "OAuthClientSecret"
         )
         .Build())
+    .HttpClientConfig(httpClientConfig =>
+        httpClientConfig.Timeout(TimeSpan.FromSeconds(100)))
     .Environment(PaypalServerSdk.Standard.Environment.Sandbox)
     .LoggingConfig(config => config
         .LogLevel(LogLevel.Information)

@@ -58,7 +58,7 @@ namespace PaypalServerSdk.Standard.Models
         public string Expiry { get; set; }
 
         /// <summary>
-        /// The [three-character ISO-4217 currency code](/api/rest/reference/currency-codes/) that identifies the currency.
+        /// The [three-character ISO-4217 currency code](https://developer.paypal.com/api/rest/reference/currency-codes/) that identifies the currency.
         /// </summary>
         [JsonProperty("currency_code", NullValueHandling = NullValueHandling.Ignore)]
         public string CurrencyCode { get; set; }

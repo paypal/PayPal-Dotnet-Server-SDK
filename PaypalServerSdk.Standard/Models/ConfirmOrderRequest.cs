@@ -24,12 +24,15 @@ namespace PaypalServerSdk.Standard.Models
         /// Initializes a new instance of the <see cref="ConfirmOrderRequest"/> class.
         /// </summary>
         /// <param name="paymentSource">payment_source.</param>
+        /// <param name="processingInstruction">processing_instruction.</param>
         /// <param name="applicationContext">application_context.</param>
         public ConfirmOrderRequest(
             Models.PaymentSource paymentSource,
+            Models.ProcessingInstruction? processingInstruction = null,
             Models.OrderConfirmApplicationContext applicationContext = null)
         {
             this.PaymentSource = paymentSource;
+            this.ProcessingInstruction = processingInstruction;
             this.ApplicationContext = applicationContext;
         }
 
@@ -38,6 +41,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("payment_source")]
         public Models.PaymentSource PaymentSource { get; set; }
+
+        /// <summary>
+        /// The instruction to process an order.
+        /// </summary>
+        [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ProcessingInstruction? ProcessingInstruction { get; set; }
 
         /// <summary>
         /// Customizes the payer confirmation experience.
@@ -62,6 +71,8 @@ namespace PaypalServerSdk.Standard.Models
             return obj is ConfirmOrderRequest other &&
                 (this.PaymentSource == null && other.PaymentSource == null ||
                  this.PaymentSource?.Equals(other.PaymentSource) == true) &&
+                (this.ProcessingInstruction == null && other.ProcessingInstruction == null ||
+                 this.ProcessingInstruction?.Equals(other.ProcessingInstruction) == true) &&
                 (this.ApplicationContext == null && other.ApplicationContext == null ||
                  this.ApplicationContext?.Equals(other.ApplicationContext) == true);
         }
@@ -73,6 +84,7 @@ namespace PaypalServerSdk.Standard.Models
         protected void ToString(List<string> toStringOutput)
         {
             toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
+            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
             toStringOutput.Add($"ApplicationContext = {(this.ApplicationContext == null ? "null" : this.ApplicationContext.ToString())}");
         }
     }

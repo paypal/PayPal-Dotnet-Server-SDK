@@ -12,7 +12,7 @@ The transaction information.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `PaypalAccountId` | `string` | Optional | The ID of the PayPal account of the counterparty.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[a-zA-Z0-9]*$` |
-| `TransactionId` | `string` | Optional | The PayPal-generated transaction ID.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[a-zA-Z0-9]*$` |
+| `TransactionId` | `string` | Optional, Read-only | The PayPal-generated transaction ID.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[a-zA-Z0-9]*$` |
 | `PaypalReferenceId` | `string` | Optional | The PayPal-generated base ID. PayPal exclusive. Cannot be altered. Defined as a related, pre-existing transaction or event.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `24`, *Pattern*: `^[a-zA-Z0-9]*$` |
 | `PaypalReferenceIdType` | [`PaypalReferenceIdType?`](../../doc/models/paypal-reference-id-type.md) | Optional | The PayPal reference ID type.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3`, *Pattern*: `^[a-zA-Z0-9]*$` |
 | `TransactionEventCode` | `string` | Optional | A five-digit transaction event code that classifies the transaction type based on money movement and debit or credit. For example, T0001. See [Transaction event codes](/docs/integration/direct/transaction-search/transaction-event-codes/).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `5`, *Pattern*: `^[a-zA-Z0-9]*$` |

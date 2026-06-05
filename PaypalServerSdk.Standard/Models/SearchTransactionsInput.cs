@@ -106,7 +106,7 @@ namespace PaypalServerSdk.Standard.Models
         public string TransactionAmount { get; set; }
 
         /// <summary>
-        /// Filters the transactions in the response by a [three-character ISO-4217 currency code](/api/rest/reference/currency-codes/) for the PayPal transaction currency.
+        /// Filters the transactions in the response by a [three-character ISO-4217 currency code](https://developer.paypal.com/api/rest/reference/currency-codes/) for the PayPal transaction currency.
         /// </summary>
         [JsonProperty("transaction_currency", NullValueHandling = NullValueHandling.Ignore)]
         public string TransactionCurrency { get; set; }

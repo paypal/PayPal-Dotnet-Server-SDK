@@ -70,7 +70,7 @@ namespace PaypalServerSdk.Standard.Models
         public string Issue { get; set; }
 
         /// <summary>
-        /// An array of request-related [HATEOAS links](/api/rest/responses/#hateoas-links) that are either relevant to the issue by providing additional information or offering potential resolutions.
+        /// An array of request-related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas-links) that are either relevant to the issue by providing additional information or offering potential resolutions.
         /// </summary>
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.LinkDescription> Links { get; set; }

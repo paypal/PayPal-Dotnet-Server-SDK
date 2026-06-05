@@ -40,15 +40,19 @@ CreateBillingPlanAsync(
     Models.CreateBillingPlanInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"` |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 72 hours. |
-| `body` | [`PlanRequest`](../../doc/models/plan-request.md) | Body, Optional | - |
+| `input` | [`Models.CreateBillingPlanInput`](../../doc/models/create-billing-plan-input.md) | Required | Input structure for the method CreateBillingPlan |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows billing plan details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.BillingPlan](../../doc/models/billing-plan.md).
 
@@ -93,8 +97,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -119,17 +126,19 @@ ListBillingPlansAsync(
     Models.ListBillingPlansInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, name, description and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"` |
-| `productId` | `string` | Query, Optional | Filters the response by a Product ID.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `50` |
-| `pageSize` | `int?` | Query, Optional | The number of items to return in the response.<br><br>**Default**: `10`<br><br>**Constraints**: `>= 1`, `<= 20` |
-| `page` | `int?` | Query, Optional | A non-zero integer which is the start index of the entire list of items to return in the response. The combination of `page=1` and `page_size=20` returns the first 20 items. The combination of `page=2` and `page_size=20` returns the next 20 items.<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 100000` |
-| `totalRequired` | `bool?` | Query, Optional | Indicates whether to show the total count in the response.<br><br>**Default**: `false` |
+| `input` | [`Models.ListBillingPlansInput`](../../doc/models/list-billing-plans-input.md) | Required | Input structure for the method ListBillingPlans |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that lists billing plans.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PlanCollection](../../doc/models/plan-collection.md).
 
@@ -150,8 +159,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -176,6 +188,10 @@ GetBillingPlanAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -183,6 +199,8 @@ GetBillingPlanAsync(
 | `id` | `string` | Template, Required | The ID of the plan. |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows plan details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.BillingPlan](../../doc/models/billing-plan.md).
 
@@ -196,8 +214,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -221,14 +242,19 @@ PatchBillingPlanAsync(
     Models.PatchBillingPlanInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the plan. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | - |
+| `input` | [`Models.PatchBillingPlanInput`](../../doc/models/patch-billing-plan-input.md) | Required | Input structure for the method PatchBillingPlan |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -253,8 +279,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -280,6 +309,10 @@ ActivateBillingPlanAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -287,6 +320,8 @@ ActivateBillingPlanAsync(
 | `id` | `string` | Template, Required | The ID of the plan. |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -300,8 +335,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -326,6 +364,10 @@ DeactivateBillingPlanAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -333,6 +375,8 @@ DeactivateBillingPlanAsync(
 | `id` | `string` | Template, Required | The ID of the plan. |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -346,8 +390,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -372,14 +419,19 @@ UpdateBillingPlanPricingSchemesAsync(
     Models.UpdateBillingPlanPricingSchemesInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID for the plan. |
-| `body` | [`UpdatePricingSchemesRequest`](../../doc/models/update-pricing-schemes-request.md) | Body, Optional | - |
+| `input` | [`Models.UpdateBillingPlanPricingSchemesInput`](../../doc/models/update-billing-plan-pricing-schemes-input.md) | Required | Input structure for the method UpdateBillingPlanPricingSchemes |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -410,8 +462,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -437,16 +492,19 @@ CreateSubscriptionAsync(
     Models.CreateSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `prefer` | `string` | Header, Optional | The preferred server response upon successful completion of the request. Value is: return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links. return=representation. The server returns a complete resource representation, including the current state of the resource.<br><br>**Default**: `"return=minimal"` |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 72 hours. |
-| `paypalClientMetadataId` | `string` | Header, Optional | The PayPal Client Metadata Id(CMID) is used to provide device-specific information to PayPal's risk engine. This is crucial for transactions that require device-specific risk assessments. Merchants typically use the Paypal SDK that automatically submits the CMID or they use tools like Fraudnet JS for web or Magnes JS for mobile to generate the CMID on the frontend and then pass it to the API as part of the request headers.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36` |
-| `body` | [`CreateSubscriptionRequest`](../../doc/models/create-subscription-request.md) | Body, Optional | - |
+| `input` | [`Models.CreateSubscriptionInput`](../../doc/models/create-subscription-input.md) | Required | Input structure for the method CreateSubscription |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows subscription details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Subscription](../../doc/models/subscription.md).
 
@@ -469,8 +527,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -495,22 +556,19 @@ ListSubscriptionsAsync(
     Models.ListSubscriptionsInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `planIds` | `string` | Query, Optional | Filters the response by list of plan IDs. Filter supports upto 70 plan IDs. URLs should not exceed a length of 2000 characters. |
-| `statuses` | `string` | Query, Optional | Filters the response by list of subscription statuses.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `70`, *Pattern*: `^[A-Z_,]+$` |
-| `createdAfter` | `string` | Query, Optional | Filters the response by subscription creation start time for a range of subscriptions.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
-| `createdBefore` | `string` | Query, Optional | Filters the response by subscription creation end time for a range of subscriptions.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
-| `statusUpdatedBefore` | `string` | Query, Optional | Filters the response by status update start time for a range of subscriptions.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
-| `statusUpdatedAfter` | `string` | Query, Optional | Filters the response by status update end time for a range of subscriptions.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
-| `filter` | `string` | Query, Optional | Filter the response using complex expressions that could use comparison operators like ge, gt, le, lt and logical operators such as 'and' and 'or'.<br><br>**Constraints**: *Minimum Length*: `0`, *Maximum Length*: `100` |
-| `pageSize` | `int?` | Query, Optional | The number of items to return in the response.<br><br>**Default**: `10`<br><br>**Constraints**: `>= 1`, `<= 20` |
-| `page` | `int?` | Query, Optional | A non-zero integer which is the start index of the entire list of items to return in the response. The combination of `page=1` and `page_size=20` returns the first 20 items. The combination of `page=2` and `page_size=20` returns the next 20 items.<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 10000000` |
-| `customerIds` | `List<string>` | Query, Optional | Filters the response by comma separated vault customer IDs (FSS subscriptions only).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10`, *Minimum Length*: `1`, *Maximum Length*: `22`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
+| `input` | [`Models.ListSubscriptionsInput`](../../doc/models/list-subscriptions-input.md) | Required | Input structure for the method ListSubscriptions |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that lists the subscriptions.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SubscriptionCollection](../../doc/models/subscription-collection.md).
 
@@ -529,8 +587,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -554,14 +615,19 @@ GetSubscriptionAsync(
     Models.GetSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `fields` | `string` | Query, Optional | List of fields that are to be returned in the response. Possible value for fields are last_failed_payment and plan.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `100` |
+| `input` | [`Models.GetSubscriptionInput`](../../doc/models/get-subscription-input.md) | Required | Input structure for the method GetSubscription |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows subscription details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.Subscription](../../doc/models/subscription.md).
 
@@ -579,8 +645,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -604,14 +673,19 @@ PatchSubscriptionAsync(
     Models.PatchSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID for the subscription. |
-| `body` | [`List<Patch>`](../../doc/models/patch.md) | Body, Optional | - |
+| `input` | [`Models.PatchSubscriptionInput`](../../doc/models/patch-subscription-input.md) | Required | Input structure for the method PatchSubscription |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -636,8 +710,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -663,14 +740,19 @@ ReviseSubscriptionAsync(
     Models.ReviseSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `body` | [`ModifySubscriptionRequest`](../../doc/models/modify-subscription-request.md) | Body, Optional | - |
+| `input` | [`Models.ReviseSubscriptionInput`](../../doc/models/revise-subscription-input.md) | Required | Input structure for the method ReviseSubscription |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows subscription details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.ModifySubscriptionResponse](../../doc/models/modify-subscription-response.md).
 
@@ -688,8 +770,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -715,14 +800,19 @@ SuspendSubscriptionAsync(
     Models.SuspendSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `body` | [`SuspendSubscription`](../../doc/models/suspend-subscription.md) | Body, Optional | - |
+| `input` | [`Models.SuspendSubscriptionInput`](../../doc/models/suspend-subscription-input.md) | Required | Input structure for the method SuspendSubscription |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -740,8 +830,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -767,14 +860,19 @@ CancelSubscriptionAsync(
     Models.CancelSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `body` | [`CancelSubscriptionRequest`](../../doc/models/cancel-subscription-request.md) | Body, Optional | - |
+| `input` | [`Models.CancelSubscriptionInput`](../../doc/models/cancel-subscription-input.md) | Required | Input structure for the method CancelSubscription |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -792,8 +890,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -819,14 +920,19 @@ ActivateSubscriptionAsync(
     Models.ActivateSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `body` | [`ActivateSubscriptionRequest`](../../doc/models/activate-subscription-request.md) | Body, Optional | - |
+| `input` | [`Models.ActivateSubscriptionInput`](../../doc/models/activate-subscription-input.md) | Required | Input structure for the method ActivateSubscription |
 
 ## Response Type
+
+**204**: A successful request returns the HTTP `204 No Content` status code with no JSON response body.
 
 `Task`
 
@@ -844,8 +950,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -871,15 +980,19 @@ CaptureSubscriptionAsync(
     Models.CaptureSubscriptionInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 72 hours. |
-| `body` | [`CaptureSubscriptionRequest`](../../doc/models/capture-subscription-request.md) | Body, Optional | - |
+| `input` | [`Models.CaptureSubscriptionInput`](../../doc/models/capture-subscription-input.md) | Required | Input structure for the method CaptureSubscription |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows subscription details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SubscriptionTransactionDetails](../../doc/models/subscription-transaction-details.md).
 
@@ -897,8 +1010,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
@@ -924,15 +1040,19 @@ ListSubscriptionTransactionsAsync(
     Models.ListSubscriptionTransactionsInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Template, Required | The ID of the subscription. |
-| `startTime` | `string` | Query, Required | The start time of the range of transactions to list.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
-| `endTime` | `string` | Query, Required | The end time of the range of transactions to list.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
+| `input` | [`Models.ListSubscriptionTransactionsInput`](../../doc/models/list-subscription-transactions-input.md) | Required | Input structure for the method ListSubscriptionTransactions |
 
 ## Response Type
+
+**200**: A successful request returns the HTTP `200 OK` status code and a JSON response body that shows subscription details.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.TransactionsList](../../doc/models/transactions-list.md).
 
@@ -952,8 +1072,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is SubscriptionErrorException)
+    {
+       // TODO: Handle SubscriptionErrorException exception here
+    }
 }
 ```
 
