@@ -14,7 +14,7 @@ The list transactions for a subscription request details.
 | `Transactions` | [`List<SubscriptionTransactionDetails>`](../../doc/models/subscription-transaction-details.md) | Optional | An array of transactions.<br><br>**Constraints**: *Minimum Items*: `0`, *Maximum Items*: `32767` |
 | `TotalItems` | `int?` | Optional | The total number of items.<br><br>**Constraints**: `>= 0`, `<= 500000000` |
 | `TotalPages` | `int?` | Optional | The total number of pages.<br><br>**Constraints**: `>= 0`, `<= 100000000` |
-| `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
+| `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 
 ## Example (as JSON)
 

@@ -78,7 +78,7 @@ namespace PaypalServerSdk.Standard.Authentication
         private OAuthToken OAuthTokenAutoRefresh { get; set; }
 
         private readonly SemaphoreSlim semaphoreSlim = new SemaphoreSlim(1);
-
+        private readonly SemaphoreSlim authHeaderLock = new SemaphoreSlim(1, 1);
 
         /// <summary>
         /// Check if credentials match.
@@ -142,12 +142,21 @@ namespace PaypalServerSdk.Standard.Authentication
         public override async Task Apply(RequestBuilder requestBuilder)
         {
             var token = await FetchOrReturnToken().ConfigureAwait(false);
-            Parameters(authParameter => authParameter
-                .Header(headerParameter => headerParameter
-                    .Setup("Authorization",
-                        token?.AccessToken == null ? null : $"Bearer {token.AccessToken}"
-                    ).Required()));
-            await base.Apply(requestBuilder).ConfigureAwait(false);
+
+            await authHeaderLock.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                Parameters(authParameter => authParameter
+                    .Header(headerParameter => headerParameter
+                        .Setup("Authorization",
+                            token?.AccessToken == null ? null : $"Bearer {token.AccessToken}"
+                        ).Required()));
+                await base.Apply(requestBuilder).ConfigureAwait(false);
+            }
+            finally
+            {
+                authHeaderLock.Release();
+            }
         }
 
         private async Task<OAuthToken> FetchOrReturnToken()

@@ -29,14 +29,19 @@ CreatePaymentTokenAsync(
     Models.CreatePaymentTokenInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentTokenRequest`](../../doc/models/payment-token-request.md) | Body, Required | Payment Token creation with a financial instrument and an optional customer_id. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 3 hours.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `108`, *Pattern*: `^.*$` |
+| `input` | [`Models.CreatePaymentTokenInput`](../../doc/models/create-payment-token-input.md) | Required | Input structure for the method CreatePaymentToken |
 
 ## Response Type
+
+**200**: Idempotent response for a successful creation of payment token.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentTokenResponse](../../doc/models/payment-token-response.md).
 
@@ -59,8 +64,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -84,16 +92,19 @@ ListCustomerPaymentTokensAsync(
     Models.ListCustomerPaymentTokensInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `customerId` | `string` | Query, Required | A unique identifier representing a specific customer in merchant's/partner's system or records.<br><br>**Constraints**: *Minimum Length*: `7`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
-| `pageSize` | `int?` | Query, Optional | A non-negative, non-zero integer indicating the maximum number of results to return at one time.<br><br>**Default**: `5`<br><br>**Constraints**: `>= 1`, `<= 5` |
-| `page` | `int?` | Query, Optional | A non-negative, non-zero integer representing the page of the results.<br><br>**Default**: `1`<br><br>**Constraints**: `>= 1`, `<= 10` |
-| `totalRequired` | `bool?` | Query, Optional | A boolean indicating total number of items (total_items) and pages (total_pages) are expected to be returned in the response.<br><br>**Default**: `false` |
+| `input` | [`Models.ListCustomerPaymentTokensInput`](../../doc/models/list-customer-payment-tokens-input.md) | Required | Input structure for the method ListCustomerPaymentTokens |
 
 ## Response Type
+
+**200**: Successful execution.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.CustomerVaultPaymentTokensResponse](../../doc/models/customer-vault-payment-tokens-response.md).
 
@@ -114,8 +125,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -137,6 +151,10 @@ GetPaymentTokenAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -144,6 +162,8 @@ GetPaymentTokenAsync(
 | `id` | `string` | Template, Required | ID of the payment token.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
+
+**200**: Successful execution.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.PaymentTokenResponse](../../doc/models/payment-token-response.md).
 
@@ -157,8 +177,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -181,6 +204,10 @@ DeletePaymentTokenAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -188,6 +215,8 @@ DeletePaymentTokenAsync(
 | `id` | `string` | Template, Required | ID of the payment token.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
+
+**204**: The server has successfully executed the method, but there is no entity body to return.
 
 `Task`
 
@@ -201,8 +230,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -224,14 +256,19 @@ CreateSetupTokenAsync(
     Models.CreateSetupTokenInput input)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`SetupTokenRequest`](../../doc/models/setup-token-request.md) | Body, Required | Setup Token creation with a instrument type optional financial instrument details and customer_id. |
-| `paypalRequestId` | `string` | Header, Optional | The server stores keys for 3 hours.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `108`, *Pattern*: `^.*$` |
+| `input` | [`Models.CreateSetupTokenInput`](../../doc/models/create-setup-token-input.md) | Required | Input structure for the method CreateSetupToken |
 
 ## Response Type
+
+**200**: Idempotent response for a successful creation of setup token.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SetupTokenResponse](../../doc/models/setup-token-response.md).
 
@@ -254,8 +291,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 
@@ -278,6 +318,10 @@ GetSetupTokenAsync(
     string id)
 ```
 
+## Authentication
+
+This endpoint requires [Oauth2](../../doc/auth/oauth-2-client-credentials-grant.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -285,6 +329,8 @@ GetSetupTokenAsync(
 | `id` | `string` | Template, Required | ID of the setup token.<br><br>**Constraints**: *Minimum Length*: `7`, *Maximum Length*: `36`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 
 ## Response Type
+
+**200**: Found requested setup-token, returned a payment method associated with the token.
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `Data` property of this instance returns the response data which is of type [Models.SetupTokenResponse](../../doc/models/setup-token-response.md).
 
@@ -298,8 +344,11 @@ try
 }
 catch (ApiException e)
 {
-    // TODO: Handle exception here
     Console.WriteLine(e.Message);
+    if (e is ErrorException)
+    {
+       // TODO: Handle ErrorException exception here
+    }
 }
 ```
 

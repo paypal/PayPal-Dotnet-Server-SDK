@@ -67,7 +67,7 @@ namespace PaypalServerSdk.Standard.Models
         public Models.SetupTokenResponsePaymentSource PaymentSource { get; set; }
 
         /// <summary>
-        /// An array of related [HATEOAS links](/api/rest/responses/#hateoas).
+        /// An array of related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas).
         /// </summary>
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.LinkDescription> Links { get; set; }

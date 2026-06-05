@@ -28,6 +28,7 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="id">id.</param>
         /// <param name="paymentSource">payment_source.</param>
         /// <param name="intent">intent.</param>
+        /// <param name="processingInstruction">processing_instruction.</param>
         /// <param name="payer">payer.</param>
         /// <param name="purchaseUnits">purchase_units.</param>
         /// <param name="status">status.</param>
@@ -38,6 +39,7 @@ namespace PaypalServerSdk.Standard.Models
             string id = null,
             Models.OrderAuthorizeResponsePaymentSource paymentSource = null,
             Models.CheckoutPaymentIntent? intent = null,
+            Models.ProcessingInstruction? processingInstruction = null,
             Models.Payer payer = null,
             List<Models.PurchaseUnit> purchaseUnits = null,
             Models.OrderStatus? status = null,
@@ -48,6 +50,7 @@ namespace PaypalServerSdk.Standard.Models
             this.Id = id;
             this.PaymentSource = paymentSource;
             this.Intent = intent;
+            this.ProcessingInstruction = processingInstruction;
             this.Payer = payer;
             this.PurchaseUnits = purchaseUnits;
             this.Status = status;
@@ -83,6 +86,12 @@ namespace PaypalServerSdk.Standard.Models
         /// </summary>
         [JsonProperty("intent", NullValueHandling = NullValueHandling.Ignore)]
         public Models.CheckoutPaymentIntent? Intent { get; set; }
+
+        /// <summary>
+        /// The instruction to process an order.
+        /// </summary>
+        [JsonProperty("processing_instruction", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.ProcessingInstruction? ProcessingInstruction { get; set; }
 
         /// <summary>
         /// The customer who approves and pays for the order. The customer is also known as the payer.
@@ -133,6 +142,8 @@ namespace PaypalServerSdk.Standard.Models
                  this.PaymentSource?.Equals(other.PaymentSource) == true) &&
                 (this.Intent == null && other.Intent == null ||
                  this.Intent?.Equals(other.Intent) == true) &&
+                (this.ProcessingInstruction == null && other.ProcessingInstruction == null ||
+                 this.ProcessingInstruction?.Equals(other.ProcessingInstruction) == true) &&
                 (this.Payer == null && other.Payer == null ||
                  this.Payer?.Equals(other.Payer) == true) &&
                 (this.PurchaseUnits == null && other.PurchaseUnits == null ||
@@ -154,6 +165,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"Id = {this.Id ?? "null"}");
             toStringOutput.Add($"PaymentSource = {(this.PaymentSource == null ? "null" : this.PaymentSource.ToString())}");
             toStringOutput.Add($"Intent = {(this.Intent == null ? "null" : this.Intent.ToString())}");
+            toStringOutput.Add($"ProcessingInstruction = {(this.ProcessingInstruction == null ? "null" : this.ProcessingInstruction.ToString())}");
             toStringOutput.Add($"Payer = {(this.Payer == null ? "null" : this.Payer.ToString())}");
             toStringOutput.Add($"PurchaseUnits = {(this.PurchaseUnits == null ? "null" : $"[{string.Join(", ", this.PurchaseUnits)} ]")}");
             toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");

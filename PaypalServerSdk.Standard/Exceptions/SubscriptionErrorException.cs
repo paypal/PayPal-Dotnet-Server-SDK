@@ -55,7 +55,7 @@ namespace PaypalServerSdk.Standard.Exceptions
         public List<Models.ErrorDetails> Details { get; set; }
 
         /// <summary>
-        /// An array of request-related [HATEOAS links](/api/rest/responses/#hateoas-links).
+        /// An array of request-related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas-links).
         /// </summary>
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.LinkDescription> Links { get; set; }

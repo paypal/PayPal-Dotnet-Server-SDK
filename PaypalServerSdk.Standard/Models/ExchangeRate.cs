@@ -37,13 +37,13 @@ namespace PaypalServerSdk.Standard.Models
         }
 
         /// <summary>
-        /// The [three-character ISO-4217 currency code](/api/rest/reference/currency-codes/) that identifies the currency.
+        /// The [three-character ISO-4217 currency code](https://developer.paypal.com/api/rest/reference/currency-codes/) that identifies the currency.
         /// </summary>
         [JsonProperty("source_currency", NullValueHandling = NullValueHandling.Ignore)]
         public string SourceCurrency { get; set; }
 
         /// <summary>
-        /// The [three-character ISO-4217 currency code](/api/rest/reference/currency-codes/) that identifies the currency.
+        /// The [three-character ISO-4217 currency code](https://developer.paypal.com/api/rest/reference/currency-codes/) that identifies the currency.
         /// </summary>
         [JsonProperty("target_currency", NullValueHandling = NullValueHandling.Ignore)]
         public string TargetCurrency { get; set; }
