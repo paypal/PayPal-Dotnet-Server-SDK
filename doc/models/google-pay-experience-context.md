@@ -14,12 +14,15 @@ Customizes the payer experience during the approval process for the payment.
 | `ReturnUrl` | `string` | Required | Describes the URL. |
 | `CancelUrl` | `string` | Required | Describes the URL. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+GooglePayExperienceContext googlePayExperienceContext = new GooglePayExperienceContext
 {
-  "return_url": "return_url6",
-  "cancel_url": "cancel_url8"
-}
+    ReturnUrl = "return_url6",
+    CancelUrl = "cancel_url8",
+};
 ```
 

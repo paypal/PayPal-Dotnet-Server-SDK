@@ -17,3 +17,11 @@ The status of the payment token.
 | `Vaulted` | The payment token has been vaulted. |
 | `Tokenized` | A vaulted payment method token has been tokenized for short term (one time) use. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentTokenStatus paymentTokenStatus = PaymentTokenStatus.PayerActionRequired;
+```
+

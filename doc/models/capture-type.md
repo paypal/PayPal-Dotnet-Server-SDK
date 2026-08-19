@@ -13,3 +13,11 @@ The type of capture.
 |  --- | --- |
 | `OutstandingBalance` | The outstanding balance that the subscriber must clear. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CaptureType captureType = CaptureType.OutstandingBalance;
+```
+

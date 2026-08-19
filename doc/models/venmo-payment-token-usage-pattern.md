@@ -18,3 +18,11 @@ Expected business/pricing model for the billing agreement.
 | `ThresholdPrepaid` | Charge payer when the set amount is reached or monthly billing cycle, whichever comes first, before the goods/service is delivered. |
 | `ThresholdPostpaid` | Charge payer when the set amount is reached or monthly billing cycle, whichever comes first, after the goods/service is delivered. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VenmoPaymentTokenUsagePattern venmoPaymentTokenUsagePattern = VenmoPaymentTokenUsagePattern.ThresholdPrepaid;
+```
+

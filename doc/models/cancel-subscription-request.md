@@ -13,11 +13,14 @@ The cancel subscription request details.
 |  --- | --- | --- | --- |
 | `Reason` | `string` | Required | The reason for the cancellation of a subscription.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128`, *Pattern*: `^.*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CancelSubscriptionRequest cancelSubscriptionRequest = new CancelSubscriptionRequest
 {
-  "reason": "reason8"
-}
+    Reason = "reason0",
+};
 ```
 

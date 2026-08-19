@@ -14,3 +14,11 @@ The condition that is covered for the transaction.
 | `ItemNotReceived` | The payer paid for an item that they did not receive. |
 | `UnauthorizedTransaction` | The payer did not authorize the payment. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+DisputeCategory disputeCategory = DisputeCategory.ItemNotReceived;
+```
+

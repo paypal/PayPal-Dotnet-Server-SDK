@@ -15,3 +15,11 @@ The plan status.
 | `Inactive` | The plan is inactive. |
 | `Active` | The plan is active. You can only create subscriptions for a plan in this state. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPlanStatus subscriptionPlanStatus = SubscriptionPlanStatus.Created;
+```
+

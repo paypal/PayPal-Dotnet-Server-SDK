@@ -29,22 +29,24 @@ A captured payment.
 | `SupplementaryData` | [`PaymentSupplementaryData`](../../doc/models/payment-supplementary-data.md) | Optional | The supplementary data. |
 | `Payee` | [`PayeeBase`](../../doc/models/payee-base.md) | Optional | The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CapturedPayment capturedPayment = new CapturedPayment
 {
-  "final_capture": false,
-  "disbursement_mode": "INSTANT",
-  "status": "PARTIALLY_REFUNDED",
-  "status_details": {
-    "reason": "VERIFICATION_REQUIRED"
-  },
-  "id": "id4",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  },
-  "invoice_id": "invoice_id4"
-}
+    StatusDetails = new CaptureStatusDetails
+    {
+        Reason = CaptureIncompleteReason.VerificationRequired,
+    },
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+    FinalCapture = false,
+    DisbursementMode = DisbursementMode.Instant,
+};
 ```
 

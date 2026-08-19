@@ -18,15 +18,18 @@ The details of the items in the shipment.
 | `ImageUrl` | `string` | Optional | The URL of the item's image. File type and size restrictions apply. An image that violates these restrictions will not be honored.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2048`, *Pattern*: `^(https:)([/\|.\|\w\|\s\|-])*\.(?:jpg\|gif\|png\|jpeg\|JPG\|GIF\|PNG\|JPEG)` |
 | `Upc` | [`UniversalProductCode`](../../doc/models/universal-product-code.md) | Optional | The Universal Product Code of the item. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OrderTrackerItem orderTrackerItem = new OrderTrackerItem
 {
-  "name": "name6",
-  "quantity": "quantity2",
-  "sku": "sku2",
-  "url": "url0",
-  "image_url": "image_url2"
-}
+    Name = "name8",
+    Quantity = "quantity4",
+    Sku = "sku6",
+    Url = "url2",
+    ImageUrl = "image_url4",
+};
 ```
 

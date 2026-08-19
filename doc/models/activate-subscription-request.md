@@ -13,11 +13,14 @@ The activate subscription request details.
 |  --- | --- | --- | --- |
 | `Reason` | `string` | Optional | The reason for activation of a subscription. Required to reactivate the subscription.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128`, *Pattern*: `^.*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ActivateSubscriptionRequest activateSubscriptionRequest = new ActivateSubscriptionRequest
 {
-  "reason": "reason4"
-}
+    Reason = "reason6",
+};
 ```
 

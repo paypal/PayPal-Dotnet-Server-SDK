@@ -13,15 +13,19 @@ The supplementary data.
 |  --- | --- | --- | --- |
 | `RelatedIds` | [`RelatedIdentifiers`](../../doc/models/related-identifiers.md) | Optional | Identifiers related to a specific resource. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentSupplementaryData paymentSupplementaryData = new PaymentSupplementaryData
 {
-  "related_ids": {
-    "order_id": "order_id2",
-    "authorization_id": "authorization_id0",
-    "capture_id": "capture_id0"
-  }
-}
+    RelatedIds = new RelatedIdentifiers
+    {
+        OrderId = "order_id2",
+        AuthorizationId = "authorization_id0",
+        CaptureId = "capture_id0",
+    },
+};
 ```
 

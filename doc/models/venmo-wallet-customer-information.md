@@ -16,22 +16,28 @@ The details about a customer in PayPal's system of record.
 | `Phone` | [`PhoneWithType`](../../doc/models/phone-with-type.md) | Optional | The phone information. |
 | `Name` | [`Name`](../../doc/models/name.md) | Optional | The name of the party. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VenmoWalletCustomerInformation venmoWalletCustomerInformation = new VenmoWalletCustomerInformation
 {
-  "id": "id4",
-  "email_address": "email_address2",
-  "phone": {
-    "phone_type": "OTHER",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  }
-}
+    Id = "id0",
+    EmailAddress = "email_address8",
+    Phone = new PhoneWithType
+    {
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        PhoneType = PhoneType.Other,
+    },
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+};
 ```
 

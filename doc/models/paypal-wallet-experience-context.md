@@ -23,18 +23,21 @@ Customizes the payer experience during the approval process for payment with Pay
 | `PaymentMethodPreference` | [`PayeePaymentMethodPreference?`](../../doc/models/payee-payment-method-preference.md) | Optional | The merchant-preferred payment methods.<br><br>**Default**: `PayeePaymentMethodPreference.UNRESTRICTED`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 | `OrderUpdateCallbackConfig` | [`CallbackConfiguration`](../../doc/models/callback-configuration.md) | Optional | CallBack Configuration that the merchant can provide to PayPal/Venmo. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWalletExperienceContext paypalWalletExperienceContext = new PaypalWalletExperienceContext
 {
-  "shipping_preference": "GET_FROM_FILE",
-  "contact_preference": "NO_CONTACT_INFO",
-  "landing_page": "NO_PREFERENCE",
-  "user_action": "CONTINUE",
-  "payment_method_preference": "UNRESTRICTED",
-  "brand_name": "brand_name6",
-  "locale": "locale0",
-  "return_url": "return_url8"
-}
+    BrandName = "brand_name2",
+    Locale = "locale6",
+    ShippingPreference = PaypalWalletContextShippingPreference.GetFromFile,
+    ContactPreference = PaypalWalletContactPreference.NoContactInfo,
+    ReturnUrl = "return_url6",
+    LandingPage = PaypalExperienceLandingPage.NoPreference,
+    UserAction = PaypalExperienceUserAction.Continue,
+    PaymentMethodPreference = PayeePaymentMethodPreference.Unrestricted,
+};
 ```
 

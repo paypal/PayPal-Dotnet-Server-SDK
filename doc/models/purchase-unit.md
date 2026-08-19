@@ -26,79 +26,102 @@ The purchase unit details. Used to capture required information for the payment 
 | `Payments` | [`PaymentCollection`](../../doc/models/payment-collection.md) | Optional | The collection of payments, or transactions, for a purchase unit in an order. For example, authorized payments, captured payments, and refunds. |
 | `MostRecentErrors` | `List<JsonValue>` | Optional | The error reason code and description that are the reason for the most recent order decline.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+PurchaseUnit purchaseUnit = new PurchaseUnit
 {
-  "reference_id": "reference_id8",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0",
-    "breakdown": {
-      "item_total": {
-        "currency_code": "currency_code0",
-        "value": "value6"
-      },
-      "shipping": {
-        "currency_code": "currency_code0",
-        "value": "value6"
-      },
-      "handling": {
-        "currency_code": "currency_code2",
-        "value": "value8"
-      },
-      "tax_total": {
-        "currency_code": "currency_code4",
-        "value": "value0"
-      },
-      "insurance": {
-        "currency_code": "currency_code2",
-        "value": "value8"
-      }
-    }
-  },
-  "payee": {
-    "email_address": "email_address4",
-    "merchant_id": "merchant_id6"
-  },
-  "payment_instruction": {
-    "platform_fees": [
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    ReferenceId = "reference_id0",
+    Amount = new AmountWithBreakdown
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+        Breakdown = new AmountBreakdown
+        {
+            ItemTotal = new Money
+            {
+                CurrencyCode = "currency_code0",
+                MValue = "value6",
+            },
+            Shipping = new Money
+            {
+                CurrencyCode = "currency_code0",
+                MValue = "value6",
+            },
+            Handling = new Money
+            {
+                CurrencyCode = "currency_code2",
+                MValue = "value8",
+            },
+            TaxTotal = new Money
+            {
+                CurrencyCode = "currency_code4",
+                MValue = "value0",
+            },
+            Insurance = new Money
+            {
+                CurrencyCode = "currency_code2",
+                MValue = "value8",
+            },
         },
-        "payee": {
-          "email_address": "email_address4",
-          "merchant_id": "merchant_id6"
-        }
-      },
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    },
+    Payee = new PayeeBase
+    {
+        EmailAddress = "email_address4",
+        MerchantId = "merchant_id6",
+    },
+    PaymentInstruction = new PaymentInstruction
+    {
+        PlatformFees = new List<PlatformFee>
+        {
+            new PlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                Payee = new PayeeBase
+                {
+                    EmailAddress = "email_address4",
+                    MerchantId = "merchant_id6",
+                },
+            },
+            new PlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                Payee = new PayeeBase
+                {
+                    EmailAddress = "email_address4",
+                    MerchantId = "merchant_id6",
+                },
+            },
+            new PlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                Payee = new PayeeBase
+                {
+                    EmailAddress = "email_address4",
+                    MerchantId = "merchant_id6",
+                },
+            },
         },
-        "payee": {
-          "email_address": "email_address4",
-          "merchant_id": "merchant_id6"
-        }
-      },
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        },
-        "payee": {
-          "email_address": "email_address4",
-          "merchant_id": "merchant_id6"
-        }
-      }
-    ],
-    "disbursement_mode": "INSTANT",
-    "payee_pricing_tier_id": "payee_pricing_tier_id2",
-    "payee_receivable_fx_rate_id": "payee_receivable_fx_rate_id0"
-  },
-  "description": "description0"
-}
+        DisbursementMode = DisbursementMode.Instant,
+        PayeePricingTierId = "payee_pricing_tier_id2",
+        PayeeReceivableFxRateId = "payee_receivable_fx_rate_id0",
+    },
+    Description = "description2",
+};
 ```
 

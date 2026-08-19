@@ -13,14 +13,18 @@ The tax levied by a government on the purchase of goods or services.
 |  --- | --- | --- | --- |
 | `TaxAmount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+TaxAmount taxAmount = new TaxAmount
 {
-  "tax_amount": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  }
-}
+    TaxAmountProp = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+};
 ```
 

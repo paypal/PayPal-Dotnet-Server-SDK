@@ -17,15 +17,18 @@ Customizes the payer experience during the approval process for the payment.
 | `ReturnUrl` | `string` | Optional | Describes the URL. |
 | `CancelUrl` | `string` | Optional | Describes the URL. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ExperienceContext experienceContext = new ExperienceContext
 {
-  "shipping_preference": "GET_FROM_FILE",
-  "brand_name": "brand_name0",
-  "locale": "locale4",
-  "return_url": "return_url2",
-  "cancel_url": "cancel_url4"
-}
+    BrandName = "brand_name0",
+    Locale = "locale4",
+    ShippingPreference = ExperienceContextShippingPreference.GetFromFile,
+    ReturnUrl = "return_url2",
+    CancelUrl = "cancel_url4",
+};
 ```
 

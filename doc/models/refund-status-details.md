@@ -13,11 +13,14 @@ The details of the refund status.
 |  --- | --- | --- | --- |
 | `Reason` | [`RefundIncompleteReason?`](../../doc/models/refund-incomplete-reason.md) | Optional | The reason why the refund has the `PENDING` or `FAILED` status. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RefundStatusDetails refundStatusDetails = new RefundStatusDetails
 {
-  "reason": "ECHECK"
-}
+    Reason = RefundIncompleteReason.Echeck,
+};
 ```
 

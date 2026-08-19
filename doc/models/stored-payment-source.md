@@ -16,19 +16,23 @@ Provides additional details to process a payment using a `payment_source` that h
 | `Usage` | [`StoredPaymentSourceUsageType?`](../../doc/models/stored-payment-source-usage-type.md) | Optional | Indicates if this is a `first` or `subsequent` payment using a stored payment source (also referred to as stored credential or card on file).<br><br>**Default**: `StoredPaymentSourceUsageType.DERIVED`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 | `PreviousNetworkTransactionReference` | [`NetworkTransaction`](../../doc/models/network-transaction.md) | Optional | Reference values used by the card network to identify a transaction. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+StoredPaymentSource storedPaymentSource = new StoredPaymentSource
 {
-  "payment_initiator": "CUSTOMER",
-  "payment_type": "RECURRING",
-  "usage": "DERIVED",
-  "previous_network_transaction_reference": {
-    "id": "id6",
-    "date": "date2",
-    "network": "CONFIDIS",
-    "acquirer_reference_number": "acquirer_reference_number8"
-  }
-}
+    PaymentInitiator = PaymentInitiator.Customer,
+    PaymentType = StoredPaymentSourcePaymentType.OneTime,
+    Usage = StoredPaymentSourceUsageType.Derived,
+    PreviousNetworkTransactionReference = new NetworkTransaction
+    {
+        Id = "id6",
+        Date = "date2",
+        Network = CardBrand.Confidis,
+        AcquirerReferenceNumber = "acquirer_reference_number8",
+    },
+};
 ```
 

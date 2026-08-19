@@ -19,3 +19,11 @@ The Universal Product Code type.
 | `Upc2` |
 | `Upc5` |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+UpcType upcType = UpcType.UpcC;
+```
+

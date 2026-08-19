@@ -16,17 +16,18 @@ The JSON patch object to apply partial updates to resources.
 | `MValue` | `JsonValue` | Optional | The value to apply. The remove, copy, and move operations do not require a value. Since JSON Patch allows any type for value, the type property is not specified. |
 | `From` | `string` | Optional | The JSON Pointer to the target document location from which to move the value. Required for the move operation. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using PaypalServerSdk.Standard.Utilities;
+
+Patch patch = new Patch
 {
-  "op": "add",
-  "path": "path6",
-  "value": {
-    "key1": "val1",
-    "key2": "val2"
-  },
-  "from": "from0"
-}
+    Op = PatchOp.Copy,
+    Path = "path4",
+    MValue = ApiHelper.JsonDeserialize<JsonValue>("{\"key1\":\"val1\",\"key2\":\"val2\"}"),
+    From = "from2",
+};
 ```
 

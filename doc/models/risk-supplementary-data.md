@@ -13,13 +13,17 @@ Additional information necessary to evaluate the risk profile of a transaction.
 |  --- | --- | --- | --- |
 | `Customer` | [`ParticipantMetadata`](../../doc/models/participant-metadata.md) | Optional | Profile information of the sender or receiver. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RiskSupplementaryData riskSupplementaryData = new RiskSupplementaryData
 {
-  "customer": {
-    "ip_address": "ip_address0"
-  }
-}
+    Customer = new ParticipantMetadata
+    {
+        IpAddress = "ip_address0",
+    },
+};
 ```
 

@@ -15,22 +15,28 @@ Details about the merchant cobranded card used for order purchase.
 | `Payee` | [`PayeeBase`](../../doc/models/payee-base.md) | Optional | The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee. |
 | `Amount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+CobrandedCard cobrandedCard = new CobrandedCard
 {
-  "labels": [
-    "labels2",
-    "labels3"
-  ],
-  "payee": {
-    "email_address": "email_address4",
-    "merchant_id": "merchant_id6"
-  },
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  }
-}
+    Labels = new List<string>
+    {
+        "labels2",
+    },
+    Payee = new PayeeBase
+    {
+        EmailAddress = "email_address4",
+        MerchantId = "merchant_id6",
+    },
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

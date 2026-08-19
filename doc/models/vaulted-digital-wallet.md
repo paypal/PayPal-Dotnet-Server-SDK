@@ -18,33 +18,40 @@ Resource consolidating common request and response attributes for vaulting a Dig
 | `UsageType` | [`PaypalPaymentTokenUsageType?`](../../doc/models/paypal-payment-token-usage-type.md) | Optional | The usage type associated with a digital wallet payment token.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 | `CustomerType` | [`PaypalPaymentTokenCustomerType?`](../../doc/models/paypal-payment-token-customer-type.md) | Optional | The customer type associated with a digital wallet payment token. This is to indicate whether the customer acting on the merchant / platform is either a business or a consumer.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VaultedDigitalWallet vaultedDigitalWallet = new VaultedDigitalWallet
 {
-  "permit_multiple_payment_tokens": false,
-  "description": "description2",
-  "usage_pattern": "THRESHOLD_PREPAID",
-  "shipping": {
-    "name": {
-      "full_name": "full_name6"
+    Description = "description4",
+    UsagePattern = UsagePattern.SubscriptionPrepaid,
+    Shipping = new VaultedDigitalWalletShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
+        },
+        EmailAddress = "email_address2",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.Shipping,
+        Address = new Address
+        {
+            CountryCode = "country_code6",
+            AddressLine1 = "address_line_16",
+            AddressLine2 = "address_line_26",
+            AdminArea2 = "admin_area_20",
+            AdminArea1 = "admin_area_12",
+            PostalCode = "postal_code8",
+        },
     },
-    "email_address": "email_address2",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "SHIPPING",
-    "address": {
-      "address_line_1": "address_line_16",
-      "address_line_2": "address_line_26",
-      "admin_area_2": "admin_area_20",
-      "admin_area_1": "admin_area_12",
-      "postal_code": "postal_code8",
-      "country_code": "country_code6"
-    }
-  },
-  "usage_type": "MERCHANT"
-}
+    PermitMultiplePaymentTokens = false,
+    UsageType = PaypalPaymentTokenUsageType.Merchant,
+};
 ```
 

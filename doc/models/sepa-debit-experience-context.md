@@ -15,13 +15,16 @@ Customizes the payer experience during the approval process for the SEPA Debit p
 | `ReturnUrl` | `string` | Required | Describes the URL. |
 | `CancelUrl` | `string` | Required | Describes the URL. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SepaDebitExperienceContext sepaDebitExperienceContext = new SepaDebitExperienceContext
 {
-  "locale": "locale8",
-  "return_url": "return_url6",
-  "cancel_url": "cancel_url8"
-}
+    ReturnUrl = "return_url4",
+    CancelUrl = "cancel_url6",
+    Locale = "locale6",
+};
 ```
 

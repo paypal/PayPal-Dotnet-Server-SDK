@@ -15,3 +15,11 @@ Indicates if this is a `first` or `subsequent` payment using a stored payment so
 | `Subsequent` | Indicates a payment using a stored payment_source which has been successfully used previously for a payment. |
 | `Derived` | Indicates that PayPal will derive the value of `FIRST` or `SUBSEQUENT` based on data available to PayPal. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+StoredPaymentSourceUsageType storedPaymentSourceUsageType = StoredPaymentSourceUsageType.Subsequent;
+```
+

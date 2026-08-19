@@ -15,3 +15,11 @@ DEPRECATED. DEPRECATED. The shipping preference: Displays the shipping address t
 | `NoShipping` | Redact the shipping address from the PayPal site. Recommended for digital goods. |
 | `SetProvidedAddress` | Use the merchant-provided address. The customer cannot change this address on the PayPal site. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OrderApplicationContextShippingPreference orderApplicationContextShippingPreference = OrderApplicationContextShippingPreference.NoShipping;
+```
+

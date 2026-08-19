@@ -18,27 +18,18 @@ The error details. Required for client-side `4XX` errors.
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas-links) that are either relevant to the issue by providing additional information or offering potential resolutions.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `4` |
 | `Description` | `string` | Optional | The human-readable description for an issue. The description can change over the lifetime of an API, so clients must not depend on this value. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ErrorDetails errorDetails = new ErrorDetails
 {
-  "location": "body",
-  "issue": "issue8",
-  "field": "field0",
-  "value": "value8",
-  "links": [
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    },
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ],
-  "description": "description4"
-}
+    Issue = "issue8",
+    Field = "field0",
+    MValue = "value8",
+    Location = "body",
+    Description = "description4",
+};
 ```
 

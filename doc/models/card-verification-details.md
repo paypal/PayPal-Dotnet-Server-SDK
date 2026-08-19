@@ -19,18 +19,21 @@ Card Verification details including the authorization details and 3D SECURE deta
 | `ProcessorResponse` | [`CardVerificationProcessorResponse`](../../doc/models/card-verification-processor-response.md) | Optional | The processor response information for payment requests, such as direct credit card transactions. |
 | `ThreeDSecure` | `JsonValue` | Optional | DEPRECATED. This field is DEPRECATED. Please find the 3D secure authentication data in the 'three_d_secure' object under the 'authentication_result' object instead of the 'verification' object. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardVerificationDetails cardVerificationDetails = new CardVerificationDetails
 {
-  "network_transaction_id": "network_transaction_id4",
-  "date": "date8",
-  "network": "ACCEL",
-  "time": "time2",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  }
-}
+    NetworkTransactionId = "network_transaction_id4",
+    Date = "date2",
+    Network = CardBrand.Discover,
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

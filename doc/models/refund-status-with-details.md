@@ -14,14 +14,17 @@ The refund status with details.
 | `Status` | [`RefundStatus?`](../../doc/models/refund-status.md) | Optional, Read-only | The status of the refund. |
 | `StatusDetails` | [`RefundStatusDetails`](../../doc/models/refund-status-details.md) | Optional | The details of the refund status. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RefundStatusWithDetails refundStatusWithDetails = new RefundStatusWithDetails
 {
-  "status": "PENDING",
-  "status_details": {
-    "reason": "ECHECK"
-  }
-}
+    StatusDetails = new RefundStatusDetails
+    {
+        Reason = RefundIncompleteReason.Echeck,
+    },
+};
 ```
 

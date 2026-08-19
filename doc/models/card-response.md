@@ -23,19 +23,16 @@ The payment card to use to fund a payment. Card can be a credit or debit card.
 | `BinDetails` | [`BinDetails`](../../doc/models/bin-details.md) | Optional | Bank Identification Number (BIN) details used to fund a payment. |
 | `StoredCredential` | [`CardStoredCredential`](../../doc/models/card-stored-credential.md) | Optional | Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardResponse cardResponse = new CardResponse
 {
-  "name": "name0",
-  "last_digits": "last_digits4",
-  "brand": "CARTE_BANCAIRE",
-  "available_networks": [
-    "ELO",
-    "DINERS",
-    "CHINA_UNION_PAY"
-  ],
-  "type": "CREDIT"
-}
+    Name = "name2",
+    Brand = CardBrand.Pulse,
+    Type = CardType.Store,
+};
 ```
 

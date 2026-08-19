@@ -31,15 +31,18 @@ The item details.
 | `InvoiceNumber` | `string` | Optional | The invoice number. An alphanumeric string that identifies a billing for a merchant.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `200`, *Pattern*: `^[a-zA-Z0-9_'\-., ":;\!?]*$` |
 | `CheckoutOptions` | [`List<CheckoutOption>`](../../doc/models/checkout-option.md) | Optional | An array of checkout options. Each option has a name and value.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `32767` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ItemDetails itemDetails = new ItemDetails
 {
-  "item_code": "item_code4",
-  "item_name": "item_name2",
-  "item_description": "item_description0",
-  "item_options": "item_options4",
-  "item_quantity": "item_quantity4"
-}
+    ItemCode = "item_code2",
+    ItemName = "item_name0",
+    ItemDescription = "item_description8",
+    ItemOptions = "item_options4",
+    ItemQuantity = "item_quantity4",
+};
 ```
 

@@ -18,31 +18,38 @@ The tracking details of an order.
 | `NotifyPayer` | `bool?` | Optional | If true, PayPal will send an email notification to the payer of the PayPal transaction. The email contains the tracking details provided through the Orders tracking API request. Independent of any value passed for `notify_payer`, the payer may receive tracking notifications within the PayPal app, based on the user's notification preferences.<br><br>**Default**: `false` |
 | `Items` | [`List<OrderTrackerItem>`](../../doc/models/order-tracker-item.md) | Optional | An array of details of items in the shipment. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+OrderTrackerRequest orderTrackerRequest = new OrderTrackerRequest
 {
-  "capture_id": "capture_id0",
-  "notify_payer": false,
-  "tracking_number": "tracking_number6",
-  "carrier": "ACS_GR",
-  "carrier_name_other": "carrier_name_other0",
-  "items": [
+    CaptureId = "capture_id2",
+    TrackingNumber = "tracking_number8",
+    Carrier = ShipmentCarrier.PostaRo,
+    CarrierNameOther = "carrier_name_other2",
+    NotifyPayer = false,
+    Items = new List<OrderTrackerItem>
     {
-      "name": "name8",
-      "quantity": "quantity4",
-      "sku": "sku6",
-      "url": "url2",
-      "image_url": "image_url4"
+        new OrderTrackerItem
+        {
+            Name = "name8",
+            Quantity = "quantity4",
+            Sku = "sku6",
+            Url = "url2",
+            ImageUrl = "image_url4",
+        },
+        new OrderTrackerItem
+        {
+            Name = "name8",
+            Quantity = "quantity4",
+            Sku = "sku6",
+            Url = "url2",
+            ImageUrl = "image_url4",
+        },
     },
-    {
-      "name": "name8",
-      "quantity": "quantity4",
-      "sku": "sku6",
-      "url": "url2",
-      "image_url": "image_url4"
-    }
-  ]
-}
+};
 ```
 

@@ -16,34 +16,34 @@ The details about a saved PayPal Wallet payment source.
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related HATEOAS links.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 | `Customer` | [`PaypalWalletCustomer`](../../doc/models/paypal-wallet-customer.md) | Optional | The details about a customer in PayPal's system of record. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWalletVaultResponse paypalWalletVaultResponse = new PaypalWalletVaultResponse
 {
-  "id": "id0",
-  "status": "CREATED",
-  "links": [
+    Id = "id0",
+    Status = PaypalWalletVaultStatus.Approved,
+    Customer = new PaypalWalletCustomer
     {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ],
-  "customer": {
-    "id": "id0",
-    "email_address": "email_address2",
-    "phone": {
-      "phone_type": "OTHER",
-      "phone_number": {
-        "national_number": "national_number6"
-      }
+        Id = "id0",
+        EmailAddress = "email_address2",
+        Phone = new PhoneWithType
+        {
+            PhoneNumber = new PhoneNumber
+            {
+                NationalNumber = "national_number6",
+            },
+            PhoneType = PhoneType.Other,
+        },
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        MerchantCustomerId = "merchant_customer_id2",
     },
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
-    },
-    "merchant_customer_id": "merchant_customer_id2"
-  }
-}
+};
 ```
 

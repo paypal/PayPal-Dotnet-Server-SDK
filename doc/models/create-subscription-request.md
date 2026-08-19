@@ -21,58 +21,73 @@ The create subscription request details.
 | `CustomId` | `string` | Optional | The custom id for the subscription. Can be invoice id.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `127`, *Pattern*: `^[\x20-\x7E]+` |
 | `Plan` | [`PlanOverride`](../../doc/models/plan-override.md) | Optional | An inline plan object to customise the subscription. You can override plan level default attributes by providing customised values for the subscription in this object. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+CreateSubscriptionRequest createSubscriptionRequest = new CreateSubscriptionRequest
 {
-  "plan_id": "plan_id8",
-  "auto_renewal": false,
-  "start_time": "start_time0",
-  "quantity": "quantity2",
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "subscriber": {
-    "email_address": "email_address8",
-    "payer_id": "payer_id8",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    PlanId = "plan_id8",
+    StartTime = "start_time0",
+    Quantity = "quantity2",
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
     },
-    "shipping_address": {
-      "name": {
-        "full_name": "full_name6"
-      },
-      "email_address": "email_address8",
-      "phone_number": {
-        "country_code": "country_code2",
-        "national_number": "national_number6"
-      },
-      "type": "PICKUP_IN_STORE",
-      "options": [
+    Subscriber = new SubscriberRequest
+    {
+        EmailAddress = "email_address8",
+        PayerId = "payer_id8",
+        Name = new Name
         {
-          "id": "id2",
-          "label": "label2",
-          "type": "SHIPPING",
-          "amount": {
-            "currency_code": "currency_code6",
-            "value": "value0"
-          },
-          "selected": false
-        }
-      ]
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        ShippingAddress = new ShippingDetails
+        {
+            Name = new ShippingName
+            {
+                FullName = "full_name6",
+            },
+            EmailAddress = "email_address8",
+            PhoneNumber = new PhoneNumberWithCountryCode
+            {
+                CountryCode = "country_code2",
+                NationalNumber = "national_number6",
+            },
+            Type = FulfillmentType.PickupInStore,
+            Options = new List<ShippingOption>
+            {
+                new ShippingOption
+                {
+                    Id = "id2",
+                    Label = "label2",
+                    Selected = false,
+                    Type = ShippingType.Shipping,
+                    Amount = new Money
+                    {
+                        CurrencyCode = "currency_code6",
+                        MValue = "value0",
+                    },
+                },
+            },
+        },
+        PaymentSource = new SubscriptionPaymentSource
+        {
+            Card = new SubscriptionCardRequest
+            {
+                Name = "name6",
+                Number = "number6",
+                Expiry = "expiry4",
+                SecurityCode = "security_code8",
+                Type = CardType.Unknown,
+            },
+        },
     },
-    "payment_source": {
-      "card": {
-        "name": "name6",
-        "number": "number6",
-        "expiry": "expiry4",
-        "security_code": "security_code8",
-        "type": "UNKNOWN"
-      }
-    }
-  }
-}
+    AutoRenewal = false,
+};
 ```
 

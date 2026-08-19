@@ -20,17 +20,21 @@ Information needed to pay using ApplePay.
 | `Attributes` | [`ApplePayAttributesResponse`](../../doc/models/apple-pay-attributes-response.md) | Optional | Additional attributes associated with the use of Apple Pay. |
 | `StoredCredential` | [`CardStoredCredential`](../../doc/models/card-stored-credential.md) | Optional | Provides additional details to process a payment using a `card` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayPaymentObject applePayPaymentObject = new ApplePayPaymentObject
 {
-  "id": "id6",
-  "token": "token0",
-  "name": "name6",
-  "email_address": "email_address4",
-  "phone_number": {
-    "national_number": "national_number6"
-  }
-}
+    Id = "id0",
+    Token = "token4",
+    Name = "name0",
+    EmailAddress = "email_address8",
+    PhoneNumber = new PhoneNumber
+    {
+        NationalNumber = "national_number6",
+    },
+};
 ```
 

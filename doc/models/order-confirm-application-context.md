@@ -17,25 +17,30 @@ Customizes the payer confirmation experience.
 | `CancelUrl` | `string` | Optional | The URL where the customer is redirected after the customer cancels the payment.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `4000` |
 | `StoredPaymentSource` | [`StoredPaymentSource`](../../doc/models/stored-payment-source.md) | Optional | Provides additional details to process a payment using a `payment_source` that has been stored or is intended to be stored (also referred to as stored_credential or card-on-file). Parameter compatibility: `payment_type=ONE_TIME` is compatible only with `payment_initiator=CUSTOMER`. `usage=FIRST` is compatible only with `payment_initiator=CUSTOMER`. `previous_transaction_reference` or `previous_network_transaction_reference` is compatible only with `payment_initiator=MERCHANT`. Only one of the parameters - `previous_transaction_reference` and `previous_network_transaction_reference` - can be present in the request. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OrderConfirmApplicationContext orderConfirmApplicationContext = new OrderConfirmApplicationContext
 {
-  "brand_name": "brand_name6",
-  "locale": "locale0",
-  "return_url": "return_url8",
-  "cancel_url": "cancel_url0",
-  "stored_payment_source": {
-    "payment_initiator": "CUSTOMER",
-    "payment_type": "RECURRING",
-    "usage": "FIRST",
-    "previous_network_transaction_reference": {
-      "id": "id6",
-      "date": "date2",
-      "network": "CONFIDIS",
-      "acquirer_reference_number": "acquirer_reference_number8"
-    }
-  }
-}
+    BrandName = "brand_name4",
+    Locale = "locale8",
+    ReturnUrl = "return_url6",
+    CancelUrl = "cancel_url8",
+    StoredPaymentSource = new StoredPaymentSource
+    {
+        PaymentInitiator = PaymentInitiator.Customer,
+        PaymentType = StoredPaymentSourcePaymentType.Recurring,
+        Usage = StoredPaymentSourceUsageType.First,
+        PreviousNetworkTransactionReference = new NetworkTransaction
+        {
+            Id = "id6",
+            Date = "date2",
+            Network = CardBrand.Confidis,
+            AcquirerReferenceNumber = "acquirer_reference_number8",
+        },
+    },
+};
 ```
 

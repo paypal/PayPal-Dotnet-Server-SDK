@@ -15,3 +15,11 @@ The pricing model for the billing cycle.
 | `Variable` | A variable pricing scheme where the customer is charged a variable amount. |
 | `AutoReload` | A auto-reload pricing scheme where the customer is charged a fixed amount for reload. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PricingModel pricingModel = PricingModel.AutoReload;
+```
+

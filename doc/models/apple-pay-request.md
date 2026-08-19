@@ -21,37 +21,44 @@ Information needed to pay using ApplePay.
 | `Attributes` | [`ApplePayAttributes`](../../doc/models/apple-pay-attributes.md) | Optional | Additional attributes associated with apple pay. |
 | `ExperienceContext` | [`ApplePayExperienceContext`](../../doc/models/apple-pay-experience-context.md) | Optional | Customizes the payer experience during the approval process for the payment. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayRequest applePayRequest = new ApplePayRequest
 {
-  "id": "id6",
-  "name": "name6",
-  "email_address": "email_address4",
-  "phone_number": {
-    "national_number": "national_number6"
-  },
-  "decrypted_token": {
-    "transaction_amount": {
-      "currency_code": "currency_code6",
-      "value": "value2"
+    Id = "id0",
+    Name = "name0",
+    EmailAddress = "email_address8",
+    PhoneNumber = new PhoneNumber
+    {
+        NationalNumber = "national_number6",
     },
-    "tokenized_card": {
-      "name": "name4",
-      "number": "number2",
-      "expiry": "expiry2",
-      "card_type": "VISA",
-      "type": "UNKNOWN"
+    DecryptedToken = new ApplePayDecryptedTokenData
+    {
+        TokenizedCard = new ApplePayTokenizedCard
+        {
+            Name = "name4",
+            Number = "number2",
+            Expiry = "expiry2",
+            Type = CardType.Unknown,
+        },
+        TransactionAmount = new Money
+        {
+            CurrencyCode = "currency_code6",
+            MValue = "value2",
+        },
+        DeviceManufacturerId = "device_manufacturer_id6",
+        PaymentDataType = ApplePayPaymentDataType.Enum3Dsecure,
+        PaymentData = new ApplePayPaymentData
+        {
+            Cryptogram = "cryptogram6",
+            EciIndicator = "eci_indicator0",
+            EmvData = "emv_data0",
+            Pin = "pin4",
+        },
     },
-    "device_manufacturer_id": "device_manufacturer_id6",
-    "payment_data_type": "3DSECURE",
-    "payment_data": {
-      "cryptogram": "cryptogram6",
-      "eci_indicator": "eci_indicator0",
-      "emv_data": "emv_data0",
-      "pin": "pin4"
-    }
-  }
-}
+};
 ```
 

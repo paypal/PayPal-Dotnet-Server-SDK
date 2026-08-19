@@ -13,11 +13,14 @@ Information used to pay using BLIK level_0 flow.
 |  --- | --- | --- | --- |
 | `AuthCode` | `string` | Required | The 6-digit code used to authenticate a consumer within BLIK.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `6`, *Pattern*: `^[0-9]{6}$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+BlikLevel0PaymentObject blikLevel0PaymentObject = new BlikLevel0PaymentObject
 {
-  "auth_code": "auth_code6"
-}
+    AuthCode = "auth_code4",
+};
 ```
 

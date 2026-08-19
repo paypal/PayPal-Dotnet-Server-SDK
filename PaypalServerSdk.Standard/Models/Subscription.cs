@@ -36,6 +36,9 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="planOverridden">plan_overridden.</param>
         /// <param name="plan">plan.</param>
         /// <param name="links">links.</param>
+        /// <param name="status">status.</param>
+        /// <param name="statusChangeNote">status_change_note.</param>
+        /// <param name="statusUpdateTime">status_update_time.</param>
         public Subscription(
             string id = null,
             string planId = null,
@@ -49,7 +52,10 @@ namespace PaypalServerSdk.Standard.Models
             string customId = null,
             bool? planOverridden = null,
             Models.PlanDetails plan = null,
-            List<Models.LinkDescription> links = null)
+            List<Models.LinkDescription> links = null,
+            Models.SubscriptionStatus? status = null,
+            string statusChangeNote = null,
+            string statusUpdateTime = null)
         {
             this.Id = id;
             this.PlanId = planId;
@@ -64,6 +70,9 @@ namespace PaypalServerSdk.Standard.Models
             this.PlanOverridden = planOverridden;
             this.Plan = plan;
             this.Links = links;
+            this.Status = status;
+            this.StatusChangeNote = statusChangeNote;
+            this.StatusUpdateTime = statusUpdateTime;
         }
 
         /// <summary>
@@ -144,6 +153,24 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("links", NullValueHandling = NullValueHandling.Ignore)]
         public List<Models.LinkDescription> Links { get; set; }
 
+        /// <summary>
+        /// The status of the subscription.
+        /// </summary>
+        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.SubscriptionStatus? Status { get; set; }
+
+        /// <summary>
+        /// The reason or notes for the status of the subscription.
+        /// </summary>
+        [JsonProperty("status_change_note", NullValueHandling = NullValueHandling.Ignore)]
+        public string StatusChangeNote { get; set; }
+
+        /// <summary>
+        /// The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.
+        /// </summary>
+        [JsonProperty("status_update_time", NullValueHandling = NullValueHandling.Ignore)]
+        public string StatusUpdateTime { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -184,7 +211,13 @@ namespace PaypalServerSdk.Standard.Models
                 (this.Plan == null && other.Plan == null ||
                  this.Plan?.Equals(other.Plan) == true) &&
                 (this.Links == null && other.Links == null ||
-                 this.Links?.Equals(other.Links) == true);
+                 this.Links?.Equals(other.Links) == true) &&
+                (this.Status == null && other.Status == null ||
+                 this.Status?.Equals(other.Status) == true) &&
+                (this.StatusChangeNote == null && other.StatusChangeNote == null ||
+                 this.StatusChangeNote?.Equals(other.StatusChangeNote) == true) &&
+                (this.StatusUpdateTime == null && other.StatusUpdateTime == null ||
+                 this.StatusUpdateTime?.Equals(other.StatusUpdateTime) == true);
         }
 
         /// <summary>
@@ -206,6 +239,9 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"PlanOverridden = {(this.PlanOverridden == null ? "null" : this.PlanOverridden.ToString())}");
             toStringOutput.Add($"Plan = {(this.Plan == null ? "null" : this.Plan.ToString())}");
             toStringOutput.Add($"Links = {(this.Links == null ? "null" : $"[{string.Join(", ", this.Links)} ]")}");
+            toStringOutput.Add($"Status = {(this.Status == null ? "null" : this.Status.ToString())}");
+            toStringOutput.Add($"StatusChangeNote = {this.StatusChangeNote ?? "null"}");
+            toStringOutput.Add($"StatusUpdateTime = {this.StatusUpdateTime ?? "null"}");
         }
     }
 }

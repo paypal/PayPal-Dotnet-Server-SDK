@@ -19,30 +19,38 @@ The breakdown of the amount. Breakdown provides details such as total item amoun
 | `ShippingDiscount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `Discount` | [`Money`](../../doc/models/money.md) | Optional | The discount amount and currency code. For list of supported currencies and decimal precision, see the PayPal REST APIs Currency Codes. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+AmountBreakdown amountBreakdown = new AmountBreakdown
 {
-  "item_total": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "shipping": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "handling": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  },
-  "tax_total": {
-    "currency_code": "currency_code4",
-    "value": "value0"
-  },
-  "insurance": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  }
-}
+    ItemTotal = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+    Shipping = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+    Handling = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+    TaxTotal = new Money
+    {
+        CurrencyCode = "currency_code4",
+        MValue = "value0",
+    },
+    Insurance = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+};
 ```
 

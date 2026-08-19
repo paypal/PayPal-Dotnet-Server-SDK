@@ -15,20 +15,24 @@ The payment card to be used to fund a payment. Can be a credit or debit card.
 | `Brand` | [`CardBrand?`](../../doc/models/card-brand.md) | Optional | The card network or brand. Applies to credit, debit, gift, and payment cards.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 | `BillingAddress` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayRequestCard applePayRequestCard = new ApplePayRequestCard
 {
-  "type": "PREPAID",
-  "brand": "PULSE",
-  "billing_address": {
-    "address_line_1": "address_line_12",
-    "address_line_2": "address_line_28",
-    "admin_area_2": "admin_area_28",
-    "admin_area_1": "admin_area_14",
-    "postal_code": "postal_code0",
-    "country_code": "country_code8"
-  }
-}
+    Type = CardType.Debit,
+    Brand = CardBrand.Rupay,
+    BillingAddress = new Address
+    {
+        CountryCode = "country_code8",
+        AddressLine1 = "address_line_12",
+        AddressLine2 = "address_line_28",
+        AdminArea2 = "admin_area_28",
+        AdminArea1 = "admin_area_14",
+        PostalCode = "postal_code0",
+    },
+};
 ```
 

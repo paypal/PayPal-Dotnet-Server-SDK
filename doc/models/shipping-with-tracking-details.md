@@ -17,73 +17,44 @@
 | `Options` | [`List<ShippingOption>`](../../doc/models/shipping-option.md) | Optional | An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items.<br><br>**Constraints**: *Minimum Items*: `0`, *Maximum Items*: `10` |
 | `Address` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+ShippingWithTrackingDetails shippingWithTrackingDetails = new ShippingWithTrackingDetails
 {
-  "trackers": [
+    Trackers = new List<OrderTrackerResponse>
     {
-      "id": "id2",
-      "status": "CANCELLED",
-      "items": [
+        new OrderTrackerResponse
         {
-          "name": "name8",
-          "quantity": "quantity4",
-          "sku": "sku6",
-          "url": "url2",
-          "image_url": "image_url4"
-        }
-      ],
-      "links": [
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
+            Status = OrderTrackerStatus.Cancelled,
+            Items = new List<OrderTrackerItem>
+            {
+                new OrderTrackerItem
+                {
+                    Name = "name8",
+                    Quantity = "quantity4",
+                    Sku = "sku6",
+                    Url = "url2",
+                    ImageUrl = "image_url4",
+                },
+            },
+            CreateTime = "create_time8",
         },
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        }
-      ],
-      "create_time": "create_time8"
     },
+    Name = new ShippingName
     {
-      "id": "id2",
-      "status": "CANCELLED",
-      "items": [
-        {
-          "name": "name8",
-          "quantity": "quantity4",
-          "sku": "sku6",
-          "url": "url2",
-          "image_url": "image_url4"
-        }
-      ],
-      "links": [
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        },
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        }
-      ],
-      "create_time": "create_time8"
-    }
-  ],
-  "name": {
-    "full_name": "full_name6"
-  },
-  "email_address": "email_address2",
-  "phone_number": {
-    "country_code": "country_code2",
-    "national_number": "national_number6"
-  },
-  "type": "SHIPPING"
-}
+        FullName = "full_name6",
+    },
+    EmailAddress = "email_address6",
+    PhoneNumber = new PhoneNumberWithOptionalCountryCode
+    {
+        NationalNumber = "national_number6",
+        CountryCode = "country_code2",
+    },
+    Type = FulfillmentType.PickupInStore,
+};
 ```
 

@@ -25,33 +25,40 @@ Full representation of a PayPal Payment Token.
 | `AccountId` | `string` | Optional | The account identifier for a PayPal account.<br><br>**Constraints**: *Minimum Length*: `13`, *Maximum Length*: `13`, *Pattern*: `^[2-9A-HJ-NP-Z]{13}$` |
 | `PhoneNumber` | [`Phone`](../../doc/models/phone.md) | Optional | The phone number, in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalPaymentToken paypalPaymentToken = new PaypalPaymentToken
 {
-  "permit_multiple_payment_tokens": false,
-  "description": "description6",
-  "usage_pattern": "RECURRING_PREPAID",
-  "shipping": {
-    "name": {
-      "full_name": "full_name6"
+    Description = "description0",
+    UsagePattern = UsagePattern.RecurringPrepaid,
+    Shipping = new VaultedDigitalWalletShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
+        },
+        EmailAddress = "email_address2",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.Shipping,
+        Address = new Address
+        {
+            CountryCode = "country_code6",
+            AddressLine1 = "address_line_16",
+            AddressLine2 = "address_line_26",
+            AdminArea2 = "admin_area_20",
+            AdminArea1 = "admin_area_12",
+            PostalCode = "postal_code8",
+        },
     },
-    "email_address": "email_address2",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "SHIPPING",
-    "address": {
-      "address_line_1": "address_line_16",
-      "address_line_2": "address_line_26",
-      "admin_area_2": "admin_area_20",
-      "admin_area_1": "admin_area_12",
-      "postal_code": "postal_code8",
-      "country_code": "country_code6"
-    }
-  },
-  "usage_type": "MERCHANT"
-}
+    PermitMultiplePaymentTokens = false,
+    UsageType = PaypalPaymentTokenUsageType.Merchant,
+};
 ```
 

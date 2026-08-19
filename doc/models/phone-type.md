@@ -17,3 +17,11 @@ The phone type.
 | `Other` | Other phone number. |
 | `Pager` | Pager number. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PhoneType phoneType = PhoneType.Home;
+```
+

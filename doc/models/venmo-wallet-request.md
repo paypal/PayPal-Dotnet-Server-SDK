@@ -16,49 +16,62 @@ Information needed to pay using Venmo.
 | `ExperienceContext` | [`VenmoWalletExperienceContext`](../../doc/models/venmo-wallet-experience-context.md) | Optional | Customizes the buyer experience during the approval process for payment with Venmo. Note: Partners and Marketplaces might configure shipping_preference during partner account setup, which overrides the request values. |
 | `Attributes` | [`VenmoWalletAdditionalAttributes`](../../doc/models/venmo-wallet-additional-attributes.md) | Optional | Additional attributes associated with the use of this Venmo Wallet. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+VenmoWalletRequest venmoWalletRequest = new VenmoWalletRequest
 {
-  "vault_id": "vault_id2",
-  "email_address": "email_address2",
-  "experience_context": {
-    "brand_name": "brand_name2",
-    "shipping_preference": "NO_SHIPPING",
-    "order_update_callback_config": {
-      "callback_events": [
-        "SHIPPING_OPTIONS",
-        "SHIPPING_ADDRESS",
-        "SHIPPING_OPTIONS"
-      ],
-      "callback_url": "callback_url6"
+    VaultId = "vault_id8",
+    EmailAddress = "email_address8",
+    ExperienceContext = new VenmoWalletExperienceContext
+    {
+        BrandName = "brand_name2",
+        ShippingPreference = VenmoWalletExperienceContextShippingPreference.NoShipping,
+        OrderUpdateCallbackConfig = new CallbackConfiguration
+        {
+            CallbackEvents = new List<CallbackEvents>
+            {
+                CallbackEvents.ShippingOptions,
+                CallbackEvents.ShippingAddress,
+                CallbackEvents.ShippingOptions,
+            },
+            CallbackUrl = "callback_url6",
+        },
+        UserAction = VenmoWalletExperienceContextUserAction.Continue,
     },
-    "user_action": "CONTINUE"
-  },
-  "attributes": {
-    "customer": {
-      "id": "id0",
-      "email_address": "email_address2",
-      "phone": {
-        "phone_type": "OTHER",
-        "phone_number": {
-          "national_number": "national_number6"
-        }
-      },
-      "name": {
-        "given_name": "given_name2",
-        "surname": "surname8"
-      }
+    Attributes = new VenmoWalletAdditionalAttributes
+    {
+        Customer = new VenmoWalletCustomerInformation
+        {
+            Id = "id0",
+            EmailAddress = "email_address2",
+            Phone = new PhoneWithType
+            {
+                PhoneNumber = new PhoneNumber
+                {
+                    NationalNumber = "national_number6",
+                },
+                PhoneType = PhoneType.Other,
+            },
+            Name = new Name
+            {
+                GivenName = "given_name2",
+                Surname = "surname8",
+            },
+        },
+        Vault = new VenmoWalletVaultAttributes
+        {
+            StoreInVault = StoreInVaultInstruction.OnSuccess,
+            UsageType = VenmoPaymentTokenUsageType.Merchant,
+            Description = "description6",
+            UsagePattern = VenmoPaymentTokenUsagePattern.ThresholdPrepaid,
+            CustomerType = VenmoPaymentTokenCustomerType.Consumer,
+            PermitMultiplePaymentTokens = false,
+        },
     },
-    "vault": {
-      "store_in_vault": "ON_SUCCESS",
-      "description": "description6",
-      "usage_pattern": "THRESHOLD_PREPAID",
-      "usage_type": "MERCHANT",
-      "customer_type": "CONSUMER",
-      "permit_multiple_payment_tokens": false
-    }
-  }
-}
+};
 ```
 

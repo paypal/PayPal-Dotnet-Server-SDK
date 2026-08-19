@@ -20,157 +20,194 @@ The plan details.
 | `Taxes` | [`Taxes`](../../doc/models/taxes.md) | Optional | The tax details. |
 | `QuantitySupported` | `bool?` | Optional | Indicates whether you can subscribe to this plan by providing a quantity for the goods or service.<br><br>**Default**: `false` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+PlanDetails planDetails = new PlanDetails
 {
-  "quantity_supported": false,
-  "product_id": "product_id6",
-  "name": "name8",
-  "description": "description2",
-  "billing_cycles": [
+    ProductId = "product_id4",
+    Name = "name8",
+    Description = "description2",
+    BillingCycles = new List<SubscriptionBillingCycle>
     {
-      "pricing_scheme": {
-        "version": 10,
-        "fixed_price": {
-          "currency_code": "currency_code4",
-          "value": "value0"
+        new SubscriptionBillingCycle
+        {
+            Frequency = new Frequency
+            {
+                IntervalUnit = IntervalUnit.Day,
+                IntervalCount = 94,
+            },
+            TenureType = TenureType.Regular,
+            Sequence = 8,
+            PricingScheme = new SubscriptionPricingScheme
+            {
+                FixedPrice = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                PricingModel = SubscriptionPricingModel.Volume,
+                Tiers = new List<PricingTier>
+                {
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                },
+                CreateTime = "create_time4",
+            },
+            TotalCycles = 198,
         },
-        "pricing_model": "VOLUME",
-        "tiers": [
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          }
-        ],
-        "create_time": "create_time4"
-      },
-      "frequency": {
-        "interval_unit": "DAY",
-        "interval_count": 94
-      },
-      "tenure_type": "REGULAR",
-      "sequence": 8,
-      "total_cycles": 198
+        new SubscriptionBillingCycle
+        {
+            Frequency = new Frequency
+            {
+                IntervalUnit = IntervalUnit.Day,
+                IntervalCount = 94,
+            },
+            TenureType = TenureType.Regular,
+            Sequence = 8,
+            PricingScheme = new SubscriptionPricingScheme
+            {
+                FixedPrice = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                PricingModel = SubscriptionPricingModel.Volume,
+                Tiers = new List<PricingTier>
+                {
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                },
+                CreateTime = "create_time4",
+            },
+            TotalCycles = 198,
+        },
+        new SubscriptionBillingCycle
+        {
+            Frequency = new Frequency
+            {
+                IntervalUnit = IntervalUnit.Day,
+                IntervalCount = 94,
+            },
+            TenureType = TenureType.Regular,
+            Sequence = 8,
+            PricingScheme = new SubscriptionPricingScheme
+            {
+                FixedPrice = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                PricingModel = SubscriptionPricingModel.Volume,
+                Tiers = new List<PricingTier>
+                {
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                },
+                CreateTime = "create_time4",
+            },
+            TotalCycles = 198,
+        },
     },
+    PaymentPreferences = new PaymentPreferences
     {
-      "pricing_scheme": {
-        "version": 10,
-        "fixed_price": {
-          "currency_code": "currency_code4",
-          "value": "value0"
+        AutoBillOutstanding = false,
+        SetupFee = new Money
+        {
+            CurrencyCode = "currency_code8",
+            MValue = "value4",
         },
-        "pricing_model": "VOLUME",
-        "tiers": [
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          }
-        ],
-        "create_time": "create_time4"
-      },
-      "frequency": {
-        "interval_unit": "DAY",
-        "interval_count": 94
-      },
-      "tenure_type": "REGULAR",
-      "sequence": 8,
-      "total_cycles": 198
+        SetupFeeFailureAction = SetupFeeFailureAction.Continue,
+        PaymentFailureThreshold = 104,
     },
-    {
-      "pricing_scheme": {
-        "version": 10,
-        "fixed_price": {
-          "currency_code": "currency_code4",
-          "value": "value0"
-        },
-        "pricing_model": "VOLUME",
-        "tiers": [
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          }
-        ],
-        "create_time": "create_time4"
-      },
-      "frequency": {
-        "interval_unit": "DAY",
-        "interval_count": 94
-      },
-      "tenure_type": "REGULAR",
-      "sequence": 8,
-      "total_cycles": 198
-    }
-  ],
-  "payment_preferences": {
-    "auto_bill_outstanding": false,
-    "setup_fee": {
-      "currency_code": "currency_code8",
-      "value": "value4"
-    },
-    "setup_fee_failure_action": "CONTINUE",
-    "payment_failure_threshold": 104
-  }
-}
+    QuantitySupported = false,
+};
 ```
 
