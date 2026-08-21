@@ -16,3 +16,11 @@ Status of Authentication eligibility.
 | `Unavailable` | Unavailable. The DS or ACS is not available for authentication at the time of the request. |
 | `Bypass` | Bypass. The merchant authentication rule is triggered to bypass authentication. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+EnrollmentStatus enrollmentStatus = EnrollmentStatus.Unavailable;
+```
+

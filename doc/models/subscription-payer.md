@@ -15,16 +15,20 @@ The customer who approves and pays for the order. The customer is also known as 
 | `PayerId` | `string` | Optional | The account identifier for a PayPal account.<br><br>**Constraints**: *Minimum Length*: `13`, *Maximum Length*: `13`, *Pattern*: `^[2-9A-HJ-NP-Z]{13}$` |
 | `Name` | [`Name`](../../doc/models/name.md) | Optional | The name of the party. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPayer subscriptionPayer = new SubscriptionPayer
 {
-  "email_address": "email_address4",
-  "payer_id": "payer_id4",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  }
-}
+    EmailAddress = "email_address8",
+    PayerId = "payer_id8",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+};
 ```
 

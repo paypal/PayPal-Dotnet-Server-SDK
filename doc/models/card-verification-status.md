@@ -14,3 +14,11 @@ Verification status of Card.
 | `Verified` | Card has been verified |
 | `Failed` | Card verification has failed |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardVerificationStatus cardVerificationStatus = CardVerificationStatus.Verified;
+```
+

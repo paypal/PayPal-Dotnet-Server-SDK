@@ -14,14 +14,17 @@ The status and status details of a captured payment.
 | `Status` | [`CaptureStatus?`](../../doc/models/capture-status.md) | Optional, Read-only | The status of the captured payment. |
 | `StatusDetails` | [`CaptureStatusDetails`](../../doc/models/capture-status-details.md) | Optional | The details of the captured payment status. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CaptureStatusWithDetails captureStatusWithDetails = new CaptureStatusWithDetails
 {
-  "status": "COMPLETED",
-  "status_details": {
-    "reason": "VERIFICATION_REQUIRED"
-  }
-}
+    StatusDetails = new CaptureStatusDetails
+    {
+        Reason = CaptureIncompleteReason.VerificationRequired,
+    },
+};
 ```
 

@@ -15,3 +15,11 @@ Operating System type of the device that the buyer is using.
 | `Ios` | Apple OS typically found in Apple mobile devices. |
 | `Other` | Any other OS type. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OsType osType = OsType.Ios;
+```
+

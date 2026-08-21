@@ -17,18 +17,22 @@ The options that the payee or merchant offers to the payer to ship or pick up th
 | `Amount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `Selected` | `bool` | Required | If the API request sets `selected = true`, it represents the shipping option that the payee or merchant expects to be pre-selected for the payer when they first view the `shipping.options` in the PayPal Checkout experience. As part of the response if a `shipping.option` contains `selected=true`, it represents the shipping option that the payer selected during the course of checkout with PayPal. Only one `shipping.option` can be set to `selected=true`. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ShippingOption shippingOption = new ShippingOption
 {
-  "id": "id4",
-  "label": "label4",
-  "type": "SHIPPING",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  },
-  "selected": false
-}
+    Id = "id6",
+    Label = "label6",
+    Selected = false,
+    Type = ShippingType.Shipping,
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

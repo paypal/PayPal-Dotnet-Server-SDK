@@ -16,14 +16,17 @@ Information about the decrypted apple pay payment data for the token like crypto
 | `EmvData` | `string` | Optional | Encoded Apple Pay EMV Payment Structure used for payments in China. The pattern is defined by an external party and supports Unicode.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2000`, *Pattern*: `^.*$` |
 | `Pin` | `string` | Optional | Bank Key encrypted Apple Pay PIN. The pattern is defined by an external party and supports Unicode.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2000`, *Pattern*: `^.*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayPaymentData applePayPaymentData = new ApplePayPaymentData
 {
-  "cryptogram": "cryptogram6",
-  "eci_indicator": "eci_indicator0",
-  "emv_data": "emv_data0",
-  "pin": "pin4"
-}
+    Cryptogram = "cryptogram8",
+    EciIndicator = "eci_indicator2",
+    EmvData = "emv_data2",
+    Pin = "pin6",
+};
 ```
 

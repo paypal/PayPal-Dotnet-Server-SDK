@@ -13,3 +13,11 @@ Defines how and when the payment source gets vaulted.
 |  --- | --- |
 | `OnSuccess` | Defines that the payment_source will be vaulted only when at least one authorization or capture using that payment_source is successful. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+StoreInVaultInstruction storeInVaultInstruction = StoreInVaultInstruction.OnSuccess;
+```
+

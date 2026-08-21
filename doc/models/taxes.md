@@ -14,12 +14,15 @@ The tax details.
 | `Percentage` | `string` | Required | The percentage, as a fixed-point, signed decimal number. For example, define a 19.99% interest rate as `19.99`.<br><br>**Constraints**: *Pattern*: `^((-?[0-9]+)\|(-?([0-9]+)?[.][0-9]+))$` |
 | `Inclusive` | `bool?` | Optional | Indicates whether the tax was already included in the billing amount.<br><br>**Default**: `true` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+Taxes taxes = new Taxes
 {
-  "percentage": "percentage6",
-  "inclusive": true
-}
+    Percentage = "percentage8",
+    Inclusive = true,
+};
 ```
 

@@ -19,15 +19,17 @@ The payment card to use to fund a payment. Can be a credit or debit card.
 | `Brand` | [`CardBrand?`](../../doc/models/card-brand.md) | Optional | The card network or brand. Applies to credit, debit, gift, and payment cards.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 | `BillingAddress` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayTokenizedCard applePayTokenizedCard = new ApplePayTokenizedCard
 {
-  "name": "name8",
-  "number": "number6",
-  "expiry": "expiry6",
-  "card_type": "SOLO",
-  "type": "STORE"
-}
+    Name = "name8",
+    Number = "number4",
+    Expiry = "expiry6",
+    Type = CardType.Prepaid,
+};
 ```
 

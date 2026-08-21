@@ -16,19 +16,24 @@ The details about a customer in PayPal's system of record.
 | `Phone` | [`PhoneWithType`](../../doc/models/phone-with-type.md) | Optional | The phone information. |
 | `MerchantCustomerId` | `string` | Optional | Merchants and partners may already have a data-store where their customer information is persisted. Use merchant_customer_id to associate the PayPal-generated customer.id to your representation of a customer.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `64`, *Pattern*: `^[0-9a-zA-Z-_.^*$@#]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardCustomer cardCustomer = new CardCustomer
 {
-  "id": "id2",
-  "email_address": "email_address0",
-  "phone": {
-    "phone_type": "OTHER",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "merchant_customer_id": "merchant_customer_id4"
-}
+    Id = "id8",
+    EmailAddress = "email_address6",
+    Phone = new PhoneWithType
+    {
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        PhoneType = PhoneType.Other,
+    },
+    MerchantCustomerId = "merchant_customer_id0",
+};
 ```
 

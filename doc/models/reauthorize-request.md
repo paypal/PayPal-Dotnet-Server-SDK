@@ -13,14 +13,18 @@ Reauthorizes an authorized PayPal account payment, by ID. To ensure that funds a
 |  --- | --- | --- | --- |
 | `Amount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ReauthorizeRequest reauthorizeRequest = new ReauthorizeRequest
 {
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  }
-}
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

@@ -13,39 +13,28 @@ The incentive details.
 |  --- | --- | --- | --- |
 | `IncentiveDetails` | [`List<IncentiveDetails>`](../../doc/models/incentive-details.md) | Optional | An array of incentive details.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `32767` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+IncentiveInformation incentiveInformation = new IncentiveInformation
 {
-  "incentive_details": [
+    IncentiveDetails = new List<IncentiveDetails>
     {
-      "incentive_type": "incentive_type4",
-      "incentive_code": "incentive_code0",
-      "incentive_amount": {
-        "currency_code": "currency_code4",
-        "value": "value0"
-      },
-      "incentive_program_code": "incentive_program_code4"
+        new IncentiveDetails
+        {
+            IncentiveType = "incentive_type4",
+            IncentiveCode = "incentive_code0",
+            IncentiveAmount = new Money
+            {
+                CurrencyCode = "currency_code4",
+                MValue = "value0",
+            },
+            IncentiveProgramCode = "incentive_program_code4",
+        },
     },
-    {
-      "incentive_type": "incentive_type4",
-      "incentive_code": "incentive_code0",
-      "incentive_amount": {
-        "currency_code": "currency_code4",
-        "value": "value0"
-      },
-      "incentive_program_code": "incentive_program_code4"
-    },
-    {
-      "incentive_type": "incentive_type4",
-      "incentive_code": "incentive_code0",
-      "incentive_amount": {
-        "currency_code": "currency_code4",
-        "value": "value0"
-      },
-      "incentive_program_code": "incentive_program_code4"
-    }
-  ]
-}
+};
 ```
 

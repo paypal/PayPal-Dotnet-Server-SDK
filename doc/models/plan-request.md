@@ -21,78 +21,97 @@ The create plan request details.
 | `Taxes` | [`Taxes`](../../doc/models/taxes.md) | Optional | The tax details. |
 | `QuantitySupported` | `bool?` | Optional | Indicates whether you can subscribe to this plan by providing a quantity for the goods or service.<br><br>**Default**: `false` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+PlanRequest planRequest = new PlanRequest
 {
-  "product_id": "product_id2",
-  "name": "name2",
-  "status": "ACTIVE",
-  "billing_cycles": [
+    ProductId = "product_id4",
+    Name = "name0",
+    BillingCycles = new List<SubscriptionBillingCycle>
     {
-      "frequency": {
-        "interval_unit": "DAY",
-        "interval_count": 1
-      },
-      "tenure_type": "REGULAR",
-      "sequence": 8,
-      "total_cycles": 1,
-      "pricing_scheme": {
-        "version": 10,
-        "fixed_price": {
-          "currency_code": "currency_code4",
-          "value": "value0"
+        new SubscriptionBillingCycle
+        {
+            Frequency = new Frequency
+            {
+                IntervalUnit = IntervalUnit.Day,
+                IntervalCount = 1,
+            },
+            TenureType = TenureType.Regular,
+            Sequence = 8,
+            PricingScheme = new SubscriptionPricingScheme
+            {
+                FixedPrice = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                PricingModel = SubscriptionPricingModel.Volume,
+                Tiers = new List<PricingTier>
+                {
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                    new PricingTier
+                    {
+                        StartingQuantity = "starting_quantity8",
+                        Amount = new Money
+                        {
+                            CurrencyCode = "currency_code6",
+                            MValue = "value0",
+                        },
+                        EndingQuantity = "ending_quantity6",
+                    },
+                },
+                CreateTime = "create_time4",
+            },
+            TotalCycles = 1,
         },
-        "pricing_model": "VOLUME",
-        "tiers": [
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          },
-          {
-            "starting_quantity": "starting_quantity8",
-            "ending_quantity": "ending_quantity6",
-            "amount": {
-              "currency_code": "currency_code6",
-              "value": "value0"
-            }
-          }
-        ],
-        "create_time": "create_time4"
-      }
-    }
-  ],
-  "payment_preferences": {
-    "auto_bill_outstanding": true,
-    "setup_fee_failure_action": "CANCEL",
-    "payment_failure_threshold": 0,
-    "setup_fee": {
-      "currency_code": "currency_code8",
-      "value": "value4"
-    }
-  },
-  "quantity_supported": false,
-  "description": "description8",
-  "merchant_preferences": {
-    "return_url": "return_url4",
-    "cancel_url": "cancel_url6"
-  },
-  "taxes": {
-    "percentage": "percentage8",
-    "inclusive": false
-  }
-}
+    },
+    PaymentPreferences = new PaymentPreferences
+    {
+        AutoBillOutstanding = true,
+        SetupFee = new Money
+        {
+            CurrencyCode = "currency_code8",
+            MValue = "value4",
+        },
+        SetupFeeFailureAction = SetupFeeFailureAction.Cancel,
+        PaymentFailureThreshold = 0,
+    },
+    Status = PlanRequestStatus.Active,
+    Description = "description0",
+    MerchantPreferences = new MerchantPreferences
+    {
+        ReturnUrl = "return_url4",
+        CancelUrl = "cancel_url6",
+    },
+    Taxes = new Taxes
+    {
+        Percentage = "percentage8",
+        Inclusive = false,
+    },
+    QuantitySupported = false,
+};
 ```
 

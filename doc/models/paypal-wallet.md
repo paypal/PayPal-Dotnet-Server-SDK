@@ -23,23 +23,29 @@ A resource that identifies a PayPal Wallet is used for payment.
 | `BillingAgreementId` | `string` | Optional | The PayPal billing agreement ID. References an approved recurring payment for goods or services.<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `128`, *Pattern*: `^[a-zA-Z0-9-]+$` |
 | `StoredCredential` | [`PaypalWalletStoredCredential`](../../doc/models/paypal-wallet-stored-credential.md) | Optional | Provides additional details to process a payment using the PayPal wallet billing agreement or a vaulted payment method that has been stored or is intended to be stored. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWallet paypalWallet = new PaypalWallet
 {
-  "vault_id": "vault_id8",
-  "email_address": "email_address8",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "phone": {
-    "phone_type": "OTHER",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "birth_date": "birth_date4"
-}
+    VaultId = "vault_id4",
+    EmailAddress = "email_address6",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+    Phone = new PhoneWithType
+    {
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        PhoneType = PhoneType.Other,
+    },
+    BirthDate = "birth_date8",
+};
 ```
 

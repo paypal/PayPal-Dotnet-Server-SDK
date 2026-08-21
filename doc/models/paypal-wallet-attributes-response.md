@@ -14,66 +14,77 @@ Additional attributes associated with the use of a PayPal Wallet.
 | `Vault` | [`PaypalWalletVaultResponse`](../../doc/models/paypal-wallet-vault-response.md) | Optional | The details about a saved PayPal Wallet payment source. |
 | `CobrandedCards` | [`List<CobrandedCard>`](../../doc/models/cobranded-card.md) | Optional | An array of merchant cobranded cards used by buyer to complete an order. This array will be present if a merchant has onboarded their cobranded card with PayPal and provided corresponding label(s).<br><br>**Constraints**: *Minimum Items*: `0`, *Maximum Items*: `25` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+PaypalWalletAttributesResponse paypalWalletAttributesResponse = new PaypalWalletAttributesResponse
 {
-  "vault": {
-    "id": "id6",
-    "status": "APPROVED",
-    "links": [
-      {
-        "href": "href6",
-        "rel": "rel0",
-        "method": "HEAD"
-      }
-    ],
-    "customer": {
-      "id": "id0",
-      "email_address": "email_address2",
-      "phone": {
-        "phone_type": "OTHER",
-        "phone_number": {
-          "national_number": "national_number6"
-        }
-      },
-      "name": {
-        "given_name": "given_name2",
-        "surname": "surname8"
-      },
-      "merchant_customer_id": "merchant_customer_id2"
-    }
-  },
-  "cobranded_cards": [
+    Vault = new PaypalWalletVaultResponse
     {
-      "labels": [
-        "labels4",
-        "labels3"
-      ],
-      "payee": {
-        "email_address": "email_address4",
-        "merchant_id": "merchant_id6"
-      },
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      }
+        Id = "id6",
+        Status = PaypalWalletVaultStatus.Approved,
+        Customer = new PaypalWalletCustomer
+        {
+            Id = "id0",
+            EmailAddress = "email_address2",
+            Phone = new PhoneWithType
+            {
+                PhoneNumber = new PhoneNumber
+                {
+                    NationalNumber = "national_number6",
+                },
+                PhoneType = PhoneType.Other,
+            },
+            Name = new Name
+            {
+                GivenName = "given_name2",
+                Surname = "surname8",
+            },
+            MerchantCustomerId = "merchant_customer_id2",
+        },
     },
+    CobrandedCards = new List<CobrandedCard>
     {
-      "labels": [
-        "labels4",
-        "labels3"
-      ],
-      "payee": {
-        "email_address": "email_address4",
-        "merchant_id": "merchant_id6"
-      },
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      }
-    }
-  ]
-}
+        new CobrandedCard
+        {
+            Labels = new List<string>
+            {
+                "labels4",
+                "labels3",
+            },
+            Payee = new PayeeBase
+            {
+                EmailAddress = "email_address4",
+                MerchantId = "merchant_id6",
+            },
+            Amount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value0",
+            },
+        },
+        new CobrandedCard
+        {
+            Labels = new List<string>
+            {
+                "labels4",
+                "labels3",
+            },
+            Payee = new PayeeBase
+            {
+                EmailAddress = "email_address4",
+                MerchantId = "merchant_id6",
+            },
+            Amount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value0",
+            },
+        },
+    },
+};
 ```
 

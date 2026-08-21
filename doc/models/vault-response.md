@@ -16,26 +16,24 @@ The details about a saved payment source.
 | `Customer` | [`VaultCustomer`](../../doc/models/vault-customer.md) | Optional | This object represents a merchant’s customer, allowing them to store contact details, and track all payments associated with the same customer. |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related HATEOAS links.<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VaultResponse vaultResponse = new VaultResponse
 {
-  "id": "id2",
-  "status": "CREATED",
-  "customer": {
-    "id": "id0",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
-    }
-  },
-  "links": [
+    Id = "id2",
+    Status = VaultStatus.Vaulted,
+    Customer = new VaultCustomer
     {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ]
-}
+        Id = "id0",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+    },
+};
 ```
 

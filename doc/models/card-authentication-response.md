@@ -13,15 +13,19 @@ Results of Authentication such as 3D Secure.
 |  --- | --- | --- | --- |
 | `ThreeDSecure` | [`ThreeDSecureCardAuthenticationResponse`](../../doc/models/three-d-secure-card-authentication-response.md) | Optional | Results of 3D Secure Authentication. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardAuthenticationResponse cardAuthenticationResponse = new CardAuthenticationResponse
 {
-  "three_d_secure": {
-    "authentication_status": "C",
-    "enrollment_status": "Y",
-    "authentication_id": "authentication_id6"
-  }
-}
+    ThreeDSecure = new ThreeDSecureCardAuthenticationResponse
+    {
+        AuthenticationStatus = PaResStatus.ChallengeRequired,
+        EnrollmentStatus = EnrollmentStatus.Enrolled,
+        AuthenticationId = "authentication_id6",
+    },
+};
 ```
 

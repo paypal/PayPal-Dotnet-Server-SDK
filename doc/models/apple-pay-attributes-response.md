@@ -13,28 +13,27 @@ Additional attributes associated with the use of Apple Pay.
 |  --- | --- | --- | --- |
 | `Vault` | [`VaultResponse`](../../doc/models/vault-response.md) | Optional | The details about a saved payment source. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayAttributesResponse applePayAttributesResponse = new ApplePayAttributesResponse
 {
-  "vault": {
-    "id": "id6",
-    "status": "APPROVED",
-    "customer": {
-      "id": "id0",
-      "name": {
-        "given_name": "given_name2",
-        "surname": "surname8"
-      }
+    Vault = new VaultResponse
+    {
+        Id = "id6",
+        Status = VaultStatus.Approved,
+        Customer = new VaultCustomer
+        {
+            Id = "id0",
+            Name = new Name
+            {
+                GivenName = "given_name2",
+                Surname = "surname8",
+            },
+        },
     },
-    "links": [
-      {
-        "href": "href6",
-        "rel": "rel0",
-        "method": "HEAD"
-      }
-    ]
-  }
-}
+};
 ```
 

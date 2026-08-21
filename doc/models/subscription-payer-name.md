@@ -18,15 +18,18 @@ The name of the party.
 | `Suffix` | `string` | Optional | The suffix for the party's name.<br><br>**Constraints**: *Maximum Length*: `140` |
 | `FullName` | `string` | Optional | When the party is a person, the party's full name.<br><br>**Constraints**: *Maximum Length*: `300` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPayerName subscriptionPayerName = new SubscriptionPayerName
 {
-  "prefix": "prefix4",
-  "given_name": "given_name8",
-  "surname": "surname2",
-  "middle_name": "middle_name4",
-  "suffix": "suffix4"
-}
+    Prefix = "prefix8",
+    GivenName = "given_name2",
+    Surname = "surname8",
+    MiddleName = "middle_name0",
+    Suffix = "suffix0",
+};
 ```
 

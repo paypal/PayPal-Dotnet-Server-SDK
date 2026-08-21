@@ -16,3 +16,11 @@ The PayPal reference ID type.
 | `Sub` | A subscription ID. |
 | `Pap` | A pre-approved payment ID. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalReferenceIdType paypalReferenceIdType = PaypalReferenceIdType.Odr;
+```
+

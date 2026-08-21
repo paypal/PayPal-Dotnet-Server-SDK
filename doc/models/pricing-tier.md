@@ -15,16 +15,20 @@ The pricing tier details.
 | `EndingQuantity` | `string` | Optional | The ending quantity for the tier. Optional for the last tier.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `32`, *Pattern*: `^([0-9]+\|([0-9]+)?[.][0-9]+)$` |
 | `Amount` | [`Money`](../../doc/models/money.md) | Required | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PricingTier pricingTier = new PricingTier
 {
-  "starting_quantity": "starting_quantity4",
-  "ending_quantity": "ending_quantity6",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  }
-}
+    StartingQuantity = "starting_quantity6",
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+    EndingQuantity = "ending_quantity8",
+};
 ```
 

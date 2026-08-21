@@ -24,19 +24,25 @@ The subscription details.
 | `PlanOverridden` | `bool?` | Optional, Read-only | Indicates whether the subscription has overridden any plan attributes. |
 | `Plan` | [`PlanDetails`](../../doc/models/plan-details.md) | Optional | The plan details. |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links). |
+| `Status` | [`SubscriptionStatus?`](../../doc/models/subscription-status.md) | Optional | The status of the subscription. |
+| `StatusChangeNote` | `string` | Optional | The reason or notes for the status of the subscription.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `128`, *Pattern*: `^.*$` |
+| `StatusUpdateTime` | `string` | Optional | The date and time, in [Internet date and time format](https://tools.ietf.org/html/rfc3339#section-5.6). Seconds are required while fractional seconds are optional. Note: The regular expression provides guidance but does not reject all invalid dates.<br><br>**Constraints**: *Minimum Length*: `20`, *Maximum Length*: `64`, *Pattern*: `^[0-9]{4}-(0[1-9]\|1[0-2])-(0[1-9]\|[1-2][0-9]\|3[0-1])[T,t]([0-1][0-9]\|2[0-3]):[0-5][0-9]:([0-5][0-9]\|60)([.][0-9]+)?([Zz]\|[+-][0-9]{2}:[0-9]{2})$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+Subscription subscription = new Subscription
 {
-  "id": "id4",
-  "plan_id": "plan_id6",
-  "start_time": "start_time8",
-  "quantity": "quantity0",
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  }
-}
+    PlanId = "plan_id6",
+    StartTime = "start_time8",
+    Quantity = "quantity0",
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+};
 ```
 

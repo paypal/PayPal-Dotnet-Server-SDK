@@ -15,56 +15,77 @@ The merchant level Recurring Billing plan metadata for the Billing Agreement.
 | `OneTimeCharges` | [`OneTimeCharge`](../../doc/models/one-time-charge.md) | Required | The one-time charge info at the time of checkout. |
 | `Name` | `string` | Optional | Name of the recurring plan.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `127`, *Pattern*: `^[A-Za-z0-9() +',.:-]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+Plan plan = new Plan
 {
-  "billing_cycles": [
+    BillingCycles = new List<BillingCycle>
     {
-      "tenure_type": "REGULAR",
-      "total_cycles": 1,
-      "sequence": 1,
-      "pricing_scheme": {
-        "price": {
-          "currency_code": "currency_code8",
-          "value": "value4"
+        new BillingCycle
+        {
+            TenureType = TenureType.Regular,
+            PricingScheme = new PricingScheme
+            {
+                PricingModel = PricingModel.AutoReload,
+                Price = new Money
+                {
+                    CurrencyCode = "currency_code8",
+                    MValue = "value4",
+                },
+                ReloadThresholdAmount = new Money
+                {
+                    CurrencyCode = "currency_code0",
+                    MValue = "value6",
+                },
+            },
+            TotalCycles = 1,
+            Sequence = 1,
+            StartDate = "start_date6",
+            Frequency = new CycleFrequency
+            {
+                IntervalUnit = FrequencyIntervalUnit.Lifetime,
+                IntervalCount = 94,
+            },
         },
-        "pricing_model": "AUTO_RELOAD",
-        "reload_threshold_amount": {
-          "currency_code": "currency_code0",
-          "value": "value6"
-        }
-      },
-      "start_date": "start_date6"
-    }
-  ],
-  "one_time_charges": {
-    "setup_fee": {
-      "currency_code": "currency_code8",
-      "value": "value4"
     },
-    "shipping_amount": {
-      "currency_code": "currency_code0",
-      "value": "value6"
+    OneTimeCharges = new OneTimeCharge
+    {
+        TotalAmount = new Money
+        {
+            CurrencyCode = "currency_code2",
+            MValue = "value8",
+        },
+        SetupFee = new Money
+        {
+            CurrencyCode = "currency_code8",
+            MValue = "value4",
+        },
+        ShippingAmount = new Money
+        {
+            CurrencyCode = "currency_code0",
+            MValue = "value6",
+        },
+        Taxes = new Money
+        {
+            CurrencyCode = "currency_code6",
+            MValue = "value2",
+        },
+        ProductPrice = new Money
+        {
+            CurrencyCode = "currency_code6",
+            MValue = "value2",
+        },
+        Subtotal = new Money
+        {
+            CurrencyCode = "currency_code2",
+            MValue = "value8",
+        },
     },
-    "taxes": {
-      "currency_code": "currency_code6",
-      "value": "value2"
-    },
-    "product_price": {
-      "currency_code": "currency_code6",
-      "value": "value2"
-    },
-    "subtotal": {
-      "currency_code": "currency_code2",
-      "value": "value8"
-    },
-    "total_amount": {
-      "currency_code": "currency_code2",
-      "value": "value8"
-    }
-  },
-  "name": "name8"
-}
+    Name = "name4",
+};
 ```
 

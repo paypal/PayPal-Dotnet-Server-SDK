@@ -17,89 +17,38 @@ Minimal representation of a cached setup token.
 | `PaymentSource` | [`SetupTokenResponsePaymentSource`](../../doc/models/setup-token-response-payment-source.md) | Optional | The setup payment method details. |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `32` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SetupTokenResponse setupTokenResponse = new SetupTokenResponse
 {
-  "status": "CREATED",
-  "id": "id6",
-  "customer": {
-    "id": "id0",
-    "merchant_customer_id": "merchant_customer_id2"
-  },
-  "payment_source": {
-    "card": {
-      "name": "name6",
-      "last_digits": "last_digits0",
-      "brand": "CB_NATIONALE",
-      "expiry": "expiry4",
-      "billing_address": {
-        "address_line_1": "address_line_12",
-        "address_line_2": "address_line_28",
-        "admin_area_2": "admin_area_28",
-        "admin_area_1": "admin_area_14",
-        "postal_code": "postal_code0",
-        "country_code": "country_code8"
-      }
-    },
-    "paypal": {
-      "description": "description2",
-      "usage_pattern": "THRESHOLD_PREPAID",
-      "shipping": {
-        "name": {
-          "full_name": "full_name6"
-        },
-        "email_address": "email_address2",
-        "phone_number": {
-          "country_code": "country_code2",
-          "national_number": "national_number6"
-        },
-        "type": "SHIPPING",
-        "address": {
-          "address_line_1": "address_line_16",
-          "address_line_2": "address_line_26",
-          "admin_area_2": "admin_area_20",
-          "admin_area_1": "admin_area_12",
-          "postal_code": "postal_code8",
-          "country_code": "country_code6"
-        }
-      },
-      "permit_multiple_payment_tokens": false,
-      "usage_type": "MERCHANT"
-    },
-    "venmo": {
-      "description": "description6",
-      "usage_pattern": "UNSCHEDULED_PREPAID",
-      "shipping": {
-        "name": {
-          "full_name": "full_name6"
-        },
-        "email_address": "email_address2",
-        "phone_number": {
-          "country_code": "country_code2",
-          "national_number": "national_number6"
-        },
-        "type": "SHIPPING",
-        "address": {
-          "address_line_1": "address_line_16",
-          "address_line_2": "address_line_26",
-          "admin_area_2": "admin_area_20",
-          "admin_area_1": "admin_area_12",
-          "postal_code": "postal_code8",
-          "country_code": "country_code6"
-        }
-      },
-      "permit_multiple_payment_tokens": false,
-      "usage_type": "MERCHANT"
-    }
-  },
-  "links": [
+    Id = "id2",
+    Customer = new Customer
     {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ]
-}
+        Id = "id0",
+        MerchantCustomerId = "merchant_customer_id2",
+    },
+    Status = PaymentTokenStatus.Created,
+    PaymentSource = new SetupTokenResponsePaymentSource
+    {
+        Card = new SetupTokenResponseCard
+        {
+            Name = "name6",
+            Brand = CardBrand.CbNationale,
+            Expiry = "expiry4",
+            BillingAddress = new CardResponseAddress
+            {
+                CountryCode = "country_code8",
+                AddressLine1 = "address_line_12",
+                AddressLine2 = "address_line_28",
+                AdminArea2 = "admin_area_28",
+                AdminArea1 = "admin_area_14",
+                PostalCode = "postal_code0",
+            },
+        },
+    },
+};
 ```
 

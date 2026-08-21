@@ -26,20 +26,24 @@ The line items for this purchase. If your merchant account has been configured f
 | `TotalAmount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `UnitOfMeasure` | `string` | Optional | Unit of measure is a standard used to express the magnitude of a quantity in international trade. Most commonly used (but not limited to) examples are: Acre (ACR), Ampere (AMP), Centigram (CGM), Centimetre (CMT), Cubic inch (INQ), Cubic metre (MTQ), Fluid ounce (OZA), Foot (FOT), Hour (HUR), Item (ITM), Kilogram (KGM), Kilometre (KMT), Kilowatt (KWT), Liquid gallon (GLL), Liter (LTR), Pounds (LBS), Square foot (FTK).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `12`, *Pattern*: `^[a-zA-Z0-9_'.-]*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+LineItem lineItem = new LineItem
 {
-  "name": "name8",
-  "quantity": "quantity4",
-  "description": "description8",
-  "sku": "sku6",
-  "url": "url2",
-  "image_url": "image_url4",
-  "upc": {
-    "type": "UPC-B",
-    "code": "code0"
-  }
-}
+    Name = "name6",
+    Quantity = "quantity2",
+    Description = "description6",
+    Sku = "sku2",
+    Url = "url0",
+    ImageUrl = "image_url2",
+    Upc = new UniversalProductCode
+    {
+        Type = UpcType.UpcB,
+        Code = "code0",
+    },
+};
 ```
 

@@ -15,34 +15,49 @@ Metadata for merchant-managed recurring billing plans. Valid only during the sav
 | `SetupFee` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `Name` | `string` | Optional | Name of the recurring plan.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `127`, *Pattern*: `^[A-Za-z0-9() +',.:-]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+OrderBillingPlan orderBillingPlan = new OrderBillingPlan
 {
-  "billing_cycles": [
+    BillingCycles = new List<BillingCycle>
     {
-      "tenure_type": "REGULAR",
-      "total_cycles": 1,
-      "sequence": 1,
-      "pricing_scheme": {
-        "price": {
-          "currency_code": "currency_code8",
-          "value": "value4"
+        new BillingCycle
+        {
+            TenureType = TenureType.Regular,
+            PricingScheme = new PricingScheme
+            {
+                PricingModel = PricingModel.AutoReload,
+                Price = new Money
+                {
+                    CurrencyCode = "currency_code8",
+                    MValue = "value4",
+                },
+                ReloadThresholdAmount = new Money
+                {
+                    CurrencyCode = "currency_code0",
+                    MValue = "value6",
+                },
+            },
+            TotalCycles = 1,
+            Sequence = 1,
+            StartDate = "start_date6",
+            Frequency = new CycleFrequency
+            {
+                IntervalUnit = FrequencyIntervalUnit.Lifetime,
+                IntervalCount = 94,
+            },
         },
-        "pricing_model": "AUTO_RELOAD",
-        "reload_threshold_amount": {
-          "currency_code": "currency_code0",
-          "value": "value6"
-        }
-      },
-      "start_date": "start_date6"
-    }
-  ],
-  "setup_fee": {
-    "currency_code": "currency_code8",
-    "value": "value4"
-  },
-  "name": "name4"
-}
+    },
+    SetupFee = new Money
+    {
+        CurrencyCode = "currency_code8",
+        MValue = "value4",
+    },
+    Name = "name6",
+};
 ```
 

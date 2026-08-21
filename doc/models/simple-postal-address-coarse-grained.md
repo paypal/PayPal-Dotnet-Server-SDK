@@ -18,16 +18,19 @@ A simple postal address with coarse-grained fields. Do not use for an internatio
 | `CountryCode` | `string` | Required | The [two-character ISO 3166-1 code](/docs/integration/direct/rest/country-codes/) that identifies the country or region. Note: The country code for Great Britain is GB and not UK as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2`, *Pattern*: `^([A-Z]{2}\|C2)$` |
 | `PostalCode` | `string` | Optional | The postal code, which is the zip code or equivalent. Typically required for countries with a postal code or an equivalent. See [postal code](https://en.wikipedia.org/wiki/Postal_code). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SimplePostalAddressCoarseGrained simplePostalAddressCoarseGrained = new SimplePostalAddressCoarseGrained
 {
-  "line1": "line14",
-  "line2": "line26",
-  "city": "city2",
-  "state": "state8",
-  "country_code": "country_code2",
-  "postal_code": "postal_code4"
-}
+    Line1 = "line14",
+    City = "city2",
+    CountryCode = "country_code2",
+    Line2 = "line26",
+    State = "state8",
+    PostalCode = "postal_code4",
+};
 ```
 

@@ -15,3 +15,11 @@ The location from which the shipping address is derived., The shipping preferenc
 | `NoShipping` | Redacts the shipping address from the PayPal site. Recommended for digital goods. |
 | `SetProvidedAddress` | Merchant sends the shipping address using purchase_units.shipping.address. The customer cannot change this address on the PayPal site. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ExperienceContextShippingPreference experienceContextShippingPreference = ExperienceContextShippingPreference.NoShipping;
+```
+

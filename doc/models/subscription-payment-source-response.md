@@ -13,23 +13,28 @@ The payment source used to fund the payment.
 |  --- | --- | --- | --- |
 | `Card` | [`CardResponseWithBillingAddress`](../../doc/models/card-response-with-billing-address.md) | Optional | The payment card used to fund the payment. Card can be a credit or debit card. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPaymentSourceResponse subscriptionPaymentSourceResponse = new SubscriptionPaymentSourceResponse
 {
-  "card": {
-    "name": "name6",
-    "billing_address": {
-      "address_line_1": "address_line_12",
-      "address_line_2": "address_line_28",
-      "admin_area_2": "admin_area_28",
-      "admin_area_1": "admin_area_14",
-      "postal_code": "postal_code0",
-      "country_code": "country_code8"
+    Card = new CardResponseWithBillingAddress
+    {
+        Name = "name6",
+        BillingAddress = new Address
+        {
+            CountryCode = "country_code8",
+            AddressLine1 = "address_line_12",
+            AddressLine2 = "address_line_28",
+            AdminArea2 = "admin_area_28",
+            AdminArea1 = "admin_area_14",
+            PostalCode = "postal_code0",
+        },
+        Expiry = "expiry4",
+        CurrencyCode = "currency_code2",
     },
-    "expiry": "expiry4",
-    "currency_code": "currency_code2"
-  }
-}
+};
 ```
 

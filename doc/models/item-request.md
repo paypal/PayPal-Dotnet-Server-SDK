@@ -23,24 +23,29 @@ The details for the items to be purchased.
 | `Upc` | [`UniversalProductCode`](../../doc/models/universal-product-code.md) | Optional | The Universal Product Code of the item. |
 | `BillingPlan` | [`OrderBillingPlan`](../../doc/models/order-billing-plan.md) | Optional | Metadata for merchant-managed recurring billing plans. Valid only during the saved payment method token or billing agreement creation. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ItemRequest itemRequest = new ItemRequest
 {
-  "name": "name0",
-  "unit_amount": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  },
-  "tax": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "quantity": "quantity6",
-  "description": "description0",
-  "sku": "sku6",
-  "url": "url4",
-  "category": "DIGITAL_GOODS"
-}
+    Name = "name8",
+    UnitAmount = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+    Quantity = "quantity4",
+    Tax = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+    Description = "description2",
+    Sku = "sku6",
+    Url = "url2",
+    Category = ItemCategory.DigitalGoods,
+};
 ```
 

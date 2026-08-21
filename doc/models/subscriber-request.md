@@ -18,48 +18,61 @@ The subscriber request information .
 | `PaymentSource` | [`SubscriptionPaymentSource`](../../doc/models/subscription-payment-source.md) | Optional | The payment source definition. To be eligible to create subscription using debit or credit card, you will need to sign up here (https://www.paypal.com/bizsignup/entry/product/ppcp). Please note, its available only for non-3DS cards and for merchants in US and AU regions. |
 | `Phone` | [`PhoneWithType`](../../doc/models/phone-with-type.md) | Optional | The phone information. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+SubscriberRequest subscriberRequest = new SubscriberRequest
 {
-  "email_address": "email_address0",
-  "payer_id": "payer_id0",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "shipping_address": {
-    "name": {
-      "full_name": "full_name6"
+    EmailAddress = "email_address4",
+    PayerId = "payer_id4",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
     },
-    "email_address": "email_address8",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "PICKUP_IN_STORE",
-    "options": [
-      {
-        "id": "id2",
-        "label": "label2",
-        "type": "SHIPPING",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    ShippingAddress = new ShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
         },
-        "selected": false
-      }
-    ]
-  },
-  "payment_source": {
-    "card": {
-      "name": "name6",
-      "number": "number6",
-      "expiry": "expiry4",
-      "security_code": "security_code8",
-      "type": "UNKNOWN"
-    }
-  }
-}
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.PickupInStore,
+        Options = new List<ShippingOption>
+        {
+            new ShippingOption
+            {
+                Id = "id2",
+                Label = "label2",
+                Selected = false,
+                Type = ShippingType.Shipping,
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+        },
+    },
+    PaymentSource = new SubscriptionPaymentSource
+    {
+        Card = new SubscriptionCardRequest
+        {
+            Name = "name6",
+            Number = "number6",
+            Expiry = "expiry4",
+            SecurityCode = "security_code8",
+            Type = CardType.Unknown,
+        },
+    },
+};
 ```
 

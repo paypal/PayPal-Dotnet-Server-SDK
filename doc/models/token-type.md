@@ -13,3 +13,11 @@ The tokenization method that generated the ID.
 |  --- | --- |
 | `BillingAgreement` | The PayPal billing agreement ID. References an approved recurring payment for goods or services. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+TokenType tokenType = TokenType.BillingAgreement;
+```
+

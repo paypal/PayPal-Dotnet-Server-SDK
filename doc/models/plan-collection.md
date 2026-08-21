@@ -16,38 +16,40 @@ The list of plans with details.
 | `TotalPages` | `int?` | Optional | The total number of pages.<br><br>**Constraints**: `>= 0`, `<= 100000000` |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+PlanCollection planCollection = new PlanCollection
 {
-  "plans": [
+    Plans = new List<BillingPlan>
     {
-      "id": "id4",
-      "product_id": "product_id0",
-      "name": "name4",
-      "status": "INACTIVE",
-      "description": "description4"
-    }
-  ],
-  "total_items": 158,
-  "total_pages": 194,
-  "links": [
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
+        new BillingPlan
+        {
+            ProductId = "product_id0",
+            Name = "name4",
+            Status = SubscriptionPlanStatus.Inactive,
+            Description = "description4",
+        },
+        new BillingPlan
+        {
+            ProductId = "product_id0",
+            Name = "name4",
+            Status = SubscriptionPlanStatus.Inactive,
+            Description = "description4",
+        },
+        new BillingPlan
+        {
+            ProductId = "product_id0",
+            Name = "name4",
+            Status = SubscriptionPlanStatus.Inactive,
+            Description = "description4",
+        },
     },
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    },
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ]
-}
+    TotalItems = 244,
+    TotalPages = 24,
+};
 ```
 

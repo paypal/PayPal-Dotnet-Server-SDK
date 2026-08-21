@@ -16,20 +16,24 @@ Information needed to pay using iDEAL.
 | `Bic` | `string` | Optional | The business identification code (BIC). In payments systems, a BIC is used to identify a specific business, most commonly a bank.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11`, *Pattern*: `^[A-Z-a-z0-9]{4}[A-Z-a-z]{2}[A-Z-a-z0-9]{2}([A-Z-a-z0-9]{3})?$` |
 | `ExperienceContext` | [`ExperienceContext`](../../doc/models/experience-context.md) | Optional | Customizes the payer experience during the approval process for the payment. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+IdealPaymentRequest idealPaymentRequest = new IdealPaymentRequest
 {
-  "name": "name6",
-  "country_code": "country_code4",
-  "bic": "bic8",
-  "experience_context": {
-    "brand_name": "brand_name2",
-    "locale": "locale6",
-    "shipping_preference": "NO_SHIPPING",
-    "return_url": "return_url4",
-    "cancel_url": "cancel_url6"
-  }
-}
+    Name = "name0",
+    CountryCode = "country_code0",
+    Bic = "bic2",
+    ExperienceContext = new ExperienceContext
+    {
+        BrandName = "brand_name2",
+        Locale = "locale6",
+        ShippingPreference = ExperienceContextShippingPreference.NoShipping,
+        ReturnUrl = "return_url4",
+        CancelUrl = "cancel_url6",
+    },
+};
 ```
 

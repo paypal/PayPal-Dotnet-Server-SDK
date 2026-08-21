@@ -16,22 +16,28 @@ This object represents a merchant’s customer, allowing them to store contact d
 | `Phone` | [`PhoneWithType`](../../doc/models/phone-with-type.md) | Optional | The phone information. |
 | `Name` | [`Name`](../../doc/models/name.md) | Optional | The name of the party. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CustomerInformation customerInformation = new CustomerInformation
 {
-  "id": "id6",
-  "email_address": "email_address4",
-  "phone": {
-    "phone_type": "OTHER",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  }
-}
+    Id = "id6",
+    EmailAddress = "email_address4",
+    Phone = new PhoneWithType
+    {
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        PhoneType = PhoneType.Other,
+    },
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+};
 ```
 

@@ -13,17 +13,21 @@ The payment source definition. To be eligible to create subscription using debit
 |  --- | --- | --- | --- |
 | `Card` | [`SubscriptionCardRequest`](../../doc/models/subscription-card-request.md) | Optional | The payment card to use to fund a payment. Can be a credit or debit card. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPaymentSource subscriptionPaymentSource = new SubscriptionPaymentSource
 {
-  "card": {
-    "name": "name6",
-    "number": "number6",
-    "expiry": "expiry4",
-    "security_code": "security_code8",
-    "type": "UNKNOWN"
-  }
-}
+    Card = new SubscriptionCardRequest
+    {
+        Name = "name6",
+        Number = "number6",
+        Expiry = "expiry4",
+        SecurityCode = "security_code8",
+        Type = CardType.Unknown,
+    },
+};
 ```
 

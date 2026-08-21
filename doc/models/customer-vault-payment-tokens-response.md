@@ -17,242 +17,114 @@ Collection of payment tokens saved for a given customer.
 | `PaymentTokens` | [`List<PaymentTokenResponse>`](../../doc/models/payment-token-response.md) | Optional | **Constraints**: *Minimum Items*: `0`, *Maximum Items*: `64` |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of related [HATEOAS links](https://developer.paypal.com/api/rest/responses/#hateoas).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `32` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+CustomerVaultPaymentTokensResponse customerVaultPaymentTokensResponse = new CustomerVaultPaymentTokensResponse
 {
-  "total_items": 50,
-  "total_pages": 10,
-  "customer": {
-    "id": "id0",
-    "merchant_customer_id": "merchant_customer_id2",
-    "links": [
-      {
-        "key1": "val1",
-        "key2": "val2"
-      },
-      {
-        "key1": "val1",
-        "key2": "val2"
-      }
-    ]
-  },
-  "payment_tokens": [
+    TotalItems = 50,
+    TotalPages = 10,
+    Customer = new VaultResponseCustomer
     {
-      "id": "id4",
-      "customer": {
-        "id": "id0",
-        "merchant_customer_id": "merchant_customer_id2"
-      },
-      "payment_source": {
-        "card": {
-          "name": "name6",
-          "last_digits": "last_digits0",
-          "brand": "CB_NATIONALE",
-          "expiry": "expiry4",
-          "billing_address": {
-            "address_line_1": "address_line_12",
-            "address_line_2": "address_line_28",
-            "admin_area_2": "admin_area_28",
-            "admin_area_1": "admin_area_14",
-            "postal_code": "postal_code0",
-            "country_code": "country_code8"
-          }
-        },
-        "paypal": {
-          "description": "description2",
-          "usage_pattern": "THRESHOLD_PREPAID",
-          "shipping": {
-            "name": {
-              "full_name": "full_name6"
-            },
-            "email_address": "email_address2",
-            "phone_number": {
-              "country_code": "country_code2",
-              "national_number": "national_number6"
-            },
-            "type": "SHIPPING",
-            "address": {
-              "address_line_1": "address_line_16",
-              "address_line_2": "address_line_26",
-              "admin_area_2": "admin_area_20",
-              "admin_area_1": "admin_area_12",
-              "postal_code": "postal_code8",
-              "country_code": "country_code6"
-            }
-          },
-          "permit_multiple_payment_tokens": false,
-          "usage_type": "MERCHANT"
-        },
-        "venmo": {
-          "description": "description6",
-          "usage_pattern": "UNSCHEDULED_PREPAID",
-          "shipping": {
-            "name": {
-              "full_name": "full_name6"
-            },
-            "email_address": "email_address2",
-            "phone_number": {
-              "country_code": "country_code2",
-              "national_number": "national_number6"
-            },
-            "type": "SHIPPING",
-            "address": {
-              "address_line_1": "address_line_16",
-              "address_line_2": "address_line_26",
-              "admin_area_2": "admin_area_20",
-              "admin_area_1": "admin_area_12",
-              "postal_code": "postal_code8",
-              "country_code": "country_code6"
-            }
-          },
-          "permit_multiple_payment_tokens": false,
-          "usage_type": "MERCHANT"
-        },
-        "apple_pay": {
-          "card": {
-            "name": "name6",
-            "last_digits": "last_digits0",
-            "type": "UNKNOWN",
-            "brand": "CB_NATIONALE",
-            "billing_address": {
-              "address_line_1": "address_line_12",
-              "address_line_2": "address_line_28",
-              "admin_area_2": "admin_area_28",
-              "admin_area_1": "admin_area_14",
-              "postal_code": "postal_code0",
-              "country_code": "country_code8"
-            }
-          }
-        }
-      },
-      "links": [
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        },
-        {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        }
-      ]
+        Id = "id0",
+        MerchantCustomerId = "merchant_customer_id2",
     },
+    PaymentTokens = new List<PaymentTokenResponse>
     {
-      "id": "id4",
-      "customer": {
-        "id": "id0",
-        "merchant_customer_id": "merchant_customer_id2"
-      },
-      "payment_source": {
-        "card": {
-          "name": "name6",
-          "last_digits": "last_digits0",
-          "brand": "CB_NATIONALE",
-          "expiry": "expiry4",
-          "billing_address": {
-            "address_line_1": "address_line_12",
-            "address_line_2": "address_line_28",
-            "admin_area_2": "admin_area_28",
-            "admin_area_1": "admin_area_14",
-            "postal_code": "postal_code0",
-            "country_code": "country_code8"
-          }
-        },
-        "paypal": {
-          "description": "description2",
-          "usage_pattern": "THRESHOLD_PREPAID",
-          "shipping": {
-            "name": {
-              "full_name": "full_name6"
-            },
-            "email_address": "email_address2",
-            "phone_number": {
-              "country_code": "country_code2",
-              "national_number": "national_number6"
-            },
-            "type": "SHIPPING",
-            "address": {
-              "address_line_1": "address_line_16",
-              "address_line_2": "address_line_26",
-              "admin_area_2": "admin_area_20",
-              "admin_area_1": "admin_area_12",
-              "postal_code": "postal_code8",
-              "country_code": "country_code6"
-            }
-          },
-          "permit_multiple_payment_tokens": false,
-          "usage_type": "MERCHANT"
-        },
-        "venmo": {
-          "description": "description6",
-          "usage_pattern": "UNSCHEDULED_PREPAID",
-          "shipping": {
-            "name": {
-              "full_name": "full_name6"
-            },
-            "email_address": "email_address2",
-            "phone_number": {
-              "country_code": "country_code2",
-              "national_number": "national_number6"
-            },
-            "type": "SHIPPING",
-            "address": {
-              "address_line_1": "address_line_16",
-              "address_line_2": "address_line_26",
-              "admin_area_2": "admin_area_20",
-              "admin_area_1": "admin_area_12",
-              "postal_code": "postal_code8",
-              "country_code": "country_code6"
-            }
-          },
-          "permit_multiple_payment_tokens": false,
-          "usage_type": "MERCHANT"
-        },
-        "apple_pay": {
-          "card": {
-            "name": "name6",
-            "last_digits": "last_digits0",
-            "type": "UNKNOWN",
-            "brand": "CB_NATIONALE",
-            "billing_address": {
-              "address_line_1": "address_line_12",
-              "address_line_2": "address_line_28",
-              "admin_area_2": "admin_area_28",
-              "admin_area_1": "admin_area_14",
-              "postal_code": "postal_code0",
-              "country_code": "country_code8"
-            }
-          }
-        }
-      },
-      "links": [
+        new PaymentTokenResponse
         {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
+            Id = "id4",
+            Customer = new CustomerResponse
+            {
+                Id = "id0",
+                MerchantCustomerId = "merchant_customer_id2",
+            },
+            PaymentSource = new PaymentTokenResponsePaymentSource
+            {
+                Card = new CardPaymentTokenEntity
+                {
+                    Name = "name6",
+                    Brand = CardBrand.CbNationale,
+                    Expiry = "expiry4",
+                    BillingAddress = new CardResponseAddress
+                    {
+                        CountryCode = "country_code8",
+                        AddressLine1 = "address_line_12",
+                        AddressLine2 = "address_line_28",
+                        AdminArea2 = "admin_area_28",
+                        AdminArea1 = "admin_area_14",
+                        PostalCode = "postal_code0",
+                    },
+                },
+                ApplePay = new ApplePayPaymentToken
+                {
+                    Card = new ApplePayCard
+                    {
+                        Name = "name6",
+                        Type = CardType.Unknown,
+                        Brand = CardBrand.CbNationale,
+                        BillingAddress = new Address
+                        {
+                            CountryCode = "country_code8",
+                            AddressLine1 = "address_line_12",
+                            AddressLine2 = "address_line_28",
+                            AdminArea2 = "admin_area_28",
+                            AdminArea1 = "admin_area_14",
+                            PostalCode = "postal_code0",
+                        },
+                    },
+                },
+            },
         },
+        new PaymentTokenResponse
         {
-          "href": "href6",
-          "rel": "rel0",
-          "method": "HEAD"
-        }
-      ]
-    }
-  ],
-  "links": [
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
+            Id = "id4",
+            Customer = new CustomerResponse
+            {
+                Id = "id0",
+                MerchantCustomerId = "merchant_customer_id2",
+            },
+            PaymentSource = new PaymentTokenResponsePaymentSource
+            {
+                Card = new CardPaymentTokenEntity
+                {
+                    Name = "name6",
+                    Brand = CardBrand.CbNationale,
+                    Expiry = "expiry4",
+                    BillingAddress = new CardResponseAddress
+                    {
+                        CountryCode = "country_code8",
+                        AddressLine1 = "address_line_12",
+                        AddressLine2 = "address_line_28",
+                        AdminArea2 = "admin_area_28",
+                        AdminArea1 = "admin_area_14",
+                        PostalCode = "postal_code0",
+                    },
+                },
+                ApplePay = new ApplePayPaymentToken
+                {
+                    Card = new ApplePayCard
+                    {
+                        Name = "name6",
+                        Type = CardType.Unknown,
+                        Brand = CardBrand.CbNationale,
+                        BillingAddress = new Address
+                        {
+                            CountryCode = "country_code8",
+                            AddressLine1 = "address_line_12",
+                            AddressLine2 = "address_line_28",
+                            AdminArea2 = "admin_area_28",
+                            AdminArea1 = "admin_area_14",
+                            PostalCode = "postal_code0",
+                        },
+                    },
+                },
+            },
+        },
     },
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ]
-}
+};
 ```
 

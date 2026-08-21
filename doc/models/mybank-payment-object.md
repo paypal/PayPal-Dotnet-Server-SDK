@@ -16,14 +16,17 @@ Information used to pay using MyBank.
 | `Bic` | `string` | Optional | The business identification code (BIC). In payments systems, a BIC is used to identify a specific business, most commonly a bank.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11`, *Pattern*: `^[A-Z-a-z0-9]{4}[A-Z-a-z]{2}[A-Z-a-z0-9]{2}([A-Z-a-z0-9]{3})?$` |
 | `IbanLastChars` | `string` | Optional | The last characters of the IBAN used to pay.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `34`, *Pattern*: `[a-zA-Z0-9]{4}` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+MybankPaymentObject mybankPaymentObject = new MybankPaymentObject
 {
-  "name": "name4",
-  "country_code": "country_code4",
-  "bic": "bic6",
-  "iban_last_chars": "iban_last_chars2"
-}
+    Name = "name2",
+    CountryCode = "country_code8",
+    Bic = "bic4",
+    IbanLastChars = "iban_last_chars0",
+};
 ```
 

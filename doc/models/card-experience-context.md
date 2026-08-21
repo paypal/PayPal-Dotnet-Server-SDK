@@ -14,12 +14,15 @@ Customizes the payer experience during the 3DS Approval for payment.
 | `ReturnUrl` | `string` | Optional | Describes the URL. |
 | `CancelUrl` | `string` | Optional | Describes the URL. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardExperienceContext cardExperienceContext = new CardExperienceContext
 {
-  "return_url": "return_url2",
-  "cancel_url": "cancel_url0"
-}
+    ReturnUrl = "return_url0",
+    CancelUrl = "cancel_url2",
+};
 ```
 

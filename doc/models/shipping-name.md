@@ -13,11 +13,14 @@ The name of the party.
 |  --- | --- | --- | --- |
 | `FullName` | `string` | Optional | When the party is a person, the party's full name.<br><br>**Constraints**: *Maximum Length*: `300` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ShippingName shippingName = new ShippingName
 {
-  "full_name": "full_name6"
-}
+    FullName = "full_name8",
+};
 ```
 

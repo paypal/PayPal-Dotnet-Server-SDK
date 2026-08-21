@@ -16,14 +16,17 @@ Information used to pay using BLIK one-click flow.
 | `AliasLabel` | `string` | Optional | A bank defined identifier used as a display name to allow the payer to differentiate between multiple registered bank accounts.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `35`, *Pattern*: `^[ -~]{8,35}$` |
 | `AliasKey` | `string` | Optional | A Blik-defined identifier for a specific Blik-enabled bank account that is associated with a given merchant. Used only in conjunction with a Consumer Reference.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `19`, *Pattern*: `^[0-9]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+BlikOneClickPaymentRequest blikOneClickPaymentRequest = new BlikOneClickPaymentRequest
 {
-  "auth_code": "auth_code8",
-  "consumer_reference": "consumer_reference6",
-  "alias_label": "alias_label2",
-  "alias_key": "alias_key6"
-}
+    ConsumerReference = "consumer_reference2",
+    AuthCode = "auth_code4",
+    AliasLabel = "alias_label2",
+    AliasKey = "alias_key0",
+};
 ```
 

@@ -25,18 +25,21 @@ The PayPal Wallet response.
 | `StoredCredential` | [`PaypalWalletStoredCredential`](../../doc/models/paypal-wallet-stored-credential.md) | Optional | Provides additional details to process a payment using the PayPal wallet billing agreement or a vaulted payment method that has been stored or is intended to be stored. |
 | `ExperienceStatus` | [`ExperienceStatus?`](../../doc/models/experience-status.md) | Optional, Read-only | This field indicates the status of PayPal's Checkout experience throughout the order lifecycle. The values reflect the current stage of the checkout process.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWalletResponse paypalWalletResponse = new PaypalWalletResponse
 {
-  "email_address": "email_address8",
-  "account_id": "account_id2",
-  "account_status": "VERIFIED",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "phone_type": "OTHER"
-}
+    EmailAddress = "email_address0",
+    AccountId = "account_id4",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+    PhoneType = PhoneType.Fax,
+};
 ```
 

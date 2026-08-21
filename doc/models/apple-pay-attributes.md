@@ -14,27 +14,35 @@ Additional attributes associated with apple pay.
 | `Customer` | [`CustomerInformation`](../../doc/models/customer-information.md) | Optional | This object represents a merchant’s customer, allowing them to store contact details, and track all payments associated with the same customer. |
 | `Vault` | [`VaultInstruction`](../../doc/models/vault-instruction.md) | Optional | Base vaulting specification. The object can be extended for specific use cases within each payment_source that supports vaulting. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayAttributes applePayAttributes = new ApplePayAttributes
 {
-  "customer": {
-    "id": "id0",
-    "email_address": "email_address2",
-    "phone": {
-      "phone_type": "OTHER",
-      "phone_number": {
-        "national_number": "national_number6"
-      }
+    Customer = new CustomerInformation
+    {
+        Id = "id0",
+        EmailAddress = "email_address2",
+        Phone = new PhoneWithType
+        {
+            PhoneNumber = new PhoneNumber
+            {
+                NationalNumber = "national_number6",
+            },
+            PhoneType = PhoneType.Other,
+        },
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
     },
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
-    }
-  },
-  "vault": {
-    "store_in_vault": "ON_SUCCESS"
-  }
-}
+    Vault = new VaultInstruction
+    {
+        StoreInVault = StoreInVaultInstruction.OnSuccess,
+    },
+};
 ```
 

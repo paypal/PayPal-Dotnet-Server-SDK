@@ -26,49 +26,54 @@ The payment source used to fund the payment.
 | `GooglePay` | [`GooglePayWalletResponse`](../../doc/models/google-pay-wallet-response.md) | Optional | Google Pay Wallet payment data. |
 | `Venmo` | [`VenmoWalletResponse`](../../doc/models/venmo-wallet-response.md) | Optional | Venmo wallet response. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentSourceResponse paymentSourceResponse = new PaymentSourceResponse
 {
-  "card": {
-    "name": "name6",
-    "last_digits": "last_digits0",
-    "brand": "CB_NATIONALE",
-    "available_networks": [
-      "DELTA"
-    ],
-    "type": "UNKNOWN"
-  },
-  "paypal": {
-    "email_address": "email_address0",
-    "account_id": "account_id4",
-    "account_status": "VERIFIED",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    Card = new CardResponse
+    {
+        Name = "name6",
+        Brand = CardBrand.CbNationale,
+        Type = CardType.Unknown,
     },
-    "phone_type": "FAX"
-  },
-  "bancontact": {
-    "name": "name0",
-    "country_code": "country_code0",
-    "bic": "bic2",
-    "iban_last_chars": "iban_last_chars8",
-    "card_last_digits": "card_last_digits4"
-  },
-  "blik": {
-    "name": "name2",
-    "country_code": "country_code2",
-    "email": "email4",
-    "one_click": {
-      "consumer_reference": "consumer_reference2"
-    }
-  },
-  "eps": {
-    "name": "name6",
-    "country_code": "country_code6",
-    "bic": "bic8"
-  }
-}
+    Paypal = new PaypalWalletResponse
+    {
+        EmailAddress = "email_address0",
+        AccountId = "account_id4",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        PhoneType = PhoneType.Fax,
+    },
+    Bancontact = new BancontactPaymentObject
+    {
+        Name = "name0",
+        CountryCode = "country_code0",
+        Bic = "bic2",
+        IbanLastChars = "iban_last_chars8",
+        CardLastDigits = "card_last_digits4",
+    },
+    Blik = new BlikPaymentObject
+    {
+        Name = "name2",
+        CountryCode = "country_code2",
+        Email = "email4",
+        OneClick = new BlikOneClickPaymentObject
+        {
+            ConsumerReference = "consumer_reference2",
+        },
+    },
+    Eps = new EpsPaymentObject
+    {
+        Name = "name6",
+        CountryCode = "country_code6",
+        Bic = "bic8",
+    },
+};
 ```
 

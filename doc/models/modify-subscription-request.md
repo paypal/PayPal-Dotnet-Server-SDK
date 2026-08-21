@@ -18,49 +18,62 @@ The request to update the quantity of the product or service in a subscription. 
 | `ApplicationContext` | [`SubscriptionPatchApplicationContext`](../../doc/models/subscription-patch-application-context.md) | Optional | The application context, which customizes the payer experience during the subscription approval process with PayPal. |
 | `Plan` | [`PlanOverride`](../../doc/models/plan-override.md) | Optional | An inline plan object to customise the subscription. You can override plan level default attributes by providing customised values for the subscription in this object. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+ModifySubscriptionRequest modifySubscriptionRequest = new ModifySubscriptionRequest
 {
-  "plan_id": "plan_id6",
-  "quantity": "quantity0",
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "shipping_address": {
-    "name": {
-      "full_name": "full_name6"
+    PlanId = "plan_id0",
+    Quantity = "quantity4",
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
     },
-    "email_address": "email_address8",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "PICKUP_IN_STORE",
-    "options": [
-      {
-        "id": "id2",
-        "label": "label2",
-        "type": "SHIPPING",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    ShippingAddress = new ShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
         },
-        "selected": false
-      }
-    ]
-  },
-  "application_context": {
-    "brand_name": "brand_name8",
-    "locale": "locale2",
-    "shipping_preference": "SET_PROVIDED_ADDRESS",
-    "payment_method": {
-      "payee_preferred": "UNRESTRICTED"
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.PickupInStore,
+        Options = new List<ShippingOption>
+        {
+            new ShippingOption
+            {
+                Id = "id2",
+                Label = "label2",
+                Selected = false,
+                Type = ShippingType.Shipping,
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+        },
     },
-    "return_url": "return_url0",
-    "cancel_url": "cancel_url2"
-  }
-}
+    ApplicationContext = new SubscriptionPatchApplicationContext
+    {
+        ReturnUrl = "return_url0",
+        CancelUrl = "cancel_url2",
+        BrandName = "brand_name8",
+        Locale = "locale2",
+        ShippingPreference = ExperienceContextShippingPreference.SetProvidedAddress,
+        PaymentMethod = new PaymentMethod
+        {
+            PayeePreferred = PayeePaymentMethodPreference.Unrestricted,
+        },
+    },
+};
 ```
 

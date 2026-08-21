@@ -15,47 +15,59 @@ The billing cycle details to override at subscription level. The subscription bi
 | `Sequence` | `int` | Required | The order in which this cycle is to run among other billing cycles. For example, a trial billing cycle has a `sequence` of `1` while a regular billing cycle has a `sequence` of `2`, so that trial cycle runs before the regular cycle.<br><br>**Constraints**: `>= 1`, `<= 99` |
 | `TotalCycles` | `int?` | Optional | The number of times this billing cycle gets executed. Trial billing cycles can only be executed a finite number of times (value between 1 and 999 for total_cycles). Regular billing cycles can be executed infinite times (value of 0 for total_cycles) or a finite number of times (value between 1 and 999 for total_cycles).<br><br>**Constraints**: `>= 0`, `<= 999` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+BillingCycleOverride billingCycleOverride = new BillingCycleOverride
 {
-  "pricing_scheme": {
-    "version": 10,
-    "fixed_price": {
-      "currency_code": "currency_code4",
-      "value": "value0"
+    Sequence = 20,
+    PricingScheme = new SubscriptionPricingScheme
+    {
+        FixedPrice = new Money
+        {
+            CurrencyCode = "currency_code4",
+            MValue = "value0",
+        },
+        PricingModel = SubscriptionPricingModel.Volume,
+        Tiers = new List<PricingTier>
+        {
+            new PricingTier
+            {
+                StartingQuantity = "starting_quantity8",
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                EndingQuantity = "ending_quantity6",
+            },
+            new PricingTier
+            {
+                StartingQuantity = "starting_quantity8",
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                EndingQuantity = "ending_quantity6",
+            },
+            new PricingTier
+            {
+                StartingQuantity = "starting_quantity8",
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+                EndingQuantity = "ending_quantity6",
+            },
+        },
+        CreateTime = "create_time4",
     },
-    "pricing_model": "VOLUME",
-    "tiers": [
-      {
-        "starting_quantity": "starting_quantity8",
-        "ending_quantity": "ending_quantity6",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      },
-      {
-        "starting_quantity": "starting_quantity8",
-        "ending_quantity": "ending_quantity6",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      },
-      {
-        "starting_quantity": "starting_quantity8",
-        "ending_quantity": "ending_quantity6",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      }
-    ],
-    "create_time": "create_time4"
-  },
-  "sequence": 58,
-  "total_cycles": 248
-}
+    TotalCycles = 210,
+};
 ```
 

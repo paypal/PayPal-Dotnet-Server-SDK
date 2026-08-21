@@ -20,32 +20,20 @@ The error details.
 | `TotalItems` | `int?` | Optional | The total number of transactions. Valid only for `RESULTSET_TOO_LARGE`.<br><br>**Constraints**: `>= 0`, `<= 2147483647` |
 | `MaximumItems` | `int?` | Optional | The maximum number of transactions. Valid only for `RESULTSET_TOO_LARGE`.<br><br>**Constraints**: `>= 0`, `<= 2147483647` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+try
 {
-  "name": "name8",
-  "message": "message8",
-  "debug_id": "debug_id6",
-  "information_link": "information_link0",
-  "details": [
+    // make the API call
+}
+catch (ApiException e)
+{
+    if (e is SearchErrorException)
     {
-      "field": "field4",
-      "value": "value2",
-      "location": "location4",
-      "issue": "issue6",
-      "description": "description0"
+        // TODO: Handle SearchErrorException
+        Console.WriteLine(e.Message);
     }
-  ],
-  "links": [
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ],
-  "total_items": 20,
-  "maximum_items": 206
 }
 ```
 

@@ -18,108 +18,128 @@ The payment source definition.
 | `GooglePay` | [`GooglePayRequest`](../../doc/models/google-pay-request.md) | Optional | Information needed to pay using Google Pay. |
 | `Venmo` | [`VenmoWalletRequest`](../../doc/models/venmo-wallet-request.md) | Optional | Information needed to pay using Venmo. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OrderCaptureRequestPaymentSource orderCaptureRequestPaymentSource = new OrderCaptureRequestPaymentSource
 {
-  "card": {
-    "name": "name6",
-    "number": "number6",
-    "expiry": "expiry4",
-    "security_code": "security_code8",
-    "billing_address": {
-      "address_line_1": "address_line_12",
-      "address_line_2": "address_line_28",
-      "admin_area_2": "admin_area_28",
-      "admin_area_1": "admin_area_14",
-      "postal_code": "postal_code0",
-      "country_code": "country_code8"
-    }
-  },
-  "token": {
-    "id": "id6",
-    "type": "BILLING_AGREEMENT"
-  },
-  "paypal": {
-    "vault_id": "vault_id0",
-    "email_address": "email_address0",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    Card = new CardRequest
+    {
+        Name = "name6",
+        Number = "number6",
+        Expiry = "expiry4",
+        SecurityCode = "security_code8",
+        BillingAddress = new Address
+        {
+            CountryCode = "country_code8",
+            AddressLine1 = "address_line_12",
+            AddressLine2 = "address_line_28",
+            AdminArea2 = "admin_area_28",
+            AdminArea1 = "admin_area_14",
+            PostalCode = "postal_code0",
+        },
     },
-    "phone": {
-      "phone_type": "OTHER",
-      "phone_number": {
-        "national_number": "national_number6"
-      }
+    Token = new Token
+    {
+        Id = "id6",
+        Type = TokenType.BillingAgreement,
     },
-    "birth_date": "birth_date8"
-  },
-  "apple_pay": {
-    "id": "id0",
-    "name": "name0",
-    "email_address": "email_address8",
-    "phone_number": {
-      "national_number": "national_number6"
+    Paypal = new PaypalWallet
+    {
+        VaultId = "vault_id0",
+        EmailAddress = "email_address0",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        Phone = new PhoneWithType
+        {
+            PhoneNumber = new PhoneNumber
+            {
+                NationalNumber = "national_number6",
+            },
+            PhoneType = PhoneType.Other,
+        },
+        BirthDate = "birth_date8",
     },
-    "decrypted_token": {
-      "transaction_amount": {
-        "currency_code": "currency_code6",
-        "value": "value2"
-      },
-      "tokenized_card": {
-        "name": "name4",
-        "number": "number2",
-        "expiry": "expiry2",
-        "card_type": "VISA",
-        "type": "UNKNOWN"
-      },
-      "device_manufacturer_id": "device_manufacturer_id6",
-      "payment_data_type": "3DSECURE",
-      "payment_data": {
-        "cryptogram": "cryptogram6",
-        "eci_indicator": "eci_indicator0",
-        "emv_data": "emv_data0",
-        "pin": "pin4"
-      }
-    }
-  },
-  "google_pay": {
-    "name": "name8",
-    "email_address": "email_address6",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
+    ApplePay = new ApplePayRequest
+    {
+        Id = "id0",
+        Name = "name0",
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        DecryptedToken = new ApplePayDecryptedTokenData
+        {
+            TokenizedCard = new ApplePayTokenizedCard
+            {
+                Name = "name4",
+                Number = "number2",
+                Expiry = "expiry2",
+                Type = CardType.Unknown,
+            },
+            TransactionAmount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value2",
+            },
+            DeviceManufacturerId = "device_manufacturer_id6",
+            PaymentDataType = ApplePayPaymentDataType.Enum3Dsecure,
+            PaymentData = new ApplePayPaymentData
+            {
+                Cryptogram = "cryptogram6",
+                EciIndicator = "eci_indicator0",
+                EmvData = "emv_data0",
+                Pin = "pin4",
+            },
+        },
     },
-    "card": {
-      "name": "name6",
-      "type": "UNKNOWN",
-      "brand": "CB_NATIONALE",
-      "billing_address": {
-        "address_line_1": "address_line_12",
-        "address_line_2": "address_line_28",
-        "admin_area_2": "admin_area_28",
-        "admin_area_1": "admin_area_14",
-        "postal_code": "postal_code0",
-        "country_code": "country_code8"
-      }
+    GooglePay = new GooglePayRequest
+    {
+        Name = "name8",
+        EmailAddress = "email_address6",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Card = new GooglePayRequestCard
+        {
+            Name = "name6",
+            Type = CardType.Unknown,
+            Brand = CardBrand.CbNationale,
+            BillingAddress = new Address
+            {
+                CountryCode = "country_code8",
+                AddressLine1 = "address_line_12",
+                AddressLine2 = "address_line_28",
+                AdminArea2 = "admin_area_28",
+                AdminArea1 = "admin_area_14",
+                PostalCode = "postal_code0",
+            },
+        },
+        DecryptedToken = new GooglePayDecryptedTokenData
+        {
+            PaymentMethod = GooglePayPaymentMethod.Card,
+            Card = new GooglePayCard
+            {
+                Name = "name6",
+                Number = "number6",
+                Expiry = "expiry4",
+                Type = CardType.Unknown,
+            },
+            AuthenticationMethod = GooglePayAuthenticationMethod.PanOnly,
+            MessageId = "message_id0",
+            MessageExpiration = "message_expiration2",
+            Cryptogram = "cryptogram6",
+            EciIndicator = "eci_indicator0",
+        },
     },
-    "decrypted_token": {
-      "message_id": "message_id0",
-      "message_expiration": "message_expiration2",
-      "payment_method": "CARD",
-      "card": {
-        "name": "name6",
-        "number": "number6",
-        "expiry": "expiry4",
-        "last_digits": "last_digits0",
-        "type": "UNKNOWN"
-      },
-      "authentication_method": "PAN_ONLY",
-      "cryptogram": "cryptogram6",
-      "eci_indicator": "eci_indicator0"
-    }
-  }
-}
+};
 ```
 

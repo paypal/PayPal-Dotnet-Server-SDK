@@ -14,18 +14,23 @@ The platform or partner fee, commission, or brokerage fee that is associated wit
 | `Amount` | [`Money`](../../doc/models/money.md) | Required | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `Payee` | [`PayeeBase`](../../doc/models/payee-base.md) | Optional | The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PlatformFee platformFee = new PlatformFee
 {
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  },
-  "payee": {
-    "email_address": "email_address4",
-    "merchant_id": "merchant_id6"
-  }
-}
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+    Payee = new PayeeBase
+    {
+        EmailAddress = "email_address4",
+        MerchantId = "merchant_id6",
+    },
+};
 ```
 

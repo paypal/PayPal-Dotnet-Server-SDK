@@ -18,34 +18,43 @@ The breakdown details for the amount. Includes the gross, tax, fee, and shipping
 | `TaxAmount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `NetAmount` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionAmountWithBreakdown subscriptionAmountWithBreakdown = new SubscriptionAmountWithBreakdown
 {
-  "gross_amount": {
-    "currency_code": "currency_code4",
-    "value": "value0"
-  },
-  "total_item_amount": {
-    "currency_code": "currency_code8",
-    "value": "value4"
-  },
-  "fee_amount": {
-    "currency_code": "currency_code2",
-    "value": "value4"
-  },
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "tax_amount": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  },
-  "net_amount": {
-    "currency_code": "currency_code6",
-    "value": "value2"
-  }
-}
+    GrossAmount = new Money
+    {
+        CurrencyCode = "currency_code4",
+        MValue = "value0",
+    },
+    TotalItemAmount = new Money
+    {
+        CurrencyCode = "currency_code8",
+        MValue = "value4",
+    },
+    FeeAmount = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value4",
+    },
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+    TaxAmount = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+    NetAmount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value2",
+    },
+};
 ```
 

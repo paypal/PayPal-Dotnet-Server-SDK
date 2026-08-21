@@ -18,51 +18,40 @@ The shipping details.
 | `Options` | [`List<ShippingOption>`](../../doc/models/shipping-option.md) | Optional | An array of shipping options that the payee or merchant offers to the payer to ship or pick up their items.<br><br>**Constraints**: *Minimum Items*: `0`, *Maximum Items*: `10` |
 | `Address` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+ShippingDetails shippingDetails = new ShippingDetails
 {
-  "name": {
-    "full_name": "full_name6"
-  },
-  "email_address": "email_address2",
-  "phone_number": {
-    "country_code": "country_code2",
-    "national_number": "national_number6"
-  },
-  "type": "PICKUP_IN_STORE",
-  "options": [
+    Name = new ShippingName
     {
-      "id": "id2",
-      "label": "label2",
-      "type": "SHIPPING",
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      },
-      "selected": false
+        FullName = "full_name6",
     },
+    EmailAddress = "email_address2",
+    PhoneNumber = new PhoneNumberWithCountryCode
     {
-      "id": "id2",
-      "label": "label2",
-      "type": "SHIPPING",
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      },
-      "selected": false
+        CountryCode = "country_code2",
+        NationalNumber = "national_number6",
     },
+    Type = FulfillmentType.Shipping,
+    Options = new List<ShippingOption>
     {
-      "id": "id2",
-      "label": "label2",
-      "type": "SHIPPING",
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      },
-      "selected": false
-    }
-  ]
-}
+        new ShippingOption
+        {
+            Id = "id2",
+            Label = "label2",
+            Selected = false,
+            Type = ShippingType.Shipping,
+            Amount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value0",
+            },
+        },
+    },
+};
 ```
 

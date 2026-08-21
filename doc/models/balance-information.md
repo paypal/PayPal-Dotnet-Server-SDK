@@ -17,24 +17,30 @@ The Balance information.
 | `AvailableBalance` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `WithheldBalance` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+BalanceInformation balanceInformation = new BalanceInformation
 {
-  "currency": "currency4",
-  "primary": false,
-  "total_balance": {
-    "currency_code": "currency_code6",
-    "value": "value2"
-  },
-  "available_balance": {
-    "currency_code": "currency_code8",
-    "value": "value4"
-  },
-  "withheld_balance": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  }
-}
+    Currency = "currency2",
+    TotalBalance = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value2",
+    },
+    Primary = false,
+    AvailableBalance = new Money
+    {
+        CurrencyCode = "currency_code8",
+        MValue = "value4",
+    },
+    WithheldBalance = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+};
 ```
 

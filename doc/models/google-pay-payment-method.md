@@ -13,3 +13,11 @@ The type of the payment credential. Currently, only CARD is supported.
 |  --- | --- |
 | `Card` | CARD is the only value that Google Pay accepts. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+GooglePayPaymentMethod googlePayPaymentMethod = GooglePayPaymentMethod.Card;
+```
+

@@ -16,3 +16,11 @@ The status of the refund.
 | `Pending` | The refund is pending. For more information, see status_details.reason. |
 | `Completed` | The funds for this transaction were debited to the customer's account. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RefundStatus refundStatus = RefundStatus.Pending;
+```
+

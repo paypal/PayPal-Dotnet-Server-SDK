@@ -15,13 +15,16 @@ Identifiers related to a specific resource.
 | `AuthorizationId` | `string` | Optional | Authorization ID related to the resource.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `20`, *Pattern*: `^[A-Z0-9]+$` |
 | `CaptureId` | `string` | Optional | Capture ID related to the resource.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `20`, *Pattern*: `^[A-Z0-9]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RelatedIdentifiers relatedIdentifiers = new RelatedIdentifiers
 {
-  "order_id": "order_id0",
-  "authorization_id": "authorization_id8",
-  "capture_id": "capture_id8"
-}
+    OrderId = "order_id2",
+    AuthorizationId = "authorization_id4",
+    CaptureId = "capture_id6",
+};
 ```
 
