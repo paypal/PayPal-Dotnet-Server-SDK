@@ -17,29 +17,34 @@ Information about the Payment data obtained by decrypting Apple Pay token.
 | `PaymentDataType` | [`ApplePayPaymentDataType?`](../../doc/models/apple-pay-payment-data-type.md) | Optional | Indicates the type of payment data passed, in case of Non China the payment data is 3DSECURE and for China it is EMV.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `16`, *Pattern*: `^[0-9A-Z_]+$` |
 | `PaymentData` | [`ApplePayPaymentData`](../../doc/models/apple-pay-payment-data.md) | Optional | Information about the decrypted apple pay payment data for the token like cryptogram, eci indicator. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayDecryptedTokenData applePayDecryptedTokenData = new ApplePayDecryptedTokenData
 {
-  "transaction_amount": {
-    "currency_code": "currency_code6",
-    "value": "value2"
-  },
-  "tokenized_card": {
-    "name": "name4",
-    "number": "number2",
-    "expiry": "expiry2",
-    "card_type": "VISA",
-    "type": "UNKNOWN"
-  },
-  "device_manufacturer_id": "device_manufacturer_id2",
-  "payment_data_type": "3DSECURE",
-  "payment_data": {
-    "cryptogram": "cryptogram6",
-    "eci_indicator": "eci_indicator0",
-    "emv_data": "emv_data0",
-    "pin": "pin4"
-  }
-}
+    TokenizedCard = new ApplePayTokenizedCard
+    {
+        Name = "name4",
+        Number = "number2",
+        Expiry = "expiry2",
+        Type = CardType.Unknown,
+    },
+    TransactionAmount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value2",
+    },
+    DeviceManufacturerId = "device_manufacturer_id8",
+    PaymentDataType = ApplePayPaymentDataType.Enum3Dsecure,
+    PaymentData = new ApplePayPaymentData
+    {
+        Cryptogram = "cryptogram6",
+        EciIndicator = "eci_indicator0",
+        EmvData = "emv_data0",
+        Pin = "pin4",
+    },
+};
 ```
 

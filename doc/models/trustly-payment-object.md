@@ -17,15 +17,18 @@ Information needed to pay using Trustly.
 | `Bic` | `string` | Optional | The business identification code (BIC). In payments systems, a BIC is used to identify a specific business, most commonly a bank.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `11`, *Pattern*: `^[A-Z-a-z0-9]{4}[A-Z-a-z]{2}[A-Z-a-z0-9]{2}([A-Z-a-z0-9]{3})?$` |
 | `IbanLastChars` | `string` | Optional | The last characters of the IBAN used to pay.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `34`, *Pattern*: `[a-zA-Z0-9]{4}` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+TrustlyPaymentObject trustlyPaymentObject = new TrustlyPaymentObject
 {
-  "name": "name6",
-  "country_code": "country_code6",
-  "email": "email0",
-  "bic": "bic8",
-  "iban_last_chars": "iban_last_chars4"
-}
+    Name = "name6",
+    CountryCode = "country_code6",
+    Email = "email0",
+    Bic = "bic8",
+    IbanLastChars = "iban_last_chars4",
+};
 ```
 

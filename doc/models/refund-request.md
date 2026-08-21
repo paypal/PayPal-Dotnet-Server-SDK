@@ -17,39 +17,52 @@ Refunds a captured payment, by ID. For a full refund, include an empty request b
 | `NoteToPayer` | `string` | Optional | The reason for the refund. Appears in both the payer's transaction history and the emails that the payer receives. The pattern is defined by an external party and supports Unicode.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^.*$` |
 | `PaymentInstruction` | [`RefundPaymentInstruction`](../../doc/models/refund-payment-instruction.md) | Optional | Any additional payments instructions during refund payment processing. This object is only applicable to merchants that have been enabled for PayPal Commerce Platform for Marketplaces and Platforms capability. Please speak to your account manager if you want to use this capability. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+RefundRequest refundRequest = new RefundRequest
 {
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  },
-  "custom_id": "custom_id6",
-  "invoice_id": "invoice_id8",
-  "note_to_payer": "note_to_payer0",
-  "payment_instruction": {
-    "platform_fees": [
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      },
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      },
-      {
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
-        }
-      }
-    ]
-  }
-}
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+    CustomId = "custom_id2",
+    InvoiceId = "invoice_id4",
+    NoteToPayer = "note_to_payer6",
+    PaymentInstruction = new RefundPaymentInstruction
+    {
+        PlatformFees = new List<RefundPlatformFee>
+        {
+            new RefundPlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+            new RefundPlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+            new RefundPlatformFee
+            {
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+        },
+    },
+};
 ```
 

@@ -1425,3 +1425,11 @@ The carrier for the shipment. Some carriers have a global version as well as loc
 | `Toptrans` | Toptrans. |
 | `Other` | Other. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ShipmentCarrier shipmentCarrier = ShipmentCarrier.Xmszm;
+```
+

@@ -18,22 +18,25 @@ The payment card to use to fund a Google Pay payment response. Can be a credit o
 | `BillingAddress` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 | `AuthenticationResult` | [`AuthenticationResponse`](../../doc/models/authentication-response.md) | Optional | Results of Authentication such as 3D Secure. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+GooglePayCardResponse googlePayCardResponse = new GooglePayCardResponse
 {
-  "name": "name4",
-  "last_digits": "last_digits8",
-  "type": "DEBIT",
-  "brand": "ACCEL",
-  "billing_address": {
-    "address_line_1": "address_line_12",
-    "address_line_2": "address_line_28",
-    "admin_area_2": "admin_area_28",
-    "admin_area_1": "admin_area_14",
-    "postal_code": "postal_code0",
-    "country_code": "country_code8"
-  }
-}
+    Name = "name2",
+    Type = CardType.Store,
+    Brand = CardBrand.Diners,
+    BillingAddress = new Address
+    {
+        CountryCode = "country_code8",
+        AddressLine1 = "address_line_12",
+        AddressLine2 = "address_line_28",
+        AdminArea2 = "admin_area_28",
+        AdminArea1 = "admin_area_14",
+        PostalCode = "postal_code0",
+    },
+};
 ```
 

@@ -28,18 +28,21 @@ namespace PaypalServerSdk.Standard.Models
         /// <param name="totalCycles">total_cycles.</param>
         /// <param name="sequence">sequence.</param>
         /// <param name="startDate">start_date.</param>
+        /// <param name="frequency">frequency.</param>
         public BillingCycle(
             Models.TenureType tenureType,
             Models.PricingScheme pricingScheme = null,
             int? totalCycles = 1,
             int? sequence = 1,
-            string startDate = null)
+            string startDate = null,
+            Models.CycleFrequency frequency = null)
         {
             this.TenureType = tenureType;
             this.PricingScheme = pricingScheme;
             this.TotalCycles = totalCycles;
             this.Sequence = sequence;
             this.StartDate = startDate;
+            this.Frequency = frequency;
         }
 
         /// <summary>
@@ -72,6 +75,12 @@ namespace PaypalServerSdk.Standard.Models
         [JsonProperty("start_date", NullValueHandling = NullValueHandling.Ignore)]
         public string StartDate { get; set; }
 
+        /// <summary>
+        /// The frequency of the terms reset cycle.
+        /// </summary>
+        [JsonProperty("frequency", NullValueHandling = NullValueHandling.Ignore)]
+        public Models.CycleFrequency Frequency { get; set; }
+
         /// <inheritdoc/>
         public override string ToString()
         {
@@ -95,7 +104,9 @@ namespace PaypalServerSdk.Standard.Models
                 (this.Sequence == null && other.Sequence == null ||
                  this.Sequence?.Equals(other.Sequence) == true) &&
                 (this.StartDate == null && other.StartDate == null ||
-                 this.StartDate?.Equals(other.StartDate) == true);
+                 this.StartDate?.Equals(other.StartDate) == true) &&
+                (this.Frequency == null && other.Frequency == null ||
+                 this.Frequency?.Equals(other.Frequency) == true);
         }
 
         /// <summary>
@@ -109,6 +120,7 @@ namespace PaypalServerSdk.Standard.Models
             toStringOutput.Add($"TotalCycles = {(this.TotalCycles == null ? "null" : this.TotalCycles.ToString())}");
             toStringOutput.Add($"Sequence = {(this.Sequence == null ? "null" : this.Sequence.ToString())}");
             toStringOutput.Add($"StartDate = {this.StartDate ?? "null"}");
+            toStringOutput.Add($"Frequency = {(this.Frequency == null ? "null" : this.Frequency.ToString())}");
         }
     }
 }

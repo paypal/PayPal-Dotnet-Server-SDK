@@ -13,11 +13,14 @@ The customer and merchant payment preferences.
 |  --- | --- | --- | --- |
 | `PayeePreferred` | [`PayeePaymentMethodPreference?`](../../doc/models/payee-payment-method-preference.md) | Optional | The merchant-preferred payment methods.<br><br>**Default**: `PayeePaymentMethodPreference.UNRESTRICTED`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentMethod paymentMethod = new PaymentMethod
 {
-  "payee_preferred": "UNRESTRICTED"
-}
+    PayeePreferred = PayeePaymentMethodPreference.Unrestricted,
+};
 ```
 

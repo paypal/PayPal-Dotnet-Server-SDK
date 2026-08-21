@@ -14,12 +14,15 @@ Information about cardholder possession validation and cardholder identification
 | `AccountVerified` | `bool?` | Optional | If true, indicates that Cardholder possession validation has been performed on returned payment credential.<br><br>**Default**: `false` |
 | `CardHolderAuthenticated` | `bool?` | Optional | If true, indicates that identification and verifications (ID&V) was performed on the returned payment credential.If false, the same risk-based authentication can be performed as you would for card transactions. This risk-based authentication can include, but not limited to, step-up with 3D Secure protocol if applicable.<br><br>**Default**: `false` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+AssuranceDetails assuranceDetails = new AssuranceDetails
 {
-  "account_verified": false,
-  "card_holder_authenticated": false
-}
+    AccountVerified = false,
+    CardHolderAuthenticated = false,
+};
 ```
 

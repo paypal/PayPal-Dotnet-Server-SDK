@@ -16,28 +16,33 @@ The shipping information.
 | `Address` | [`SimplePostalAddressCoarseGrained`](../../doc/models/simple-postal-address-coarse-grained.md) | Optional | A simple postal address with coarse-grained fields. Do not use for an international address. Use for backward compatibility only. Does not contain phone. |
 | `SecondaryShippingAddress` | [`SimplePostalAddressCoarseGrained`](../../doc/models/simple-postal-address-coarse-grained.md) | Optional | A simple postal address with coarse-grained fields. Do not use for an international address. Use for backward compatibility only. Does not contain phone. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ShippingInformation shippingInformation = new ShippingInformation
 {
-  "name": "name8",
-  "method": "method2",
-  "address": {
-    "line1": "line18",
-    "line2": "line20",
-    "city": "city6",
-    "state": "state2",
-    "country_code": "country_code6",
-    "postal_code": "postal_code8"
-  },
-  "secondary_shipping_address": {
-    "line1": "line16",
-    "line2": "line28",
-    "city": "city4",
-    "state": "state0",
-    "country_code": "country_code4",
-    "postal_code": "postal_code6"
-  }
-}
+    Name = "name2",
+    Method = "method4",
+    Address = new SimplePostalAddressCoarseGrained
+    {
+        Line1 = "line18",
+        City = "city6",
+        CountryCode = "country_code6",
+        Line2 = "line20",
+        State = "state2",
+        PostalCode = "postal_code8",
+    },
+    SecondaryShippingAddress = new SimplePostalAddressCoarseGrained
+    {
+        Line1 = "line16",
+        City = "city4",
+        CountryCode = "country_code4",
+        Line2 = "line28",
+        State = "state0",
+        PostalCode = "postal_code6",
+    },
+};
 ```
 

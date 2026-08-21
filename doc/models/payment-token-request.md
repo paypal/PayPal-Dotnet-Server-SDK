@@ -14,27 +14,34 @@ Payment Token Request where the `source` defines the type of instrument to be st
 | `Customer` | [`Customer`](../../doc/models/customer.md) | Optional | This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details. |
 | `PaymentSource` | [`PaymentTokenRequestPaymentSource`](../../doc/models/payment-token-request-payment-source.md) | Required | The payment method to vault with the instrument details. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentTokenRequest paymentTokenRequest = new PaymentTokenRequest
 {
-  "customer": {
-    "id": "id0",
-    "merchant_customer_id": "merchant_customer_id2"
-  },
-  "payment_source": {
-    "card": {
-      "name": "name6",
-      "number": "number6",
-      "expiry": "expiry4",
-      "security_code": "security_code8",
-      "brand": "CB_NATIONALE"
+    PaymentSource = new PaymentTokenRequestPaymentSource
+    {
+        Card = new PaymentTokenRequestCard
+        {
+            Name = "name6",
+            Number = "number6",
+            Expiry = "expiry4",
+            SecurityCode = "security_code8",
+            Brand = CardBrand.CbNationale,
+        },
+        Token = new VaultTokenRequest
+        {
+            Id = "id6",
+            Type = VaultTokenRequestType.SetupToken,
+        },
     },
-    "token": {
-      "id": "id6",
-      "type": "SETUP_TOKEN"
-    }
-  }
-}
+    Customer = new Customer
+    {
+        Id = "id0",
+        MerchantCustomerId = "merchant_customer_id2",
+    },
+};
 ```
 

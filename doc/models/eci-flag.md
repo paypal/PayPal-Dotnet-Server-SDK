@@ -18,3 +18,11 @@ Electronic Commerce Indicator (ECI). The ECI value is part of the 2 data element
 | `AttemptedAuthenticationTransaction` | VISA, AMEX, JCB, DINERS CLUB attempted authentication transaction. |
 | `Non3DSecureTransaction` | VISA, AMEX, JCB, DINERS CLUB non-3-D Secure transaction. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+EciFlag eciFlag = EciFlag.MastercardNon3DSecureTransaction;
+```
+

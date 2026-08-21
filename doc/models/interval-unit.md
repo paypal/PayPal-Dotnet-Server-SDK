@@ -16,3 +16,11 @@ The interval at which the subscription is charged or billed.
 | `Month` | A monthly billing cycle. |
 | `Year` | A yearly billing cycle. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+IntervalUnit intervalUnit = IntervalUnit.Day;
+```
+

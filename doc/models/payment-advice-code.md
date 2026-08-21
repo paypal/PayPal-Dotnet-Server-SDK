@@ -27,3 +27,11 @@ The declined payment transactions might have payment advice codes. The card netw
 | `PaymentAdvice40` | For Mastercard, consumer non-reloadable prepaid card. |
 | `PaymentAdvice43` | For Mastercard, consumer multi-use virtual card number. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentAdviceCode paymentAdviceCode = PaymentAdviceCode.PaymentAdvice27;
+```
+

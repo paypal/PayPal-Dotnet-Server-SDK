@@ -13,11 +13,14 @@ The API caller can opt in to verify the card through PayPal offered verification
 |  --- | --- | --- | --- |
 | `Method` | [`OrdersCardVerificationMethod?`](../../doc/models/orders-card-verification-method.md) | Optional | The method used for card verification.<br><br>**Default**: `OrdersCardVerificationMethod.SCA_WHEN_REQUIRED`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardVerification cardVerification = new CardVerification
 {
-  "method": "SCA_WHEN_REQUIRED"
-}
+    Method = OrdersCardVerificationMethod.ScaWhenRequired,
+};
 ```
 

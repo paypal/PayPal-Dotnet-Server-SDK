@@ -14,92 +14,112 @@ Setup Token Request where the `source` defines the type of instrument to be stor
 | `Customer` | [`Customer`](../../doc/models/customer.md) | Optional | This object defines a customer in your system. Use it to manage customer profiles, save payment methods and contact details. |
 | `PaymentSource` | [`SetupTokenRequestPaymentSource`](../../doc/models/setup-token-request-payment-source.md) | Required | The payment method to vault with the instrument details. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SetupTokenRequest setupTokenRequest = new SetupTokenRequest
 {
-  "customer": {
-    "id": "id0",
-    "merchant_customer_id": "merchant_customer_id2"
-  },
-  "payment_source": {
-    "card": {
-      "name": "name6",
-      "number": "number6",
-      "expiry": "expiry4",
-      "security_code": "security_code8",
-      "brand": "CB_NATIONALE"
-    },
-    "paypal": {
-      "description": "description2",
-      "usage_pattern": "THRESHOLD_PREPAID",
-      "shipping": {
-        "name": {
-          "full_name": "full_name6"
+    PaymentSource = new SetupTokenRequestPaymentSource
+    {
+        Card = new SetupTokenRequestCard
+        {
+            Name = "name6",
+            Number = "number6",
+            Expiry = "expiry4",
+            SecurityCode = "security_code8",
+            Brand = CardBrand.CbNationale,
         },
-        "email_address": "email_address2",
-        "phone_number": {
-          "country_code": "country_code2",
-          "national_number": "national_number6"
+        Paypal = new VaultPaypalWalletRequest
+        {
+            Description = "description2",
+            UsagePattern = UsagePattern.ThresholdPrepaid,
+            Shipping = new VaultedDigitalWalletShippingDetails
+            {
+                Name = new ShippingName
+                {
+                    FullName = "full_name6",
+                },
+                EmailAddress = "email_address2",
+                PhoneNumber = new PhoneNumberWithCountryCode
+                {
+                    CountryCode = "country_code2",
+                    NationalNumber = "national_number6",
+                },
+                Type = FulfillmentType.Shipping,
+                Address = new Address
+                {
+                    CountryCode = "country_code6",
+                    AddressLine1 = "address_line_16",
+                    AddressLine2 = "address_line_26",
+                    AdminArea2 = "admin_area_20",
+                    AdminArea1 = "admin_area_12",
+                    PostalCode = "postal_code8",
+                },
+            },
+            PermitMultiplePaymentTokens = false,
+            UsageType = PaypalPaymentTokenUsageType.Merchant,
         },
-        "type": "SHIPPING",
-        "address": {
-          "address_line_1": "address_line_16",
-          "address_line_2": "address_line_26",
-          "admin_area_2": "admin_area_20",
-          "admin_area_1": "admin_area_12",
-          "postal_code": "postal_code8",
-          "country_code": "country_code6"
-        }
-      },
-      "permit_multiple_payment_tokens": false,
-      "usage_type": "MERCHANT"
-    },
-    "venmo": {
-      "description": "description6",
-      "usage_pattern": "UNSCHEDULED_PREPAID",
-      "shipping": {
-        "name": {
-          "full_name": "full_name6"
+        Venmo = new VaultVenmoRequest
+        {
+            Description = "description6",
+            UsagePattern = UsagePattern.UnscheduledPrepaid,
+            Shipping = new VaultedDigitalWalletShippingDetails
+            {
+                Name = new ShippingName
+                {
+                    FullName = "full_name6",
+                },
+                EmailAddress = "email_address2",
+                PhoneNumber = new PhoneNumberWithCountryCode
+                {
+                    CountryCode = "country_code2",
+                    NationalNumber = "national_number6",
+                },
+                Type = FulfillmentType.Shipping,
+                Address = new Address
+                {
+                    CountryCode = "country_code6",
+                    AddressLine1 = "address_line_16",
+                    AddressLine2 = "address_line_26",
+                    AdminArea2 = "admin_area_20",
+                    AdminArea1 = "admin_area_12",
+                    PostalCode = "postal_code8",
+                },
+            },
+            PermitMultiplePaymentTokens = false,
+            UsageType = PaypalPaymentTokenUsageType.Merchant,
         },
-        "email_address": "email_address2",
-        "phone_number": {
-          "country_code": "country_code2",
-          "national_number": "national_number6"
+        ApplePay = new VaultApplePayRequest
+        {
+            Token = "token6",
+            Card = new ApplePayRequestCard
+            {
+                Type = CardType.Unknown,
+                Brand = CardBrand.CbNationale,
+                BillingAddress = new Address
+                {
+                    CountryCode = "country_code8",
+                    AddressLine1 = "address_line_12",
+                    AddressLine2 = "address_line_28",
+                    AdminArea2 = "admin_area_28",
+                    AdminArea1 = "admin_area_14",
+                    PostalCode = "postal_code0",
+                },
+            },
         },
-        "type": "SHIPPING",
-        "address": {
-          "address_line_1": "address_line_16",
-          "address_line_2": "address_line_26",
-          "admin_area_2": "admin_area_20",
-          "admin_area_1": "admin_area_12",
-          "postal_code": "postal_code8",
-          "country_code": "country_code6"
-        }
-      },
-      "permit_multiple_payment_tokens": false,
-      "usage_type": "MERCHANT"
+        Token = new VaultTokenRequest
+        {
+            Id = "id6",
+            Type = VaultTokenRequestType.SetupToken,
+        },
     },
-    "apple_pay": {
-      "token": "token6",
-      "card": {
-        "type": "UNKNOWN",
-        "brand": "CB_NATIONALE",
-        "billing_address": {
-          "address_line_1": "address_line_12",
-          "address_line_2": "address_line_28",
-          "admin_area_2": "admin_area_28",
-          "admin_area_1": "admin_area_14",
-          "postal_code": "postal_code0",
-          "country_code": "country_code8"
-        }
-      }
+    Customer = new Customer
+    {
+        Id = "id0",
+        MerchantCustomerId = "merchant_customer_id2",
     },
-    "token": {
-      "id": "id6",
-      "type": "SETUP_TOKEN"
-    }
-  }
-}
+};
 ```
 

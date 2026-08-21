@@ -19,19 +19,23 @@ The application context, which customizes the payer experience during the subscr
 | `ReturnUrl` | `string` | Required | The URL where the customer is redirected after the customer approves the payment.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `4000` |
 | `CancelUrl` | `string` | Required | The URL where the customer is redirected after the customer cancels the payment.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `4000` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionApplicationContext subscriptionApplicationContext = new SubscriptionApplicationContext
 {
-  "shipping_preference": "GET_FROM_FILE",
-  "user_action": "SUBSCRIBE_NOW",
-  "return_url": "return_url0",
-  "cancel_url": "cancel_url2",
-  "brand_name": "brand_name8",
-  "locale": "locale2",
-  "payment_method": {
-    "payee_preferred": "UNRESTRICTED"
-  }
-}
+    ReturnUrl = "return_url2",
+    CancelUrl = "cancel_url4",
+    BrandName = "brand_name0",
+    Locale = "locale4",
+    ShippingPreference = ExperienceContextShippingPreference.GetFromFile,
+    UserAction = ApplicationContextUserAction.SubscribeNow,
+    PaymentMethod = new PaymentMethod
+    {
+        PayeePreferred = PayeePaymentMethodPreference.Unrestricted,
+    },
+};
 ```
 

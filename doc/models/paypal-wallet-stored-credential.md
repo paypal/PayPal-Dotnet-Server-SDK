@@ -16,14 +16,17 @@ Provides additional details to process a payment using the PayPal wallet billing
 | `UsagePattern` | [`UsagePattern?`](../../doc/models/usage-pattern.md) | Optional | Expected business/pricing model for the billing agreement.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `30`, *Pattern*: `^[A-Z0-9_]+$` |
 | `Usage` | [`StoredPaymentSourceUsageType?`](../../doc/models/stored-payment-source-usage-type.md) | Optional | Indicates if this is a `first` or `subsequent` payment using a stored payment source (also referred to as stored credential or card on file).<br><br>**Default**: `StoredPaymentSourceUsageType.DERIVED`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWalletStoredCredential paypalWalletStoredCredential = new PaypalWalletStoredCredential
 {
-  "payment_initiator": "CUSTOMER",
-  "usage": "DERIVED",
-  "charge_pattern": "IMMEDIATE",
-  "usage_pattern": "IMMEDIATE"
-}
+    PaymentInitiator = PaymentInitiator.Customer,
+    ChargePattern = UsagePattern.InstallmentPrepaid,
+    UsagePattern = UsagePattern.RecurringPrepaid,
+    Usage = StoredPaymentSourceUsageType.Derived,
+};
 ```
 

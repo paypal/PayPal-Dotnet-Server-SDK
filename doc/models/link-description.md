@@ -15,13 +15,16 @@ The request-related [HATEOAS link](https://developer.paypal.com/api/rest/respons
 | `Rel` | `string` | Required | The [link relation type](https://tools.ietf.org/html/rfc5988#section-4), which serves as an ID for a link that unambiguously describes the semantics of the link. See [Link Relations](https://www.iana.org/assignments/link-relations/link-relations.xhtml). |
 | `Method` | [`LinkHttpMethod?`](../../doc/models/link-http-method.md) | Optional | The HTTP method required to make the related call. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+LinkDescription linkDescription = new LinkDescription
 {
-  "href": "href2",
-  "rel": "rel6",
-  "method": "PUT"
-}
+    Href = "href2",
+    Rel = "rel6",
+    Method = LinkHttpMethod.Get,
+};
 ```
 

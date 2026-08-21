@@ -27,75 +27,91 @@ The payment source definition.
 | `GooglePay` | [`GooglePayRequest`](../../doc/models/google-pay-request.md) | Optional | Information needed to pay using Google Pay. |
 | `Venmo` | [`VenmoWalletRequest`](../../doc/models/venmo-wallet-request.md) | Optional | Information needed to pay using Venmo. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentSource paymentSource = new PaymentSource
 {
-  "card": {
-    "name": "name6",
-    "number": "number6",
-    "expiry": "expiry4",
-    "security_code": "security_code8",
-    "billing_address": {
-      "address_line_1": "address_line_12",
-      "address_line_2": "address_line_28",
-      "admin_area_2": "admin_area_28",
-      "admin_area_1": "admin_area_14",
-      "postal_code": "postal_code0",
-      "country_code": "country_code8"
-    }
-  },
-  "token": {
-    "id": "id6",
-    "type": "BILLING_AGREEMENT"
-  },
-  "paypal": {
-    "vault_id": "vault_id0",
-    "email_address": "email_address0",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    Card = new CardRequest
+    {
+        Name = "name6",
+        Number = "number6",
+        Expiry = "expiry4",
+        SecurityCode = "security_code8",
+        BillingAddress = new Address
+        {
+            CountryCode = "country_code8",
+            AddressLine1 = "address_line_12",
+            AddressLine2 = "address_line_28",
+            AdminArea2 = "admin_area_28",
+            AdminArea1 = "admin_area_14",
+            PostalCode = "postal_code0",
+        },
     },
-    "phone": {
-      "phone_type": "OTHER",
-      "phone_number": {
-        "national_number": "national_number6"
-      }
+    Token = new Token
+    {
+        Id = "id6",
+        Type = TokenType.BillingAgreement,
     },
-    "birth_date": "birth_date8"
-  },
-  "bancontact": {
-    "name": "name0",
-    "country_code": "country_code0",
-    "experience_context": {
-      "brand_name": "brand_name2",
-      "locale": "locale6",
-      "shipping_preference": "NO_SHIPPING",
-      "return_url": "return_url4",
-      "cancel_url": "cancel_url6"
-    }
-  },
-  "blik": {
-    "name": "name2",
-    "country_code": "country_code2",
-    "email": "email4",
-    "experience_context": {
-      "brand_name": "brand_name2",
-      "locale": "locale6",
-      "shipping_preference": "NO_SHIPPING",
-      "return_url": "return_url4",
-      "cancel_url": "cancel_url6"
+    Paypal = new PaypalWallet
+    {
+        VaultId = "vault_id0",
+        EmailAddress = "email_address0",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        Phone = new PhoneWithType
+        {
+            PhoneNumber = new PhoneNumber
+            {
+                NationalNumber = "national_number6",
+            },
+            PhoneType = PhoneType.Other,
+        },
+        BirthDate = "birth_date8",
     },
-    "level_0": {
-      "auth_code": "auth_code8"
+    Bancontact = new BancontactPaymentRequest
+    {
+        Name = "name0",
+        CountryCode = "country_code0",
+        ExperienceContext = new ExperienceContext
+        {
+            BrandName = "brand_name2",
+            Locale = "locale6",
+            ShippingPreference = ExperienceContextShippingPreference.NoShipping,
+            ReturnUrl = "return_url4",
+            CancelUrl = "cancel_url6",
+        },
     },
-    "one_click": {
-      "auth_code": "auth_code0",
-      "consumer_reference": "consumer_reference2",
-      "alias_label": "alias_label6",
-      "alias_key": "alias_key4"
-    }
-  }
-}
+    Blik = new BlikPaymentRequest
+    {
+        Name = "name2",
+        CountryCode = "country_code2",
+        Email = "email4",
+        ExperienceContext = new BlikExperienceContext
+        {
+            BrandName = "brand_name2",
+            Locale = "locale6",
+            ShippingPreference = ExperienceContextShippingPreference.NoShipping,
+            ReturnUrl = "return_url4",
+            CancelUrl = "cancel_url6",
+        },
+        Level0 = new BlikLevel0PaymentObject
+        {
+            AuthCode = "auth_code8",
+        },
+        OneClick = new BlikOneClickPaymentRequest
+        {
+            ConsumerReference = "consumer_reference2",
+            AuthCode = "auth_code0",
+            AliasLabel = "alias_label6",
+            AliasKey = "alias_key4",
+        },
+    },
+};
 ```
 

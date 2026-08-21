@@ -14,12 +14,15 @@ The Universal Product Code of the item.
 | `Type` | [`UpcType`](../../doc/models/upc-type.md) | Required | The Universal Product Code type.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `5`, *Pattern*: `^[0-9A-Z_-]+$` |
 | `Code` | `string` | Required | The UPC product code of the item.<br><br>**Constraints**: *Minimum Length*: `6`, *Maximum Length*: `17`, *Pattern*: `^[0-9]{0,17}$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+UniversalProductCode universalProductCode = new UniversalProductCode
 {
-  "type": "UPC-E",
-  "code": "code2"
-}
+    Type = UpcType.Upc2,
+    Code = "code0",
+};
 ```
 

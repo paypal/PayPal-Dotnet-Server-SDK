@@ -20,21 +20,26 @@ Venmo wallet response.
 | `ReturnFlow` | [`ReturnFlow?`](../../doc/models/return-flow.md) | Optional, Read-only | Merchant preference on how the buyer can navigate back to merchant website post approving the transaction on the Venmo App.<br><br>**Default**: `ReturnFlow.AUTO`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `6`, *Pattern*: `^[A-Z_]+$` |
 | `Attributes` | [`VenmoWalletAttributesResponse`](../../doc/models/venmo-wallet-attributes-response.md) | Optional | Additional attributes associated with the use of a Venmo Wallet. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VenmoWalletResponse venmoWalletResponse = new VenmoWalletResponse
 {
-  "return_flow": "AUTO",
-  "email_address": "email_address6",
-  "account_id": "account_id8",
-  "user_name": "user_name2",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "phone_number": {
-    "national_number": "national_number6"
-  }
-}
+    EmailAddress = "email_address0",
+    AccountId = "account_id4",
+    UserName = "user_name8",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+    PhoneNumber = new PhoneNumber
+    {
+        NationalNumber = "national_number6",
+    },
+    ReturnFlow = ReturnFlow.Auto,
+};
 ```
 

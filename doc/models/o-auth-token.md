@@ -19,17 +19,20 @@ OAuth 2 Authorization endpoint response
 | `RefreshToken` | `string` | Optional | Refresh token<br>Used to get a new access token when it expires. |
 | `IdToken` | `string` | Optional | An ID token response type is of JSON Web Token (JWT) that contains claims about the identity of the authenticated user. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OAuthToken oAuthToken = new OAuthToken
 {
-  "access_token": "access_token4",
-  "token_type": "token_type6",
-  "expires_in": 74,
-  "scope": "scope6",
-  "expiry": 88,
-  "refresh_token": "refresh_token6",
-  "id_token": "id_token6"
-}
+    AccessToken = "access_token2",
+    TokenType = "token_type2",
+    ExpiresIn = 84L,
+    Scope = "scope8",
+    Expiry = 78L,
+    RefreshToken = "refresh_token4",
+    IdToken = "id_token8",
+};
 ```
 

@@ -13,24 +13,28 @@ A resource representing a response for Apple Pay.
 |  --- | --- | --- | --- |
 | `Card` | [`ApplePayCard`](../../doc/models/apple-pay-card.md) | Optional | The payment card to be used to fund a payment. Can be a credit or debit card. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+ApplePayPaymentToken applePayPaymentToken = new ApplePayPaymentToken
 {
-  "card": {
-    "name": "name6",
-    "last_digits": "last_digits0",
-    "type": "UNKNOWN",
-    "brand": "CB_NATIONALE",
-    "billing_address": {
-      "address_line_1": "address_line_12",
-      "address_line_2": "address_line_28",
-      "admin_area_2": "admin_area_28",
-      "admin_area_1": "admin_area_14",
-      "postal_code": "postal_code0",
-      "country_code": "country_code8"
-    }
-  }
-}
+    Card = new ApplePayCard
+    {
+        Name = "name6",
+        Type = CardType.Unknown,
+        Brand = CardBrand.CbNationale,
+        BillingAddress = new Address
+        {
+            CountryCode = "country_code8",
+            AddressLine1 = "address_line_12",
+            AddressLine2 = "address_line_28",
+            AdminArea2 = "admin_area_28",
+            AdminArea1 = "admin_area_14",
+            PostalCode = "postal_code0",
+        },
+    },
+};
 ```
 

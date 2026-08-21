@@ -17,54 +17,68 @@ The subscriber response information.
 | `ShippingAddress` | [`ShippingDetails`](../../doc/models/shipping-details.md) | Optional | The shipping details. |
 | `PaymentSource` | [`SubscriptionPaymentSourceResponse`](../../doc/models/subscription-payment-source-response.md) | Optional | The payment source used to fund the payment. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+Subscriber subscriber = new Subscriber
 {
-  "email_address": "email_address2",
-  "payer_id": "payer_id2",
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "shipping_address": {
-    "name": {
-      "full_name": "full_name6"
+    EmailAddress = "email_address8",
+    PayerId = "payer_id8",
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
     },
-    "email_address": "email_address8",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "PICKUP_IN_STORE",
-    "options": [
-      {
-        "id": "id2",
-        "label": "label2",
-        "type": "SHIPPING",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    ShippingAddress = new ShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
         },
-        "selected": false
-      }
-    ]
-  },
-  "payment_source": {
-    "card": {
-      "name": "name6",
-      "billing_address": {
-        "address_line_1": "address_line_12",
-        "address_line_2": "address_line_28",
-        "admin_area_2": "admin_area_28",
-        "admin_area_1": "admin_area_14",
-        "postal_code": "postal_code0",
-        "country_code": "country_code8"
-      },
-      "expiry": "expiry4",
-      "currency_code": "currency_code2"
-    }
-  }
-}
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.PickupInStore,
+        Options = new List<ShippingOption>
+        {
+            new ShippingOption
+            {
+                Id = "id2",
+                Label = "label2",
+                Selected = false,
+                Type = ShippingType.Shipping,
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+        },
+    },
+    PaymentSource = new SubscriptionPaymentSourceResponse
+    {
+        Card = new CardResponseWithBillingAddress
+        {
+            Name = "name6",
+            BillingAddress = new Address
+            {
+                CountryCode = "country_code8",
+                AddressLine1 = "address_line_12",
+                AddressLine2 = "address_line_28",
+                AdminArea2 = "admin_area_28",
+                AdminArea1 = "admin_area_14",
+                PostalCode = "postal_code0",
+            },
+            Expiry = "expiry4",
+            CurrencyCode = "currency_code2",
+        },
+    },
+};
 ```
 

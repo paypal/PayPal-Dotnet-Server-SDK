@@ -19,134 +19,168 @@ The response to a request to update the quantity of the product or service in a 
 | `PlanOverridden` | `bool?` | Optional, Read-only | Indicates whether the subscription has overridden any plan attributes. |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links). |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+ModifySubscriptionResponse modifySubscriptionResponse = new ModifySubscriptionResponse
 {
-  "plan_id": "plan_id6",
-  "quantity": "quantity0",
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "shipping_address": {
-    "name": {
-      "full_name": "full_name6"
+    PlanId = "plan_id4",
+    Quantity = "quantity8",
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
     },
-    "email_address": "email_address8",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
+    ShippingAddress = new ShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
+        },
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.PickupInStore,
+        Options = new List<ShippingOption>
+        {
+            new ShippingOption
+            {
+                Id = "id2",
+                Label = "label2",
+                Selected = false,
+                Type = ShippingType.Shipping,
+                Amount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value0",
+                },
+            },
+        },
     },
-    "type": "PICKUP_IN_STORE",
-    "options": [
-      {
-        "id": "id2",
-        "label": "label2",
-        "type": "SHIPPING",
-        "amount": {
-          "currency_code": "currency_code6",
-          "value": "value0"
+    Plan = new PlanOverride
+    {
+        BillingCycles = new List<BillingCycleOverride>
+        {
+            new BillingCycleOverride
+            {
+                Sequence = 8,
+                PricingScheme = new SubscriptionPricingScheme
+                {
+                    FixedPrice = new Money
+                    {
+                        CurrencyCode = "currency_code4",
+                        MValue = "value0",
+                    },
+                    PricingModel = SubscriptionPricingModel.Volume,
+                    Tiers = new List<PricingTier>
+                    {
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                    },
+                    CreateTime = "create_time4",
+                },
+                TotalCycles = 198,
+            },
+            new BillingCycleOverride
+            {
+                Sequence = 8,
+                PricingScheme = new SubscriptionPricingScheme
+                {
+                    FixedPrice = new Money
+                    {
+                        CurrencyCode = "currency_code4",
+                        MValue = "value0",
+                    },
+                    PricingModel = SubscriptionPricingModel.Volume,
+                    Tiers = new List<PricingTier>
+                    {
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                        new PricingTier
+                        {
+                            StartingQuantity = "starting_quantity8",
+                            Amount = new Money
+                            {
+                                CurrencyCode = "currency_code6",
+                                MValue = "value0",
+                            },
+                            EndingQuantity = "ending_quantity6",
+                        },
+                    },
+                    CreateTime = "create_time4",
+                },
+                TotalCycles = 198,
+            },
         },
-        "selected": false
-      }
-    ]
-  },
-  "plan": {
-    "billing_cycles": [
-      {
-        "pricing_scheme": {
-          "version": 10,
-          "fixed_price": {
-            "currency_code": "currency_code4",
-            "value": "value0"
-          },
-          "pricing_model": "VOLUME",
-          "tiers": [
+        PaymentPreferences = new PaymentPreferencesOverride
+        {
+            AutoBillOutstanding = false,
+            SetupFee = new Money
             {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
+                CurrencyCode = "currency_code8",
+                MValue = "value4",
             },
-            {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
-            },
-            {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
-            }
-          ],
-          "create_time": "create_time4"
+            SetupFeeFailureAction = SetupFeeFailureAction.Continue,
+            PaymentFailureThreshold = 104,
         },
-        "sequence": 8,
-        "total_cycles": 198
-      },
-      {
-        "pricing_scheme": {
-          "version": 10,
-          "fixed_price": {
-            "currency_code": "currency_code4",
-            "value": "value0"
-          },
-          "pricing_model": "VOLUME",
-          "tiers": [
-            {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
-            },
-            {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
-            },
-            {
-              "starting_quantity": "starting_quantity8",
-              "ending_quantity": "ending_quantity6",
-              "amount": {
-                "currency_code": "currency_code6",
-                "value": "value0"
-              }
-            }
-          ],
-          "create_time": "create_time4"
+        Taxes = new TaxesOverride
+        {
+            Percentage = "percentage8",
+            Inclusive = false,
         },
-        "sequence": 8,
-        "total_cycles": 198
-      }
-    ],
-    "payment_preferences": {
-      "auto_bill_outstanding": false,
-      "setup_fee": {
-        "currency_code": "currency_code8",
-        "value": "value4"
-      },
-      "setup_fee_failure_action": "CONTINUE",
-      "payment_failure_threshold": 104
     },
-    "taxes": {
-      "percentage": "percentage8",
-      "inclusive": false
-    }
-  }
-}
+};
 ```
 

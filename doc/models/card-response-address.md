@@ -19,16 +19,19 @@ Address request details.
 | `CountryCode` | `string` | Required | The [2-character ISO 3166-1 code](https://developer.paypal.com/api/rest/reference/country-codes/) that identifies the country or region. Note: The country code for Great Britain is GB and not UK as used in the top-level domain names for that country. Use the `C2` country code for China worldwide for comparable uncontrolled price (CUP) method, bank card, and cross-border transactions.<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2`, *Pattern*: `^([A-Z]{2}\|C2)$` |
 | `Id` | `string` | Optional | The resource ID of the address.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `36`, *Pattern*: `^[0-9A-Za-z-_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardResponseAddress cardResponseAddress = new CardResponseAddress
 {
-  "address_line_1": "address_line_12",
-  "address_line_2": "address_line_22",
-  "admin_area_2": "admin_area_26",
-  "admin_area_1": "admin_area_18",
-  "postal_code": "postal_code4",
-  "country_code": "country_code2"
-}
+    CountryCode = "country_code2",
+    AddressLine1 = "address_line_18",
+    AddressLine2 = "address_line_22",
+    AdminArea2 = "admin_area_26",
+    AdminArea1 = "admin_area_18",
+    PostalCode = "postal_code4",
+};
 ```
 

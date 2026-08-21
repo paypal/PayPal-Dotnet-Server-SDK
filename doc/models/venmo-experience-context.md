@@ -16,14 +16,17 @@ A resource representing an experience context of vault a venmo account.
 | `VaultInstruction` | [`VaultInstructionAction?`](../../doc/models/vault-instruction-action.md) | Optional | DEPRECATED. Vault Instruction on action to be performed after a successful payer approval.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 | `UserAction` | [`VaultUserAction?`](../../doc/models/vault-user-action.md) | Optional | User Action on action to be performed after a successful payer approval.<br><br>**Default**: `VaultUserAction.CONTINUE`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VenmoExperienceContext venmoExperienceContext = new VenmoExperienceContext
 {
-  "shipping_preference": "GET_FROM_FILE",
-  "user_action": "CONTINUE",
-  "brand_name": "brand_name0",
-  "vault_instruction": "ON_CREATE_PAYMENT_TOKENS"
-}
+    BrandName = "brand_name6",
+    ShippingPreference = ExperienceContextShippingPreference.GetFromFile,
+    VaultInstruction = VaultInstructionAction.OnCreatePaymentTokens,
+    UserAction = VaultUserAction.Continue,
+};
 ```
 

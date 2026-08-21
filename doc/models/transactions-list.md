@@ -16,65 +16,113 @@ The list transactions for a subscription request details.
 | `TotalPages` | `int?` | Optional | The total number of pages.<br><br>**Constraints**: `>= 0`, `<= 100000000` |
 | `Links` | [`List<LinkDescription>`](../../doc/models/link-description.md) | Optional, Read-only | An array of request-related [HATEOAS links](/docs/api/reference/api-responses/#hateoas-links).<br><br>**Constraints**: *Minimum Items*: `1`, *Maximum Items*: `10` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+TransactionsList transactionsList = new TransactionsList
 {
-  "transactions": [
+    Transactions = new List<SubscriptionTransactionDetails>
     {
-      "status": "PARTIALLY_REFUNDED",
-      "id": "id8",
-      "amount_with_breakdown": {
-        "gross_amount": {
-          "currency_code": "currency_code4",
-          "value": "value0"
+        new SubscriptionTransactionDetails
+        {
+            Id = null,
+            AmountWithBreakdown = new SubscriptionAmountWithBreakdown
+            {
+                GrossAmount = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                TotalItemAmount = new Money
+                {
+                    CurrencyCode = "currency_code8",
+                    MValue = "value4",
+                },
+                FeeAmount = new Money
+                {
+                    CurrencyCode = "currency_code2",
+                    MValue = "value4",
+                },
+                ShippingAmount = new Money
+                {
+                    CurrencyCode = "currency_code0",
+                    MValue = "value6",
+                },
+                TaxAmount = new Money
+                {
+                    CurrencyCode = "currency_code2",
+                    MValue = "value8",
+                },
+                NetAmount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value2",
+                },
+            },
+            Time = "time8",
+            PayerName = new SubscriptionPayerName
+            {
+                Prefix = "prefix8",
+                GivenName = "given_name2",
+                Surname = "surname8",
+                MiddleName = "middle_name0",
+                Suffix = "suffix0",
+            },
+            PayerEmail = "payer_email6",
         },
-        "total_item_amount": {
-          "currency_code": "currency_code8",
-          "value": "value4"
+        new SubscriptionTransactionDetails
+        {
+            Id = null,
+            AmountWithBreakdown = new SubscriptionAmountWithBreakdown
+            {
+                GrossAmount = new Money
+                {
+                    CurrencyCode = "currency_code4",
+                    MValue = "value0",
+                },
+                TotalItemAmount = new Money
+                {
+                    CurrencyCode = "currency_code8",
+                    MValue = "value4",
+                },
+                FeeAmount = new Money
+                {
+                    CurrencyCode = "currency_code2",
+                    MValue = "value4",
+                },
+                ShippingAmount = new Money
+                {
+                    CurrencyCode = "currency_code0",
+                    MValue = "value6",
+                },
+                TaxAmount = new Money
+                {
+                    CurrencyCode = "currency_code2",
+                    MValue = "value8",
+                },
+                NetAmount = new Money
+                {
+                    CurrencyCode = "currency_code6",
+                    MValue = "value2",
+                },
+            },
+            Time = "time8",
+            PayerName = new SubscriptionPayerName
+            {
+                Prefix = "prefix8",
+                GivenName = "given_name2",
+                Surname = "surname8",
+                MiddleName = "middle_name0",
+                Suffix = "suffix0",
+            },
+            PayerEmail = "payer_email6",
         },
-        "fee_amount": {
-          "currency_code": "currency_code2",
-          "value": "value4"
-        },
-        "shipping_amount": {
-          "currency_code": "currency_code0",
-          "value": "value6"
-        },
-        "tax_amount": {
-          "currency_code": "currency_code2",
-          "value": "value8"
-        },
-        "net_amount": {
-          "currency_code": "currency_code6",
-          "value": "value2"
-        }
-      },
-      "payer_name": {
-        "prefix": "prefix8",
-        "given_name": "given_name2",
-        "surname": "surname8",
-        "middle_name": "middle_name0",
-        "suffix": "suffix0"
-      },
-      "payer_email": "payer_email6",
-      "time": "time8"
-    }
-  ],
-  "total_items": 254,
-  "total_pages": 34,
-  "links": [
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
     },
-    {
-      "href": "href6",
-      "rel": "rel0",
-      "method": "HEAD"
-    }
-  ]
-}
+    TotalItems = 36,
+    TotalPages = 72,
+};
 ```
 

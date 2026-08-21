@@ -14,3 +14,11 @@ The pricing model for tiered plan. The `tiers` parameter is required.
 | `Volume` | A volume pricing model. |
 | `Tiered` | A tiered pricing model. |
 
+## Example
+
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SubscriptionPricingModel subscriptionPricingModel = SubscriptionPricingModel.Volume;
+```
+

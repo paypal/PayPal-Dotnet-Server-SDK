@@ -15,34 +15,45 @@ Any additional payment instructions to be consider during payment processing. Th
 | `DisbursementMode` | [`DisbursementMode?`](../../doc/models/disbursement-mode.md) | Optional | The funds that are held on behalf of the merchant.<br><br>**Default**: `DisbursementMode.INSTANT`<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `16`, *Pattern*: `^[A-Z_]+$` |
 | `PayeeReceivableFxRateId` | `string` | Optional | FX identifier generated returned by PayPal to be used for payment processing in order to honor FX rate (for eligible integrations) to be used when amount is settled/received into the payee account.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `4000`, *Pattern*: `^.*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+CapturePaymentInstruction capturePaymentInstruction = new CapturePaymentInstruction
 {
-  "disbursement_mode": "INSTANT",
-  "platform_fees": [
+    PlatformFees = new List<PlatformFee>
     {
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      },
-      "payee": {
-        "email_address": "email_address4",
-        "merchant_id": "merchant_id6"
-      }
+        new PlatformFee
+        {
+            Amount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value0",
+            },
+            Payee = new PayeeBase
+            {
+                EmailAddress = "email_address4",
+                MerchantId = "merchant_id6",
+            },
+        },
+        new PlatformFee
+        {
+            Amount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value0",
+            },
+            Payee = new PayeeBase
+            {
+                EmailAddress = "email_address4",
+                MerchantId = "merchant_id6",
+            },
+        },
     },
-    {
-      "amount": {
-        "currency_code": "currency_code6",
-        "value": "value0"
-      },
-      "payee": {
-        "email_address": "email_address4",
-        "merchant_id": "merchant_id6"
-      }
-    }
-  ],
-  "payee_receivable_fx_rate_id": "payee_receivable_fx_rate_id8"
-}
+    DisbursementMode = DisbursementMode.Instant,
+    PayeeReceivableFxRateId = "payee_receivable_fx_rate_id8",
+};
 ```
 

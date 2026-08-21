@@ -24,33 +24,40 @@ Full representation of a Venmo Payment Token.
 | `Address` | [`Address`](../../doc/models/address.md) | Optional | The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute). |
 | `UserName` | `string` | Optional | The Venmo username, as chosen by the user.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50`, *Pattern*: `^[-a-zA-Z0-9_]*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+VenmoPaymentToken venmoPaymentToken = new VenmoPaymentToken
 {
-  "permit_multiple_payment_tokens": false,
-  "description": "description4",
-  "usage_pattern": "INSTALLMENT_PREPAID",
-  "shipping": {
-    "name": {
-      "full_name": "full_name6"
+    Description = "description6",
+    UsagePattern = UsagePattern.Immediate,
+    Shipping = new VaultedDigitalWalletShippingDetails
+    {
+        Name = new ShippingName
+        {
+            FullName = "full_name6",
+        },
+        EmailAddress = "email_address2",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Type = FulfillmentType.Shipping,
+        Address = new Address
+        {
+            CountryCode = "country_code6",
+            AddressLine1 = "address_line_16",
+            AddressLine2 = "address_line_26",
+            AdminArea2 = "admin_area_20",
+            AdminArea1 = "admin_area_12",
+            PostalCode = "postal_code8",
+        },
     },
-    "email_address": "email_address2",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
-    },
-    "type": "SHIPPING",
-    "address": {
-      "address_line_1": "address_line_16",
-      "address_line_2": "address_line_26",
-      "admin_area_2": "admin_area_20",
-      "admin_area_1": "admin_area_12",
-      "postal_code": "postal_code8",
-      "country_code": "country_code6"
-    }
-  },
-  "usage_type": "MERCHANT"
-}
+    PermitMultiplePaymentTokens = false,
+    UsageType = PaypalPaymentTokenUsageType.Merchant,
+};
 ```
 

@@ -16,30 +16,35 @@ Google Pay Wallet payment data.
 | `PhoneNumber` | [`PhoneNumberWithCountryCode`](../../doc/models/phone-number-with-country-code.md) | Optional | The phone number in its canonical international [E.164 numbering plan format](https://www.itu.int/rec/T-REC-E.164/en). |
 | `Card` | [`GooglePayCardResponse`](../../doc/models/google-pay-card-response.md) | Optional | The payment card to use to fund a Google Pay payment response. Can be a credit or debit card. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+GooglePayWalletResponse googlePayWalletResponse = new GooglePayWalletResponse
 {
-  "name": "name0",
-  "email_address": "email_address2",
-  "phone_number": {
-    "country_code": "country_code2",
-    "national_number": "national_number6"
-  },
-  "card": {
-    "name": "name6",
-    "last_digits": "last_digits0",
-    "type": "UNKNOWN",
-    "brand": "CB_NATIONALE",
-    "billing_address": {
-      "address_line_1": "address_line_12",
-      "address_line_2": "address_line_28",
-      "admin_area_2": "admin_area_28",
-      "admin_area_1": "admin_area_14",
-      "postal_code": "postal_code0",
-      "country_code": "country_code8"
-    }
-  }
-}
+    Name = "name0",
+    EmailAddress = "email_address8",
+    PhoneNumber = new PhoneNumberWithCountryCode
+    {
+        CountryCode = "country_code2",
+        NationalNumber = "national_number6",
+    },
+    Card = new GooglePayCardResponse
+    {
+        Name = "name6",
+        Type = CardType.Unknown,
+        Brand = CardBrand.CbNationale,
+        BillingAddress = new Address
+        {
+            CountryCode = "country_code8",
+            AddressLine1 = "address_line_12",
+            AddressLine2 = "address_line_28",
+            AdminArea2 = "admin_area_28",
+            AdminArea1 = "admin_area_14",
+            PostalCode = "postal_code0",
+        },
+    },
+};
 ```
 

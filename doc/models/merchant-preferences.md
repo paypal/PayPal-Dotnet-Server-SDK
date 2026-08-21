@@ -14,12 +14,15 @@ The merchant preferences for a subscription.
 | `ReturnUrl` | `string` | Optional | The URL where the customer is redirected after the customer approves the payment.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `4000` |
 | `CancelUrl` | `string` | Optional | The URL where the customer is redirected after the customer cancels the payment.<br><br>**Constraints**: *Minimum Length*: `10`, *Maximum Length*: `4000` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+MerchantPreferences merchantPreferences = new MerchantPreferences
 {
-  "return_url": "return_url8",
-  "cancel_url": "cancel_url0"
-}
+    ReturnUrl = "return_url8",
+    CancelUrl = "cancel_url0",
+};
 ```
 

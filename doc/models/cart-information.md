@@ -15,21 +15,27 @@ The cart information.
 | `TaxInclusive` | `bool?` | Optional | Indicates whether the item amount or the shipping amount already includes tax.<br><br>**Default**: `false` |
 | `PaypalInvoiceId` | `string` | Optional | The ID of the invoice. Appears for only PayPal-generated invoices.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `127`, *Pattern*: `^[a-zA-Z0-9_'\-., ":;\!?]*$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+using System.Collections.Generic;
+
+CartInformation cartInformation = new CartInformation
 {
-  "tax_inclusive": false,
-  "item_details": [
+    ItemDetails = new List<ItemDetails>
     {
-      "item_code": "item_code0",
-      "item_name": "item_name8",
-      "item_description": "item_description4",
-      "item_options": "item_options2",
-      "item_quantity": "item_quantity2"
-    }
-  ],
-  "paypal_invoice_id": "paypal_invoice_id2"
-}
+        new ItemDetails
+        {
+            ItemCode = "item_code0",
+            ItemName = "item_name8",
+            ItemDescription = "item_description4",
+            ItemOptions = "item_options2",
+            ItemQuantity = "item_quantity2",
+        },
+    },
+    TaxInclusive = false,
+    PaypalInvoiceId = "paypal_invoice_id4",
+};
 ```
 

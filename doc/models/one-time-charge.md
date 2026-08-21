@@ -18,34 +18,43 @@ The one-time charge info at the time of checkout.
 | `Subtotal` | [`Money`](../../doc/models/money.md) | Optional | The currency and amount for a financial transaction, such as a balance or payment due. |
 | `TotalAmount` | [`Money`](../../doc/models/money.md) | Required | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OneTimeCharge oneTimeCharge = new OneTimeCharge
 {
-  "setup_fee": {
-    "currency_code": "currency_code8",
-    "value": "value4"
-  },
-  "shipping_amount": {
-    "currency_code": "currency_code0",
-    "value": "value6"
-  },
-  "taxes": {
-    "currency_code": "currency_code6",
-    "value": "value2"
-  },
-  "product_price": {
-    "currency_code": "currency_code6",
-    "value": "value2"
-  },
-  "subtotal": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  },
-  "total_amount": {
-    "currency_code": "currency_code2",
-    "value": "value8"
-  }
-}
+    TotalAmount = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+    SetupFee = new Money
+    {
+        CurrencyCode = "currency_code8",
+        MValue = "value4",
+    },
+    ShippingAmount = new Money
+    {
+        CurrencyCode = "currency_code0",
+        MValue = "value6",
+    },
+    Taxes = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value2",
+    },
+    ProductPrice = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value2",
+    },
+    Subtotal = new Money
+    {
+        CurrencyCode = "currency_code2",
+        MValue = "value8",
+    },
+};
 ```
 

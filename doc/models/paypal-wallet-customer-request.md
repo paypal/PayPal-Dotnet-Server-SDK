@@ -15,23 +15,29 @@
 | `Name` | [`Name`](../../doc/models/name.md) | Optional | The name of the party. |
 | `MerchantCustomerId` | `string` | Optional | Merchants and partners may already have a data-store where their customer information is persisted. Use merchant_customer_id to associate the PayPal-generated customer.id to your representation of a customer.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `64`, *Pattern*: `^[0-9a-zA-Z-_.^*$@#]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaypalWalletCustomerRequest paypalWalletCustomerRequest = new PaypalWalletCustomerRequest
 {
-  "id": "id2",
-  "email_address": "email_address0",
-  "phone": {
-    "phone_type": "OTHER",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "name": {
-    "given_name": "given_name2",
-    "surname": "surname8"
-  },
-  "merchant_customer_id": "merchant_customer_id4"
-}
+    Id = "id0",
+    EmailAddress = "email_address2",
+    Phone = new PhoneWithType
+    {
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+        PhoneType = PhoneType.Other,
+    },
+    Name = new Name
+    {
+        GivenName = "given_name2",
+        Surname = "surname8",
+    },
+    MerchantCustomerId = "merchant_customer_id2",
+};
 ```
 

@@ -23,22 +23,25 @@ Full representation of a Card Payment Token.
 | `BinDetails` | [`BinDetails`](../../doc/models/bin-details.md) | Optional | Bank Identification Number (BIN) details used to fund a payment. |
 | `Type` | [`CardType?`](../../doc/models/card-type.md) | Optional | Type of card. i.e Credit, Debit and so on.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[A-Z_]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+CardPaymentTokenEntity cardPaymentTokenEntity = new CardPaymentTokenEntity
 {
-  "name": "name6",
-  "last_digits": "last_digits0",
-  "brand": "VISA",
-  "expiry": "expiry4",
-  "billing_address": {
-    "address_line_1": "address_line_12",
-    "address_line_2": "address_line_28",
-    "admin_area_2": "admin_area_28",
-    "admin_area_1": "admin_area_14",
-    "postal_code": "postal_code0",
-    "country_code": "country_code8"
-  }
-}
+    Name = "name0",
+    Brand = CardBrand.Solo,
+    Expiry = "expiry8",
+    BillingAddress = new CardResponseAddress
+    {
+        CountryCode = "country_code8",
+        AddressLine1 = "address_line_12",
+        AddressLine2 = "address_line_28",
+        AdminArea2 = "admin_area_28",
+        AdminArea1 = "admin_area_14",
+        PostalCode = "postal_code0",
+    },
+};
 ```
 

@@ -17,15 +17,18 @@ The error details. Required for client-side `4XX` errors.
 | `Issue` | `string` | Required | The unique, fine-grained application-level error code. |
 | `Description` | `string` | Optional | The human-readable description for an issue. The description can change over the lifetime of an API, so clients must not depend on this value. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+TransactionSearchErrorDetails transactionSearchErrorDetails = new TransactionSearchErrorDetails
 {
-  "location": "body",
-  "issue": "issue2",
-  "field": "field0",
-  "value": "value8",
-  "description": "description6"
-}
+    Issue = "issue8",
+    Field = "field6",
+    MValue = "value4",
+    Location = "body",
+    Description = "description2",
+};
 ```
 

@@ -13,14 +13,18 @@ The platform or partner fee, commission, or brokerage fee that is associated wit
 |  --- | --- | --- | --- |
 | `Amount` | [`Money`](../../doc/models/money.md) | Required | The currency and amount for a financial transaction, such as a balance or payment due. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+RefundPlatformFee refundPlatformFee = new RefundPlatformFee
 {
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  }
-}
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

@@ -14,12 +14,15 @@ The tokenized payment source to fund a payment.
 | `Id` | `string` | Required | The PayPal-generated ID for the token.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9a-zA-Z_-]+$` |
 | `Type` | [`TokenType`](../../doc/models/token-type.md) | Required | The tokenization method that generated the ID.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `255`, *Pattern*: `^[0-9A-Z_-]+$` |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+Token token = new Token
 {
-  "id": "id6",
-  "type": "BILLING_AGREEMENT"
-}
+    Id = "id6",
+    Type = TokenType.BillingAgreement,
+};
 ```
 

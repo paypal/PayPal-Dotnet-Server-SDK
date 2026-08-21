@@ -26,20 +26,22 @@ The authorized payment transaction.
 | `SupplementaryData` | [`PaymentSupplementaryData`](../../doc/models/payment-supplementary-data.md) | Optional | The supplementary data. |
 | `Payee` | [`PayeeBase`](../../doc/models/payee-base.md) | Optional | The details for the merchant who receives the funds and fulfills the order. The merchant is also known as the payee. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+PaymentAuthorization paymentAuthorization = new PaymentAuthorization
 {
-  "status": "VOIDED",
-  "status_details": {
-    "reason": "PENDING_REVIEW"
-  },
-  "id": "id0",
-  "amount": {
-    "currency_code": "currency_code6",
-    "value": "value0"
-  },
-  "invoice_id": "invoice_id0"
-}
+    StatusDetails = new AuthorizationStatusDetails
+    {
+        Reason = AuthorizationIncompleteReason.PendingReview,
+    },
+    Amount = new Money
+    {
+        CurrencyCode = "currency_code6",
+        MValue = "value0",
+    },
+};
 ```
 

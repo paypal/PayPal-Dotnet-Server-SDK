@@ -14,47 +14,60 @@ Supplementary data about a payment. This object passes information that can be u
 | `Card` | [`CardSupplementaryData`](../../doc/models/card-supplementary-data.md) | Optional | Merchants and partners can add Level 2 and 3 data to payments to reduce risk and payment processing costs. For more information about processing payments, see checkout or multiparty checkout. |
 | `Risk` | [`RiskSupplementaryData`](../../doc/models/risk-supplementary-data.md) | Optional | Additional information necessary to evaluate the risk profile of a transaction. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+SupplementaryData supplementaryData = new SupplementaryData
 {
-  "card": {
-    "level_2": {
-      "invoice_id": "invoice_id4",
-      "tax_total": {
-        "currency_code": "currency_code4",
-        "value": "value0"
-      }
+    Card = new CardSupplementaryData
+    {
+        Level2 = new Level2CardProcessingData
+        {
+            InvoiceId = "invoice_id4",
+            TaxTotal = new Money
+            {
+                CurrencyCode = "currency_code4",
+                MValue = "value0",
+            },
+        },
+        Level3 = new Level3CardProcessingData
+        {
+            ShippingAmount = new Money
+            {
+                CurrencyCode = "currency_code0",
+                MValue = "value6",
+            },
+            DutyAmount = new Money
+            {
+                CurrencyCode = "currency_code6",
+                MValue = "value2",
+            },
+            DiscountAmount = new Money
+            {
+                CurrencyCode = "currency_code2",
+                MValue = "value8",
+            },
+            ShippingAddress = new Address
+            {
+                CountryCode = "country_code0",
+                AddressLine1 = "address_line_10",
+                AddressLine2 = "address_line_20",
+                AdminArea2 = "admin_area_24",
+                AdminArea1 = "admin_area_16",
+                PostalCode = "postal_code2",
+            },
+            ShipsFromPostalCode = "ships_from_postal_code4",
+        },
     },
-    "level_3": {
-      "shipping_amount": {
-        "currency_code": "currency_code0",
-        "value": "value6"
-      },
-      "duty_amount": {
-        "currency_code": "currency_code6",
-        "value": "value2"
-      },
-      "discount_amount": {
-        "currency_code": "currency_code2",
-        "value": "value8"
-      },
-      "shipping_address": {
-        "address_line_1": "address_line_10",
-        "address_line_2": "address_line_20",
-        "admin_area_2": "admin_area_24",
-        "admin_area_1": "admin_area_16",
-        "postal_code": "postal_code2",
-        "country_code": "country_code0"
-      },
-      "ships_from_postal_code": "ships_from_postal_code4"
-    }
-  },
-  "risk": {
-    "customer": {
-      "ip_address": "ip_address0"
-    }
-  }
-}
+    Risk = new RiskSupplementaryData
+    {
+        Customer = new ParticipantMetadata
+        {
+            IpAddress = "ip_address0",
+        },
+    },
+};
 ```
 

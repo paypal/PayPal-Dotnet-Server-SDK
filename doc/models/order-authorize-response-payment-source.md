@@ -17,72 +17,81 @@ The payment source used to fund the payment.
 | `GooglePay` | [`GooglePayWalletResponse`](../../doc/models/google-pay-wallet-response.md) | Optional | Google Pay Wallet payment data. |
 | `Venmo` | [`VenmoWalletResponse`](../../doc/models/venmo-wallet-response.md) | Optional | Venmo wallet response. |
 
-## Example (as JSON)
+## Example
 
-```json
+```csharp
+using PaypalServerSdk.Standard.Models;
+
+OrderAuthorizeResponsePaymentSource orderAuthorizeResponsePaymentSource = new OrderAuthorizeResponsePaymentSource
 {
-  "card": {
-    "name": "name6",
-    "last_digits": "last_digits0",
-    "brand": "CB_NATIONALE",
-    "available_networks": [
-      "DELTA"
-    ],
-    "type": "UNKNOWN"
-  },
-  "paypal": {
-    "email_address": "email_address0",
-    "account_id": "account_id4",
-    "account_status": "VERIFIED",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    Card = new CardResponse
+    {
+        Name = "name6",
+        Brand = CardBrand.CbNationale,
+        Type = CardType.Unknown,
     },
-    "phone_type": "FAX"
-  },
-  "apple_pay": {
-    "id": "id0",
-    "token": "token6",
-    "name": "name0",
-    "email_address": "email_address8",
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  },
-  "google_pay": {
-    "name": "name8",
-    "email_address": "email_address6",
-    "phone_number": {
-      "country_code": "country_code2",
-      "national_number": "national_number6"
+    Paypal = new PaypalWalletResponse
+    {
+        EmailAddress = "email_address0",
+        AccountId = "account_id4",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        PhoneType = PhoneType.Fax,
     },
-    "card": {
-      "name": "name6",
-      "last_digits": "last_digits0",
-      "type": "UNKNOWN",
-      "brand": "CB_NATIONALE",
-      "billing_address": {
-        "address_line_1": "address_line_12",
-        "address_line_2": "address_line_28",
-        "admin_area_2": "admin_area_28",
-        "admin_area_1": "admin_area_14",
-        "postal_code": "postal_code0",
-        "country_code": "country_code8"
-      }
-    }
-  },
-  "venmo": {
-    "email_address": "email_address4",
-    "account_id": "account_id8",
-    "user_name": "user_name2",
-    "name": {
-      "given_name": "given_name2",
-      "surname": "surname8"
+    ApplePay = new ApplePayPaymentObject
+    {
+        Id = "id0",
+        Token = "token6",
+        Name = "name0",
+        EmailAddress = "email_address8",
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
     },
-    "phone_number": {
-      "national_number": "national_number6"
-    }
-  }
-}
+    GooglePay = new GooglePayWalletResponse
+    {
+        Name = "name8",
+        EmailAddress = "email_address6",
+        PhoneNumber = new PhoneNumberWithCountryCode
+        {
+            CountryCode = "country_code2",
+            NationalNumber = "national_number6",
+        },
+        Card = new GooglePayCardResponse
+        {
+            Name = "name6",
+            Type = CardType.Unknown,
+            Brand = CardBrand.CbNationale,
+            BillingAddress = new Address
+            {
+                CountryCode = "country_code8",
+                AddressLine1 = "address_line_12",
+                AddressLine2 = "address_line_28",
+                AdminArea2 = "admin_area_28",
+                AdminArea1 = "admin_area_14",
+                PostalCode = "postal_code0",
+            },
+        },
+    },
+    Venmo = new VenmoWalletResponse
+    {
+        EmailAddress = "email_address4",
+        AccountId = "account_id8",
+        UserName = "user_name2",
+        Name = new Name
+        {
+            GivenName = "given_name2",
+            Surname = "surname8",
+        },
+        PhoneNumber = new PhoneNumber
+        {
+            NationalNumber = "national_number6",
+        },
+    },
+};
 ```
 
